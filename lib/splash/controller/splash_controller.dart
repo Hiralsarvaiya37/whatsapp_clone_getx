@@ -6,8 +6,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
-    Timer(Duration(seconds: 3), () {
+   Timer(Duration(seconds: 3), () {
       Get.offAll(() => DashboardScreen());
     });
   }

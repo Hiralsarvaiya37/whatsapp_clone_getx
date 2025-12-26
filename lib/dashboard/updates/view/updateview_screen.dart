@@ -5,6 +5,8 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp_clone_getx/dashboard/updates/controller/updateview_controller.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class UpdateviewScreen extends StatelessWidget {
   UpdateviewScreen({super.key});
@@ -27,20 +29,20 @@ class UpdateviewScreen extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10),
+              SizedBox(height: AppSize.getSize(10)),
               Row(
                 children: [
                   Text(
                     "Status",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                      color: AppColors.whiteColor,
+                      fontSize: AppSize.getSize(20),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppSize.getSize(10)),
 
               GestureDetector(
                 onTap: pickFromCamera,
@@ -50,11 +52,11 @@ class UpdateviewScreen extends StatelessWidget {
                       clipBehavior: Clip.none,
                       children: [
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: AppSize.getSize(50),
+                          width: AppSize.getSize(50),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: Border.all(color: Colors.green, width: 3),
+                            border: Border.all(color: AppColors.greenColor, width: AppSize.getSize(3)),
                           ),
                           child: ClipOval(
                             child: Obx(
@@ -62,35 +64,35 @@ class UpdateviewScreen extends StatelessWidget {
                                   ? Image.file(
                                       controller.imageFile.value!,
                                       fit: BoxFit.cover,
-                                      height: 48,
-                                      width: 48,
+                                      height: AppSize.getSize(48),
+                                      width: AppSize.getSize(48),
                                     )
                                   : Image.network(
                                       "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
                                       fit: BoxFit.cover,
-                                      height: 50,
-                                      width: 50,
+                                      height: AppSize.getSize(50),
+                                      width: AppSize.getSize(50),
                                     ),
                             ),
                           ),
                         ),
 
                         Positioned(
-                          left: 1,
-                          top: 1,
+                          left: AppSize.getSize(1),
+                          top: AppSize.getSize(1),
                           child: Obx(
                             () => ClipOval(
                               child: controller.imageFile.value != null
                                   ? Image.file(
                                       controller.imageFile.value!,
-                                      height: 48,
-                                      width: 48,
+                                      height: AppSize.getSize(48),
+                                      width: AppSize.getSize(48),
                                       fit: BoxFit.cover,
                                     )
                                   : Image.network(
                                       "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
-                                      height: 50,
-                                      width: 50,
+                                      height: AppSize.getSize(48),
+                                      width: AppSize.getSize(48),
                                       fit: BoxFit.cover,
                                     ),
                             ),
@@ -98,25 +100,25 @@ class UpdateviewScreen extends StatelessWidget {
                         ),
 
                         Positioned(
-                          right: -2,
-                          bottom: -2,
+                          right: AppSize.getSize(-2),
+                          bottom: AppSize.getSize(-2),
                           child: GestureDetector(
                             onTap: pickFromCamera,
                             child: Container(
-                              height: 22,
-                              width: 22,
+                              height: AppSize.getSize(22),
+                              width: AppSize.getSize(22),
                               decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: AppColors.greenColor,
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: Colors.black,
-                                  width: 2,
+                                  color: AppColors.blackColor,
+                                  width: AppSize.getSize(2),
                                 ),
                               ),
                               child: Icon(
                                 Icons.add,
-                                size: 14,
-                                color: Colors.black,
+                                size: AppSize.getSize(16),
+                                color: AppColors.blackColor,
                               ),
                             ),
                           ),
@@ -124,7 +126,7 @@ class UpdateviewScreen extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(width: 15),
+                    SizedBox(width: AppSize.getSize(15)),
 
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,8 +134,8 @@ class UpdateviewScreen extends StatelessWidget {
                         Text(
                           "My status",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(20),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -143,8 +145,8 @@ class UpdateviewScreen extends StatelessWidget {
                                 ? "Tap to add status"
                                 : "3 minutes ago",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 15,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
                             ),
                           ),
                         ),
@@ -154,12 +156,12 @@ class UpdateviewScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
               Row(
                 children: [
                   Text(
                     "Recent updates",
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                    style: TextStyle(color:AppColors.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
@@ -171,13 +173,13 @@ class UpdateviewScreen extends StatelessWidget {
                   children: [
                     ClipOval(
                       child: Image.network(
-                        height: 42,
-                        width: 42,
+                        height: AppSize.getSize(45),
+                        width: AppSize.getSize(45),
                         fit: BoxFit.cover,
                         "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
                       ),
                     ),
-                    SizedBox(width: 25),
+                    SizedBox(width: AppSize.getSize(25)),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,16 +187,16 @@ class UpdateviewScreen extends StatelessWidget {
                           Text(
                             "Users",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
+                              color: AppColors.whiteColor,
+                              fontSize: AppSize.getSize(19),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           Text(
                             "25 minutes ago",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 15,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(15),
                             ),
                           ),
                         ],
@@ -202,14 +204,14 @@ class UpdateviewScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                separatorBuilder: (context, index) => SizedBox(height: 20),
+                separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(18)),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
               Row(
                 children: [
                   Text(
                     "Viewed updates",
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   Spacer(),
                   Obx(
@@ -219,21 +221,21 @@ class UpdateviewScreen extends StatelessWidget {
                             !controller.isArrowDown.value;
                       },
                       child: Container(
-                        color: Colors.transparent,
+                        color: AppColors.blackColor,
 
                         child: Icon(
                           controller.isArrowDown.value
                               ? Icons.expand_more_sharp
                               : Icons.expand_less,
-                          size: 30,
-                          color: Colors.grey.shade400,
+                          size: AppSize.getSize(30),
+                          color: AppColors.greyShade400,
                         ),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppSize.getSize(10)),
               Obx(
                 () => controller.isArrowDown.value
                     ? Column(
@@ -242,19 +244,19 @@ class UpdateviewScreen extends StatelessWidget {
                           Text(
                             "Channels",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                              color: AppColors.whiteColor,
+                              fontSize: AppSize.getSize(20),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
 
-                          SizedBox(height: 5),
+                          SizedBox(height: AppSize.getSize(5)),
 
                           Text(
                             "Stay updated on topics that matters to you. Find channels to follow below.",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 16,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -271,13 +273,13 @@ class UpdateviewScreen extends StatelessWidget {
                           children: [
                             ClipOval(
                               child: Image.network(
-                                height: 42,
-                                width: 42,
+                                height: AppSize.getSize(45),
+                                width: AppSize.getSize(45),
                                 fit: BoxFit.cover,
                                 "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
                               ),
                             ),
-                            SizedBox(width: 25),
+                            SizedBox(width: AppSize.getSize(25)),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -285,16 +287,16 @@ class UpdateviewScreen extends StatelessWidget {
                                   Text(
                                     "Users",
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
+                                      color: AppColors.whiteColor,
+                                      fontSize: AppSize.getSize(19),
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   Text(
                                     "25 minutes ago",
                                     style: TextStyle(
-                                      color: Colors.grey.shade400,
-                                      fontSize: 15,
+                                      color: AppColors.greyShade400,
+                                      fontSize: AppSize.getSize(15),
                                     ),
                                   ),
                                 ],
@@ -306,28 +308,28 @@ class UpdateviewScreen extends StatelessWidget {
                         ),
                         
                         separatorBuilder: (context, index) =>
-                            SizedBox(height: 20),
+                            SizedBox(height: AppSize.getSize(20)),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: AppSize.getSize(20)),
                        Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Channels",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                              color: AppColors.whiteColor,
+                              fontSize: AppSize.getSize(19),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
 
-                          SizedBox(height: 5),
+                          SizedBox(height: AppSize.getSize(5)),
 
                           Text(
                             "Stay updated on topics that matters to you. Find channels to follow below.",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 16,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -337,12 +339,12 @@ class UpdateviewScreen extends StatelessWidget {
                     )
                       
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               Row(
                 children: [
                   Text(
                     "Find channels to follow",
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   Spacer(),
                   Obx(
@@ -351,14 +353,14 @@ class UpdateviewScreen extends StatelessWidget {
                         controller.isDown.value = !controller.isDown.value;
                       },
                       child: Container(
-                        color: Colors.transparent,
+                        color: AppColors.blackColor,
 
                         child: Icon(
                           controller.isDown.value
                               ? Icons.expand_less
                               : Icons.expand_more_sharp,
-                          size: 30,
-                          color: Colors.grey.shade400,
+                          size: AppSize.getSize(30),
+                          color: AppColors.greyShade400,
                         ),
                       ),
                     ),
@@ -366,7 +368,7 @@ class UpdateviewScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
 
               Obx(
                 () => Visibility(
@@ -380,12 +382,12 @@ class UpdateviewScreen extends StatelessWidget {
                         ClipOval(
                           child: Image.network(
                             fit: BoxFit.cover,
-                            height: 42,
-                            width: 42,
+                            height: AppSize.getSize(45),
+                            width: AppSize.getSize(45),
                             "https://www.travelstart.com.ng/blog/wp-content/uploads/2014/06/london-Eye.jpg",
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: AppSize.getSize(20)),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -393,16 +395,16 @@ class UpdateviewScreen extends StatelessWidget {
                               Text(
                                 "Demo",
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
+                                  color: AppColors.whiteColor,
+                                  fontSize: AppSize.getSize(18),
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               Text(
                                 "574K followers",
                                 style: TextStyle(
-                                  color: Colors.grey.shade400,
-                                  fontSize: 15,
+                                  color: AppColors.greyShade400,
+                                  fontSize: AppSize.getSize(15),
                                 ),
                               ),
                             ],
@@ -411,18 +413,18 @@ class UpdateviewScreen extends StatelessWidget {
 
                         Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 8,
+                            horizontal: AppSize.getSize(20),
+                            vertical: AppSize.getSize(10),
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.greenAccent.shade700,
-                            borderRadius: BorderRadius.circular(25),
+                            color: AppColors.greenAccentShade700,
+                            borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                           ),
                           child: Text(
                             "Follow",
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
+                              color: AppColors.blackColor,
+                              fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -430,58 +432,58 @@ class UpdateviewScreen extends StatelessWidget {
                       ],
                     ),
 
-                    separatorBuilder: (context, index) => SizedBox(height: 20),
+                    separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(18)),
                   ),
                 ),
               ),
 
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: AppColors.greyColor),
+                  borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.qr_code,
-                      size: 30,
-                      color: Colors.greenAccent.shade400,
+                      size: AppSize.getSize(28),
+                      color: AppColors.greenAccentShade700,
                     ),
-                    SizedBox(width: 15),
+                    SizedBox(width: AppSize.getSize(15)),
                     Text(
                       "Explore more",
                       style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.greenAccent.shade400,
+                        fontSize: AppSize.getSize(16),
+                        color: AppColors.greenAccentShade700,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppSize.getSize(10)),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color:AppColors.greyColor),
+                  borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.add,
-                      size: 30,
-                      color: Colors.greenAccent.shade400,
+                      size: AppSize.getSize(28),
+                      color: AppColors.greenAccentShade700,
                     ),
-                    SizedBox(width: 15),
+                    SizedBox(width: AppSize.getSize(15)),
                     Text(
                       "Create channel",
                       style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.greenAccent.shade400,
+                        fontSize: AppSize.getSize(16),
+                        color: AppColors.greenAccentShade700,
                       ),
                     ),
                   ],
@@ -493,32 +495,32 @@ class UpdateviewScreen extends StatelessWidget {
         ),
 
         Positioned(
-          right: 10,
-          bottom: 25,
+          right: AppSize.getSize(8),
+          bottom: AppSize.getSize(23),
 
           child: Column(
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: Colors.grey.shade900,
+                  borderRadius: BorderRadius.circular(AppSize.getSize(14)),
+                  color: AppColors.greyShade900,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(8)),
 
-                child: Icon(Icons.edit, size: 28, color: Colors.white),
+                child: Icon(Icons.edit, size: AppSize.getSize(26), color: AppColors.whiteColor),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: Colors.greenAccent.shade400,
+                  borderRadius: BorderRadius.circular(AppSize.getSize(14)),
+                  color: AppColors.greenAccentShade700,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 19, vertical: 15),
+                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(17), vertical: AppSize.getSize(13)),
 
                 child: Icon(
                   Icons.linked_camera_outlined,
-                  size: 30,
-                  color: Colors.black,
+                  size: AppSize.getSize(28),
+                  color: AppColors.blackColor,
                 ),
               ),
             ],

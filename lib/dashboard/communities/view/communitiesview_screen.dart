@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/dashboard/communities/view/communities_screen.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class CommunitiesviewScreen extends StatelessWidget {
   const  CommunitiesviewScreen({super.key});
@@ -9,7 +12,7 @@ class CommunitiesviewScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
+          Padding(padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20))),
 
           Row(
             children: [
@@ -17,84 +20,84 @@ class CommunitiesviewScreen extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+                    padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(18), vertical: AppSize.getSize(14)),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade500,
-                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.greyShade400,
+                      borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                     ),
                     child: Icon(
                       Icons.groups_2_outlined,
-                      color: Colors.white,
-                      size: 30,
+                      color: AppColors.whiteColor,
+                      size: AppSize.getSize(30),
                     ),
                   ),
 
                   Positioned(
-                    right: -4,
-                    bottom: -4,
+                    right: AppSize.getSize(-4),
+                    bottom: AppSize.getSize(-4),
                     child: Container(
-                      height: 26,
-                      width: 26,
+                      height: AppSize.getSize(26),
+                      width: AppSize.getSize(26),
                       decoration: BoxDecoration(
-                        color: Colors.greenAccent.shade400,
+                        color: AppColors.greenAccentShade700,
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black, width: 2),
+                        border: Border.all(color: AppColors.blackColor, width: AppSize.getSize(2)),
                       ),
-                      child: Icon(Icons.add, size: 16, color: Colors.black),
+                      child: Icon(Icons.add, size: AppSize.getSize(16), color: AppColors.blackColor),
                     ),
                   ),
                 ],
               ),
-              SizedBox(width: 20),
+              SizedBox(width: AppSize.getSize(20)),
               Text(
                 "New community",
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+                  color: AppColors.whiteColor,
+                  fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ],
           ),
 
-          SizedBox(height: 30),
+          SizedBox(height: AppSize.getSize(30)),
 
           Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                 child: Image.network(
                   "https://s2.best-wallpaper.net/wallpaper/1920x1080/1810/White-lily-flowers-close-up_1920x1080.jpg",
-                  height: 55,
-                  width: 55,
+                  height: AppSize.getSize(60),
+                  width: AppSize.getSize(60),
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(width: 20),
+              SizedBox(width: AppSize.getSize(20)),
               Text(
-                "hudh huheudjwns sxhwudu",
+                "hudh huhewns sxhwu",
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+                  color: AppColors.whiteColor,
+                  fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ],
           ),
 
-          SizedBox(height: 30),
+          SizedBox(height: AppSize.getSize(30)),
 
           Row(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(6)),
                 decoration: BoxDecoration(
-                  color: Colors.green.shade800,
-                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.greenColor,
+                  borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                 ),
-                child: Icon(Icons.campaign, color: Colors.white, size: 30),
+                child: Icon(Icons.campaign, color: AppColors.whiteColor, size: AppSize.getSize(30)),
               ),
-              SizedBox(width: 20),
+              SizedBox(width: AppSize.getSize(20)),
 
               Expanded(
                 child: Column(
@@ -105,8 +108,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                         Text(
                           "Announcements",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -114,8 +117,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                         Text(
                           "Yesterday",
                           style: TextStyle(
-                            color: Colors.grey.shade400,
-                            fontSize: 16,
+                            color: AppColors.greyShade400,
+                            fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -126,8 +129,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.grey.shade400,
-                        fontSize: 16,
+                        color: AppColors.greyShade400,
+                        fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -137,7 +140,7 @@ class CommunitiesviewScreen extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 30),
+          SizedBox(height: AppSize.getSize(30)),
 
           ListView.separated(
             physics: NeverScrollableScrollPhysics(),
@@ -157,23 +160,22 @@ class CommunitiesviewScreen extends StatelessWidget {
                     },
                     child: GestureDetector(
                       onTap: () {
-                        // print("+++++++++");
-                        // Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
                       },
                       child: Row(
                         children: [
-                          SizedBox(width: 20),
+                          SizedBox(width: AppSize.getSize(20)),
                           Icon(
                             Icons.arrow_forward_ios,
-                            size: 20,
-                            color: Colors.grey.shade400,
+                            size: AppSize.getSize(20),
+                            color: AppColors.greyShade400,
                           ),
-                          SizedBox(width: 30),
+                          SizedBox(width: AppSize.getSize(28)),
                           Text(
                             "View all",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 18,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(20),
                             ),
                           ),
                         ],
@@ -181,51 +183,51 @@ class CommunitiesviewScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 35),
+                  SizedBox(height: AppSize.getSize(30)),
 
                   Row(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                         child: Image.network(
                           "https://s2.best-wallpaper.net/wallpaper/1920x1080/1810/White-lily-flowers-close-up_1920x1080.jpg",
-                          height: 55,
-                          width: 55,
+                          height: AppSize.getSize(60),
+                          width: AppSize.getSize(60),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: AppSize.getSize(20)),
                       Text(
                         "hudh heujwns sjhdu",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                          color: AppColors.whiteColor,
+                          fontSize: AppSize.getSize(20),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
                   ),
 
-                  SizedBox(height: 30),
+                  SizedBox(height: AppSize.getSize(30)),
 
                   Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 5,
+                          horizontal: AppSize.getSize(10),
+                          vertical: AppSize.getSize(7),
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.green.shade800,
-                          borderRadius: BorderRadius.circular(12),
+                          color: AppColors.greenColor,
+                          borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                         ),
                         child: Icon(
                           Icons.campaign,
-                          color: Colors.white,
-                          size: 30,
+                          color: AppColors.whiteColor,
+                          size: AppSize.getSize(30),
                         ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: AppSize.getSize(20)),
 
                       Expanded(
                         child: Column(
@@ -236,8 +238,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                                 Text(
                                   "Announcements",
                                   style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
+                                    color: AppColors.whiteColor,
+                                    fontSize: AppSize.getSize(18),
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -245,8 +247,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                                 Text(
                                   "8/4/25",
                                   style: TextStyle(
-                                    color: Colors.grey.shade400,
-                                    fontSize: 16,
+                                    color: AppColors.greyShade400,
+                                    fontSize: AppSize.getSize(16),
                                   ),
                                 ),
                               ],
@@ -256,8 +258,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                color: Colors.grey.shade400,
-                                fontSize: 16,
+                                color: AppColors.greyShade400,
+                                fontSize: AppSize.getSize(16),
                               ),
                             ),
                           ],
@@ -266,7 +268,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                     ],
                   ),
 
-                  SizedBox(height: 30),
+                  SizedBox(height: AppSize.getSize(30)),
 
                   Row(
                     children: [
@@ -274,28 +276,28 @@ class CommunitiesviewScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                         child: Image.network(
                           "https://s2.best-wallpaper.net/wallpaper/1920x1080/1810/White-lily-flowers-close-up_1920x1080.jpg",
-                          height: 55,
-                          width: 55,
+                          height: AppSize.getSize(55),
+                          width: AppSize.getSize(55),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: AppSize.getSize(20)),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "hudh huheud",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                              color: AppColors.whiteColor,
+                              fontSize: AppSize.getSize(20),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           Text(
                             "hudh huudjwns sxhwudu",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 18,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
                             ),
                           ),
                         ],
@@ -303,29 +305,28 @@ class CommunitiesviewScreen extends StatelessWidget {
                     ],
                   ),
 
-                  SizedBox(height: 30),
+                  SizedBox(height: AppSize.getSize(28)),
                 ],
               );
             },
-          separatorBuilder: (context, index) => SizedBox(height: 20,),),
-          SizedBox(height: 20),
+          separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(18),),),
+          SizedBox(height: AppSize.getSize(18)),
           GestureDetector(
             onTap: () {
-              // print("===========");
-              // Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
             },
             child: Row(
               children: [
-                SizedBox(width: 20),
+                SizedBox(width: AppSize.getSize(20)),
                 Icon(
                   Icons.arrow_forward_ios,
-                  size: 20,
-                  color: Colors.grey.shade400,
+                  size: AppSize.getSize(18),
+                  color: AppColors.greyShade400,
                 ),
-                SizedBox(width: 30),
+                SizedBox(width: AppSize.getSize(28)),
                 Text(
                   "View all",
-                  style: TextStyle(color: Colors.grey.shade400, fontSize: 18),
+                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(20)),
                 ),
               ],
             ),

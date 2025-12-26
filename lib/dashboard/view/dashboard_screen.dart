@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp_clone_getx/dashboard/calls/view/callsview_screen.dart';
 import 'package:whatsapp_clone_getx/dashboard/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/dashboard/communities/view/communitiesview_screen.dart';
 import 'package:whatsapp_clone_getx/dashboard/controller/dashboard_controller.dart';
 import 'package:whatsapp_clone_getx/dashboard/updates/view/updateview_screen.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
@@ -15,216 +18,176 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor, 
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: EdgeInsets.only(top: AppSize.getSize(35),left: AppSize.getSize(20),right:AppSize.getSize(20)),
         child: Column(
           children: [
-            Obx(
-              () => dashboardController.currentIndex.value == 0
-                  ? Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "WhatsApp",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+            Row(
+              children: [
+                Expanded(
+                          child: Obx(
+                            ()=> Text(
+                              dashboardController.getAppBarName(dashboardController.currentIndex.value),
+                              style: TextStyle(
+                                color: AppColors.whiteColor,
+                                fontSize: AppSize.getSize(25),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
-                        Row(
-                          children: [
-                            Icon(Icons.qr_code, color: Colors.white, size: 30),
-                            SizedBox(width: 20),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-
-                            PopupMenuButton(
-                              color: Colors.grey.shade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onSelected: (value) {
-                                if (value == 8) {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => SettingScreen(),
-                                  //   ),
-                                  // );
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile("New group", 1),
-                                popupTile("New community", 2),
-                                popupTile("Broadcast lists", 3),
-                                popupTile("Linked devices", 4),
-                                popupTile("Starred", 5),
-                                popupTile("Payments", 6),
-                                popupTile("Read all", 7),
-                                popupTile("Settings", 8),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  : dashboardController.currentIndex.value == 1
-                  ? Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Updates",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
+                Obx(
+                  () => dashboardController.currentIndex.value == 0
+                      ? Row(
+                        children: [
+                          Icon(Icons.qr_code, color: AppColors.whiteColor, size: AppSize.getSize(30)),
+                          SizedBox(width: AppSize.getSize(25)),
+                          Icon(
+                            Icons.camera_alt_outlined,
+                            color: AppColors.whiteColor,
+                            size: AppSize.getSize(30),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.search, color: Colors.white, size: 30),
-                            SizedBox(width: 15),
-                            PopupMenuButton(
-                              color: Colors.grey.shade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onSelected: (value) {
-                                if (value == 8) {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => SettingScreen(),
-                                  //   ),
-                                  // );
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile("Create channel", 1),
-                                popupTile("Status privacy", 2),
-                                popupTile("Starred", 3),
-                                popupTile("Settings", 8),
-                              ],
+                      
+                          PopupMenuButton(
+                            color: Colors.grey.shade900,
+                            offset: Offset(0, 45),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                             ),
-                          ],
-                        ),
-                      ],
-                    )
-                  : dashboardController.currentIndex.value == 2
-                  ? Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Communities",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: AppColors.whiteColor,
+                              size: AppSize.getSize(30),
                             ),
+                            onSelected: (value) {
+                              if (value == 8) {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => SettingScreen(),
+                                //   ),
+                                // );
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              popupTile("New group", 1),
+                              popupTile("New community", 2),
+                              popupTile("Broadcast lists", 3),
+                              popupTile("Linked devices", 4),
+                              popupTile("Starred", 5),
+                              popupTile("Payments", 6),
+                              popupTile("Read all", 7),
+                              popupTile("Settings", 8),
+                            ],
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.search, color: Colors.white, size: 30),
-                            SizedBox(width: 15),
-                            PopupMenuButton(
-                              color: Colors.grey.shade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onSelected: (value) {
-                                if (value == 8) {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => SettingScreen(),
-                                  //   ),
-                                  // );
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile("Settings", 8),
-                              ],
+                        ],
+                      )
+                      : dashboardController.currentIndex.value == 1
+                      ? Row(
+                        children: [
+                          Icon(Icons.search, color: AppColors.whiteColor, size: AppSize.getSize(30)),
+                          SizedBox(width: AppSize.getSize(15)),
+                          PopupMenuButton(
+                            color: AppColors.greyShade900,
+                            offset: Offset(0, 45),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                             ),
-                          ],
-                        ),
-                      ],
-                    )
-                  : dashboardController.currentIndex.value == 3
-                  ? Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Calls",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: AppColors.whiteColor,
+                              size: AppSize.getSize(30),
                             ),
+                            onSelected: (value) {
+                              if (value == 8) {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => SettingScreen(),
+                                //   ),
+                                // );
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              popupTile("Create channel", 1),
+                              popupTile("Status privacy", 2),
+                              popupTile("Starred", 3),
+                              popupTile("Settings", 8),
+                            ],
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.search, color: Colors.white, size: 30),
-                            SizedBox(width: 15),
-                            PopupMenuButton(
-                              color: Colors.grey.shade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onSelected: (value) {
-                                if (value == 8) {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => SettingScreen(),
-                                  //   ),
-                                  // );
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile("Clear call log", 1),
-                                popupTile("Scheduled calls", 2),
-                                popupTile("Settings", 8),
-                              ],
+                        ],
+                      )
+                      : dashboardController.currentIndex.value == 2
+                      ? Row(
+                        children: [
+                          Icon(Icons.search, color: AppColors.whiteColor, size: AppSize.getSize(30)),
+                          SizedBox(width: AppSize.getSize(15)),
+                          PopupMenuButton(
+                            color: AppColors.greyShade900,
+                            offset: Offset(0, 45),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                             ),
-                          ],
-                        ),
-                      ],
-                    )
-                  : SizedBox(),
-            ),
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: AppColors.whiteColor,
+                              size: AppSize.getSize(30),
+                            ),
+                            onSelected: (value) {
+                              if (value == 8) {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => SettingScreen(),
+                                //   ),
+                                // );
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              popupTile("Settings", 8),
+                            ],
+                          ),
+                        ],
+                      )
+                      : dashboardController.currentIndex.value == 3
+                      ? Row(
+                        children: [
+                          Icon(Icons.search, color: AppColors.whiteColor, size: AppSize.getSize(30)),
+                          SizedBox(width: AppSize.getSize(15)),
+                          PopupMenuButton(
+                            color: AppColors.greyShade900,
+                            offset: Offset(0, 45),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                            ),
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: AppColors.whiteColor,
+                              size: AppSize.getSize(30),
+                            ),
+                            onSelected: (value) {
+                              if (value == 8) {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => SettingScreen(),
+                                //   ),
+                                // );
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              popupTile("Clear call log", 1),
+                              popupTile("Scheduled calls", 2),
+                              popupTile("Settings", 8),
+                            ],
+                          ),
+                        ],
+                      )
+                      : SizedBox(),
+                ),
+              ],
+            ),           
             Expanded(
               child: PageView(
                 scrollDirection: Axis.horizontal,
@@ -234,7 +197,7 @@ class DashboardScreen extends StatelessWidget {
                   ChatviewScreen(),
                   UpdateviewScreen(),
                   CommunitiesviewScreen(),
-                  // CallsviewScreen(),
+                  CallsviewScreen(),
                 ],
               ),
             ),
@@ -243,8 +206,8 @@ class DashboardScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: Container(
-        height: 70,
-        color: Colors.black,
+        height: AppSize.getSize(70),
+        color: AppColors.blackColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -270,18 +233,17 @@ class DashboardScreen extends StatelessWidget {
         );
       },
       child: Container(
-        color: Colors.transparent,
+        color: AppColors.blackColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData, size: 30, color: Colors.white),
-            SizedBox(height: 8),
+            Icon(iconData, size: AppSize.getSize(30), color: AppColors.whiteColor),
             Text(
               title,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.whiteColor,
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: AppSize.getSize(16),
               ),
             ),
           ],
@@ -293,7 +255,7 @@ class DashboardScreen extends StatelessWidget {
   PopupMenuItem popupTile(String title, int value) {
     return PopupMenuItem(
       value: value,
-      child: Text(title, style: TextStyle(color: Colors.white, fontSize: 16)),
+      child: Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(17))),
     );
   }
 }

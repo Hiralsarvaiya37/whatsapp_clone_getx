@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class ChatviewScreen extends StatelessWidget {
   ChatviewScreen({super.key});
@@ -7,65 +9,51 @@ class ChatviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          style: TextStyle(color: Colors.white),
-          cursorColor: Colors.greenAccent.shade400,
-          decoration: InputDecoration(
-            isDense: true,
-            filled: true,
-            fillColor: Colors.grey.shade800,
-
-            prefixIcon: Icon(
-              Icons.search,
-              size: 25,
-              color: Colors.grey.shade300,
-            ),
-            hint: Text(
-              "Ask Meta AI or Search",
-              style: TextStyle(color: Colors.grey.shade400, fontSize: 17),
-            ),
-
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: Colors.black),
-            ),
-
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: Colors.black),
+    return Padding(
+      padding:  EdgeInsets.symmetric(vertical: AppSize.getSize(12)),
+      child: Column(
+        children: [
+          TextField(
+            style:  TextStyle(color: AppColors.whiteColor),
+            cursorColor: Colors.greenAccent,
+            decoration: InputDecoration(
+              isDense: true,
+              filled: true,
+              fillColor: AppColors.greyShade800,
+              prefixIcon: Icon(Icons.search,size: AppSize.getSize(20), color: AppColors.greyShade400),
+              hintText: "Ask Meta AI or Search",
+              hintStyle: TextStyle(color: AppColors.greyShade400),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(AppSize.getSize(25)),
+                borderSide: BorderSide.none,
+              ),
             ),
           ),
-        ),
-        SizedBox(height: 22),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
+SizedBox(height: AppSize.getSize(6)),
+
+          Expanded(
+            child: ListView(
               children: [
                 SizedBox(
-                  height: 40,
-
+                  height: AppSize.getSize(42),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: filters.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding:  EdgeInsets.only(right: 10),
+                        padding:  EdgeInsets.only(right: AppSize.getSize(10)),
                         child: Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 18,
-                            vertical: 9,
-                          ),
+                          padding:  EdgeInsets.symmetric(
+                              horizontal: AppSize.getSize(20), vertical: AppSize.getSize(9)),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(AppSize.getSize(30)),
+                            color: AppColors.greyShade800,
                           ),
                           child: Text(
                             filters[index],
                             style: TextStyle(
-                              color: Colors.grey.shade300,
-                              fontSize: 16,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
                             ),
                           ),
                         ),
@@ -73,61 +61,65 @@ class ChatviewScreen extends StatelessWidget {
                     },
                   ),
                 ),
+
+                 SizedBox(height: AppSize.getSize(20)),
+
+                
                 ListView.separated(
                   itemCount: 50,
-                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-
-                  itemBuilder: (context, index) => Row(
-                    children: [
-                      ClipOval(
-                        child: Image.network(
-                          height: 40,
-                          width: 40,
-                          fit: BoxFit.cover,
-                          "https://thumbs.dreamstime.com/b/two-ladybugs-orange-spring-flower-flight-insect-artistic-macro-image-concept-spring-summer-two-ladybugs-orange-125140826.jpg",
+                  physics:  NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => Padding(
+                    padding:  EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
+                    child: Row(
+                      children: [
+                        ClipOval(
+                          child: Image.network(
+                            "https://thumbs.dreamstime.com/b/two-ladybugs-orange-spring-flower-flight-insect-artistic-macro-image-concept-spring-summer-two-ladybugs-orange-125140826.jpg",
+                            height: AppSize.getSize(35),
+                            width: AppSize.getSize(35),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-
-                      SizedBox(width: 20),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "gyssbhuhduhebehdbb",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
+                         SizedBox(width: AppSize.getSize(20)),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children:  [
+                              Text(
+                                "gyssbhuhduhebehdbb",
+                                style: TextStyle(color: AppColors.whiteColor,fontSize: AppSize.getSize(18)),
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Text(
-                              "123548856514",
-                              style: TextStyle(color: Colors.white),
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                              Text(
+                                "123548856514",
+                                style: TextStyle(color: AppColors.greyShade400),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:  [
+                            Text("11:11",
+                                style: TextStyle(color:AppColors.whiteColor)),
+                            SizedBox(height: 5),
+                            Icon(Icons.push_pin,
+                                color: AppColors.whiteColor, size: AppSize.getSize(18)),
                           ],
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text("11:11", style: TextStyle(color: Colors.white)),
-                          SizedBox(height: 5),
-                          Icon(Icons.push_pin, color: Colors.white, size: 20),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  separatorBuilder: (context, index) => SizedBox(height: 22),
+                  separatorBuilder: (_, _) =>  SizedBox(height: AppSize.getSize(8),),
                 ),
-
               ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
+
