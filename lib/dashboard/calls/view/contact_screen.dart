@@ -1,15 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/dashboard/calls/controller/contact_controller.dart';
+import 'package:get/get.dart';
+import 'package:whatsapp_clone_getx/dashboard/calls/controller/call_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-class ContactScreen extends StatelessWidget {
-  ContactScreen({super.key});
+class ContactScreen extends StatefulWidget {
+  const ContactScreen({super.key});
+
+  @override
+  State<ContactScreen> createState() => _ContactScreenState();
+}
+
+class _ContactScreenState extends State<ContactScreen> {
+  final CallController callcontroller = Get.put(CallController());
 
   final TextEditingController searchController = TextEditingController();
 
-  final ContactController controller = Get.put(ContactController());
+  @override
+  void initState() {
+    callcontroller.frequentlyContacted.value = callcontroller.contacts
+        .take(5)
+        .toList();
+    callcontroller.allContacts.value = callcontroller.contacts.skip(5).toList();
+    callcontroller.filteredFrequently.value = callcontroller.frequentlyContacted
+        .where(
+          (c) =>
+              c["name"]!.toLowerCase().contains(
+                callcontroller.query.value.toLowerCase(),
+              ) ||
+              c["status"]!.toLowerCase().contains(
+                callcontroller.query.value.toLowerCase(),
+              ),
+        )
+        .toList();
+
+    callcontroller.filteredAll.value = callcontroller.allContacts
+        .where(
+          (c) =>
+              c["name"]!.toLowerCase().contains(
+                callcontroller.query.value.toLowerCase(),
+              ) ||
+              c["status"]!.toLowerCase().contains(
+                callcontroller.query.value.toLowerCase(),
+              ),
+        )
+        .toList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +55,17 @@ class ContactScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.whiteColor, size: 25),
+          icon: Icon(
+            Icons.arrow_back,
+            color: AppColors.whiteColor,
+            size: AppSize.getSize(25),
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         title: TextField(
           controller: searchController,
+          cursorColor: AppColors.greenAccentShade700,
+          cursorWidth: 3,
           style: TextStyle(color: AppColors.whiteColor),
           decoration: InputDecoration(
             hintText: "Search...",
@@ -30,68 +73,85 @@ class ContactScreen extends StatelessWidget {
             border: InputBorder.none,
           ),
           onChanged: (value) {
-            controller.query.value = value;
+            callcontroller.changeValue(value);
           },
         ),
         actions: [
-          Icon(Icons.search, color: AppColors.whiteColor, size: 25),
-          SizedBox(width: 15),
+          Icon(
+            Icons.search,
+            color: AppColors.whiteColor,
+            size: AppSize.getSize(25),
+          ),
+          SizedBox(width: AppSize.getSize(15)),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Column(
-          children: [
-            if (controller.query.value.isEmpty)
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: AppColors.greyColor, width: 0.7),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Add up to 31 people",
-                      style: TextStyle(
-                        color: AppColors.greyShade400,
-                        fontSize: 16,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(20),
+          vertical: AppSize.getSize(20),
+        ),
+        child: Obx(
+          () => Column(
+            children: [
+              if (callcontroller.query.value.isEmpty)
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: AppColors.greyColor,
+                        width: AppSize.getSize(0.7),
                       ),
                     ),
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Add up to 31 people",
+                        style: TextStyle(
+                          color: AppColors.greyShade400,
+                          fontSize: AppSize.getSize(16),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            SizedBox(height: 20),
-            Expanded(
-              child: Obx(
-                () => SingleChildScrollView(
+              SizedBox(height: AppSize.getSize(20)),
+              Expanded(
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      if (controller.query.value.isEmpty) ...[
+                      if (callcontroller.query.value.isEmpty) ...[
                         menuTiles(),
-                        SizedBox(height: 25),
+                        SizedBox(height: AppSize.getSize(25)),
                       ],
-                      if (controller.filteredFrequently.isNotEmpty)
-                        contactListView(
-                          title: "Frequently Contacted",
-                          list: controller.filteredFrequently,
+
+                      if (callcontroller.filteredFrequently.isNotEmpty)
+                        Obx(
+                          () => contactListView(
+                            title: "Frequently Contacted",
+                            list: callcontroller.filteredFrequently,
+                          ),
                         ),
-                      SizedBox(height: 25),
-                      if (controller.filteredAll.isNotEmpty)
-                        contactListView(
-                          title: controller.query.value.isEmpty
-                              ? "All Contacts"
-                              : "Results",
-                          list: controller.filteredAll,
+
+                      SizedBox(height: AppSize.getSize(25)),
+
+                      if (callcontroller.filteredAll.isNotEmpty)
+                        Obx(
+                          () => contactListView(
+                            title: callcontroller.query.value.isEmpty
+                                ? "All Contacts"
+                                : "Results",
+                            list: callcontroller.filteredAll,
+                          ),
                         ),
                     ],
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -103,34 +163,38 @@ class ContactScreen extends StatelessWidget {
         Row(
           children: [
             iconCircle(Icons.link),
-            SizedBox(width: 20),
+            SizedBox(width: AppSize.getSize(20)),
             Text(
               "New call link",
               style: TextStyle(
                 color: AppColors.whiteColor,
-                fontSize: 18,
+                fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
             ),
           ],
         ),
-        SizedBox(height: 30),
+        SizedBox(height: AppSize.getSize(30)),
         Row(
           children: [
             iconCircle(Icons.person_add_alt_1),
-            SizedBox(width: 20),
+            SizedBox(width: AppSize.getSize(20)),
             Expanded(
               child: Text(
                 "New contact",
                 style: TextStyle(
                   color: AppColors.whiteColor,
-                  fontSize: 18,
+                  fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            Icon(Icons.qr_code, size: 25, color: AppColors.whiteColor),
-            SizedBox(width: 30),
+            Icon(
+              Icons.qr_code,
+              size: AppSize.getSize(25),
+              color: AppColors.whiteColor,
+            ),
+            SizedBox(width: AppSize.getSize(30)),
           ],
         ),
       ],
@@ -145,7 +209,7 @@ class ContactScreen extends StatelessWidget {
           title,
           style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
         ),
-        SizedBox(height: 15),
+        SizedBox(height: AppSize.getSize(15)),
         ListView.separated(
           itemCount: list.length,
           physics: NeverScrollableScrollPhysics(),
@@ -158,22 +222,25 @@ class ContactScreen extends StatelessWidget {
                   child: Image.network(
                     c["image"]!,
                     fit: BoxFit.cover,
-                    height: 50,
-                    width: 50,
+                    height: AppSize.getSize(50),
+                    width: AppSize.getSize(50),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: AppSize.getSize(20)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       c["name"]!,
-                      style: TextStyle(fontSize: 18, color: AppColors.whiteColor),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColors.whiteColor,
+                      ),
                     ),
                     Text(
                       c["status"]!,
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: AppSize.getSize(16),
                         color: AppColors.greyShade400,
                       ),
                     ),
@@ -182,7 +249,8 @@ class ContactScreen extends StatelessWidget {
               ],
             );
           },
-          separatorBuilder: (context, index) => SizedBox(height: 20),
+          separatorBuilder: (context, index) =>
+              SizedBox(height: AppSize.getSize(20)),
         ),
       ],
     );
@@ -190,13 +258,13 @@ class ContactScreen extends StatelessWidget {
 
   Widget iconCircle(IconData icon) {
     return Container(
-      height: 50,
-      width: 50,
+      height: AppSize.getSize(50),
+      width: AppSize.getSize(50),
       decoration: BoxDecoration(
         color: AppColors.greenAccentShade700,
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Icon(icon, size: 25, color: AppColors.blackColor),
+      child: Icon(icon, size: AppSize.getSize(25), color: AppColors.blackColor),
     );
   }
 }

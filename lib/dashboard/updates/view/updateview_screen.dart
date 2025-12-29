@@ -125,9 +125,7 @@ class UpdateviewScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     SizedBox(width: AppSize.getSize(15)),
-
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
