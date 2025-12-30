@@ -13,7 +13,7 @@ class FavoritesScreen extends StatefulWidget {
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
   TextEditingController searchController = TextEditingController();
-  CallController callCntr = Get.put(CallController());
+ final CallController callCntr = Get.find();
 
   @override
   void initState() {

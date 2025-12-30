@@ -1,57 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get.dart';
 import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/qr_screen.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
 
-class SettingScreen extends StatefulWidget {
+class SettingScreen extends StatelessWidget {
   SettingScreen({super.key});
 
-  final SettingController controller = Get.put(SettingController());
-
-  @override
-  State<SettingScreen> createState() => _SettingScreenState();
-}
-
-class _SettingScreenState extends State<SettingScreen> {
-  Language? selectedLanguage;
-  final List<Language> allLanguages = LanguageInfoPlus.languages;
-  @override
-  void initState() {
-    super.initState();
-    selectedLanguage = LanguageInfoPlus.deviceLanguage;
-  }
+  final SettingController langController = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, color: Colors.white, size: 25),
+          icon: Icon(
+            Icons.arrow_back,
+            color: AppColors.whiteColor,
+            size: AppSize.getSize(25),
+          ),
         ),
         title: Text(
           "Settings",
           style: TextStyle(
-            fontSize: 25,
-            color: Colors.white,
+            fontSize: AppSize.getSize(25),
+            color: AppColors.whiteColor,
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.search, color: Colors.white, size: 25),
-          SizedBox(width: 20),
+          Icon(
+            Icons.search,
+            color: AppColors.whiteColor,
+            size: AppSize.getSize(25),
+          ),
+          SizedBox(width: AppSize.getSize(20)),
         ],
       ),
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(20),
+            vertical: AppSize.getSize(30),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -60,12 +61,12 @@ class _SettingScreenState extends State<SettingScreen> {
                   ClipOval(
                     child: Image.network(
                       "https://images.astroyogi.com/strapicmsprod/assets/peacock_feather_astrological_remedies_728x409_1_df32d89b61_5e65b3c4bb.webp",
-                      height: 50,
-                      width: 50,
+                      height: AppSize.getSize(50),
+                      width: AppSize.getSize(50),
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(width: 20),
+                  SizedBox(width: AppSize.getSize(20)),
 
                   Expanded(
                     child: Column(
@@ -73,23 +74,28 @@ class _SettingScreenState extends State<SettingScreen> {
                       children: [
                         Text(
                           "User account",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(18),
+                          ),
                         ),
-                        SizedBox(height: 7),
+                        SizedBox(height: AppSize.getSize(7)),
                         Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 25,
-                            vertical: 2,
+                            horizontal: AppSize.getSize(25),
+                            vertical: AppSize.getSize(2),
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade600),
-                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: AppColors.greyShade400),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(20),
+                            ),
                           ),
                           child: Text(
                             "Busy",
                             style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 14,
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(14),
                             ),
                           ),
                         ),
@@ -99,15 +105,15 @@ class _SettingScreenState extends State<SettingScreen> {
 
                   GestureDetector(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => QrScreen()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => QrScreen()),
+                      );
                     },
                     child: Icon(
                       Icons.qr_code,
-                      color: Colors.greenAccent.shade700,
-                      size: 28,
+                      color: AppColors.greenAccentShade700,
+                      size: AppSize.getSize(28),
                     ),
                   ),
                   SizedBox(width: 15),
@@ -117,14 +123,14 @@ class _SettingScreenState extends State<SettingScreen> {
                     },
                     child: Icon(
                       Icons.add_circle_outline,
-                      color: Colors.greenAccent.shade700,
-                      size: 28,
+                      color: AppColors.greenAccentShade700,
+                      size: AppSize.getSize(28),
                     ),
                   ),
                 ],
               ),
 
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
 
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
@@ -133,27 +139,37 @@ class _SettingScreenState extends State<SettingScreen> {
                 itemBuilder: (context, index) {
                   final item = SettingOptionEnum.values[index];
                   return ListTile(
-                    leading: Icon(item.iconData, color: Colors.white, size: 28),
+                    leading: Icon(
+                      item.iconData,
+                      color: AppColors.whiteColor,
+                      size: AppSize.getSize(28),
+                    ),
 
                     title: Text(
                       item.titles,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: AppSize.getSize(18),
+                      ),
                     ),
                     subtitle: (item.subtitles.isNotEmpty)
                         ? Text(
                             item.subtitles,
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            style: TextStyle(
+                              color: AppColors.greyColor,
+                              fontSize: AppSize.getSize(16),
+                            ),
                           )
                         : null,
 
                     onTap: () {
                       if (item.titles == "Account") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AccountSettingScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AccountSettingScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Privacy") {
@@ -229,7 +245,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       }
 
                       if (item.titles == "App language") {
-                        openModalSheet();
+                        openModalSheet(context);
                       }
 
                       if (item.titles == "Help and feedback") {
@@ -259,17 +275,27 @@ class _SettingScreenState extends State<SettingScreen> {
                     },
                   );
                 },
-                separatorBuilder: (context, index) => SizedBox(height: 18),
+                separatorBuilder: (context, index) =>
+                    SizedBox(height: AppSize.getSize(18)),
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
 
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSize.getSize(10),
+                  vertical: AppSize.getSize(20),
+                ),
                 decoration: BoxDecoration(
                   border: Border(
-                    top: BorderSide(color: Colors.grey.shade700, width: 1),
-                    bottom: BorderSide(color: Colors.grey.shade700, width: 1),
+                    top: BorderSide(
+                      color: AppColors.greyShade800,
+                      width: AppSize.getSize(1),
+                    ),
+                    bottom: BorderSide(
+                      color: AppColors.greyShade800,
+                      width: AppSize.getSize(1),
+                    ),
                   ),
                 ),
                 child: Column(
@@ -279,29 +305,35 @@ class _SettingScreenState extends State<SettingScreen> {
                       children: [
                         Icon(
                           Icons.all_inclusive,
-                          size: 25,
-                          color: Colors.white,
+                          size: AppSize.getSize(25),
+                          color: AppColors.whiteColor,
                         ),
-                        SizedBox(width: 10),
+                        SizedBox(width: AppSize.getSize(10)),
                         Text(
                           "Meta",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(18),
+                          ),
                         ),
                       ],
                     ),
 
-                    SizedBox(height: 5),
+                    SizedBox(height: AppSize.getSize(5)),
                     Text(
                       "Accounts Center",
-                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: AppSize.getSize(17),
+                      ),
                     ),
 
-                    SizedBox(height: 5),
+                    SizedBox(height: AppSize.getSize(5)),
                     Text(
                       "Control your experience across WhatsApp, Facebook, Instagram and more.",
                       style: TextStyle(
-                        color: Colors.grey.shade400,
-                        fontSize: 14,
+                        color: AppColors.greyShade400,
+                        fontSize: AppSize.getSize(14),
                       ),
                       maxLines: 2,
                     ),
@@ -309,14 +341,17 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
               ),
 
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(20)),
 
               Text(
                 "Also from Meta",
-                style: TextStyle(color: Colors.grey.shade400, fontSize: 17),
+                style: TextStyle(
+                  color: AppColors.greyShade400,
+                  fontSize: AppSize.getSize(17),
+                ),
               ),
 
-              SizedBox(height: 25),
+              SizedBox(height: AppSize.getSize(25)),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -338,18 +373,25 @@ class _SettingScreenState extends State<SettingScreen> {
     return Column(
       children: [
         Container(
-          height: 50,
-          width: 50,
+          height: AppSize.getSize(50),
+          width: AppSize.getSize(50),
           decoration: BoxDecoration(
-            color: Colors.grey.shade900,
-            borderRadius: BorderRadius.circular(50),
+            color: AppColors.greyShade900,
+            borderRadius: BorderRadius.circular(AppSize.getSize(50)),
           ),
-          child: Icon(icon, size: 25, color: Colors.white),
+          child: Icon(
+            icon,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
         ),
-        SizedBox(height: 7),
+        SizedBox(height: AppSize.getSize(7)),
         Text(
           label,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(16),
+          ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -359,34 +401,39 @@ class _SettingScreenState extends State<SettingScreen> {
   void openAddAccountSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.blueGrey.shade900,
+      backgroundColor: AppColors.greyShade900,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppSize.getSize(20)),
+        ),
       ),
       builder: (context) {
         return Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(AppSize.getSize(10)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: Container(
-                  height: 4,
-                  width: 40,
+                  height: AppSize.getSize(4),
+                  width: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade400,
-                    borderRadius: BorderRadius.circular(20),
+                    color: AppColors.greyShade400,
+                    borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
 
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSize.getSize(20),
+                  vertical: AppSize.getSize(20),
+                ),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade600),
-                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: AppColors.greyShade800),
+                  borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                 ),
                 child: Column(
                   children: [
@@ -395,12 +442,12 @@ class _SettingScreenState extends State<SettingScreen> {
                         ClipOval(
                           child: Image.network(
                             "https://madaboutdecor.co.in/cdn/shop/files/IMG_0713.heic?v=1728289287",
-                            height: 50,
-                            width: 50,
+                            height: AppSize.getSize(50),
+                            width: AppSize.getSize(50),
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: AppSize.getSize(15)),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -408,15 +455,15 @@ class _SettingScreenState extends State<SettingScreen> {
                               Text(
                                 "Add new account",
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
+                                  color: AppColors.whiteColor,
+                                  fontSize: AppSize.getSize(18),
                                 ),
                               ),
                               Text(
                                 "+26587848545",
                                 style: TextStyle(
-                                  color: Colors.grey.shade400,
-                                  fontSize: 16,
+                                  color: AppColors.greyShade400,
+                                  fontSize: AppSize.getSize(16),
                                 ),
                               ),
                             ],
@@ -424,29 +471,38 @@ class _SettingScreenState extends State<SettingScreen> {
                         ),
                         Icon(
                           Icons.check_circle,
-                          color: Colors.greenAccent.shade700,
-                          size: 25,
+                          color: AppColors.greenAccentShade700,
+                          size: AppSize.getSize(25),
                         ),
                       ],
                     ),
 
-                    SizedBox(height: 15),
+                    SizedBox(height: AppSize.getSize(15)),
 
                     Row(
                       children: [
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: AppSize.getSize(50),
+                          width: AppSize.getSize(50),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.grey.shade900,
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(50),
+                            ),
+                            color: AppColors.greyShade900,
                           ),
-                          child: Icon(Icons.add, color: Colors.white, size: 28),
+                          child: Icon(
+                            Icons.add,
+                            color: AppColors.whiteColor,
+                            size: AppSize.getSize(28),
+                          ),
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: AppSize.getSize(15)),
                         Text(
                           "Add WhatsApp account",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(18),
+                          ),
                         ),
                       ],
                     ),
@@ -460,35 +516,43 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  void openModalSheet() {
+  void openModalSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: AppColors.greyShade900,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppSize.getSize(20)),
+        ),
       ),
-      builder: (context) {
+      builder: (modalContext) {
         return StatefulBuilder(
           builder: (context, setModalState) {
             return Container(
-              height: MediaQuery.of(context).size.height * 0.97,
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 7),
+              height:
+                  MediaQuery.of(context).size.height * AppSize.getSize(0.97),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.getSize(25),
+                vertical: AppSize.getSize(7),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Container(
-                      height: 5,
-                      width: 40,
+                      height: AppSize.getSize(5),
+                      width: AppSize.getSize(40),
                       decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.greyColor,
+                        borderRadius: BorderRadius.circular(
+                          AppSize.getSize(20),
+                        ),
                       ),
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: AppSize.getSize(20)),
 
                   Row(
                     children: [
@@ -498,32 +562,36 @@ class _SettingScreenState extends State<SettingScreen> {
                         },
                         child: Icon(
                           Icons.close,
-                          size: 25,
-                          color: Colors.grey.shade400,
+                          size: AppSize.getSize(25),
+                          color: AppColors.greyShade400,
                         ),
                       ),
-                      SizedBox(width: 25),
+                      SizedBox(width: AppSize.getSize(25)),
                       Text(
                         "App language",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                          color: AppColors.whiteColor,
+                          fontSize: AppSize.getSize(20),
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: AppSize.getSize(30)),
                   Expanded(
-                    child: ListView.builder(
-                      itemCount: allLanguages.length,
-                      itemBuilder: (context, index) {
-                        final lang = allLanguages[index];
-                        return Padding(
-                          padding: EdgeInsets.only(bottom: 20),
-                          child: radioTile(lang, setModalState),
-                        );
-                      },
+                    child: Obx(
+                      () => ListView.builder(
+                        itemCount: langController.allLanguages.length,
+                        itemBuilder: (context, index) {
+                          final lang = langController.allLanguages[index];
+                          return Padding(
+                            padding: EdgeInsets.only(
+                              bottom: AppSize.getSize(20),
+                            ),
+                            child: radioTile(lang, setModalState, modalContext),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
@@ -535,84 +603,92 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  Widget radioTile(Language lang, void Function(VoidCallback) setModalState) {
-    bool isSelected = selectedLanguage?.code == lang.code;
+  Widget radioTile(
+    Language lang,
+    void Function(VoidCallback) setModalState,
+    BuildContext context,
+  ) {
+    return Obx(() {
+      bool isSelected =
+          langController.selectedLanguage.value?.code == lang.code;
 
-    String title = lang.name;
-    String? subtitle;
+      String title = lang.name;
+      String? subtitle;
 
-    if (lang.name.contains('(')) {
-      final parts = lang.name.split('(');
-      title = parts.first.trim();
-      subtitle = '(${parts.last}';
-    }
+      if (lang.name.contains('(')) {
+        final parts = lang.name.split('(');
+        title = parts.first.trim();
+        subtitle = '(${parts.last}';
+      }
 
-    return InkWell(
-      onTap: () {
-        setModalState(() {
-          selectedLanguage = lang;
-        });
-        setState(() {});
-        Navigator.pop(context);
-      },
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 22,
-              width: 22,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: isSelected ? Colors.greenAccent.shade700 : Colors.grey,
-                  width: 2,
+      return InkWell(
+        onTap: () {
+          setModalState(() {
+            langController.selectedLanguage.value = lang;
+          });
+          Navigator.pop(context);
+        },
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: AppSize.getSize(22),
+                width: AppSize.getSize(22),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: isSelected
+                        ? AppColors.greenAccentShade700
+                        : AppColors.greyColor,
+                    width: 2,
+                  ),
+                  shape: BoxShape.circle,
                 ),
-                shape: BoxShape.circle,
+                child: isSelected
+                    ? Center(
+                        child: Container(
+                          height: AppSize.getSize(12),
+                          width: AppSize.getSize(12),
+                          decoration: BoxDecoration(
+                            color: AppColors.greenAccentShade700,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      )
+                    : SizedBox(),
               ),
-              child: isSelected
-                  ? Center(
-                      child: Container(
-                        height: 12,
-                        width: 12,
-                        decoration: BoxDecoration(
-                          color: Colors.greenAccent.shade700,
-                          shape: BoxShape.circle,
+
+              SizedBox(width: AppSize.getSize(25)),
+
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: AppSize.getSize(18),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+
+                    if (subtitle != null)
+                      Text(
+                        subtitle,
+                        style: TextStyle(
+                          color: AppColors.greyShade400,
+                          fontSize: AppSize.getSize(15),
                         ),
                       ),
-                    )
-                  : SizedBox(),
-            ),
-
-            SizedBox(width: 25),
-
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-
-                  if (subtitle != null)
-                    Text(
-                      subtitle,
-                      style: TextStyle(
-                        color: Colors.grey.shade400,
-                        fontSize: 15,
-                      ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

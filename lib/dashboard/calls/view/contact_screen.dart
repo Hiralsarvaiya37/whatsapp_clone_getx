@@ -12,7 +12,7 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
-  final CallController callcontroller = Get.put(CallController());
+  final CallController callcontroller = Get.find();
 
   final TextEditingController searchController = TextEditingController();
 
