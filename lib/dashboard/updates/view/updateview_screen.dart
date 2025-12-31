@@ -171,8 +171,8 @@ class UpdateviewScreen extends StatelessWidget {
                   children: [
                     ClipOval(
                       child: Image.network(
-                        height: AppSize.getSize(45),
-                        width: AppSize.getSize(45),
+                        height: AppSize.getSize(50),
+                        width: AppSize.getSize(50),
                         fit: BoxFit.cover,
                         "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
                       ),

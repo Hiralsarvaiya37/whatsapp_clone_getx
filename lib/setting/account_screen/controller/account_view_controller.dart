@@ -7,6 +7,7 @@ class AccountViewController extends GetxController {
  
   RxBool isNotificationOn = false.obs;
   RxBool isYes = false.obs;
+  RxBool isOn = false.obs;
   RxBool isNo = false.obs;
   RxInt selectedOption = (-1).obs;
   RxList<String> options = [

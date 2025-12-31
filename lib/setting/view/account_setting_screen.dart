@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/view/change_number_screen.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/view/delete_account_screen.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/view/email_address_screen.dart';
 import 'package:whatsapp_clone_getx/setting/account_screen/view/pass_keys_screen.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/view/request_account_info_screen.dart';
 import 'package:whatsapp_clone_getx/setting/account_screen/view/security_notifications_screen.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/view/two_step_verification_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/account_options_enum.dart';
@@ -61,41 +66,41 @@ class AccountSettingScreen extends StatelessWidget {
 
                       if (AccountOptionsEnum.values[index] ==
                           AccountOptionsEnum.emailAddress) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => EmailAddressScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EmailAddressScreen(),
+                          ),
+                        );
                       }
                       if (AccountOptionsEnum.values[index] ==
                           AccountOptionsEnum.twoStepVerification) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => TwoStepVerificationScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TwoStepVerificationScreen(),
+                          ),
+                        );
                       }
 
                       if (AccountOptionsEnum.values[index] ==
                           AccountOptionsEnum.changeNumber) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ChangeNumberScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChangeNumberScreen(),
+                          ),
+                        );
                       }
 
                       if (AccountOptionsEnum.values[index] ==
                           AccountOptionsEnum.requestAccountInfo) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => RequestAccountInfoScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RequestAccountInfoScreen(),
+                          ),
+                        );
                       }
 
                       if (AccountOptionsEnum.values[index] ==
@@ -223,12 +228,12 @@ class AccountSettingScreen extends StatelessWidget {
 
                       if (AccountOptionsEnum.values[index] ==
                           AccountOptionsEnum.deleteAccount) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => DeleteAccountScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DeleteAccountScreen(),
+                          ),
+                        );
                       }
                     },
 

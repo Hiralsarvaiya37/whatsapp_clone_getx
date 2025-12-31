@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/privacy_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/qr_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -173,12 +174,12 @@ class SettingScreen extends StatelessWidget {
                       }
 
                       if (item.titles == "Privacy") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => PrivacyScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PrivacyScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Avatar") {

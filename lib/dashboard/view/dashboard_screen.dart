@@ -25,8 +25,8 @@ class DashboardScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.only(
           top: AppSize.getSize(35),
-          left: AppSize.getSize(20),
-          right: AppSize.getSize(20),
+          left: AppSize.getSize(15),
+          right: AppSize.getSize(10),
         ),
         child: Column(
           children: [
@@ -61,9 +61,8 @@ class DashboardScreen extends StatelessWidget {
                               color: AppColors.whiteColor,
                               size: AppSize.getSize(30),
                             ),
-
                             PopupMenuButton(
-                              color: Colors.grey.shade900,
+                              color: AppColors.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(

@@ -2,6 +2,8 @@ import 'package:get/state_manager.dart';
 import 'package:language_info_plus/language_info_plus.dart';
 
 class SettingController extends GetxController {
+  RxBool isOn = false.obs;
+  RxBool isYes = false.obs;
    Rx<Language?> selectedLanguage = Rx<Language?>(null);
   RxList<Language> allLanguages = LanguageInfoPlus.languages.obs;
 
