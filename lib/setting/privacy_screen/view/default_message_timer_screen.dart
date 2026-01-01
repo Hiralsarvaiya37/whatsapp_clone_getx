@@ -31,8 +31,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
-        child: Obx(
-         ()=> Column(
+        child: Column(
             children: [
               Text(
                 "Start new chats with a disappearing message timer set to",
@@ -76,12 +75,13 @@ class DefaultMessageTimerScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      
     );
   }
 
   Widget radioTile(String title) {
-    bool isSelected = defaultController.selectedOption.value == title;
+   return Obx((){
+     bool isSelected = defaultController.selectedOption.value == title;
     return InkWell(
       onTap: () {
      
@@ -121,5 +121,6 @@ class DefaultMessageTimerScreen extends StatelessWidget {
         ),
       ),
     );
+   });
   }
 }

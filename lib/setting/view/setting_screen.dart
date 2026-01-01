@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/avatar_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/chats_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/lists_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/privacy_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/qr_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
@@ -183,30 +186,30 @@ class SettingScreen extends StatelessWidget {
                       }
 
                       if (item.titles == "Avatar") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AvatarScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AvatarScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Lists") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ListsScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ListsScreen(),
+                          ),
+                        );
                       }
 
-                      if (item.titles == "Chats") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ChatsScreen(),
-                        //   ),
-                        // );
+                      if (item.titles == "Chat") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatsScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Broadcasts") {

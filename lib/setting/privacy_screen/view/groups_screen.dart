@@ -33,8 +33,7 @@ class GroupsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
-        child: Obx(
-          () => Column(
+        child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -61,12 +60,13 @@ class GroupsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      
     );
   }
 
   Widget radioTile(String title) {
-    bool isSelect = groupController.selectedOption.value == title;
+   return Obx((){
+     bool isSelect = groupController.selectedOption.value == title;
     return InkWell(
       onTap: () {
         groupController.selectedOption.value = title;
@@ -104,5 +104,6 @@ class GroupsScreen extends StatelessWidget {
         ),
       ),
     );
+   });
   }
 }

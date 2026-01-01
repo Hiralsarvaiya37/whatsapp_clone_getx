@@ -33,8 +33,7 @@ class StatusPrivacyScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
-        child: Obx(
-          ()=> Column(
+        child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -72,52 +71,54 @@ class StatusPrivacyScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(40)),
           
-              InkWell(
-                onTap: () {
-                  statusController.isOn.value = !statusController.isOn.value;
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(left: AppSize.getSize(40)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.cached_sharp,
-                        size: AppSize.getSize(30),
-                        color: AppColors.greyShade400,
-                      ),
-                      SizedBox(width: AppSize.getSize(15)),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Allow Sharing",
-                              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
-                            ),
-                            Text(
-                              "Let pepople who can see your status reshare and forward it.",
-                              style: TextStyle(
-                                color: AppColors.greyShade400,
-                                fontSize: AppSize.getSize(16),
-                              ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+              Obx(
+                ()=> InkWell(
+                  onTap: () {
+                    statusController.isOn.value = !statusController.isOn.value;
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(left: AppSize.getSize(40)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.cached_sharp,
+                          size: AppSize.getSize(30),
+                          color: AppColors.greyShade400,
                         ),
-                      ),
-          
-                      Switch(
-                        value: statusController.isOn.value,
-                        activeThumbColor: AppColors.blackColor,
-                        activeTrackColor: AppColors.greenAccentShade700,
-                        inactiveTrackColor: AppColors.blackColor,
-                        onChanged: (val) {
-                          statusController.isOn.value = val;
-                        },
-                      ),
-                    ],
+                        SizedBox(width: AppSize.getSize(15)),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Allow Sharing",
+                                style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                              ),
+                              Text(
+                                "Let pepople who can see your status reshare and forward it.",
+                                style: TextStyle(
+                                  color: AppColors.greyShade400,
+                                  fontSize: AppSize.getSize(16),
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                          
+                        Switch(
+                          value: statusController.isOn.value,
+                          activeThumbColor: AppColors.blackColor,
+                          activeTrackColor: AppColors.greenAccentShade700,
+                          inactiveTrackColor: AppColors.blackColor,
+                          onChanged: (val) {
+                            statusController.isOn.value = val;
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -163,66 +164,70 @@ class StatusPrivacyScreen extends StatelessWidget {
               ),
           
               SizedBox(height: AppSize.getSize(20)),
-              InkWell(
-                onTap: () {
-                  statusController.isYes.value = !statusController.isYes.value;
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(left: AppSize.getSize(40)),
-                  child: Row(
-                    children: [
-                      Icon(Icons.facebook, size: AppSize.getSize(30), color: AppColors.greyShade400),
-                      SizedBox(width: AppSize.getSize(15)),
-                      Expanded(
-                        child: Text(
-                          "Facebook Story",
-                          style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+              Obx(
+              ()=> InkWell(
+                  onTap: () {
+                    statusController.isYes.value = !statusController.isYes.value;
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(left: AppSize.getSize(40)),
+                    child: Row(
+                      children: [
+                        Icon(Icons.facebook, size: AppSize.getSize(30), color: AppColors.greyShade400),
+                        SizedBox(width: AppSize.getSize(15)),
+                        Expanded(
+                          child: Text(
+                            "Facebook Story",
+                            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                          ),
                         ),
-                      ),
-                      Switch(
-                        value: statusController.isYes.value,
-                        activeThumbColor: AppColors.blackColor,
-                        activeTrackColor: AppColors.greenAccentShade700,
-                        inactiveTrackColor: AppColors.blackColor,
-                        onChanged: (val) {
-                          statusController.isYes.value = val;
-                        },
-                      ),
-                    ],
+                        Switch(
+                          value: statusController.isYes.value,
+                          activeThumbColor: AppColors.blackColor,
+                          activeTrackColor: AppColors.greenAccentShade700,
+                          inactiveTrackColor: AppColors.blackColor,
+                          onChanged: (val) {
+                            statusController.isYes.value = val;
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
               SizedBox(height: AppSize.getSize(30)),
-              InkWell(
-                onTap: () {
-                  statusController.isNo.value = !statusController.isNo.value;
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(left: AppSize.getSize(40)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.flip_to_front_rounded,
-                        size: AppSize.getSize(30),
-                        color: AppColors.greyShade400,
-                      ),
-                      SizedBox(width: AppSize.getSize(15)),
-                      Expanded(
-                        child: Text(
-                          "Instagram Story",
-                          style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+              Obx(
+               ()=> InkWell(
+                  onTap: () {
+                    statusController.isNo.value = !statusController.isNo.value;
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(left: AppSize.getSize(40)),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.flip_to_front_rounded,
+                          size: AppSize.getSize(30),
+                          color: AppColors.greyShade400,
                         ),
-                      ),
-                      Switch(
-                        value: statusController.isNo.value,
-                        activeThumbColor: AppColors.blackColor,
-                        activeTrackColor: AppColors.greenAccentShade700,
-                        inactiveTrackColor: AppColors.blackColor,
-                        onChanged: (val) {
-                          statusController.isNo.value = val;
-                        },
-                      ),
-                    ],
+                        SizedBox(width: AppSize.getSize(15)),
+                        Expanded(
+                          child: Text(
+                            "Instagram Story",
+                            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                          ),
+                        ),
+                        Switch(
+                          value: statusController.isNo.value,
+                          activeThumbColor: AppColors.blackColor,
+                          activeTrackColor: AppColors.greenAccentShade700,
+                          inactiveTrackColor: AppColors.blackColor,
+                          onChanged: (val) {
+                            statusController.isNo.value = val;
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -235,12 +240,13 @@ class StatusPrivacyScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      
     );
   }
 
   Widget radioTile(String title) {
-    bool isSelected = statusController.selectedOption.value == title;
+    return Obx((){
+      bool isSelected = statusController.selectedOption.value == title;
     return InkWell(
       onTap: () {
         statusController.selectedOption.value = title;
@@ -279,5 +285,6 @@ class StatusPrivacyScreen extends StatelessWidget {
         ),
       ),
     );
+    });
   }
 }

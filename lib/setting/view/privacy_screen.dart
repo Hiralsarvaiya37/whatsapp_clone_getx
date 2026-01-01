@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/about_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/advanced_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/app_lock_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/avatar_stickers_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/calls_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/chat_lock_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/default_message_timer_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/lastseen_and_online_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/links_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/live_location_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/privacy_checkup_screen.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/view/privacy_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/view/groups_screen.dart';
@@ -40,8 +48,7 @@ class PrivacyScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
-          child: Obx(
-            ()=> Column(
+          child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -202,23 +209,23 @@ class PrivacyScreen extends StatelessWidget {
                   "Avatar stickers",
                   "My contacts",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => AvatarStickersScreen(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AvatarStickersScreen(),
+                      ),
+                    );
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => LiveLocationScreen(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LiveLocationScreen(),
+                      ),
+                    );
                   },
                   child: Text(
                     "Live location",
@@ -230,10 +237,10 @@ class PrivacyScreen extends StatelessWidget {
                   "Calls",
                   "Silence unknown callers",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => CallsScreen()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CallsScreen()),
+                    );
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -241,12 +248,12 @@ class PrivacyScreen extends StatelessWidget {
                   "Contacts",
                   "Block contacts, WhatsApp contacts",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => PrivacyContactsScreen(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PrivacyContactsScreen(),
+                      ),
+                    );
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -254,19 +261,19 @@ class PrivacyScreen extends StatelessWidget {
                   "App lock",
                   "Disabled",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => AppLockScreen()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AppLockScreen()),
+                    );
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => ChatLockScreen()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatLockScreen()),
+                    );
                   },
                   child: Text(
                     "Chat lock",
@@ -315,14 +322,16 @@ class PrivacyScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Switch(
-                        value: privacyController.isYes.value,
-                        activeThumbColor: AppColors.blackColor,
-                        activeTrackColor: AppColors.greenAccentShade700,
-                        inactiveTrackColor: AppColors.blackColor,
-                        onChanged: (val) {
-                          privacyController.isYes.value = val;
-                        },
+                      Obx(
+                       ()=> Switch(
+                          value: privacyController.isYes.value,
+                          activeThumbColor: AppColors.blackColor,
+                          activeTrackColor: AppColors.greenAccentShade700,
+                          inactiveTrackColor: AppColors.blackColor,
+                          onChanged: (val) {
+                            privacyController.isYes.value = val;
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -331,7 +340,7 @@ class PrivacyScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>AdvancedScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AdvancedScreen()));
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -353,7 +362,7 @@ class PrivacyScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen()));
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -378,7 +387,7 @@ class PrivacyScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      
     );
   }
 

@@ -40,8 +40,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
           horizontal: AppSize.getSize(20),
           vertical: AppSize.getSize(20),
         ),
-        child: Obx(
-          () => Column(
+        child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -53,33 +52,41 @@ class LastseenAndOnlineScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(15)),
 
-              radioTile("Everyone", lastseenController.selectedlastSeen.value, (
-                value,
-              ) {
-                lastseenController.selectedlastSeen.value = value;
-              }),
-
-              radioTile(
-                "My contacts",
-                lastseenController.selectedlastSeen.value,
-                (value) {
+              Obx(
+               ()=> radioTile("Everyone", lastseenController.selectedlastSeen.value, (
+                  value,
+                ) {
                   lastseenController.selectedlastSeen.value = value;
-                },
+                }),
               ),
 
-              radioTile(
-                "My contacts except...",
-                lastseenController.selectedlastSeen.value,
-                (value) {
-                  lastseenController.selectedlastSeen.value = value;
-                },
+              Obx(
+             ()=> radioTile(
+                  "My contacts",
+                  lastseenController.selectedlastSeen.value,
+                  (value) {
+                    lastseenController.selectedlastSeen.value = value;
+                  },
+                ),
               ),
 
-              radioTile("Nobody", lastseenController.selectedlastSeen.value, (
-                value,
-              ) {
-                lastseenController.selectedlastSeen.value = value;
-              }),
+              Obx(
+              ()=> radioTile(
+                  "My contacts except...",
+                  lastseenController.selectedlastSeen.value,
+                  (value) {
+                    lastseenController.selectedlastSeen.value = value;
+                  },
+                ),
+              ),
+
+              Obx(
+               ()=> radioTile("Nobody", lastseenController.selectedlastSeen.value, (
+                  value,
+                ) {
+                  lastseenController.selectedlastSeen.value = value;
+                }),
+              ),
 
               SizedBox(height: AppSize.getSize(40)),
               Text(
@@ -91,18 +98,22 @@ class LastseenAndOnlineScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(15)),
 
-              radioTile("Everyone", lastseenController.selectedonline.value, (
-                value,
-              ) {
-                lastseenController.selectedonline.value = value;
-              }),
-
-              radioTile(
-                "Same as last seen",
-                lastseenController.selectedonline.value,
-                (value) {
+              Obx(
+                ()=>radioTile("Everyone", lastseenController.selectedonline.value, (
+                  value,
+                ) {
                   lastseenController.selectedonline.value = value;
-                },
+                }),
+              ),
+
+              Obx(
+                ()=> radioTile(
+                  "Same as last seen",
+                  lastseenController.selectedonline.value,
+                  (value) {
+                    lastseenController.selectedonline.value = value;
+                  },
+                ),
               ),
 
               SizedBox(height: AppSize.getSize(20)),
@@ -116,7 +127,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      
     );
   }
 

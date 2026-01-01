@@ -9,7 +9,7 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 class RequestAccountInfoScreen extends StatelessWidget {
   RequestAccountInfoScreen({super.key});
 
-  final AccountViewController requestController = Get.find();
+  final AccountViewController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,7 @@ class RequestAccountInfoScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
@@ -37,39 +35,35 @@ class RequestAccountInfoScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSize.getSize(20),
-            vertical: AppSize.getSize(20),
-          ),
-          child: Obx(
-            () => Column(
-              children: [
-                appTitle("Account information", requestController.isOn.value, (
-                  val,
-                ) {
-                  requestController.isOn.value = val;
-                }, context),
-                SizedBox(height: AppSize.getSize(30)),
-                appTitle("Channels activity", requestController.isYes.value, (
-                  val,
-                ) {
-                  requestController.isYes.value = val;
-                }, context),
-              ],
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(20),
+          vertical: AppSize.getSize(20),
+        ),
+        child: Column(
+          children: [
+            requestTile(
+              title: "Account information",
+              rxValue: controller.isOn,
+              context: context,
             ),
-          ),
+            SizedBox(height: AppSize.getSize(30)),
+            requestTile(
+              title: "Channels activity",
+              rxValue: controller.isYes,
+              context: context,
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget appTitle(
-    String title,
-    bool value,
-    ValueChanged<bool> onChanged,
-    BuildContext context,
-  ) {
+
+  Widget requestTile({
+    required String title,
+    required RxBool rxValue,
+    required BuildContext context,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -81,7 +75,9 @@ class RequestAccountInfoScreen extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        SizedBox(height: AppSize.getSize(30)),
+
+        SizedBox(height: AppSize.getSize(25)),
+
         Row(
           children: [
             Icon(
@@ -101,37 +97,31 @@ class RequestAccountInfoScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Ready by December 7,2025",
+                  "Ready by December 7, 2025",
                   style: TextStyle(
                     color: AppColors.greyShade400,
-                    fontSize: AppSize.getSize(17),
+                    fontSize: AppSize.getSize(16),
                   ),
                 ),
               ],
             ),
           ],
         ),
-        SizedBox(height: AppSize.getSize(25)),
-        Text(
-          "Your report will be ready in about 3 days. you'll have a few weeks to download your report after it's available.",
-          style: TextStyle(
-            color: AppColors.greyShade400,
-            fontSize: AppSize.getSize(16),
-          ),
-        ),
+
         SizedBox(height: AppSize.getSize(20)),
+
         Text(
-          "Your request will be canceled if you make changes to your account such as changing your number or deleting your account.",
+          "Your report will be ready in about 3 days. You'll have a few weeks to download your report after it's available.",
           style: TextStyle(
             color: AppColors.greyShade400,
             fontSize: AppSize.getSize(16),
           ),
         ),
-        SizedBox(height: AppSize.getSize(30)),
+
+        SizedBox(height: AppSize.getSize(20)),
+
         InkWell(
-          onTap: () {
-            onChanged(!value);
-          },
+          onTap: () => rxValue.value = !rxValue.value,
           child: Row(
             children: [
               Icon(
@@ -139,7 +129,7 @@ class RequestAccountInfoScreen extends StatelessWidget {
                 size: AppSize.getSize(30),
                 color: AppColors.greyShade400,
               ),
-              SizedBox(width: AppSize.getSize(6)),
+              SizedBox(width: AppSize.getSize(8)),
               Expanded(
                 child: Text(
                   "Create reports automatically",
@@ -149,23 +139,28 @@ class RequestAccountInfoScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Switch(
-                value: value,
-                activeThumbColor: AppColors.blackColor,
-                activeTrackColor: AppColors.greenAccentShade700,
-                inactiveTrackColor: AppColors.blackColor,
-                onChanged: onChanged,
+
+            
+              Obx(
+                () => Switch(
+                  value: rxValue.value,
+                  activeThumbColor: AppColors.blackColor,
+                  activeTrackColor: AppColors.greenAccentShade700,
+                  inactiveTrackColor: AppColors.blackColor,
+                  onChanged: (val) => rxValue.value = val,
+                ),
               ),
             ],
           ),
         ),
 
-        SizedBox(height: AppSize.getSize(20)),
+        SizedBox(height: AppSize.getSize(15)),
+
         Text.rich(
           TextSpan(
             children: [
               TextSpan(
-                text: "A new report will be created every month.",
+                text: "A new report will be created every month. ",
                 style: TextStyle(
                   color: AppColors.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -183,7 +178,7 @@ class RequestAccountInfoScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LearnMoreScreen(),
+                        builder: (_) => LearnMoreScreen(),
                       ),
                     );
                   },
