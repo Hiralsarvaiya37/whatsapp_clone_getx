@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
+
+class TransferChatScreen extends StatelessWidget {
+  const TransferChatScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.blackColor,
+      appBar: AppBar(
+        backgroundColor: AppColors.blackColor,
+        actions: [
+          Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppColors.greyShade400),
+          SizedBox(width: AppSize.getSize(10)),
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(28), vertical: AppSize.getSize(20)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: AppSize.getSize(10)),
+                  Icon(
+                    Icons.history_edu,
+                    size: AppSize.getSize(75),
+                    color: AppColors.greenAccentShade700,
+                  ),
+                  SizedBox(height: AppSize.getSize(30)),
+                  Text(
+                    "Transfer chat history to new phone",
+                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(23)),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: AppSize.getSize(20)),
+                  Text(
+                    "Transfer your chat history privately to another Android phone. Have your most up-to-date messages without using Google storage. Certain device permissions are needed to Connect to your new device.",
+                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(28), vertical: AppSize.getSize(15)),
+            child: Column(
+              children: [
+                Container(
+                  height: AppSize.getSize(40),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: AppColors.greenAccentShade700,
+                    borderRadius: BorderRadius.circular(AppSize.getSize(30)),
+                  ),alignment: Alignment.center,
+                  child: Text(
+                    "Start",
+                    style: TextStyle(fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
+                  ),
+                ),
+                SizedBox(height: AppSize.getSize(10)),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Cancel",
+                    style: TextStyle(color: AppColors.greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -4,10 +4,13 @@ import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/avatar_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/broadcasts_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/chats_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/lists_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/notifications_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/privacy_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/qr_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/storage_and_data_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
@@ -213,30 +216,30 @@ class SettingScreen extends StatelessWidget {
                       }
 
                       if (item.titles == "Broadcasts") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => BroadcastsScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BroadcastsScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Notifications") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => NotificationsScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NotificationsScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Storage and data") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => StorageAndDataScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StorageAndDataScreen(),
+                          ),
+                        );
                       }
 
                       if (item.titles == "Accessibility") {

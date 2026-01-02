@@ -1,49 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp_clone_getx/setting/chats_screen/view/chat_backup_screen.dart';
+import 'package:whatsapp_clone_getx/setting/chats_screen/view/chat_history_screen.dart';
+import 'package:whatsapp_clone_getx/setting/chats_screen/view/chat_theme_screen.dart';
+import 'package:whatsapp_clone_getx/setting/chats_screen/view/transfer_chat_screen.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-class ChatsScreen extends StatefulWidget {
-  const ChatsScreen({super.key});
+class ChatsScreen extends StatelessWidget {
+   ChatsScreen({super.key});
 
-  @override
-  State<ChatsScreen> createState() => _ChatsScreenState();
-}
-
-class _ChatsScreenState extends State<ChatsScreen> {
   final SettingController chatController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
         ),
         title: Text(
           "Chats",
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 23,
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Display",
-                style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: AppSize.getSize(20)),
               InkWell(
                 onTap: () {
                   showDialog(
@@ -53,47 +54,47 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         builder: (context, dialogSetState) {
                           return Dialog(
                             child: Container(
-                              height: 310,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade900,
-                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors.greyShade900,
+                                borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                               ),
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 25,
-                                  vertical: 20,
+                                  horizontal: AppSize.getSize(25),
+                                  vertical: AppSize.getSize(20),
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
                                       "Choose theme",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                        color: AppColors.whiteColor,
                                         fontSize: 22,
                                       ),
                                     ),
-                                    SizedBox(height: 20),
+                                    SizedBox(height: AppSize.getSize(20)),
 
                                     radioTile(
                                       "System default",
                                       dialogSetState,
                                       chatController.selectedTheme.value,
                                     ),
-                                    SizedBox(height: 30),
+                                    SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       "Light",
                                       dialogSetState,
                                       chatController.selectedTheme.value,
                                     ),
-                                    SizedBox(height: 30),
+                                    SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       "Dark",
                                       dialogSetState,
                                       chatController.selectedTheme.value,
                                     ),
 
-                                    SizedBox(height: 35),
+                                    SizedBox(height: AppSize.getSize(35)),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -105,13 +106,13 @@ class _ChatsScreenState extends State<ChatsScreen> {
                                             "Cancel",
                                             style: TextStyle(
                                               color:
-                                                  Colors.greenAccent.shade700,
-                                              fontSize: 16,
+                                                  AppColors.greenAccentShade700,
+                                              fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
                                         ),
-                                        SizedBox(width: 30),
+                                        SizedBox(width: AppSize.getSize(30)),
                                         InkWell(
                                           onTap: () {
                                             Navigator.pop(context);
@@ -120,8 +121,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
                                             "Ok",
                                             style: TextStyle(
                                               color:
-                                                  Colors.greenAccent.shade700,
-                                              fontSize: 16,
+                                                  AppColors.greenAccentShade700,
+                                              fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -140,24 +141,26 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 },
                 child: Row(
                   children: [
-                    Icon(Icons.settings, size: 30, color: Colors.grey.shade400),
-                    SizedBox(width: 30),
+                    Icon(Icons.settings, size: AppSize.getSize(30), color: AppColors.greyShade400),
+                    SizedBox(width: AppSize.getSize(30)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Theme",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                            color: AppColors.whiteColor,
+                            fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Text(
-                          chatController.selectedTheme.value,
-                          style: TextStyle(
-                            color: Colors.grey.shade400,
-                            fontSize: 16,
+                        Obx(
+                        ()=> Text(
+                            chatController.selectedTheme.value,
+                            style: TextStyle(
+                              color: AppColors.greyShade400,
+                              fontSize: AppSize.getSize(16),
+                            ),
                           ),
                         ),
                       ],
@@ -165,23 +168,23 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ChatThemeScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatThemeScreen()),
+                  );
                 },
                 child: Row(
                   children: [
-                    Icon(Icons.chat, size: 30, color: Colors.grey.shade400),
-                    SizedBox(width: 30),
+                    Icon(Icons.chat, size: AppSize.getSize(30), color: AppColors.greyShade400),
+                    SizedBox(width: AppSize.getSize(30)),
                     Text(
                       "Default chat theme",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
+                        color: AppColors.whiteColor,
+                        fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -189,87 +192,93 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 ),
               ),
 
-              SizedBox(height: 40),
+              SizedBox(height: AppSize.getSize(40)),
               Text(
                 "Chat settings",
-                style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
               ),
-              SizedBox(height: 20),
-              appInfo(
-                "Enter is send",
-                "Enter key will send your message",
-                switchValue: chatController.ison1.value,
-                onChanged: (val) {
-                    chatController.ison1.value = val;
-                },
+              SizedBox(height: AppSize.getSize(20)),
+              Obx(
+               ()=> appInfo(
+                  "Enter is send",
+                  "Enter key will send your message",
+                  switchValue: chatController.ison1.value,
+                  onChanged: (val) {
+                      chatController.ison1.value = val;
+                  },
+                ),
               ),
-              SizedBox(height: 30),
-              appInfo(
-                "Media visibility",
-                "Show newly downloaded media in your device's gallery",
-                switchValue: chatController.ison2.value,
-                onChanged: (val) {
-                    chatController.ison2.value = val;
-                },
+              SizedBox(height: AppSize.getSize(30)),
+              Obx(
+                ()=> appInfo(
+                  "Media visibility",
+                  "Show newly downloaded media in your device's gallery",
+                  switchValue: chatController.ison2.value,
+                  onChanged: (val) {
+                      chatController.ison2.value = val;
+                  },
+                ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               appInfo(
                 "Font size",
                 chatController.selectedFontSize.value,
                 showSwitch: false,
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               appInfo(
                 "Voice message transcripts",
                 "Read new voice messages.",
                 showSwitch: false,
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               Text(
                 "Archived chats",
-                style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
               ),
-              SizedBox(height: 20),
-              appInfo(
-                "Keep chats archived",
-                "Archived chats will remain archived when you receive a new message",
-                switchValue: chatController.ison3.value,
-                onChanged: (val) {
-                    chatController.ison3.value = val;
-                },
+              SizedBox(height: AppSize.getSize(20)),
+              Obx(
+                ()=> appInfo(
+                  "Keep chats archived",
+                  "Archived chats will remain archived when you receive a new message",
+                  switchValue: chatController.ison3.value,
+                  onChanged: (val) {
+                      chatController.ison3.value = val;
+                  },
+                ),
               ),
 
-              SizedBox(height: 40),
+              SizedBox(height: AppSize.getSize(40)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ChatBackupScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatBackupScreen()),
+                  );
                 },
                 child: chatInfo("Chat backup", Icons.backup_outlined),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => TransferChatScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransferChatScreen(),
+                    ),
+                  );
                 },
                 child: chatInfo("Transfer chats", Icons.send_to_mobile_rounded),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => ChatHistoryScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatHistoryScreen(),
+                    ),
+                  );
                 },
                 child: chatInfo("Chat history", Icons.replay_outlined),
               ),
@@ -284,13 +293,13 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget chatInfo(String title, IconData icon) {
     return Row(
       children: [
-        Icon(icon, size: 30, color: Colors.grey.shade400),
-        SizedBox(width: 30),
+        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+        SizedBox(width: AppSize.getSize(30)),
         Text(
           title,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -316,21 +325,21 @@ class _ChatsScreenState extends State<ChatsScreen> {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(left: 55),
+              padding: EdgeInsets.only(left: AppSize.getSize(55)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                      color: AppColors.whiteColor,
+                      fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     subtitle,
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
@@ -339,9 +348,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
           if (showSwitch)
             Switch(
               value: switchValue ?? false,
-              activeThumbColor: Colors.black,
-              activeTrackColor: Colors.greenAccent.shade700,
-              inactiveTrackColor: Colors.transparent,
+              activeThumbColor: AppColors.blackColor,
+              activeTrackColor: AppColors.greenAccentShade700,
+              inactiveTrackColor: AppColors.blackColor,
               onChanged: onChanged,
             ),
         ],
@@ -354,7 +363,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
     StateSetter dialogSetState,
     String currentSelected,
   ) {
-    bool isSelected = currentSelected == title;
+   
+     bool isSelected = currentSelected == title;
     return InkWell(
       onTap: () {
         dialogSetState(() {
@@ -371,37 +381,38 @@ class _ChatsScreenState extends State<ChatsScreen> {
           }
       },
       child: Container(
-        color: Colors.transparent,
+        color: AppColors.greyShade900,
         child: Row(
           children: [
             Container(
-              height: 22,
-              width: 22,
+              height: AppSize.getSize(22),
+              width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? Colors.greenAccent.shade700 : Colors.grey,
-                  width: 2,
+                  color: isSelected ? AppColors.greenAccentShade700 : AppColors.greyColor,
+                  width: AppSize.getSize(2),
                 ),
               ),
               child: isSelected
                   ? Center(
                       child: Container(
-                        height: 12,
-                        width: 12,
+                        height: AppSize.getSize(12),
+                        width: AppSize.getSize(12),
                         decoration: BoxDecoration(
-                          color: Colors.greenAccent.shade700,
+                          color: AppColors.greenAccentShade700,
                           shape: BoxShape.circle,
                         ),
                       ),
                     )
                   : SizedBox(),
             ),
-            SizedBox(width: 20),
-            Text(title, style: TextStyle(color: Colors.white, fontSize: 18)),
+            SizedBox(width: AppSize.getSize(20)),
+            Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18))),
           ],
         ),
       ),
     );
+  
   }
 }
