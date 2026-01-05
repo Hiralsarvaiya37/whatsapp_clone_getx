@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/setting/Storage_and_data/view/manage_storage_screen.dart';
+import 'package:whatsapp_clone_getx/setting/Storage_and_data/view/network_usage_screen.dart';
+import 'package:whatsapp_clone_getx/setting/Storage_and_data/view/proxy_screen.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -56,12 +58,12 @@ class StorageAndDataScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(35)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => NetworkUsageScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NetworkUsageScreen(),
+                    ),
+                  );
                 },
                 child: appTile(
                   "Network usage",
@@ -109,10 +111,10 @@ class StorageAndDataScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ProxyScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProxyScreen()),
+                  );
                 },
                 child: appTile("Proxy", "Off"),
               ),
