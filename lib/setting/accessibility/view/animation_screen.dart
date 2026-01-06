@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/setting/accessibility/controller/accessibility_view_controller.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class AnimationScreen extends StatelessWidget {
    AnimationScreen({super.key});
@@ -10,38 +12,38 @@ class AnimationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
         ),
         title: Text(
           "Animation",
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 23,
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "When turned on, emoji, stickers or GIFs will move automatically.",
-              style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+              style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: AppSize.getSize(30)),
             appTile("Emoji", Icons.emoji_emotions_outlined, 1),
-            SizedBox(height: 20),
+            SizedBox(height: AppSize.getSize(20)),
             appTile("Stickers", Icons.sticky_note_2_outlined, 2),
-            SizedBox(height: 20),
+            SizedBox(height: AppSize.getSize(20)),
             appTile("Gifs", Icons.gif, 3),
           ],
         ),
@@ -74,13 +76,13 @@ class AnimationScreen extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Icon(icon, size: 30, color: Colors.white),
-                SizedBox(width: 20),
+                Icon(icon, size: AppSize.getSize(30), color: AppColors.whiteColor),
+                SizedBox(width: AppSize.getSize(20)),
                 Text(
                   title,
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+                    color: AppColors.whiteColor,
+                    fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -90,9 +92,9 @@ class AnimationScreen extends StatelessWidget {
          
              Switch(
               value: currentValue,
-              activeThumbColor: Colors.black,
-              activeTrackColor: Colors.greenAccent.shade700,
-              inactiveTrackColor: Colors.transparent,
+              activeThumbColor: AppColors.blackColor,
+              activeTrackColor: AppColors.greenAccentShade700,
+              inactiveTrackColor: AppColors.blackColor,
               onChanged: (val) {
                   if (index == 1) {
                     animationController.isOn1.value = val;

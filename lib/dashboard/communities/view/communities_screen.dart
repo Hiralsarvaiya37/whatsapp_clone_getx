@@ -273,9 +273,8 @@ class CommunitiesScreen extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         color: AppColors.blackColor,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(14), vertical: AppSize.getSize(12)),
+          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(11)),
           child: Container(
-            height: AppSize.getSize(60),
             decoration: BoxDecoration(
               color: Color(0xFF00A884),
               borderRadius: BorderRadius.all(Radius.circular(AppSize.getSize(30))),

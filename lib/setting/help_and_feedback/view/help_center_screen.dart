@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/setting/account_screen/view/learn_more_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/accounts_and_account_bans_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/business_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/channles_screen.dart';
 import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/connect_businesses_screen.dart';
 import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/get_started_screen.dart';
 import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/help_chats_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/help_communities_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/payments_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/privacy_safety_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/search_help_center_screen.dart';
+import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/show_more_screen.dart';
 import 'package:whatsapp_clone_getx/setting/help_and_feedback/help_center/view/voice_and_video_calls_screen.dart';
+import 'package:whatsapp_clone_getx/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -86,12 +95,12 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => SearchHelpCenterScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SearchHelpCenterScreen(),
+                        ),
+                      );
                     },
                     child: Row(
                       children: [
@@ -99,7 +108,7 @@ class HelpCenterScreen extends StatelessWidget {
                           height: AppSize.getSize(45),
                           width: MediaQuery.of(context).size.width * AppSize.getSize(0.88),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.greyColor, width: AppSize.getSize(1.5)),
+                            border: Border.all(color: AppColors.greyColor, width: AppSize.getSize(1)),
                             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                           ),
                           child: Padding(
@@ -186,48 +195,48 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => HelpCommunitiesScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HelpCommunitiesScreen(),
+                        ),
+                      );
                     },
                     child: appInfo("Communities", Icons.groups_2),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => ChannlesScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChannlesScreen(),
+                        ),
+                      );
                     },
                     child: appInfo("Channels", Icons.contactless_rounded),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => PrivacySafetyScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PrivacySafetyScreen(),
+                        ),
+                      );
                     },
                     child: appInfo("Privacy, Safety, and Security", Icons.lock),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => AccountsAndAccountBansScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AccountsAndAccountBansScreen(),
+                        ),
+                      );
                     },
                     child: appInfo(
                       "Accounts and Account Bans",
@@ -237,24 +246,24 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => PaymentsScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaymentsScreen(),
+                        ),
+                      );
                     },
                     child: appInfo("Payments", Icons.payment),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => BusinessScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BusinessScreen(),
+                        ),
+                      );
                     },
                     child: appInfo("WhatsApp for Business", Icons.add_call),
                   ),
@@ -292,12 +301,12 @@ class HelpCenterScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: AppSize.getSize(50)),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ShowMoreScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowMoreScreen(),
+                          ),
+                        );
                       },
                       child: Row(
                         children: [
@@ -313,205 +322,12 @@ class HelpCenterScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppSize.getSize(40)),
+                  SizedBox(height: AppSize.getSize(50)),
                 ],
               ),
             ),
           ),
-          Positioned(
-            right: AppSize.getSize(20),
-            bottom: AppSize.getSize(20),
-            child: InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  backgroundColor: AppColors.greyShade900,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(AppSize.getSize(20)),
-                    ),
-                  ),
-                  builder: (context) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: AppSize.getSize(25),
-                        vertical: AppSize.getSize(10),
-                      ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: AppSize.getSize(5),
-                              width: AppSize.getSize(40),
-                              decoration: BoxDecoration(
-                                color: AppColors.greyColor,
-                                borderRadius: BorderRadius.circular(AppSize.getSize(20)),
-                              ),
-                            ),
-                            SizedBox(height: AppSize.getSize(30)),
-                            Icon(
-                              Icons.help,
-                              size: AppSize.getSize(50),
-                              color: AppColors.greenAccentShade700,
-                            ),
-                            SizedBox(height: AppSize.getSize(30)),
-                            Text(
-                              "Get help from official Whatsapp Support",
-                              style: TextStyle(
-                                color: AppColors.whiteColor,
-                                fontWeight: FontWeight.w600,
-                                fontSize: AppSize.getSize(25),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: AppSize.getSize(30)),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.security,
-                                  size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
-                                ),
-                                SizedBox(width: AppSize.getSize(20)),
-                                Text(
-                                  "Secure chat with WhatsApp",
-                                  style: TextStyle(
-                                    color: AppColors.whiteColor,
-                                    fontSize: AppSize.getSize(18),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: AppSize.getSize(25)),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.switch_access_shortcut_add_outlined,
-                                  size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
-                                ),
-                                SizedBox(width: AppSize.getSize(20)),
-                                Text(
-                                  "Answers may be AI generated",
-                                  style: TextStyle(
-                                    color: AppColors.whiteColor,
-                                    fontSize: AppSize.getSize(18),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: AppSize.getSize(25)),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.thumb_up_alt_outlined,
-                                  size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
-                                ),
-                                SizedBox(width: AppSize.getSize(20)),
-                                Text(
-                                  "Help us improve with feedback",
-                                  style: TextStyle(
-                                    color: AppColors.whiteColor,
-                                    fontSize: AppSize.getSize(18),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: AppSize.getSize(20)),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text:
-                                        "Some answers are generated by AI using a secure technology from Meta. WhatsApp uses your messages with WhatsApp Support to provide you with relevant answers. Your personal messages and calls remain end-to-end encrypted. ",
-                                    style: TextStyle(
-                                      color: AppColors.greyShade400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "Learn more",
-                                    style: TextStyle(
-                                      color: AppColors.blueshade500,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: AppSize.getSize(30)),
-                            Container(
-                              height: AppSize.getSize(40),
-                              decoration: BoxDecoration(
-                                color: AppColors.greenAccentShade700,
-                                borderRadius: BorderRadius.circular(AppSize.getSize(20)),
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Start chat",
-                                style: TextStyle(
-                                  fontSize: AppSize.getSize(15),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: AppSize.getSize(15)),
-                            InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Not now",
-                                    style: TextStyle(
-                                      color: AppColors.greenAccentShade700,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AppSize.getSize(15),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-              child: Container(
-                height: AppSize.getSize(55),
-                width: AppSize.getSize(150),
-                decoration: BoxDecoration(
-                  color: AppColors.greenAccentShade700,
-                  borderRadius: BorderRadius.circular(AppSize.getSize(15)),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(left: AppSize.getSize(15)),
-                  child: Row(
-                    children: [
-                      Icon(Icons.help_center, size: AppSize.getSize(20)),
-                      SizedBox(width: AppSize.getSize(10)),
-                      Text(
-                        "Contact us",
-                        style: TextStyle(
-                          fontSize: AppSize.getSize(16),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+         CommonContactUsButton(),
         ],
       ),
     );

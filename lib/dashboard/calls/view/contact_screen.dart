@@ -191,10 +191,10 @@ class _ContactScreenState extends State<ContactScreen> {
             ),
             Icon(
               Icons.qr_code,
-              size: AppSize.getSize(25),
+              size: AppSize.getSize(30),
               color: AppColors.whiteColor,
             ),
-            SizedBox(width: AppSize.getSize(30)),
+            SizedBox(width: AppSize.getSize(25)),
           ],
         ),
       ],

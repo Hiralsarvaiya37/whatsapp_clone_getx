@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/setting/privacy_screen/privacy_checkup_screen/privacy_checkup_screen3.dart';
+import 'package:whatsapp_clone_getx/setting/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen3.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen1.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen2.dart';
 import 'package:whatsapp_clone_getx/setting/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen4.dart';

@@ -4,10 +4,12 @@ import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/app_updates_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/avatar_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/broadcasts_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/chats_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/help_and_feedback_screen.dart';
+import 'package:whatsapp_clone_getx/setting/view/invite_friend_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/lists_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/notifications_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/privacy_screen.dart';
@@ -266,20 +268,20 @@ class SettingScreen extends StatelessWidget {
                         );
                       }
                       if (item.titles == "Invite a friend") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => InviteFriendScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => InviteFriendScreen(),
+                          ),
+                        );
                       }
                       if (item.titles == "App updates") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AppUpdatesScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AppUpdatesScreen(),
+                          ),
+                        );
                       }
                     },
                   );

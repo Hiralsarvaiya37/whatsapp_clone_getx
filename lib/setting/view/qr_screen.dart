@@ -131,7 +131,7 @@ class _QrScreenState extends State<QrScreen>
                   ],
                 ),
                 Positioned(
-                  top: AppSize.getSize(115),
+                  top: AppSize.getSize(100),
                   left: AppSize.getSize(0),
                   right: AppSize.getSize(0),
                   child: CircleAvatar(

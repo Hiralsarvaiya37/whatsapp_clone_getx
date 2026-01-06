@@ -159,8 +159,6 @@ class CallsviewScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: AppSize.getSize(20)),
-
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -218,7 +216,7 @@ class CallsviewScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(20)),
+                separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(25)),
               ),
             ],
           ),

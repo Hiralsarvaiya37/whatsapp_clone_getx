@@ -83,7 +83,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               "Turn on",
-              style: TextStyle(color: AppColors.blackColor, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: AppColors.blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
             ),
           ),
         ),

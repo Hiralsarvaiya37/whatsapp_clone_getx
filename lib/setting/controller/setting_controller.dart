@@ -7,16 +7,19 @@ class SettingController extends GetxController {
   RxBool ison2 = false.obs;
   RxBool ison3 = false.obs;
   RxBool isYes = false.obs;
-  RxBool  isShow = false.obs;
-  RxBool  showIcon = false.obs;
-  RxString  selectedoption = "Default".obs;
+  RxBool isShow = false.obs;
+  RxBool isShow1 = true.obs;
+  RxBool isShow2 = false.obs;
+   RxBool isShow3 = true.obs;
+  RxBool showIcon = false.obs;
+  RxString selectedoption = "Default".obs;
   RxString selectedFontSize = "Medium".obs;
   RxString selectedTheme = "System default".obs;
   RxString selectedoption1 = "White".obs;
-   Rx<Language?> selectedLanguage = Rx<Language?>(null);
+  Rx<Language?> selectedLanguage = Rx<Language?>(null);
   RxList<Language> allLanguages = LanguageInfoPlus.languages.obs;
-   RxList<bool> isOn4 = List.generate(9, (_) => false).obs;
-     RxMap<String, bool> selectedItems = {
+  RxList<bool> isOn4 = List.generate(9, (_) => false).obs;
+  RxMap<String, bool> selectedItems = {
     "Photos": false,
     "Audio": false,
     "Videos": false,
@@ -29,7 +32,7 @@ class SettingController extends GetxController {
     selectedLanguage.value = LanguageInfoPlus.deviceLanguage;
   }
 
-  void changeLanguage(Language lang){
+  void changeLanguage(Language lang) {
     selectedLanguage.value = lang;
   }
 }
