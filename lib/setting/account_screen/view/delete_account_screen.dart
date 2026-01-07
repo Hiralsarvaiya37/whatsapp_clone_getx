@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/state_manager.dart';
+import 'package:whatsapp_clone_getx/setting/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/setting/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:country_picker/country_picker.dart';
 
 class DeleteAccountScreen extends StatelessWidget {
-  const DeleteAccountScreen({super.key});
+  DeleteAccountScreen({super.key});
+  final AccountViewController deleteController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,11 @@ class DeleteAccountScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
         ),
         title: Text(
           "Delete this account",
@@ -30,7 +39,10 @@ class DeleteAccountScreen extends StatelessWidget {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(20),
+            vertical: AppSize.getSize(20),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -117,7 +129,9 @@ class DeleteAccountScreen extends StatelessWidget {
                           width: AppSize.getSize(170),
                           decoration: BoxDecoration(
                             color: AppColors.greenAccentShade700,
-                            borderRadius: BorderRadius.circular(AppSize.getSize(25)),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(25),
+                            ),
                           ),
                           alignment: Alignment.center,
                           child: Text(
@@ -136,13 +150,16 @@ class DeleteAccountScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(40)),
 
               Padding(
-                padding:  EdgeInsets.only(left: AppSize.getSize(50)),
+                padding: EdgeInsets.only(left: AppSize.getSize(50)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "To delete your account, confirm your country code and enter your phone number.",
-                      style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(16)),
+                      style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: AppSize.getSize(16),
+                      ),
                     ),
                     SizedBox(height: AppSize.getSize(25)),
                     Text(
@@ -153,84 +170,134 @@ class DeleteAccountScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: AppSize.getSize(5)),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "India",
-                            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_drop_down,
-                          size: AppSize.getSize(25),
-                          color: AppColors.greyShade400,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: AppSize.getSize(3)),
+
                     Container(
+                      padding: EdgeInsets.only(bottom: AppSize.getSize(6)),
                       decoration: BoxDecoration(
                         border: Border(
-                          bottom: BorderSide(color: AppColors.greyShade400),
+                          bottom: BorderSide(
+                            color: AppColors.greyColor,
+                            width: 1,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppSize.getSize(30)),
-                    Text(
-                      "Phone",
-                      style: TextStyle(
-                        color: AppColors.greyShade400,
-                        fontSize: AppSize.getSize(14),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                showCountryPicker(
+                                  context: context,
+                                  showPhoneCode: false,
+                                  countryListTheme: CountryListThemeData(
+                                    backgroundColor: AppColors.blackColor,
+                                    textStyle: TextStyle(
+                                      color: AppColors.whiteColor,
+                                      fontSize: 16,
+                                    ),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                    ),
+                                    inputDecoration: InputDecoration(
+                                      labelText: 'Search',
+                                      labelStyle: TextStyle(color: AppColors.greyShade400,),
+                                      prefixIcon: Icon(
+                                        Icons.search,
+                                        color: AppColors.greyShade400,
+                                      ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: AppColors.greyShade400
+                                        ),
+                                      ),
+                                      focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: AppColors.greenAccentShade700,
+                                          width: 1.5
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  onSelect: (Country country) {
+                                    deleteController.selectedCountry.value =
+                                        country;
+                                  },
+                                );
+                              },
+                              child: Obx(() {
+                                final country =
+                                    deleteController.selectedCountry.value;
+                                return Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        country?.name ?? "India",
+                                        style: TextStyle(
+                                          color: AppColors.whiteColor,
+                                          fontSize: AppSize.getSize(18),
+                                        ),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      size: AppSize.getSize(25),
+                                      color: AppColors.greyShade400,
+                                    ),
+                                  ],
+                                );
+                              }),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: AppSize.getSize(7)),
+
+                    SizedBox(height: AppSize.getSize(30)),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: AppSize.getSize(45),
-                              child: TextField(
-                                keyboardType: TextInputType.phone,
-                                cursorColor: AppColors.greenAccentShade700,
-                                style: TextStyle(
-                                  color: AppColors.whiteColor,
+                        SizedBox(
+                          width: AppSize.getSize(55),
+                          child: Obx(() {
+                            final country =
+                                deleteController.selectedCountry.value;
 
-                                  fontSize: AppSize.getSize(18),
+                            return TextField(
+                              readOnly: true,
+                              style: TextStyle(
+                                color: AppColors.whiteColor,
+                                fontSize: AppSize.getSize(18),
+                              ),
+                              decoration: InputDecoration(
+                                hintText: country != null
+                                    ? "+${country.phoneCode}"
+                                    : "+91",
+                                hintStyle: TextStyle(
+                                  color: AppColors.whiteColor,
                                 ),
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.zero,
-                                  isDense: true,
-                                  hintText: "+91",
-                                  hintStyle: TextStyle(color: AppColors.whiteColor),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: AppColors.greyColor,
-                                      width: AppSize.getSize(1.3),
-                                    ),
+                                contentPadding: EdgeInsets.zero,
+                                isDense: true,
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: AppColors.greyColor,
                                   ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: AppColors.greenAccentShade700,
-                                      width: AppSize.getSize(2),
-                                    ),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: AppColors.greenAccentShade700,
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            );
+                          }),
                         ),
-
-                        SizedBox(width: AppSize.getSize(15)),
-
+                        SizedBox(width: 10),
                         Expanded(
                           child: TextField(
                             keyboardType: TextInputType.phone,
                             cursorColor: AppColors.greenAccentShade700,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: AppColors.whiteColor),
                             decoration: InputDecoration(
                               hintText: "Phone number",
                               hintStyle: TextStyle(color: AppColors.greyColor),
@@ -260,7 +327,9 @@ class DeleteAccountScreen extends StatelessWidget {
                       width: AppSize.getSize(140),
                       decoration: BoxDecoration(
                         color: AppColors.redShade600,
-                        borderRadius: BorderRadius.circular(AppSize.getSize(25)),
+                        borderRadius: BorderRadius.circular(
+                          AppSize.getSize(25),
+                        ),
                       ),
                       alignment: Alignment.center,
                       child: Text(
@@ -268,7 +337,7 @@ class DeleteAccountScreen extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    SizedBox(height: AppSize.getSize(40))
+                    SizedBox(height: AppSize.getSize(40)),
                   ],
                 ),
               ),

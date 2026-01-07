@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:country_picker/country_picker.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -21,6 +22,7 @@ class AccountViewController extends GetxController {
   late VideoPlayerController videoController;
   RxBool isInitialized = false.obs;
   RxBool isPlaying = false.obs;
+ Rx<Country?> selectedCountry = Rx<Country?>(null);
 
   @override
   void onInit() {
