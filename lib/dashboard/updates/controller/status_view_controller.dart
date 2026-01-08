@@ -12,8 +12,12 @@ class StatusViewController extends GetxController
   StatusViewController(this.statusList);
 
   late PageController pageController;
+
   AnimationController? progressController;
-  VideoPlayerController? videoController;
+
+  final Rx<VideoPlayerController?> videoController = Rx<VideoPlayerController?>(
+    null,
+  );
 
   RxInt currentIndex = 0.obs;
 
@@ -26,38 +30,45 @@ class StatusViewController extends GetxController
 
   void _loadStatus(int index) async {
     progressController?.dispose();
-    videoController?.dispose();
+    videoController.value?.dispose();
+    videoController.value = null;
 
     currentIndex.value = index;
     final item = statusList[index];
 
     if (item.type == StatusType.image) {
-      progressController = AnimationController(
-        vsync: this,
-        duration: const Duration(seconds: 3),
-      )
-        ..addListener(update)
-        ..addStatusListener((status) {
-          if (status == AnimationStatus.completed) nextStatus();
-        })
-        ..forward();
+      progressController =
+          AnimationController(vsync: this, duration: const Duration(seconds: 3))
+            ..addListener(update)
+            ..addStatusListener((status) {
+              if (status == AnimationStatus.completed) {
+                nextStatus();
+              }
+            })
+            ..forward();
     } else {
-      videoController = VideoPlayerController.file(item.file);
-      await videoController!.initialize();
-      videoController!.play();
+      final vc = VideoPlayerController.file(item.file);
+      await vc.initialize();
+      vc.play();
 
-      progressController = AnimationController(
-        vsync: this,
-        duration: videoController!.value.duration,
-      )
-        ..addListener(update)
-        ..addStatusListener((status) {
-          if (status == AnimationStatus.completed) nextStatus();
-        })
-        ..forward();
+      videoController.value = vc;
+
+      progressController =
+          AnimationController(vsync: this, duration: vc.value.duration)
+            ..addListener(update)
+            ..addStatusListener((status) {
+              if (status == AnimationStatus.completed) {
+                nextStatus();
+              }
+            })
+            ..forward();
     }
 
     update();
+  }
+
+  void onPageChanged(int index) {
+    _loadStatus(index);
   }
 
   void nextStatus() {
@@ -71,14 +82,10 @@ class StatusViewController extends GetxController
     }
   }
 
-  void onPageChanged(int index) {
-    _loadStatus(index);
-  }
-
   @override
   void onClose() {
     progressController?.dispose();
-    videoController?.dispose();
+    videoController.value?.dispose();
     pageController.dispose();
     super.onClose();
   }

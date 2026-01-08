@@ -9,10 +9,7 @@ import 'package:whatsapp_clone_getx/dashboard/updates/controller/updateview_cont
 class StatusViewScreen extends StatelessWidget {
   final List<StatusItem> statusList;
 
-  const StatusViewScreen({
-    super.key,
-    required this.statusList,
-  });
+  const StatusViewScreen({super.key, required this.statusList});
 
   @override
   Widget build(BuildContext context) {
@@ -32,28 +29,30 @@ class StatusViewScreen extends StatelessWidget {
                   final item = statusList[index];
 
                   if (item.type == StatusType.image) {
-                    return Image.file(
-                      item.file,
-                      fit: BoxFit.contain,
+                    return Center(
+                      child: Image.file(item.file, fit: BoxFit.contain),
                     );
-                  } else {
-                    final video = controller.videoController;
+                  }
+
+                  return Obx(() {
+                    final video = controller.videoController.value;
+
                     if (video == null || !video.value.isInitialized) {
                       return const Center(
                         child: CircularProgressIndicator(color: Colors.white),
                       );
                     }
+
                     return Center(
                       child: AspectRatio(
                         aspectRatio: video.value.aspectRatio,
                         child: VideoPlayer(video),
                       ),
                     );
-                  }
+                  });
                 },
               ),
 
-              /// PROGRESS BAR
               Positioned(
                 top: 40,
                 left: 8,
@@ -73,8 +72,8 @@ class StatusViewScreen extends StatelessWidget {
                           widthFactor: index < controller.currentIndex.value
                               ? 1
                               : index == controller.currentIndex.value
-                                  ? controller.progressController?.value ?? 0
-                                  : 0,
+                              ? controller.progressController?.value ?? 0
+                              : 0,
                           child: Container(color: Colors.white),
                         ),
                       ),
@@ -83,7 +82,6 @@ class StatusViewScreen extends StatelessWidget {
                 ),
               ),
 
-              /// BACK BUTTON
               Positioned(
                 top: 35,
                 left: 5,

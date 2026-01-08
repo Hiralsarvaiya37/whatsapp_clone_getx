@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:language_info_plus/language_info_plus.dart';
+import 'package:whatsapp_clone_getx/dashboard/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/setting/view/account_setting_screen.dart';
@@ -21,12 +24,33 @@ import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({super.key});
+  Future pickFromCamera() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+
+    if (photo != null) {
+      langController.statusList.add(
+        StatusItem(file: File(photo.path), type: StatusType.image),
+      );
+    }
+  }
+
+  Future pickFromGallery() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      langController.statusList.add(
+        StatusItem(file: File(image.path), type: StatusType.image),
+      );
+    }
+  }
 
   final SettingController langController = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       backgroundColor: AppColors.blackColor,
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
@@ -69,13 +93,50 @@ class SettingScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  ClipOval(
-                    child: Image.network(
-                      "https://images.astroyogi.com/strapicmsprod/assets/peacock_feather_astrological_remedies_728x409_1_df32d89b61_5e65b3c4bb.webp",
-                      height: AppSize.getSize(50),
-                      width: AppSize.getSize(50),
-                      fit: BoxFit.cover,
-                    ),
+                  Stack(
+                    children: [
+                      Obx(
+                        () => ClipOval(
+                          child: langController.statusList.isNotEmpty
+                              ? Image.file(
+                                  langController.statusList.last.file,
+                                  height: AppSize.getSize(55),
+                                  width: AppSize.getSize(55),
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.network(
+                                  "https://images.astroyogi.com/strapicmsprod/assets/peacock_feather_astrological_remedies_728x409_1_df32d89b61_5e65b3c4bb.webp",
+                                  height: AppSize.getSize(55),
+                                  width: AppSize.getSize(55),
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: InkWell(
+                          onTap: () => showImagePickerSheet(context),
+                          child: Container(
+                            height: AppSize.getSize(22),
+                            width: AppSize.getSize(22),
+                            decoration: BoxDecoration(
+                              color: AppColors.greenAccentShade700,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: AppColors.blackColor,
+                                width: AppSize.getSize(0.5),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.edit,
+                              size: AppSize.getSize(16),
+                              color: AppColors.blackColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(width: AppSize.getSize(20)),
 
@@ -701,5 +762,84 @@ class SettingScreen extends StatelessWidget {
         ),
       );
     });
+  }
+
+  void showImagePickerSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.greyShade900,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppSize.getSize(20)),
+        ),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(AppSize.getSize(20)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                  pickFromCamera();
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(AppSize.getSize(14)),
+                      decoration: BoxDecoration(
+                        color: AppColors.greenAccentShade700,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.camera_alt,
+                        color: AppColors.blackColor,
+                        size: AppSize.getSize(25),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Camera",
+                      style: TextStyle(color: AppColors.whiteColor),
+                    ),
+                  ],
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                  pickFromGallery();
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(AppSize.getSize(14)),
+                      decoration: BoxDecoration(
+                        color: AppColors.greenAccentShade700,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.photo,
+                        color: AppColors.blackColor,
+                        size: AppSize.getSize(25),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Gallery",
+                      style: TextStyle(color: AppColors.whiteColor),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

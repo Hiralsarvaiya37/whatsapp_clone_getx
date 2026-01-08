@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:get/state_manager.dart';
 import 'package:language_info_plus/language_info_plus.dart';
+import 'package:whatsapp_clone_getx/dashboard/updates/controller/updateview_controller.dart';
 
 class SettingController extends GetxController {
   RxBool isOn = false.obs;
@@ -34,5 +37,13 @@ class SettingController extends GetxController {
 
   void changeLanguage(Language lang) {
     selectedLanguage.value = lang;
+  }
+
+   RxList<StatusItem> statusList = <StatusItem>[].obs;
+
+  void addImage(File file) {
+    statusList.add(
+      StatusItem(file: file, type: StatusType.image),
+    );
   }
 }

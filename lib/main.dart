@@ -3,8 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_binding.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -13,6 +16,9 @@ void main() {
       statusBarIconBrightness: Brightness.light,
       statusBarBrightness: Brightness.dark,
     ),
+  );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(const MyApp());

@@ -114,40 +114,22 @@ class UpdateviewScreen extends StatelessWidget {
                                     width: 1,
                                   ),
                                 ),
-                                child: ClipOval(
-                                  child: hasStatus
-                                      ? Image.file(
-                                          controller.statusList.last.file,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : Image.network(
-                                          "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
-                                          fit: BoxFit.cover,
-                                        ),
-                                ),
+                                child: ClipOval(child: buildLastStatus()),
                               );
                             }),
                           ),
                         ),
 
                         Positioned(
-                          left: AppSize.getSize(1),
-                          top: AppSize.getSize(1),
-                          child: Obx(
-                            () => ClipOval(
-                              child: controller.statusList.isNotEmpty
-                                  ? Image.file(
-                                      controller.statusList.last.file,
-                                      height: AppSize.getSize(48),
-                                      width: AppSize.getSize(48),
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Image.network(
-                                      "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
-                                      height: AppSize.getSize(48),
-                                      width: AppSize.getSize(48),
-                                      fit: BoxFit.cover,
-                                    ),
+                          left: 1,
+                          top: 1,
+                          child: ClipOval(
+                            child: Obx(
+                              () => SizedBox(
+                                height: 48,
+                                width: 48,
+                                child: buildLastStatus(),
+                              ),
                             ),
                           ),
                         ),
@@ -165,7 +147,7 @@ class UpdateviewScreen extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: AppColors.blackColor,
-                                  width: AppSize.getSize(2),
+                                  width: AppSize.getSize(0.5),
                                 ),
                               ),
                               child: Icon(
@@ -712,5 +694,35 @@ class UpdateviewScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget buildLastStatus() {
+    if (controller.statusList.isEmpty) {
+      return SizedBox.expand(
+        child: Image.network(
+          "https://st2.depositphotos.com/1664950/9143/i/450/depositphotos_91434094-stock-photo-beautiful-flowers-and-butterflies.jpg",
+          fit: BoxFit.cover,
+        ),
+      );
+    }
+
+    final lastStatus = controller.statusList.last;
+
+    if (lastStatus.type == StatusType.image) {
+      return SizedBox.expand(
+        child: Image.file(
+          lastStatus.file,
+          fit: BoxFit.cover,
+          errorBuilder: (_, _, _) => Container(color: Colors.black),
+        ),
+      );
+    } else {
+      return Container(
+        color: Colors.black,
+        child: Center(
+          child: Icon(Icons.play_circle_fill, color: Colors.white, size: 35),
+        ),
+      );
+    }
   }
 }
