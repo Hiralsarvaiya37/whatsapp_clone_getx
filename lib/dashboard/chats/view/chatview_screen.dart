@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/dashboard/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -75,53 +76,58 @@ class ChatviewScreen extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
-                    child: Row(
-                      children: [
-                        ClipOval(
-                          child: Image.network(
-                            "https://thumbs.dreamstime.com/b/two-ladybugs-orange-spring-flower-flight-insect-artistic-macro-image-concept-spring-summer-two-ladybugs-orange-125140826.jpg",
-                            height: AppSize.getSize(50),
-                            width: AppSize.getSize(50),
-                            fit: BoxFit.cover,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatMessagesScreen()));
+                      },
+                      child: Row(
+                        children: [
+                          ClipOval(
+                            child: Image.network(
+                              "https://thumbs.dreamstime.com/b/two-ladybugs-orange-spring-flower-flight-insect-artistic-macro-image-concept-spring-summer-two-ladybugs-orange-125140826.jpg",
+                              height: AppSize.getSize(50),
+                              width: AppSize.getSize(50),
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: AppSize.getSize(20)),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          SizedBox(width: AppSize.getSize(20)),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "gyssbhuhduhebehdbb",
+                                  style: TextStyle(
+                                    color: AppColors.whiteColor,
+                                    fontSize: AppSize.getSize(18),
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  "123548856514",
+                                  style: TextStyle(color: AppColors.greyShade400),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                "gyssbhuhduhebehdbb",
-                                style: TextStyle(
-                                  color: AppColors.whiteColor,
-                                  fontSize: AppSize.getSize(18),
-                                ),
-                                overflow: TextOverflow.ellipsis,
+                                "11:11",
+                                style: TextStyle(color: AppColors.whiteColor),
                               ),
-                              Text(
-                                "123548856514",
-                                style: TextStyle(color: AppColors.greyShade400),
-                                overflow: TextOverflow.ellipsis,
+                              SizedBox(height: 5),
+                              Icon(
+                                Icons.push_pin,
+                                color: AppColors.whiteColor,
+                                size: AppSize.getSize(18),
                               ),
                             ],
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              "11:11",
-                              style: TextStyle(color: AppColors.whiteColor),
-                            ),
-                            SizedBox(height: 5),
-                            Icon(
-                              Icons.push_pin,
-                              color: AppColors.whiteColor,
-                              size: AppSize.getSize(18),
-                            ),
-                          ],
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   separatorBuilder: (_, _) =>
