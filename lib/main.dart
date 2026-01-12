@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/splash/view/splash_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_binding.dart';
+import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:whatsapp_clone_getx/utils/app_router.dart';
 import 'firebase_options.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
@@ -17,9 +16,7 @@ void main() async{
       statusBarBrightness: Brightness.dark,
     ),
   );
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: AppBinding(),
+      // initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
@@ -47,7 +44,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      home: SplashScreen(),
+      initialRoute: SplashScreen.id,
+      getPages: AppRouter.appRoute,
       builder: (context, child) {
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(

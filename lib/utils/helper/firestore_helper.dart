@@ -6,7 +6,6 @@ class FirestoreHelper {
   Future<void> addNewUser({
     required String name,
     required String emailOrNum,
-    required String pass,
     required String uuid,
     required void Function() sucess,
     required void Function() onError,
@@ -14,7 +13,7 @@ class FirestoreHelper {
     await db
         .collection("user")
         .doc()
-        .set({"name": name, "emailOrNum": emailOrNum, "pass": pass})
+        .set({"name": name, "emailOrNum": emailOrNum,})
         .then((value) {
           sucess();
         })

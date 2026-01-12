@@ -1,0 +1,89 @@
+import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
+
+class ChangeNumberScreen extends StatelessWidget {
+  static const id="/ChangeNumberScreen";
+  const ChangeNumberScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.blackColor,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+        ),
+        backgroundColor: AppColors.blackColor,
+        title: Text(
+          "Change number",
+          style: TextStyle(
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(23),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(30), vertical: AppSize.getSize(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.upload_file_rounded,
+                  size: AppSize.getSize(70),
+                  color: AppColors.greenAccentShade700,
+                ),
+                Text(
+                  "...",
+                  style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(40)),
+                ),
+                Icon(
+                  Icons.upload_file_rounded,
+                  size: AppSize.getSize(70),
+                  color: AppColors.greenAccentShade100,
+                ),
+              ],
+            ),
+            SizedBox(height: AppSize.getSize(40)),
+            Text(
+              "Changing your phone number will migrate your account info, groups & settings.",
+              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(20)),
+            ),
+            SizedBox(height: AppSize.getSize(15)),
+            Text(
+              "Before proceeding, please confirm that you are able to receive SMS calls at your new number.",
+              style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+            ),
+            SizedBox(height: AppSize.getSize(15)),
+            Text(
+              "If you have both a new phone & a new number, first change your number on your old phone.",
+              style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: AppColors.blackColor,
+        child: Center(
+          child: Container(
+            height: AppSize.getSize(43),
+            width: AppSize.getSize(90),
+            decoration: BoxDecoration(
+              color: AppColors.greenAccentShade700,
+              borderRadius: BorderRadius.circular(AppSize.getSize(25)),
+            ),
+            alignment: Alignment.center,
+            child: Text("Next", style: TextStyle(color: AppColors.blackColor,fontWeight: FontWeight.w500)),
+          ),
+        ),
+      ),
+    );
+  }
+}
