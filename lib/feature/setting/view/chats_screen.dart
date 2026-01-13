@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/chats_screen/view/chat_backup_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/chats_screen/view/chat_history_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/chats_screen/view/chat_theme_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/chats_screen/view/transfer_chat_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_history_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -171,10 +171,7 @@ class ChatsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChatThemeScreen()),
-                  );
+                Get.toNamed(ChatThemeScreen.id);
                 },
                 child: Row(
                   children: [
@@ -258,24 +255,14 @@ class ChatsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => TransferChatScreen(),
-                    ),
-                  );
+                   Get.toNamed(TransferChatScreen.id);
                 },
                 child: chatInfo("Transfer chats", Icons.send_to_mobile_rounded),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChatHistoryScreen(),
-                    ),
-                  );
+                    Get.toNamed(ChatHistoryScreen.id);
                 },
                 child: chatInfo("Chat history", Icons.replay_outlined),
               ),

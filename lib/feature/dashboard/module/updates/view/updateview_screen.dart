@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
@@ -10,6 +9,7 @@ import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class UpdateviewScreen extends StatelessWidget {
+  static const id = "/UpdateviewScreen";
   UpdateviewScreen({super.key});
 
   final UpdateviewController controller = Get.put(UpdateviewController());
@@ -70,14 +70,8 @@ class UpdateviewScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   if (controller.statusList.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StatusViewScreen(
-                          statusList: controller.statusList.toList(),
-                        ),
-                      ),
-                    );
+                   
+                    Get.toNamed(StatusViewScreen.id,arguments: controller.statusList.toList());
                   } else {
                     showImagePickerSheet(context);
                   }

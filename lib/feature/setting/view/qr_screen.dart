@@ -3,6 +3,7 @@ import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class QrScreen extends StatefulWidget {
+  static const id = "/QrScreen";
   const QrScreen({super.key});
 
   @override

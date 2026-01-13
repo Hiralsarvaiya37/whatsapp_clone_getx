@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/Storage_and_data/view/manage_storage_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/Storage_and_data/view/network_usage_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/Storage_and_data/view/proxy_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -41,12 +41,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ManageStorageScreen(),
-                    ),
-                  );
+                 Get.toNamed(ManageStorageScreen.id);
                 },
                 child: appTile(
                   "Manage storage",
@@ -58,12 +53,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NetworkUsageScreen(),
-                    ),
-                  );
+                   Get.toNamed(NetworkUsageScreen.id);
                 },
                 child: appTile(
                   "Network usage",
@@ -111,10 +101,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProxyScreen()),
-                  );
+                 Get.toNamed(ProxyScreen.id);
                 },
                 child: appTile("Proxy", "Off"),
               ),

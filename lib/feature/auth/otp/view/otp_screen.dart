@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_controller.dart';
 
 class OtpScreen extends GetView<OtpController> {
-  static const id ="/OtpScreen";
+  static const id = "/OtpScreen";
   const OtpScreen({super.key});
 
   @override
@@ -21,7 +21,10 @@ class OtpScreen extends GetView<OtpController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              controller:controller. otpController,
+              onTapOutside: (event) {
+                FocusScope.of(context).unfocus();
+              },
+              controller: controller.otpController,
               decoration: InputDecoration(
                 hintText: "Enter the Otp",
                 prefixIcon: Icon(Icons.phone),
@@ -34,7 +37,7 @@ class OtpScreen extends GetView<OtpController> {
           SizedBox(height: 30),
           ElevatedButton(
             onPressed: () async {
-            controller.onOtpPress();
+              controller.onOtpPress();
             },
             child: Text("OTP"),
           ),

@@ -23,7 +23,7 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
 
 class SettingScreen extends GetView<SettingController> {
-   static const id ="/SettingScreen";
+  static const id = "/SettingScreen";
   SettingScreen({super.key});
   Future pickFromCamera() async {
     final ImagePicker picker = ImagePicker();
@@ -51,7 +51,7 @@ class SettingScreen extends GetView<SettingController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
+    return Scaffold(
       backgroundColor: AppColors.blackColor,
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
@@ -178,10 +178,7 @@ class SettingScreen extends GetView<SettingController> {
 
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QrScreen()),
-                      );
+                     Get.toNamed(QrScreen.id);
                     },
                     child: Icon(
                       Icons.qr_code,
@@ -237,12 +234,11 @@ class SettingScreen extends GetView<SettingController> {
 
                     onTap: () {
                       if (item.titles == "Account") {
-                       Get.toNamed(AccountSettingScreen.id);
+                        Get.toNamed(AccountSettingScreen.id);
                       }
 
                       if (item.titles == "Privacy") {
-                       Get.toNamed(PrivacyScreen.id);
-
+                        Get.toNamed(PrivacyScreen.id);
                       }
 
                       if (item.titles == "Avatar") {
@@ -250,7 +246,7 @@ class SettingScreen extends GetView<SettingController> {
                       }
 
                       if (item.titles == "Lists") {
-                       Get.toNamed(ListsScreen.id);
+                        Get.toNamed(ListsScreen.id);
                       }
 
                       if (item.titles == "Chat") {
@@ -266,25 +262,25 @@ class SettingScreen extends GetView<SettingController> {
                       }
 
                       if (item.titles == "Storage and data") {
-                          Get.toNamed(StorageAndDataScreen.id);
+                        Get.toNamed(StorageAndDataScreen.id);
                       }
 
                       if (item.titles == "Accessibility") {
-                         Get.toNamed(AccessibilityScreen.id);
+                        Get.toNamed(AccessibilityScreen.id);
+                      }
 
                       if (item.titles == "App language") {
                         openModalSheet(context);
                       }
 
                       if (item.titles == "Help and feedback") {
-                          Get.toNamed(HelpAndFeedbackScreen.id);
+                        Get.toNamed(HelpAndFeedbackScreen.id);
                       }
                       if (item.titles == "Invite a friend") {
-                         Get.toNamed(InviteFriendScreen.id);
+                        Get.toNamed(InviteFriendScreen.id);
                       }
                       if (item.titles == "App updates") {
-                         Get.toNamed(AppUpdatesScreen.id);
-                      }
+                        Get.toNamed(AppUpdatesScreen.id);
                       }
                     },
                   );

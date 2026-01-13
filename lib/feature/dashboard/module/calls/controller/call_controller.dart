@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
 class CallController extends GetxController {
@@ -20,7 +21,7 @@ class CallController extends GetxController {
   RxList<String> favorites = <String>[].obs;
   RxList<String> filteredFavoritesFrequently = <String>[].obs;
   RxList<String> filteredAllFav = <String>[].obs;
-
+  final TextEditingController searchController = TextEditingController();
   void changeValue(String value) {
     query.value = value.toLowerCase();
 
@@ -43,6 +44,60 @@ class CallController extends GetxController {
                 c["status"]!.toLowerCase().contains(query.value),
           )
           .toList();
+    }
+  }
+
+  @override
+  void onInit() {
+    frequentlyContacted.value = contacts.take(5).toList();
+    allContacts.value = contacts.skip(5).toList();
+    filteredFrequently.value = frequentlyContacted
+        .where(
+          (c) =>
+              c["name"]!.toLowerCase().contains(query.value.toLowerCase()) ||
+              c["status"]!.toLowerCase().contains(query.value.toLowerCase()),
+        )
+        .toList();
+
+    filteredAll.value = allContacts
+        .where(
+          (c) =>
+              c["name"]!.toLowerCase().contains(query.value.toLowerCase()) ||
+              c["status"]!.toLowerCase().contains(query.value.toLowerCase()),
+        )
+        .toList();
+    super.onInit();
+
+    
+    frequently.value = List.generate(5, (i) => "User ${i + 1}");
+    allFavoritesContacts.value = List.generate(
+      15,
+      (i) => "User ${i + 6}",
+    );
+    filteredFavoritesFrequently.value = List.from(frequently);
+    filteredAllFav.value = List.from(allFavoritesContacts);
+  }
+
+    void searchContacts(String query) {
+    if (query.isEmpty) {
+      filteredFavoritesFrequently.value = List.from(
+        frequently,
+      );
+      filteredAllFav.value = List.from(allFavoritesContacts);
+    } else {
+      filteredFavoritesFrequently.value = frequently
+          .where((c) => c.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+
+      filteredAllFav.value = allFavoritesContacts
+          .where((c) => c.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    }
+  }
+
+   void addToFavorites(String user) {
+    if (!favorites.contains(user)) {
+      favorites.add(user);
     }
   }
 }

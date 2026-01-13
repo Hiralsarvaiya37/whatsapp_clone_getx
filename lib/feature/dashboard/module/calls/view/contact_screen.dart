@@ -4,49 +4,9 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/ca
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-class ContactScreen extends StatefulWidget {
+class ContactScreen extends GetView<CallController> {
+  static const id = "/ContactScreen";
   const ContactScreen({super.key});
-
-  @override
-  State<ContactScreen> createState() => _ContactScreenState();
-}
-
-class _ContactScreenState extends State<ContactScreen> {
-  final CallController callcontroller = Get.find();
-
-  final TextEditingController searchController = TextEditingController();
-
-  @override
-  void initState() {
-    callcontroller.frequentlyContacted.value = callcontroller.contacts
-        .take(5)
-        .toList();
-    callcontroller.allContacts.value = callcontroller.contacts.skip(5).toList();
-    callcontroller.filteredFrequently.value = callcontroller.frequentlyContacted
-        .where(
-          (c) =>
-              c["name"]!.toLowerCase().contains(
-                callcontroller.query.value.toLowerCase(),
-              ) ||
-              c["status"]!.toLowerCase().contains(
-                callcontroller.query.value.toLowerCase(),
-              ),
-        )
-        .toList();
-
-    callcontroller.filteredAll.value = callcontroller.allContacts
-        .where(
-          (c) =>
-              c["name"]!.toLowerCase().contains(
-                callcontroller.query.value.toLowerCase(),
-              ) ||
-              c["status"]!.toLowerCase().contains(
-                callcontroller.query.value.toLowerCase(),
-              ),
-        )
-        .toList();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +23,10 @@ class _ContactScreenState extends State<ContactScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: TextField(
-          controller: searchController,
+          onTapOutside: (event) {
+            FocusScope.of(context).unfocus();
+          },
+          controller: controller.searchController,
           cursorColor: AppColors.greenAccentShade700,
           cursorWidth: 3,
           style: TextStyle(color: AppColors.whiteColor),
@@ -73,7 +36,7 @@ class _ContactScreenState extends State<ContactScreen> {
             border: InputBorder.none,
           ),
           onChanged: (value) {
-            callcontroller.changeValue(value);
+            controller.changeValue(value);
           },
         ),
         actions: [
@@ -93,7 +56,7 @@ class _ContactScreenState extends State<ContactScreen> {
         child: Obx(
           () => Column(
             children: [
-              if (callcontroller.query.value.isEmpty)
+              if (controller.query.value.isEmpty)
                 Container(
                   padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
                   decoration: BoxDecoration(
@@ -122,28 +85,28 @@ class _ContactScreenState extends State<ContactScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      if (callcontroller.query.value.isEmpty) ...[
+                      if (controller.query.value.isEmpty) ...[
                         menuTiles(),
                         SizedBox(height: AppSize.getSize(25)),
                       ],
 
-                      if (callcontroller.filteredFrequently.isNotEmpty)
+                      if (controller.filteredFrequently.isNotEmpty)
                         Obx(
                           () => contactListView(
                             title: "Frequently Contacted",
-                            list: callcontroller.filteredFrequently,
+                            list: controller.filteredFrequently,
                           ),
                         ),
 
                       SizedBox(height: AppSize.getSize(25)),
 
-                      if (callcontroller.filteredAll.isNotEmpty)
+                      if (controller.filteredAll.isNotEmpty)
                         Obx(
                           () => contactListView(
-                            title: callcontroller.query.value.isEmpty
+                            title: controller.query.value.isEmpty
                                 ? "All Contacts"
                                 : "Results",
-                            list: callcontroller.filteredAll,
+                            list: controller.filteredAll,
                           ),
                         ),
                     ],

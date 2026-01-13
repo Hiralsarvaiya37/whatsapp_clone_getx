@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/accessibility/view/animation_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -83,10 +83,7 @@ class AccessibilityScreen extends GetView<SettingController> {
             SizedBox(height: AppSize.getSize(40)),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AnimationScreen()),
-                );
+               Get.toNamed(AnimationScreen.id);
               },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

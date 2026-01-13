@@ -1,0 +1,175 @@
+import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_platform_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_troubleshooting.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/connecting_with_customers_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/premium_features_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/selling_products_and_services.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/setting_up_an_account_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
+import 'package:whatsapp_clone_getx/utils/app_colors.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart';
+
+class BusinessScreen extends StatelessWidget {
+  static const id = "/BusinessScreen";
+  const BusinessScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.blackColor,
+      appBar: AppBar(
+        backgroundColor: AppColors.blackColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
+        ),
+        title: Text(
+          "Help Center",
+          style: TextStyle(
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(23),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        actions: [
+          Icon(
+            Icons.search,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
+          SizedBox(width: AppSize.getSize(10)),
+          PopupMenuButton(
+            icon: Icon(
+              Icons.more_vert,
+              size: AppSize.getSize(25),
+              color: AppColors.whiteColor,
+            ),
+            color: AppColors.greyShade900,
+            offset: Offset(0, AppSize.getSize(45)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+            ),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text(
+                  "Open in browser",
+                  style: TextStyle(
+                    color: AppColors.whiteColor,
+                    fontSize: AppSize.getSize(16),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.getSize(20),
+              vertical: AppSize.getSize(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "WhatsApp for Business",
+                  style: TextStyle(
+                    color: AppColors.greyShade400,
+                    fontSize: AppSize.getSize(16),
+                  ),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                   Get.toNamed(SettingUpAnAccountScreen.id);
+                  },
+                  child: appInfo("Setting Up an Account", Icons.person_add),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(ConnectingWithCustomersScreen.id);
+                  },
+                  child: appInfo(
+                    "Connecting with Customers",
+                    Icons.group_outlined,
+                  ),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(SellingProductsAndServices.id);
+                  },
+                  child: appInfo(
+                    "Selling Products and Services",
+                    Icons.shopping_cart,
+                  ),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                   Get.toNamed(BusinessTroubleshooting.id);
+                  },
+                  child: appInfo("Troubleshooting", Icons.help),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                      Get.toNamed(PremiumFeaturesScreen.id);
+                  },
+                  child: appInfo(
+                    "WhatsApp Preminum Features",
+                    Icons.diamond_outlined,
+                  ),
+                ),
+                SizedBox(height: AppSize.getSize(30)),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(BusinessPlatformScreen.id);
+                  },
+                  child: appInfo(
+                    "WhatsApp Business Platform",
+                    Icons.business_center,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          CommonContactUsButton(),
+        ],
+      ),
+    );
+  }
+
+  Widget appInfo(String title, IconData icon) {
+    return Row(
+      children: [
+        Icon(
+          icon,
+          size: AppSize.getSize(25),
+          color: AppColors.greenAccentShade700,
+        ),
+        SizedBox(width: AppSize.getSize(25)),
+        Text(
+          title,
+          style: TextStyle(
+            color: AppColors.whiteColor,
+            fontSize: AppSize.getSize(18),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
+}

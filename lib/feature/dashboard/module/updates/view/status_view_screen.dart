@@ -7,6 +7,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 
 class StatusViewScreen extends StatelessWidget {
+  static const id = "/StatusViewScreen";
   final List<StatusItem> statusList;
 
   const StatusViewScreen({super.key, required this.statusList});

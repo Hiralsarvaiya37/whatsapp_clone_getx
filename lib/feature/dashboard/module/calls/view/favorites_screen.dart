@@ -4,51 +4,9 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/ca
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-class FavoritesScreen extends StatefulWidget {
+class FavoritesScreen extends GetView<CallController> {
+  static const id = "/FavoritesScreen";
   const FavoritesScreen({super.key});
-
-  @override
-  State<FavoritesScreen> createState() => _FavoritesScreenState();
-}
-
-class _FavoritesScreenState extends State<FavoritesScreen> {
-  TextEditingController searchController = TextEditingController();
- final CallController callCntr = Get.find();
-
-  @override
-  void initState() {
-    super.initState();
-    callCntr.frequently.value = List.generate(5, (i) => "User ${i + 1}");
-    callCntr.allFavoritesContacts.value = List.generate(
-      15,
-      (i) => "User ${i + 6}",
-    );
-    callCntr.filteredFavoritesFrequently.value = List.from(callCntr.frequently);
-    callCntr.filteredAllFav.value = List.from(callCntr.allFavoritesContacts);
-  }
-
-  void searchContacts(String query) {
-    if (query.isEmpty) {
-      callCntr.filteredFavoritesFrequently.value = List.from(
-        callCntr.frequently,
-      );
-      callCntr.filteredAllFav.value = List.from(callCntr.allFavoritesContacts);
-    } else {
-      callCntr.filteredFavoritesFrequently.value = callCntr.frequently
-          .where((c) => c.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-
-      callCntr.filteredAllFav.value = callCntr.allFavoritesContacts
-          .where((c) => c.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    }
-  }
-
-  void addToFavorites(String user) {
-    if (!callCntr.favorites.contains(user)) {
-      callCntr.favorites.add(user);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +24,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           ),
         ),
         title: TextField(
-          controller: searchController,
+          onTapOutside: (event) {
+                              FocusScope.of(context).unfocus();
+                            },
+          controller: controller.searchController,
           cursorColor: AppColors.greenAccentShade700,
           cursorWidth: 3,
-          onChanged: searchContacts,
+          onChanged: controller.searchContacts,
           style: TextStyle(
             color: AppColors.whiteColor,
             fontSize: AppSize.getSize(18),
@@ -98,12 +59,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
               sectionWidget(
                 "Frequently contacted",
-                callCntr.filteredFavoritesFrequently,
+                controller.filteredFavoritesFrequently,
               ),
 
               SizedBox(height: AppSize.getSize(30)),
 
-              sectionWidget("Contacts on WhatsApp", callCntr.filteredAllFav),
+              sectionWidget("Contacts on WhatsApp", controller.filteredAllFav),
             ],
           ),
         ),
@@ -127,12 +88,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
   Widget favoritesRow() {
     return Obx(() {
-      if (callCntr.favorites.isEmpty) return SizedBox();
+      if (controller.favorites.isEmpty) return SizedBox();
       return SizedBox(
         height: AppSize.getSize(90),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: callCntr.favorites.length,
+          itemCount: controller.favorites.length,
           itemBuilder: (context, index) => Column(
             children: [
               ClipOval(
@@ -145,7 +106,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               ),
               SizedBox(height: AppSize.getSize(5)),
               Text(
-                callCntr.favorites[index],
+                controller.favorites[index],
                 style: TextStyle(
                   color: AppColors.whiteColor,
                   fontSize: AppSize.getSize(14),
@@ -200,7 +161,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () => addToFavorites(list[index]),
+            onTap: () => controller.addToFavorites(list[index]),
             child: contactTile(list[index]),
           ),
           separatorBuilder: (context, index) =>

@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class CommunitiesviewScreen extends StatelessWidget {
-  const  CommunitiesviewScreen({super.key});
+  static const id = "/CommunitiesviewScreen";
+  const CommunitiesviewScreen({super.key});
 
-   
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20))),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.getSize(20),
+              vertical: AppSize.getSize(20),
+            ),
+          ),
 
           Row(
             children: [
@@ -20,7 +26,10 @@ class CommunitiesviewScreen extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(18), vertical: AppSize.getSize(14)),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSize.getSize(18),
+                      vertical: AppSize.getSize(14),
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.greyShade400,
                       borderRadius: BorderRadius.circular(AppSize.getSize(12)),
@@ -41,9 +50,16 @@ class CommunitiesviewScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppColors.greenAccentShade700,
                         shape: BoxShape.circle,
-                        border: Border.all(color: AppColors.blackColor, width: AppSize.getSize(2)),
+                        border: Border.all(
+                          color: AppColors.blackColor,
+                          width: AppSize.getSize(2),
+                        ),
                       ),
-                      child: Icon(Icons.add, size: AppSize.getSize(16), color: AppColors.blackColor),
+                      child: Icon(
+                        Icons.add,
+                        size: AppSize.getSize(16),
+                        color: AppColors.blackColor,
+                      ),
                     ),
                   ),
                 ],
@@ -90,12 +106,19 @@ class CommunitiesviewScreen extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(6)),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSize.getSize(10),
+                  vertical: AppSize.getSize(6),
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.greenColor,
                   borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                 ),
-                child: Icon(Icons.campaign, color: AppColors.whiteColor, size: AppSize.getSize(30)),
+                child: Icon(
+                  Icons.campaign,
+                  color: AppColors.whiteColor,
+                  size: AppSize.getSize(30),
+                ),
               ),
               SizedBox(width: AppSize.getSize(20)),
 
@@ -151,16 +174,11 @@ class CommunitiesviewScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CommunitiesviewScreen(),
-                        ),
-                      );
+                     Get.toNamed(CommunitiesviewScreen.id);
                     },
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
+                        Get.toNamed(CommunitiesScreen.id);
                       },
                       child: Row(
                         children: [
@@ -188,7 +206,9 @@ class CommunitiesviewScreen extends StatelessWidget {
                   Row(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                        borderRadius: BorderRadius.circular(
+                          AppSize.getSize(10),
+                        ),
                         child: Image.network(
                           "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
                           height: AppSize.getSize(60),
@@ -219,7 +239,9 @@ class CommunitiesviewScreen extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                           color: AppColors.greenColor,
-                          borderRadius: BorderRadius.circular(AppSize.getSize(12)),
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(12),
+                          ),
                         ),
                         child: Icon(
                           Icons.campaign,
@@ -309,11 +331,13 @@ class CommunitiesviewScreen extends StatelessWidget {
                 ],
               );
             },
-          separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(18),),),
+            separatorBuilder: (context, index) =>
+                SizedBox(height: AppSize.getSize(18)),
+          ),
           SizedBox(height: AppSize.getSize(18)),
           GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
+             Get.toNamed(CommunitiesScreen.id);
             },
             child: Row(
               children: [
@@ -326,12 +350,14 @@ class CommunitiesviewScreen extends StatelessWidget {
                 SizedBox(width: AppSize.getSize(28)),
                 Text(
                   "View all",
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(20)),
+                  style: TextStyle(
+                    color: AppColors.greyShade400,
+                    fontSize: AppSize.getSize(20),
+                  ),
                 ),
               ],
             ),
           ),
-          
         ],
       ),
     );

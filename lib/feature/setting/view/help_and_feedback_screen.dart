@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/feature/setting/help_and_feedback/view/app_info_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/help_and_feedback/view/channel_reports_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/help_and_feedback/view/help_center_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/help_and_feedback/view/send_feedback_screen.dart';
+import 'package:get/get.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/app_info_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/channel_reports_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/send_feedback_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -38,10 +39,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HelpCenterScreen()),
-                );
+               Get.toNamed(HelpCenterScreen.id);
               },
               child: appInfo(
                 "Help center",
@@ -53,10 +51,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SendFeedbackScreen()),
-                );
+               Get.toNamed(SendFeedbackScreen.id);
               },
               child: appInfo(
                 "Send feedback",
@@ -75,12 +70,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChannelReportsScreen(),
-                  ),
-                );
+                Get.toNamed(ChannelReportsScreen.id);
               },
               child: appInfo(
                 "Channel reports",
@@ -92,10 +82,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AppInfoScreen()),
-                );
+                 Get.toNamed(AppInfoScreen.id);
               },
               child: appInfo("App info", "", Icons.info_outline, isShow: false),
             ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/feature/setting/lists_screen/view/list_communities_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/lists_screen/view/list_favorites_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/lists_screen/view/list_groups_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/lists_screen/view/unread_screen.dart';
+import 'package:get/route_manager.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_communities_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_favorites_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/unread_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -212,33 +213,19 @@ class ListsScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(20)),
               appInfo("Unread", "Preset", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UnreadScreen()),
-                );
+               Get.toNamed(UnreadScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo("Favorites", "Add people or groups", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ListFavoritesScreen()),
-                );
+                Get.toNamed(ListFavoritesScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo("Groups", "Preset", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ListGroupsScreen()),
-                );
+                Get.toNamed(ListGroupsScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo("Communities", "Preset", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListCommunitiesScreen(),
-                  ),
-                );
+                 Get.toNamed(ListCommunitiesScreen.id);
               }),
               SizedBox(height: AppSize.getSize(40)),
               Row(

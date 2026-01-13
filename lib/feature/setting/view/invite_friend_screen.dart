@@ -20,7 +20,11 @@ class InviteFriendScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
         ),
         title: Text(
           "Invite a friend",
@@ -31,13 +35,20 @@ class InviteFriendScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          Icon(Icons.search,size: AppSize.getSize(25),color: AppColors.whiteColor),
-          SizedBox(width: AppSize.getSize(20))
+          Icon(
+            Icons.search,
+            size: AppSize.getSize(25),
+            color: AppColors.whiteColor,
+          ),
+          SizedBox(width: AppSize.getSize(20)),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(20),
+            vertical: AppSize.getSize(20),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,7 +61,10 @@ class InviteFriendScreen extends StatelessWidget {
                       color: AppColors.greenAccentShade700,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.share_outlined, size: AppSize.getSize(25)),
+                    child: Icon(
+                      Icons.share_outlined,
+                      size: AppSize.getSize(25),
+                    ),
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Text(
@@ -66,7 +80,10 @@ class InviteFriendScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "From contacts",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(
+                  color: AppColors.greyShade400,
+                  fontSize: AppSize.getSize(16),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
 
@@ -104,7 +121,9 @@ class InviteFriendScreen extends StatelessWidget {
                                   width: AppSize.getSize(35),
                                   decoration: BoxDecoration(
                                     color: AppColors.greyColor,
-                                    borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                                    borderRadius: BorderRadius.circular(
+                                      AppSize.getSize(10),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: AppSize.getSize(30)),
@@ -150,6 +169,9 @@ class InviteFriendScreen extends StatelessWidget {
                                 SizedBox(height: AppSize.getSize(20)),
 
                                 TextField(
+                                  onTapOutside: (event) {
+                                    FocusScope.of(context).unfocus();
+                                  },
                                   controller: messageController,
                                   cursorColor: AppColors.greenAccentShade700,
                                   enableInteractiveSelection: false,
@@ -175,14 +197,18 @@ class InviteFriendScreen extends StatelessWidget {
                                         color: AppColors.greyColor,
                                         width: AppSize.getSize(1),
                                       ),
-                                      borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                                      borderRadius: BorderRadius.circular(
+                                        AppSize.getSize(10),
+                                      ),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.greenAccentShade700,
                                         width: AppSize.getSize(1),
                                       ),
-                                      borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                                      borderRadius: BorderRadius.circular(
+                                        AppSize.getSize(10),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -191,7 +217,9 @@ class InviteFriendScreen extends StatelessWidget {
                                   height: AppSize.getSize(40),
                                   decoration: BoxDecoration(
                                     color: AppColors.greenAccentShade700,
-                                    borderRadius: BorderRadius.circular(AppSize.getSize(30)),
+                                    borderRadius: BorderRadius.circular(
+                                      AppSize.getSize(30),
+                                    ),
                                   ),
                                   alignment: Alignment.center,
                                   child: Text(
@@ -278,7 +306,8 @@ class InviteFriendScreen extends StatelessWidget {
                     ),
                   );
                 },
-                separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(25)),
+                separatorBuilder: (context, index) =>
+                    SizedBox(height: AppSize.getSize(25)),
               ),
             ],
           ),

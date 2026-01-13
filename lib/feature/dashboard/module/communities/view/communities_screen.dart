@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-void main() => runApp(MaterialApp(home: CommunitiesScreen()));
+// void main() => runApp(MaterialApp(home: CommunitiesScreen()));
 
 class CommunitiesScreen extends StatelessWidget {
+  static const id  = "/CommunitiesScreen";
   const CommunitiesScreen({super.key});
 
   @override

@@ -1,9 +1,0 @@
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/controller/privacy_view_controller.dart';
-
-class PrivacyViewBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => PrivacyViewController(),);
-  }
-}

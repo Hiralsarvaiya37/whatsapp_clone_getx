@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
 class ChatviewScreen extends StatelessWidget {
+  static const id = "/ChatviewScreen";
   ChatviewScreen({super.key});
 
   final List<String> filters = ["All", "Unread", "Favorites", "Groups", "+"];
@@ -15,6 +18,9 @@ class ChatviewScreen extends StatelessWidget {
       child: Column(
         children: [
           TextField(
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
             style: TextStyle(color: AppColors.whiteColor),
             cursorColor: AppColors.greenAccentShade700,
             decoration: InputDecoration(
@@ -78,7 +84,7 @@ class ChatviewScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatMessagesScreen()));
+                        Get.toNamed(ChatMessagesScreen.id);
                       },
                       child: Row(
                         children: [
@@ -105,7 +111,9 @@ class ChatviewScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   "123548856514",
-                                  style: TextStyle(color: AppColors.greyShade400),
+                                  style: TextStyle(
+                                    color: AppColors.greyShade400,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ],

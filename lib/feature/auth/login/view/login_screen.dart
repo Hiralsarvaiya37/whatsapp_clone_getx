@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
-  static const id ="/LoginScreen";
+  static const id = "/LoginScreen";
   const LoginScreen({super.key});
 
   @override
@@ -21,7 +21,10 @@ class LoginScreen extends GetView<LoginController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              controller: controller. phoneController,
+              onTapOutside: (event) {
+                FocusScope.of(context).unfocus();
+              },
+              controller: controller.phoneController,
               decoration: InputDecoration(
                 hintText: "Enter phone number",
                 prefixIcon: Icon(Icons.phone),
@@ -42,5 +45,4 @@ class LoginScreen extends GetView<LoginController> {
       ),
     );
   }
-
 }

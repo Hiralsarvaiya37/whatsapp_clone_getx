@@ -1,20 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
-class ChatMessagesScreen extends StatefulWidget {
+class ChatMessagesScreen extends GetView<ChatController> {
+  static const id = "/ChatMessagesScreen";
   const ChatMessagesScreen({super.key});
-
-  @override
-  State<ChatMessagesScreen> createState() => _ChatMessagesScreenState();
-}
-
-class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
-  final TextEditingController messageController = TextEditingController();
-
-  bool isShow = false;
-  List<String> messages = [];
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +33,7 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(width: 15),
+            SizedBox(width: AppSize.getSize(15)),
             Text(
               "User",
               style: TextStyle(
@@ -57,129 +50,156 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
             size: AppSize.getSize(27),
             color: AppColors.whiteColor,
           ),
-          SizedBox(width: 20),
+          SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.phone,
             size: AppSize.getSize(27),
             color: AppColors.whiteColor,
           ),
-          SizedBox(width: 15),
+          SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.more_vert,
             size: AppSize.getSize(27),
             color: AppColors.whiteColor,
           ),
-          SizedBox(width: 10),
+          SizedBox(width: AppSize.getSize(10)),
         ],
       ),
       body: Column(
         children: [
           Expanded(
-            child: StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('chats')
-                  .doc('user1_user2')
-                  .collection('messages')
-                  .orderBy('time', descending: true)
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return Center(child: CircularProgressIndicator());
-                }
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(15)),
+              child: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('chats')
+                    .doc('user1_user2')
+                    .collection('messages')
+                    .orderBy('time', descending: true)
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: CircularProgressIndicator());
+                  }
 
-                final docs = snapshot.data!.docs;
+                  final docs = snapshot.data!.docs;
 
-                return ListView.builder(
-                  reverse: true,
-                  itemCount: docs.length,
-                  itemBuilder: (context, index) {
-                    final data = docs[index];
+                  return ListView.builder(
+                    reverse: true,
+                    itemCount: docs.length,
+                    itemBuilder: (context, index) {
+                      final data = docs[index];
 
-                    bool isMe = data['senderId'] == 'user1';
+                      bool isMe = data['senderId'] == 'user1';
 
-                    return Align(
-                      alignment: isMe
-                          ? Alignment.centerRight
-                          : Alignment.centerLeft,
-                        
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 8),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: isMe ? Colors.green : Colors.grey.shade800,
-                          borderRadius: BorderRadius.circular(12),
+                      return Align(
+                        alignment: isMe
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: AppSize.getSize(8)),
+                          padding: EdgeInsets.all(AppSize.getSize(10)),
+                          decoration: BoxDecoration(
+                            color: isMe
+                                ? AppColors.greenColor
+                                : AppColors.greyShade800,
+                            borderRadius: isMe
+                                ? BorderRadius.only(
+                                    topLeft: Radius.circular(14),
+                                    topRight: Radius.circular(1),
+                                    bottomLeft: Radius.circular(14),
+                                    bottomRight: Radius.circular(14),
+                                  )
+                                : BorderRadius.only(
+                                    topLeft: Radius.circular(1),
+                                    topRight: Radius.circular(14),
+                                    bottomLeft: Radius.circular(14),
+                                    bottomRight: Radius.circular(14),
+                                  ),
+                          ),
+                          child: Text(
+                            data['message'] ?? "",
+                            style: TextStyle(color: AppColors.whiteColor),
+                          ),
                         ),
-                        child: Text(
-                          data['message'] ?? "",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.getSize(8),
+              vertical: AppSize.getSize(6),
+            ),
             child: Row(
               children: [
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSize.getSize(12),
+                    ),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade900,
-                      borderRadius: BorderRadius.circular(25),
+                      color: AppColors.greyShade900,
+                      borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                     ),
                     child: Row(
                       children: [
                         Icon(
                           Icons.sticky_note_2_outlined,
-                          color: Colors.grey.shade400,
+                          color: AppColors.greyShade400,
                         ),
-                        SizedBox(width: 10),
+                        SizedBox(width: AppSize.getSize(10)),
 
                         Expanded(
                           child: TextField(
-                            controller: messageController,
+                            onTapOutside: (event) {
+                              FocusScope.of(context).unfocus();
+                            },
+                            controller: controller.messageController,
                             minLines: 1,
                             maxLines: 4,
                             keyboardType: TextInputType.multiline,
-                            cursorColor: Colors.greenAccent.shade700,
+                            cursorColor: AppColors.greenAccentShade700,
                             cursorWidth: 3,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: AppColors.whiteColor),
 
                             onChanged: (value) {
-                              setState(() {
-                                isShow = value.isNotEmpty;
-                              });
+                              controller.isShow.value = value.isNotEmpty;
                             },
 
                             decoration: InputDecoration(
                               hintText: "Message",
-                              hintStyle: TextStyle(color: Colors.grey.shade400),
+                              hintStyle: TextStyle(
+                                color: AppColors.greyShade400,
+                              ),
                               border: InputBorder.none,
 
-                              suffixIcon: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.attach_file,
-                                    color: Colors.grey.shade400,
-                                  ),
-                                  if (!isShow) ...[
-                                    SizedBox(width: 8),
+                              suffixIcon: Obx(
+                                () => Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
                                     Icon(
-                                      Icons.currency_rupee_sharp,
-                                      color: Colors.grey.shade400,
+                                      Icons.attach_file,
+                                      color: AppColors.greyShade400,
                                     ),
-                                    SizedBox(width: 8),
-                                    Icon(
-                                      Icons.camera_alt_outlined,
-                                      color: Colors.grey.shade400,
-                                    ),
+                                    if (!controller.isShow.value) ...[
+                                      SizedBox(width: AppSize.getSize(8)),
+                                      Icon(
+                                        Icons.currency_rupee_sharp,
+                                        color: AppColors.greyShade400,
+                                      ),
+                                      SizedBox(width: AppSize.getSize(8)),
+                                      Icon(
+                                        Icons.camera_alt_outlined,
+                                        color: AppColors.greyShade400,
+                                      ),
+                                    ],
                                   ],
-                                ],
+                                ),
                               ),
                             ),
                           ),
@@ -188,21 +208,25 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: AppSize.getSize(8)),
                 Container(
-                  height: 45,
-                  width: 45,
+                  height: AppSize.getSize(45),
+                  width: AppSize.getSize(45),
                   decoration: BoxDecoration(
-                    color: Colors.greenAccent.shade700,
+                    color: AppColors.greenAccentShade700,
                     shape: BoxShape.circle,
                   ),
                   child: InkWell(
                     onTap: () {
-                      if (isShow) {
+                      if (controller.isShow.value) {
                         sendMessage();
                       } else {}
                     },
-                    child: Icon(isShow ? Icons.send : Icons.mic),
+                    child: Obx(
+                      (() => Icon(
+                        controller.isShow.value ? Icons.send : Icons.mic,
+                      )),
+                    ),
                   ),
                 ),
               ],
@@ -214,21 +238,19 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
   }
 
   void sendMessage() {
-    if (messageController.text.trim().isEmpty) return;
+    if (controller.messageController.text.trim().isEmpty) return;
 
     FirebaseFirestore.instance
         .collection('chats')
-        .doc('user1_user2')  
+        .doc('user1_user2')
         .collection('messages')
         .add({
-          'message': messageController.text.trim(),
-          'senderId': 'user1', 
+          'message': controller.messageController.text.trim(),
+          'senderId': 'user1',
           'time': FieldValue.serverTimestamp(),
         });
 
-    messageController.clear();
-    setState(() {
-    isShow = false;
-  });
+    controller.messageController.clear();
+    controller.isShow.value = false;
   }
 }

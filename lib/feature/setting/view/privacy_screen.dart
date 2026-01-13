@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/about_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/advanced_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/app_lock_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/avatar_stickers_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/calls_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/chat_lock_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/default_message_timer_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/lastseen_and_online_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/links_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/live_location_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/privacy_checkup_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/privacy_contacts_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/profile_photo_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/status_privacy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/privacy_screen/view/groups_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/about_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/chat_lock_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/lastseen_and_online_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/links_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/live_location_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_checkup_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/view/avatar_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -60,12 +60,7 @@ const   PrivacyScreen({super.key});
                   "last seen and online",
                   "Nobody",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LastseenAndOnlineScreen(),
-                      ),
-                    );
+                   Get.toNamed(LastseenAndOnlineScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -73,12 +68,7 @@ const   PrivacyScreen({super.key});
                   "Profile picture",
                   "My contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProfilePhotoScreen(),
-                      ),
-                    );
+                    Get.toNamed(ProfilePhotoScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -86,10 +76,7 @@ const   PrivacyScreen({super.key});
                   "About",
                   "Everyone",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutScreen()),
-                    );
+                    Get.toNamed(AboutScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -97,10 +84,7 @@ const   PrivacyScreen({super.key});
                   "Links",
                   "My contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LinksScreen()),
-                    );
+                    Get.toNamed(LinksScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -108,12 +92,7 @@ const   PrivacyScreen({super.key});
                   "Status",
                   "My contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StatusPrivacyScreen(),
-                      ),
-                    );
+                    Get.toNamed(StatusPrivacyScreen.id);
                   },
                 ),
             
@@ -159,7 +138,7 @@ const   PrivacyScreen({super.key});
                 SizedBox(height: AppSize.getSize(15)),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DefaultMessageTimerScreen()));
+                    Get.toNamed(DefaultMessageTimerScreen.id);
                   },
                   child: Row(
                     children: [
@@ -198,10 +177,7 @@ const   PrivacyScreen({super.key});
                   "Groups",
                   "My contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => GroupsScreen()),
-                    );
+                    Get.toNamed(GroupsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -209,23 +185,13 @@ const   PrivacyScreen({super.key});
                   "Avatar stickers",
                   "My contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AvatarStickersScreen(),
-                      ),
-                    );
+                    Get.toNamed(AvatarScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LiveLocationScreen(),
-                      ),
-                    );
+                   Get.toNamed(LiveLocationScreen.id);
                   },
                   child: Text(
                     "Live location",
@@ -237,10 +203,7 @@ const   PrivacyScreen({super.key});
                   "Calls",
                   "Silence unknown callers",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CallsScreen()),
-                    );
+                    Get.toNamed(CallsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -248,12 +211,7 @@ const   PrivacyScreen({super.key});
                   "Contacts",
                   "Block contacts, WhatsApp contacts",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrivacyContactsScreen(),
-                      ),
-                    );
+                    Get.toNamed(PrivacyContactsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -261,19 +219,13 @@ const   PrivacyScreen({super.key});
                   "App lock",
                   "Disabled",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AppLockScreen()),
-                    );
+                   Get.toNamed(AppLockScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ChatLockScreen()),
-                    );
+                    Get.toNamed(ChatLockScreen.id);
                   },
                   child: Text(
                     "Chat lock",
@@ -340,7 +292,7 @@ const   PrivacyScreen({super.key});
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AdvancedScreen()));
+                   Get.toNamed(AdvancedScreen.id);
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -362,7 +314,7 @@ const   PrivacyScreen({super.key});
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen()));
+                   Get.toNamed(PrivacyCheckupScreen.id);
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/account_screen/view/learn_more_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 
@@ -131,12 +133,7 @@ class BroadcastsScreen extends StatelessWidget {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LearnMoreScreen(),
-                                  ),
-                                );
+                               Get.toNamed(LearnMoreScreen.id);
                               },
                           ),
                         ],
@@ -170,10 +167,7 @@ class BroadcastsScreen extends StatelessWidget {
             right: AppSize.getSize(20),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ContactScreen()),
-                );
+                Get.toNamed(ContactScreen.id);
               },
               child: Container(
                 height: AppSize.getSize(55),

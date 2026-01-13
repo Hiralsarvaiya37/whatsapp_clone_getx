@@ -77,12 +77,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SettingScreen(),
-                                    ),
-                                  );
+                                Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -122,12 +117,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SettingScreen(),
-                                    ),
-                                  );
+                                Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -163,12 +153,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SettingScreen(),
-                                    ),
-                                  );
+                                Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -201,12 +186,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SettingScreen(),
-                                    ),
-                                  );
+                                Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
