@@ -35,7 +35,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
             ),
             SizedBox(width: AppSize.getSize(15)),
             Text(
-              "User",
+              controller.otherUserName,
               style: TextStyle(
                 fontSize: AppSize.getSize(23),
                 color: AppColors.whiteColor,
@@ -73,13 +73,16 @@ class ChatMessagesScreen extends GetView<ChatController> {
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection('chats')
-                    .doc('user1_user2')
+                    .doc(controller.chatId)
                     .collection('messages')
                     .orderBy('time', descending: true)
                     .snapshots(),
                 builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
+                  }
+                  if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                    return Center(child: Text("No messages"));
                   }
 
                   final docs = snapshot.data!.docs;
@@ -90,7 +93,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                     itemBuilder: (context, index) {
                       final data = docs[index];
 
-                      bool isMe = data['senderId'] == 'user1';
+                      bool isMe = data['senderId'] == controller.myUserId;
 
                       return Align(
                         alignment: isMe
@@ -242,14 +245,21 @@ class ChatMessagesScreen extends GetView<ChatController> {
 
     FirebaseFirestore.instance
         .collection('chats')
-        .doc('user1_user2')
+        .doc(controller.chatId)
         .collection('messages')
         .add({
           'message': controller.messageController.text.trim(),
-          'senderId': 'user1',
+          'senderId': controller.myUserId,
           'time': FieldValue.serverTimestamp(),
         });
 
+    FirebaseFirestore.instance
+        .collection('chats')
+        .doc(controller.chatId)
+        .update({
+          'lastMessage': controller.messageController.text.trim(),
+          'lastMessageTime': FieldValue.serverTimestamp(),
+        });
     controller.messageController.clear();
     controller.isShow.value = false;
   }
