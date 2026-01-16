@@ -77,7 +77,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                Get.toNamed(SettingScreen.id);
+                                  Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -117,7 +117,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                Get.toNamed(SettingScreen.id);
+                                  Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -153,7 +153,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                Get.toNamed(SettingScreen.id);
+                                  Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [
@@ -186,7 +186,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 if (value == 8) {
-                                Get.toNamed(SettingScreen.id);
+                                  Get.toNamed(SettingScreen.id);
                                 }
                               },
                               itemBuilder: (context) => [

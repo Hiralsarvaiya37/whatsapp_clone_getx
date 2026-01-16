@@ -10,7 +10,7 @@ class ChatviewScreen extends StatelessWidget {
   ChatviewScreen({super.key});
 
   final List<String> filters = ["All", "Unread", "Favorites", "Groups", "+"];
-  final List<String> users = List.generate(50, (index) => "User${index + 1}");
+  final List<String> users = List.generate(50, (index) => "User ${index + 1}");
 
   @override
   Widget build(BuildContext context) {

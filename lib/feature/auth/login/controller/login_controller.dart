@@ -5,7 +5,7 @@ import 'package:whatsapp_clone_getx/feature/auth/otp/view/otp_screen.dart';
 
 class LoginController extends GetxController {
   TextEditingController phoneController = TextEditingController();
-  String verificationId  = "";
+  String verificationId = "";
 
   Future<void> onVerifyNum(BuildContext context) async {
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -13,13 +13,11 @@ class LoginController extends GetxController {
       verificationCompleted: (PhoneAuthCredential credential) async {},
       verificationFailed: (FirebaseAuthException ex) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(ex.message ?? "Verification failed"),
-          ),
+          SnackBar(content: Text(ex.message ?? "Verification failed")),
         );
       },
       codeSent: (String verifyId, int? resendToken) {
-        verificationId= verifyId;
+        verificationId = verifyId;
         Get.toNamed(OtpScreen.id);
       },
       codeAutoRetrievalTimeout: (String verificationId) {},

@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/state_manager.dart';
 import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
@@ -13,7 +16,7 @@ class SettingController extends GetxController {
   RxBool isShow = false.obs;
   RxBool isShow1 = true.obs;
   RxBool isShow2 = false.obs;
-   RxBool isShow3 = true.obs;
+  RxBool isShow3 = true.obs;
   RxBool showIcon = false.obs;
   RxString selectedoption = "Default".obs;
   RxString selectedFontSize = "Medium".obs;
@@ -32,18 +35,63 @@ class SettingController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    selectedLanguage.value = LanguageInfoPlus.deviceLanguage;
+    loadCurrentProfilePic();
+  }
+
+  void loadCurrentProfilePic() async {
+    String userId = FirebaseAuth.instance.currentUser!.uid;
+    final doc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userId)
+        .get();
+    if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
+      profilePicUrl.value = doc['profilePicUrl'];
+    }
   }
 
   void changeLanguage(Language lang) {
     selectedLanguage.value = lang;
   }
 
-   RxList<StatusItem> statusList = <StatusItem>[].obs;
+  RxList<StatusItem> statusList = <StatusItem>[].obs;
 
   void addImage(File file) {
-    statusList.add(
-      StatusItem(file: file, type: StatusType.image),
-    );
+    statusList.add(StatusItem(file: file, type: StatusType.image));
+  }
+
+  RxString profilePicUrl = "".obs;
+
+  Future<void> pickAndUploadProfilePic(File file) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        // print("User not logged in");
+        return;
+      }
+
+      String userId = user.uid;
+      // print("USER ID: $userId");
+
+      final storageRef = FirebaseStorage.instance
+          .ref()
+          .child('profile_pics')
+          .child('${userId}_${DateTime.now().millisecondsSinceEpoch}.jpg');
+
+
+      // print("Uploading image...");
+      await storageRef.putFile(file);
+
+      String downloadUrl = await storageRef.getDownloadURL();
+      // print("Download URL: $downloadUrl");
+
+      await FirebaseFirestore.instance.collection('users').doc(userId).set({
+        'profilePicUrl': downloadUrl,
+      }, SetOptions(merge: true));
+
+      profilePicUrl.value = downloadUrl;
+      // print("Profile picture updated successfully");
+    } catch (e) {
+      // print("Error uploading profile picture: $e");
+    }
   }
 }

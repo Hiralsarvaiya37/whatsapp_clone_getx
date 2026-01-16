@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:language_info_plus/language_info_plus.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/account_setting_screen.dart';
@@ -24,15 +23,16 @@ import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
 
 class SettingScreen extends GetView<SettingController> {
   static const id = "/SettingScreen";
-  SettingScreen({super.key});
+  const SettingScreen({super.key});
+
   Future pickFromCamera() async {
     final ImagePicker picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
     if (photo != null) {
-      langController.statusList.add(
-        StatusItem(file: File(photo.path), type: StatusType.image),
-      );
+      print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+      File file = File(photo.path);
+      await controller.pickAndUploadProfilePic(file);
     }
   }
 
@@ -41,13 +41,11 @@ class SettingScreen extends GetView<SettingController> {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      langController.statusList.add(
-        StatusItem(file: File(image.path), type: StatusType.image),
-      );
+      print("============================================================");
+      File file = File(image.path);
+      await controller.pickAndUploadProfilePic(file);
     }
   }
-
-  final SettingController langController = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
@@ -98,15 +96,15 @@ class SettingScreen extends GetView<SettingController> {
                     children: [
                       Obx(
                         () => ClipOval(
-                          child: langController.statusList.isNotEmpty
-                              ? Image.file(
-                                  langController.statusList.last.file,
+                          child: controller.profilePicUrl.value.isNotEmpty
+                              ? Image.network(
+                                  controller.profilePicUrl.value,
                                   height: AppSize.getSize(55),
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
                                 )
-                              : Image.network(
-                                  "https://images.astroyogi.com/strapicmsprod/assets/peacock_feather_astrological_remedies_728x409_1_df32d89b61_5e65b3c4bb.webp",
+                              : Image.asset(
+                                  "lib/assets/i1.webp",
                                   height: AppSize.getSize(55),
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
@@ -178,7 +176,7 @@ class SettingScreen extends GetView<SettingController> {
 
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(QrScreen.id);
+                      Get.toNamed(QrScreen.id);
                     },
                     child: Icon(
                       Icons.qr_code,
@@ -591,9 +589,9 @@ class SettingScreen extends GetView<SettingController> {
                   Expanded(
                     child: Obx(
                       () => ListView.builder(
-                        itemCount: langController.allLanguages.length,
+                        itemCount: controller.allLanguages.length,
                         itemBuilder: (context, index) {
-                          final lang = langController.allLanguages[index];
+                          final lang = controller.allLanguages[index];
                           return Padding(
                             padding: EdgeInsets.only(
                               bottom: AppSize.getSize(20),
@@ -619,8 +617,7 @@ class SettingScreen extends GetView<SettingController> {
     BuildContext context,
   ) {
     return Obx(() {
-      bool isSelected =
-          langController.selectedLanguage.value?.code == lang.code;
+      bool isSelected = controller.selectedLanguage.value?.code == lang.code;
 
       String title = lang.name;
       String? subtitle;
@@ -634,7 +631,7 @@ class SettingScreen extends GetView<SettingController> {
       return InkWell(
         onTap: () {
           setModalState(() {
-            langController.selectedLanguage.value = lang;
+            controller.selectedLanguage.value = lang;
           });
           Navigator.pop(context);
         },
