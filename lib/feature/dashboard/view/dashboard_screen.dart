@@ -56,6 +56,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               color: AppColors.whiteColor,
                               size: AppSize.getSize(30),
                             ),
+
                             SizedBox(width: AppSize.getSize(25)),
                             Icon(
                               Icons.camera_alt_outlined,

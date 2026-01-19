@@ -30,7 +30,6 @@ class SettingScreen extends GetView<SettingController> {
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
     if (photo != null) {
-      print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
       File file = File(photo.path);
       await controller.pickAndUploadProfilePic(file);
     }
@@ -41,7 +40,6 @@ class SettingScreen extends GetView<SettingController> {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      print("============================================================");
       File file = File(image.path);
       await controller.pickAndUploadProfilePic(file);
     }

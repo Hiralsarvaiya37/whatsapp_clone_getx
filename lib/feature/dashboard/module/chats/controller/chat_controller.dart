@@ -23,4 +23,5 @@ class ChatController extends GetxController {
   String getChatId(String userA, String userB) {
     return userA.compareTo(userB) < 0 ? "${userA}_$userB" : "${userB}_$userA";
   }
+  
 }

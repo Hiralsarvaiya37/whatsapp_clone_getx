@@ -240,10 +240,10 @@ class ChatMessagesScreen extends GetView<ChatController> {
     );
   }
 
-  void sendMessage() {
+  void sendMessage() async {
     if (controller.messageController.text.trim().isEmpty) return;
 
-    FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection('chats')
         .doc(controller.chatId)
         .collection('messages')
@@ -253,13 +253,6 @@ class ChatMessagesScreen extends GetView<ChatController> {
           'time': FieldValue.serverTimestamp(),
         });
 
-    FirebaseFirestore.instance
-        .collection('chats')
-        .doc(controller.chatId)
-        .update({
-          'lastMessage': controller.messageController.text.trim(),
-          'lastMessageTime': FieldValue.serverTimestamp(),
-        });
     controller.messageController.clear();
     controller.isShow.value = false;
   }

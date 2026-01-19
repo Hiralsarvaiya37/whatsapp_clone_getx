@@ -14,7 +14,7 @@ class ChatviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String currentUser = "user0";
+    String currentUser = "user1";
 
     return Scaffold(
       body: Padding(
@@ -75,7 +75,6 @@ class ChatviewScreen extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: AppSize.getSize(20)),
 
             Expanded(
               child: ListView.separated(
@@ -92,7 +91,8 @@ class ChatviewScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
                     child: InkWell(
                       onTap: () {
-                        Get.put(ChatController()).initChat(
+                        final chatController = Get.find<ChatController>();
+                        chatController.initChat(
                           myId: currentUser,
                           otherId: user,
                           otherName: user,

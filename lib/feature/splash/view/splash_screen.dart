@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 ClipOval(
                   child: Image.network(
-                    "https://static.vecteezy.com/system/resources/thumbnails/019/874/364/small/whatsapp-apps-icon-free-png.png",
+                    "https://static.vecteezy.com/system/resources/previews/021/495/965/non_2x/whatsapp-social-media-logo-icon-free-png.png",
                     height: AppSize.getSize(100),
                     fit: BoxFit.cover,
                   ),

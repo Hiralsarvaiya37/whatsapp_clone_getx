@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "297529623434",
-    "project_id": "whatsapp-clone-firebase-01",
-    "storage_bucket": "whatsapp-clone-firebase-01.firebasestorage.app"
+    "project_number": "1036629379530",
+    "project_id": "todo-b07e5",
+    "storage_bucket": "todo-b07e5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:297529623434:android:aeb909911aabcdf7c5fe73",
+        "mobilesdk_app_id": "1:1036629379530:android:6b8525a1142b95f21e2733",
         "android_client_info": {
           "package_name": "com.example.whatsapp_clone_getx"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1036629379530-9t8t47s6js78s01534ugo6cnq18k9igg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAzgSEPOO7m_7pJCjyIHGTvtAss5aMltBE"
+          "current_key": "AIzaSyCjFJlSkTJ6g5HZICIKJ0hw6-lzkMBJMQ8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036629379530-37nmf15jseb5gfi3cc0eapq3o2arf3k7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1036629379530-log7qt7t712uut2v6vspef1ju1fid62f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurEaseAdmin"
+              }
+            }
+          ]
         }
       }
     }

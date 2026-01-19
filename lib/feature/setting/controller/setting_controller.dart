@@ -60,36 +60,26 @@ class SettingController extends GetxController {
   }
 
   RxString profilePicUrl = "".obs;
-
   Future<void> pickAndUploadProfilePic(File file) async {
     try {
       final user = FirebaseAuth.instance.currentUser;
-      if (user == null) {
-        // print("User not logged in");
-        return;
-      }
+      if (user == null) return;
 
       String userId = user.uid;
-      // print("USER ID: $userId");
 
       final storageRef = FirebaseStorage.instance
           .ref()
           .child('profile_pics')
           .child('${userId}_${DateTime.now().millisecondsSinceEpoch}.jpg');
 
-
-      // print("Uploading image...");
       await storageRef.putFile(file);
 
       String downloadUrl = await storageRef.getDownloadURL();
-      // print("Download URL: $downloadUrl");
 
       await FirebaseFirestore.instance.collection('users').doc(userId).set({
         'profilePicUrl': downloadUrl,
       }, SetOptions(merge: true));
-
       profilePicUrl.value = downloadUrl;
-      // print("Profile picture updated successfully");
     } catch (e) {
       // print("Error uploading profile picture: $e");
     }
