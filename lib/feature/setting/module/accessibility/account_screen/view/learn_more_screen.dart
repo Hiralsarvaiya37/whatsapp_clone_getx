@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class LearnMoreScreen extends GetView<AccountViewController> {
   static const id = "/LearnMoreScreen";
@@ -15,31 +15,31 @@ const  LearnMoreScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Help article",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           PopupMenuButton(
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(AppSize.getSize(0), AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
             ),
-            icon: Icon(Icons.more_vert, color: AppColors.whiteColor, size: AppSize.getSize(25)),
+            icon: Icon(Icons.more_vert, color: AppTheme.whiteColor, size: AppSize.getSize(25)),
 
             itemBuilder: (context) => [
               popupTile("Open in browser"),
@@ -57,7 +57,7 @@ const  LearnMoreScreen({super.key});
             children: [
               Text(
                 "About security code change notifications",
-                style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(25)),
+                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(25)),
               ),
 
               SizedBox(height: AppSize.getSize(20)),
@@ -65,7 +65,7 @@ const  LearnMoreScreen({super.key});
                 if (!controller.isInitialized.value) {
                   return Container(
                     height: AppSize.getSize(200),
-                    color: AppColors.greyShade900,
+                    color: AppTheme.greyShade900,
                     child: Center(child: CircularProgressIndicator()),
                   );
                 }
@@ -83,7 +83,7 @@ const  LearnMoreScreen({super.key});
                             ? Icons.pause_circle
                             : Icons.play_circle,
                         size: AppSize.getSize(50),
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                       ),
                       onPressed: () {
                         controller.playPause();
@@ -96,17 +96,17 @@ const  LearnMoreScreen({super.key});
               SizedBox(height: AppSize.getSize(20)),
               Text(
                 "End-to-end encrypted chats between you and one other person have their own security code. this code is used to verify that the calls and the messages you send to that chat are end-to-end encrypted.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
               ),
               SizedBox(height: AppSize.getSize(8)),
               Text(
                 "The security code can be found in the contact info screen, both as a QR code and a 60-digit number. these codes are unique to each individual chat. they can be compared between people in each chat to verify that the messages you send to the chat are end-to-end encypted.security codes are just visible versions of the special keys shared between you. Don't worry,it's not the actual keys themselves, which are always kept secret.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
               ),
               SizedBox(height: AppSize.getSize(10)),
               Text(
                 "At times, the security codes used in end-to-end encrypted chats between you and one other person might change. This is likely because you or your contact reinstalled WhatsApp, changed phones, or added or removed a paired device. You can always verify that a contact's security code is legitimte.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
               ),
               SizedBox(height: AppSize.getSize(5)),
               Row(
@@ -118,7 +118,7 @@ const  LearnMoreScreen({super.key});
                           TextSpan(
                             text: "Learn how in ",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -126,14 +126,14 @@ const  LearnMoreScreen({super.key});
                           TextSpan(
                             text: "this article ",
                             style: TextStyle(
-                              color: AppColors.blueshade500,
+                              color: AppTheme.blueshade500,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
                           TextSpan(
                             text: "on end-to-end encryption.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -148,20 +148,20 @@ const  LearnMoreScreen({super.key});
               Text(
                 "Receive notification when security codes change",
                 style: TextStyle(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
               SizedBox(height: AppSize.getSize(7)),
               Text(
                 "You can receive notifications when your security code changes for a contact's phone in an end-to-end encrypted chat. to do so, you'll need to enable the setting on each device where you want to get notifications.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
               ),
               SizedBox(height: AppSize.getSize(25)),
               Text(
                 "Enable security code notifications",
                 style: TextStyle(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
@@ -170,16 +170,16 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "1. Tap ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                   Icon(
                     Icons.more_vert_rounded,
                     size: AppSize.getSize(25),
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                   ),
                   Text(
                     "> Settings.",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                 ],
               ),
@@ -189,13 +189,13 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "2. ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                   Expanded(
                     child: Text(
                       "Tap Account > Security notifications.",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -208,14 +208,14 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "3. ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
 
                   Expanded(
                     child: Text(
                       "Turn on Show security notifications on this device.",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -226,7 +226,7 @@ const  LearnMoreScreen({super.key});
               Text(
                 "Disable security code notifications",
                 style: TextStyle(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
@@ -235,16 +235,16 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "1. Tap ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                   Icon(
                     Icons.more_vert_rounded,
                     size: AppSize.getSize(25),
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                   ),
                   Text(
                     "> Settings.",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                 ],
               ),
@@ -254,13 +254,13 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "2. ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
                   Expanded(
                     child: Text(
                       "Tap Account > Security notifications.",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -273,14 +273,14 @@ const  LearnMoreScreen({super.key});
                 children: [
                   Text(
                     "3. ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(18)),
                   ),
 
                   Expanded(
                     child: Text(
                       "Turn off Show security notifications on this device.",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -295,7 +295,7 @@ const  LearnMoreScreen({super.key});
                         children: [
                           Text(
                             "Thanks for letting us know!",
-                            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                            style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                           ),
                           SizedBox(height: AppSize.getSize(5)),
                           Padding(
@@ -304,7 +304,7 @@ const  LearnMoreScreen({super.key});
                               "We'll use your feedback to help improve WhatsApp support",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: AppColors.greyShade400,
+                                color: AppTheme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -317,7 +317,7 @@ const  LearnMoreScreen({super.key});
                             child: Icon(
                               Icons.check_circle_outline,
                               size: AppSize.getSize(50),
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                             ),
                           ),
                           SizedBox(height: AppSize.getSize(7)),
@@ -332,7 +332,7 @@ const  LearnMoreScreen({super.key});
                               "Tell us a little more",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -356,14 +356,14 @@ const  LearnMoreScreen({super.key});
                                               value!;
                                         },
                                         activeColor:
-                                            AppColors.greenAccentShade700,
+                                            AppTheme.greenAccentShade700,
                                       ),
                                       SizedBox(width: AppSize.getSize(5)),
                                       Expanded(
                                         child: Text(
                                           controller.options[index],
                                           style: TextStyle(
-                                            color: AppColors.whiteColor,
+                                            color: AppTheme.whiteColor,
                                             fontSize: AppSize.getSize(16),
                                           ),
                                         ),
@@ -389,8 +389,8 @@ const  LearnMoreScreen({super.key});
                                 decoration: BoxDecoration(
                                   color:
                                       controller.selectedOption.value == -1
-                                      ? AppColors.greyShade800
-                                      : AppColors.greenAccentShade700,
+                                      ? AppTheme.greyShade800
+                                      : AppTheme.greenAccentShade700,
                                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                                 ),
                                 alignment: Alignment.center,
@@ -400,8 +400,8 @@ const  LearnMoreScreen({super.key});
                                     color:
                                         controller.selectedOption.value ==
                                             -1
-                                        ? AppColors.greyShade400
-                                        : AppColors.blackColor,
+                                        ? AppTheme.greyShade400
+                                        : AppTheme.blackColor,
                                     fontSize: AppSize.getSize(16),
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -415,14 +415,14 @@ const  LearnMoreScreen({super.key});
                         children: [
                           Text(
                             "Does this answer your question?",
-                            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                            style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                           ),
                           SizedBox(height: AppSize.getSize(5)),
                           Text(
                             "Your response is anonymous helps us improve our help resources",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(15),
                             ),
                           ),
@@ -440,12 +440,12 @@ const  LearnMoreScreen({super.key});
                                       height: AppSize.getSize(50),
                                       width: AppSize.getSize(50),
                                       decoration: BoxDecoration(
-                                        color: AppColors.greenshade900,
+                                        color: AppTheme.greenshade900,
                                         borderRadius: BorderRadius.circular(AppSize.getSize(50)),
                                       ),
                                       child: Icon(
                                         Icons.thumb_up_alt,
-                                        color: AppColors.greenAccentShade700,
+                                        color: AppTheme.greenAccentShade700,
                                         size: AppSize.getSize(25),
                                       ),
                                     ),
@@ -454,7 +454,7 @@ const  LearnMoreScreen({super.key});
                                   Text(
                                     "Yes",
                                     style: TextStyle(
-                                      color: AppColors.greenAccentShade700,
+                                      color: AppTheme.greenAccentShade700,
                                       fontSize: AppSize.getSize(18),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -472,12 +472,12 @@ const  LearnMoreScreen({super.key});
                                       height: AppSize.getSize(50),
                                       width: AppSize.getSize(50),
                                       decoration: BoxDecoration(
-                                        color: AppColors.greenshade900,
+                                        color: AppTheme.greenshade900,
                                         borderRadius: BorderRadius.circular(AppSize.getSize(50)),
                                       ),
                                       child: Icon(
                                         Icons.thumb_down,
-                                        color: AppColors.greenAccentShade700,
+                                        color: AppTheme.greenAccentShade700,
                                         size: AppSize.getSize(25),
                                       ),
                                     ),
@@ -486,7 +486,7 @@ const  LearnMoreScreen({super.key});
                                   Text(
                                     "No",
                                     style: TextStyle(
-                                      color: AppColors.greenAccentShade700,
+                                      color: AppTheme.greenAccentShade700,
                                       fontSize: AppSize.getSize(18),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -507,7 +507,7 @@ const  LearnMoreScreen({super.key});
 
   PopupMenuItem popupTile(String title) {
     return PopupMenuItem(
-      child: Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(17))),
+      child: Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(17))),
     );
   }
 }

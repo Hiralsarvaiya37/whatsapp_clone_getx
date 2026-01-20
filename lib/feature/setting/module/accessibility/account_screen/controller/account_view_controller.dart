@@ -11,9 +11,9 @@ import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/request_account_info_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/security_notifications_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/account_options_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccountViewController extends GetxController {
   RxBool isNotificationOn = false.obs;
@@ -77,7 +77,7 @@ class AccountViewController extends GetxController {
     if (value == AccountOptionsEnum.addAccount) {
       showModalBottomSheet(
         context: Get.context!,
-        backgroundColor: AppColors.greyShade900,
+        backgroundColor: AppTheme.greyShade900,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(AppSize.getSize(20)),
@@ -95,7 +95,7 @@ class AccountViewController extends GetxController {
                     height: AppSize.getSize(3),
                     width: AppSize.getSize(40),
                     decoration: BoxDecoration(
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -108,7 +108,7 @@ class AccountViewController extends GetxController {
                     vertical: AppSize.getSize(20),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.greyShade800),
+                    border: Border.all(color: AppTheme.greyShade800),
                     borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                   ),
                   child: Column(
@@ -131,14 +131,14 @@ class AccountViewController extends GetxController {
                                 Text(
                                   "Add new account",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                 ),
                                 Text(
                                   "+26587848545",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -147,7 +147,7 @@ class AccountViewController extends GetxController {
                           ),
                           Icon(
                             Icons.check_circle,
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             size: AppSize.getSize(25),
                           ),
                         ],
@@ -164,11 +164,11 @@ class AccountViewController extends GetxController {
                               borderRadius: BorderRadius.circular(
                                 AppSize.getSize(50),
                               ),
-                              color: AppColors.greyShade900,
+                              color: AppTheme.greyShade900,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(28),
                             ),
                           ),
@@ -176,7 +176,7 @@ class AccountViewController extends GetxController {
                           Text(
                             "Add WhatsApp account",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),

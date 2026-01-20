@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ContactScreen extends GetView<CallController> {
   static const id = "/ContactScreen";
@@ -11,13 +11,13 @@ class ContactScreen extends GetView<CallController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             size: AppSize.getSize(25),
           ),
           onPressed: () => Navigator.pop(context),
@@ -27,12 +27,12 @@ class ContactScreen extends GetView<CallController> {
             FocusScope.of(context).unfocus();
           },
           controller: controller.searchController,
-          cursorColor: AppColors.greenAccentShade700,
+          cursorColor: AppTheme.greenAccentShade700,
           cursorWidth: 3,
-          style: TextStyle(color: AppColors.whiteColor),
+          style: TextStyle(color: AppTheme.whiteColor),
           decoration: InputDecoration(
             hintText: "Search...",
-            hintStyle: TextStyle(color: AppColors.greyShade400),
+            hintStyle: TextStyle(color: AppTheme.greyShade400),
             border: InputBorder.none,
           ),
           onChanged: (value) {
@@ -42,7 +42,7 @@ class ContactScreen extends GetView<CallController> {
         actions: [
           Icon(
             Icons.search,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             size: AppSize.getSize(25),
           ),
           SizedBox(width: AppSize.getSize(15)),
@@ -62,7 +62,7 @@ class ContactScreen extends GetView<CallController> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: AppColors.greyColor,
+                        color: AppTheme.greyColor,
                         width: AppSize.getSize(0.7),
                       ),
                     ),
@@ -73,7 +73,7 @@ class ContactScreen extends GetView<CallController> {
                       Text(
                         "Add up to 31 people",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -130,7 +130,7 @@ class ContactScreen extends GetView<CallController> {
             Text(
               "New call link",
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -146,7 +146,7 @@ class ContactScreen extends GetView<CallController> {
               child: Text(
                 "New contact",
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
@@ -155,7 +155,7 @@ class ContactScreen extends GetView<CallController> {
             Icon(
               Icons.qr_code,
               size: AppSize.getSize(30),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
             SizedBox(width: AppSize.getSize(25)),
           ],
@@ -170,7 +170,7 @@ class ContactScreen extends GetView<CallController> {
       children: [
         Text(
           title,
-          style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+          style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
         ),
         SizedBox(height: AppSize.getSize(15)),
         ListView.separated(
@@ -197,14 +197,14 @@ class ContactScreen extends GetView<CallController> {
                       c["name"]!,
                       style: TextStyle(
                         fontSize: 18,
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                       ),
                     ),
                     Text(
                       c["status"]!,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                     ),
                   ],
@@ -224,10 +224,10 @@ class ContactScreen extends GetView<CallController> {
       height: AppSize.getSize(50),
       width: AppSize.getSize(50),
       decoration: BoxDecoration(
-        color: AppColors.greenAccentShade700,
+        color: AppTheme.greenAccentShade700,
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Icon(icon, size: AppSize.getSize(25), color: AppColors.blackColor),
+      child: Icon(icon, size: AppSize.getSize(25), color: AppTheme.blackColor),
     );
   }
 }

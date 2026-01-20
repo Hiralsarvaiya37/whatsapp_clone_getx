@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class VideoCallsScreen extends StatelessWidget {
   static const id = "/VideoCallsScreen";
@@ -12,9 +12,9 @@ class VideoCallsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class VideoCallsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Video Calls",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,16 +37,16 @@ class VideoCallsScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -56,7 +56,7 @@ class VideoCallsScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -79,7 +79,7 @@ class VideoCallsScreen extends StatelessWidget {
                 Text(
                   "Video Calls",
                   style: TextStyle(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -109,14 +109,14 @@ class VideoCallsScreen extends StatelessWidget {
           Icon(
             Icons.file_open_sharp,
             size: AppSize.getSize(30),
-            color: AppColors.greyShade400,
+            color: AppTheme.greyShade400,
           ),
           SizedBox(width: AppSize.getSize(30)),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontWeight: FontWeight.w600,
                 fontSize: AppSize.getSize(18),
               ),

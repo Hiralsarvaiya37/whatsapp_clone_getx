@@ -4,8 +4,8 @@ import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AdvancedScreen extends GetView<PrivacyViewController> {
   static const id = "/AdvancedScreen";
@@ -15,19 +15,19 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Advanced",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -73,7 +73,7 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: 20)),
+              Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: 20)),
               SizedBox(height: AppSize.getSize(5)),
               Text.rich(
                 TextSpan(
@@ -81,14 +81,14 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
                     TextSpan(
                       text: subtitle,
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
                     TextSpan(
                       text: "Learn more",
                       style: TextStyle(
-                        color: AppColors.blueshade500,
+                        color: AppTheme.blueshade500,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.bold,
                       ),recognizer: TapGestureRecognizer()
@@ -110,9 +110,9 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
                 : index == 2
                 ? controller.isOn2.value
                 : controller.isOn3.value,
-            activeThumbColor: AppColors.blackColor,
-            activeTrackColor: AppColors.greenAccentShade700,
-            inactiveTrackColor: AppColors.blackColor,
+            activeThumbColor: AppTheme.blackColor,
+            activeTrackColor: AppTheme.greenAccentShade700,
+            inactiveTrackColor: AppTheme.blackColor,
             onChanged: (val) {
                 if (index == 1) controller.isOn1.value = val;
                 if (index == 2) controller.isOn2.value = val;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibility_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AnimationScreen extends GetView<AccessibilityViewController> {
   static const id = "/AnimationScreen";
@@ -11,19 +11,19 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Animation",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -36,7 +36,7 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           children: [
             Text(
               "When turned on, emoji, stickers or GIFs will move automatically.",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(30)),
             appTile("Emoji", Icons.emoji_emotions_outlined, 1),
@@ -75,12 +75,12 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           Expanded(
             child: Row(
               children: [
-                Icon(icon, size: AppSize.getSize(30), color: AppColors.whiteColor),
+                Icon(icon, size: AppSize.getSize(30), color: AppTheme.whiteColor),
                 SizedBox(width: AppSize.getSize(20)),
                 Text(
                   title,
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.w600,
                   ),
@@ -91,9 +91,9 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
          
              Switch(
               value: currentValue,
-              activeThumbColor: AppColors.blackColor,
-              activeTrackColor: AppColors.greenAccentShade700,
-              inactiveTrackColor: AppColors.blackColor,
+              activeThumbColor: AppTheme.blackColor,
+              activeTrackColor: AppTheme.greenAccentShade700,
+              inactiveTrackColor: AppTheme.blackColor,
               onChanged: (val) {
                   if (index == 1) {
                     controller.isOn1.value = val;

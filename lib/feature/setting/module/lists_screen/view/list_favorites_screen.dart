@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/controller/list_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ListFavoritesScreen extends GetView<ListViewController> {
   static const id = "/ListFavoritesScreen";
@@ -11,19 +11,19 @@ class ListFavoritesScreen extends GetView<ListViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Favorites",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -34,14 +34,14 @@ class ListFavoritesScreen extends GetView<ListViewController> {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                backgroundColor: AppColors.greyShade900,
+                backgroundColor: AppTheme.greyShade900,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.getSize(20))),
                 ),
                 builder: (context) {
                   return Container(
                     height: MediaQuery.of(context).size.height * AppSize.getSize(0.97),
-                    color: AppColors.greyShade900,
+                    color: AppTheme.greyShade900,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: AppSize.getSize(20),
@@ -56,7 +56,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                               height: AppSize.getSize(5),
                               width: AppSize.getSize(45),
                               decoration: BoxDecoration(
-                                color: AppColors.greyColor,
+                                color: AppTheme.greyColor,
                                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                               ),
                             ),
@@ -72,13 +72,13 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                                 child: Icon(
                                   Icons.clear_rounded,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                 ),
                               ),
                               Text(
                                 "Edit Favorites",
                                 style: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(22),
                                 ),
                               ),
@@ -89,7 +89,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                                 child: Icon(
                                   Icons.done,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                 ),
                               ),
                             ],
@@ -99,7 +99,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                           Text(
                             "Use the pencil to reorder how your lists appear in the Chats tab.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -109,7 +109,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                           Text(
                             "Included",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -121,7 +121,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                                 height: AppSize.getSize(45),
                                 width: AppSize.getSize(45),
                                 decoration: BoxDecoration(
-                                  color: AppColors.greenAccentShade700,
+                                  color: AppTheme.greenAccentShade700,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(Icons.add, size: AppSize.getSize(25)),
@@ -130,7 +130,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                               Text(
                                 "Add people or groups",
                                 style: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),
                                 ),
                               ),
@@ -140,7 +140,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                           Text(
                             "You can edit favorites here or reorder how they appear on the Calls tab.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -152,7 +152,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                 },
               );
             },
-            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: AppColors.whiteColor),
+            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: AppTheme.whiteColor),
           ),
           SizedBox(width: AppSize.getSize(30)),
         ],
@@ -165,14 +165,14 @@ class ListFavoritesScreen extends GetView<ListViewController> {
             children: [
               Text(
                 "Use the pencil to reorder how your lists appear in the Chats tab.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 textAlign: TextAlign.center,
               ),
           
               SizedBox(height: AppSize.getSize(40)),
               Text(
                 "Notifications",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               Row(
@@ -181,15 +181,15 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                   Expanded(
                     child: Text(
                       "Mute",
-                      style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(20)),
+                      style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
                     ),
                   ),
                   Obx(
                    ()=> Switch(
                       value: controller.isOn.value,
-                      activeThumbColor: AppColors.blackColor,
-                      activeTrackColor: AppColors.greenAccentShade700,
-                      inactiveTrackColor: AppColors.blackColor,
+                      activeThumbColor: AppTheme.blackColor,
+                      activeTrackColor: AppTheme.greenAccentShade700,
+                      inactiveTrackColor: AppTheme.blackColor,
                       onChanged: (val) {
                           controller.isOn.value = val;
                         if (val == true) {
@@ -204,7 +204,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "Included",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(15)),
               Row(
@@ -213,7 +213,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                     height: AppSize.getSize(45),
                     width: AppSize.getSize(45),
                     decoration: BoxDecoration(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(Icons.add, size: AppSize.getSize(25)),
@@ -221,14 +221,14 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                   SizedBox(width: AppSize.getSize(20)),
                   Text(
                     "Add people or groups",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(20)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
                   ),
                 ],
               ),
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "You can edit favorites here or reorder how they appear on the Calls tab.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -243,13 +243,13 @@ class ListFavoritesScreen extends GetView<ListViewController> {
       context: context,
       builder: (context) {
         return Dialog(
-          backgroundColor: AppColors.greyShade900,
+          backgroundColor: AppTheme.greyShade900,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.getSize(AppSize.getSize(20))),
           ),
           child: Container(
             decoration: BoxDecoration(
-              color: AppColors.greyShade900,
+              color: AppTheme.greyShade900,
               borderRadius: BorderRadius.circular(AppSize.getSize(20)),
             ),
             child: Padding(
@@ -260,17 +260,17 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                 children: [
                   Text(
                     "Mute messsage notifications",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(25)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(25)),
                   ),
                   SizedBox(height: AppSize.getSize(20)),
                   Text(
                     "Other members will not see that you muted these chats, and you will still be notified if you are mentioned.",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(17)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(17)),
                   ),
                   SizedBox(height: AppSize.getSize(20)),
                   Text(
                     "Mute all chats in Favorites",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   StatefulBuilder(
@@ -299,7 +299,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                         child: Text(
                           "Cancel",
                           style: TextStyle(
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -313,7 +313,7 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                         child: Text(
                           "Ok",
                           style: TextStyle(
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -347,7 +347,7 @@ Widget appInfo(String title) {
             width: AppSize.getSize(22),
             decoration: BoxDecoration(
               border: Border.all(
-                color: isSelected ? AppColors.greenAccentShade700 : AppColors.greyColor,
+                color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
                 width: AppSize.getSize(2),
               ),
               shape: BoxShape.circle,
@@ -358,7 +358,7 @@ Widget appInfo(String title) {
                       height: AppSize.getSize(12),
                       width: AppSize.getSize(12),
                       decoration: BoxDecoration(
-                        color: AppColors.greenAccentShade700,
+                        color: AppTheme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -366,7 +366,7 @@ Widget appInfo(String title) {
                 : SizedBox(),
           ),
           SizedBox(width: AppSize.getSize(20)),
-          Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(17))),
+          Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(17))),
         ],
       ),
     );

@@ -4,8 +4,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class StorageAndDataScreen extends GetView<SettingController> {
   static const id ="/StorageAndDataScreen";
@@ -15,19 +15,19 @@ class StorageAndDataScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Storage and data",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -76,7 +76,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                         child: Text(
                           "Use less data for calls",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -87,9 +87,9 @@ class StorageAndDataScreen extends GetView<SettingController> {
                     Obx(
                       () => Switch(
                         value: controller.isOn.value,
-                        activeThumbColor: AppColors.blackColor,
-                        activeTrackColor: AppColors.greenAccentShade700,
-                        inactiveTrackColor: AppColors.blackColor,
+                        activeThumbColor: AppTheme.blackColor,
+                        activeTrackColor: AppTheme.greenAccentShade700,
+                        inactiveTrackColor: AppTheme.blackColor,
                         onChanged: (val) {
                           controller.isOn.value = val;
                         },
@@ -139,11 +139,11 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Media auto-download",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               Text(
                 "Voice messages are always automatically downloaded",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               appTile(
@@ -184,10 +184,10 @@ class StorageAndDataScreen extends GetView<SettingController> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: AppColors.greyShade900,
+              backgroundColor: AppTheme.greyShade900,
               title: Text(
                 title,
-                style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(28)),
+                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(28)),
               ),
               content: Obx(
                 () => Column(
@@ -224,7 +224,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                           child: Text(
                             "Cancel",
                             style: TextStyle(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -238,7 +238,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                           child: Text(
                             "Ok",
                             style: TextStyle(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -271,16 +271,16 @@ class StorageAndDataScreen extends GetView<SettingController> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: AppColors.greyShade900,
+              backgroundColor: AppTheme.greyShade900,
 
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(color: AppColors.whiteColor)),
+                  Text(title, style: TextStyle(color: AppTheme.whiteColor)),
                   SizedBox(height: 10),
                   Text(
                     subtitle,
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
@@ -307,8 +307,8 @@ class StorageAndDataScreen extends GetView<SettingController> {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: isSelected
-                                    ? AppColors.greenAccentShade700
-                                    :AppColors.greyShade400,
+                                    ? AppTheme.greenAccentShade700
+                                    :AppTheme.greyShade400,
                                 width: AppSize.getSize(2),
                               ),
                             ),
@@ -319,7 +319,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                                       width: AppSize.getSize(12),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: AppColors.greenAccentShade700,
+                                        color: AppTheme.greenAccentShade700,
                                       ),
                                     ),
                                   )
@@ -330,7 +330,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                             child: Text(
                               option,
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -349,7 +349,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   child: Text(
                     "Cancel",
                     style: TextStyle(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -362,7 +362,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   child: Text(
                     "Save",
                     style: TextStyle(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -389,8 +389,8 @@ class StorageAndDataScreen extends GetView<SettingController> {
         children: [
           Checkbox(
             value: selectedItems[title],
-            checkColor: AppColors.blackColor,
-            activeColor: AppColors.greenAccentShade700,
+            checkColor: AppTheme.blackColor,
+            activeColor: AppTheme.greenAccentShade700,
             onChanged: (val) {
               selectedItems[title] = val ?? false;
             },
@@ -399,7 +399,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
             child: Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(16),
                 fontWeight: FontWeight.w600,
               ),
@@ -423,7 +423,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           if (showIcon && icon != null) ...[
-            Icon(icon, size: 30, color: AppColors.greyShade400),
+            Icon(icon, size: 30, color: AppTheme.greyShade400),
             SizedBox(width: AppSize.getSize(20)),
           ] else
             SizedBox(width: AppSize.getSize(50)),
@@ -433,14 +433,14 @@ class StorageAndDataScreen extends GetView<SettingController> {
               Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
                 subtitle,
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),

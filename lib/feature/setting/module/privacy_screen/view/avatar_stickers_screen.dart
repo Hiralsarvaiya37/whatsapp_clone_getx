@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AvatarStickersScreen extends StatelessWidget {
    AvatarStickersScreen({super.key});
@@ -13,19 +13,19 @@ class AvatarStickersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Avatar stickers",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -39,7 +39,7 @@ class AvatarStickersScreen extends StatelessWidget {
             children: [
               Text(
                 "Who can feature my avatar in their stickers",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile("My contacts"),
@@ -50,7 +50,7 @@ class AvatarStickersScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(20)),
               Text(
                 "If you and a contact allow this for each other, stickers featuring your avatar with their avatar will be available in your chat.",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
@@ -76,7 +76,7 @@ class AvatarStickersScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isselected ? AppColors.greenAccentShade700 : AppColors.greyColor,
+                  color: isselected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -87,14 +87,14 @@ class AvatarStickersScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                         ),
                       ),
                     )
                   : SizedBox(),
             ),
             SizedBox(width: AppSize.getSize(15)),
-            Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18))),
+            Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18))),
           ],
         ),
       ),

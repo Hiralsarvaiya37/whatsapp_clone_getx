@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class BusinessPlatformScreen extends StatelessWidget {
   static const id = "/BusinessPlatformScreen";
@@ -12,21 +12,21 @@ class BusinessPlatformScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "WhatsApp Business Platform",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -35,16 +35,16 @@ class BusinessPlatformScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -54,7 +54,7 @@ class BusinessPlatformScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -78,7 +78,7 @@ class BusinessPlatformScreen extends StatelessWidget {
                   Text(
                     "WhatsApp Business Platform",
                     style: TextStyle(
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -129,14 +129,14 @@ class BusinessPlatformScreen extends StatelessWidget {
             Icon(
               Icons.file_open_sharp,
               size: AppSize.getSize(30),
-              color: AppColors.greyShade400,
+              color: AppTheme.greyShade400,
             ),
             SizedBox(width: AppSize.getSize(30)),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),

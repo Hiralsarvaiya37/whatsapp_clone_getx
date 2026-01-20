@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class QrScreen extends StatefulWidget {
   static const id = "/QrScreen";
@@ -29,33 +29,33 @@ class _QrScreenState extends State<QrScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: 
          Text(
           "QR code",
-          style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(23)),
+          style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(23)),
         ),
         actions:  [
-          Icon(Icons.share, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          Icon(Icons.share, size: AppSize.getSize(25), color: AppTheme.whiteColor),
           SizedBox(width: 15),
-          Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.whiteColor),
           SizedBox(width: 15),
         ],
         bottom: TabBar(
           controller: tabController,
-          labelColor: AppColors.whiteColor,
+          labelColor: AppTheme.whiteColor,
           labelStyle: TextStyle(fontSize: AppSize.getSize(18), fontWeight: FontWeight.w600),
-          unselectedLabelColor: AppColors.greyColor,
+          unselectedLabelColor: AppTheme.greyColor,
           indicator:  UnderlineTabIndicator(
-            borderSide: BorderSide(width: AppSize.getSize(4.0), color: AppColors.greenColor),
+            borderSide: BorderSide(width: AppSize.getSize(4.0), color: AppTheme.greenColor),
             insets: EdgeInsets.symmetric(horizontal: 135),
           ),
           tabs: [
@@ -81,7 +81,7 @@ class _QrScreenState extends State<QrScreen>
                         vertical: AppSize.getSize(30),
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.greyShade800,
+                        color: AppTheme.greyShade800,
                         borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                       ),
                       child: Column(
@@ -90,7 +90,7 @@ class _QrScreenState extends State<QrScreen>
                           Text(
                             "Add account",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(20),
                               fontWeight: FontWeight.w500,
                             ),
@@ -98,7 +98,7 @@ class _QrScreenState extends State<QrScreen>
                           Text(
                             "WhatsApp contact",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.w500,
                             ),
@@ -123,7 +123,7 @@ class _QrScreenState extends State<QrScreen>
                         "Your QR code is private. If you share it with someone, "
                         "they can scan it with their WhatsApp camera to add you as a contact.",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                         textAlign: TextAlign.center,
@@ -132,7 +132,7 @@ class _QrScreenState extends State<QrScreen>
                   ],
                 ),
                 Positioned(
-                  top: AppSize.getSize(100),
+                  top: AppSize.getSize(110),
                   left: AppSize.getSize(0),
                   right: AppSize.getSize(0),
                   child: CircleAvatar(
@@ -153,12 +153,12 @@ class _QrScreenState extends State<QrScreen>
                 Container(
                   height: AppSize.getSize(250),
                   width: AppSize.getSize(250),
-                  decoration: BoxDecoration(color: AppColors.greyShade900),
+                  decoration: BoxDecoration(color: AppTheme.greyShade900),
                 ),
                  SizedBox(height: AppSize.getSize(20)),
                 Text(
                   "Scan a WhatsApp QR code",
-                  style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   textAlign: TextAlign.center,
                 ),
               ],

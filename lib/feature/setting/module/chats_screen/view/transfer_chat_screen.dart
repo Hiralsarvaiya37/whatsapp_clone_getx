@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class TransferChatScreen extends StatelessWidget {
   static const id ="/TransferChatScreen";
@@ -9,11 +9,11 @@ class TransferChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         actions: [
-          Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppColors.greyShade400),
+          Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.greyShade400),
           SizedBox(width: AppSize.getSize(10)),
         ],
       ),
@@ -29,18 +29,18 @@ class TransferChatScreen extends StatelessWidget {
                   Icon(
                     Icons.history_edu,
                     size: AppSize.getSize(75),
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
                     "Transfer chat history to new phone",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(23)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(23)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(20)),
                   Text(
                     "Transfer your chat history privately to another Android phone. Have your most up-to-date messages without using Google storage. Certain device permissions are needed to Connect to your new device.",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -56,7 +56,7 @@ class TransferChatScreen extends StatelessWidget {
                   height: AppSize.getSize(40),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),alignment: Alignment.center,
                   child: Text(
@@ -71,7 +71,7 @@ class TransferChatScreen extends StatelessWidget {
                   },
                   child: Text(
                     "Cancel",
-                    style: TextStyle(color: AppColors.greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
+                    style: TextStyle(color: AppTheme.greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
                   ),
                 ),
               ],

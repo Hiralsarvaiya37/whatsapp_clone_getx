@@ -60,13 +60,15 @@ class SettingController extends GetxController {
   }
 
   RxString profilePicUrl = "".obs;
+  RxnString profilePicfile = RxnString();
   Future<void> pickAndUploadProfilePic(File file) async {
     try {
+      profilePicfile.value = file.path;
+
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) return;
 
       String userId = user.uid;
-
       final storageRef = FirebaseStorage.instance
           .ref()
           .child('profile_pics')
@@ -80,6 +82,7 @@ class SettingController extends GetxController {
         'profilePicUrl': downloadUrl,
       }, SetOptions(merge: true));
       profilePicUrl.value = downloadUrl;
+      profilePicfile.value = null;
     } catch (e) {
       // print("Error uploading profile picture: $e");
     }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
   static const id = "/LastseenAndOnlineScreen";
@@ -11,9 +11,9 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +21,13 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Last seen and online",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
           ),
         ),
@@ -44,7 +44,7 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
               Text(
                 "Who can see my last seen",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -90,7 +90,7 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
               Text(
                 "Who can see when I'm online",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -118,7 +118,7 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
               Text(
                 "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -153,8 +153,8 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? AppColors.greenAccentShade700
-                      : AppColors.greyColor,
+                      ? AppTheme.greenAccentShade700
+                      : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -165,7 +165,7 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -176,7 +176,7 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
             Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

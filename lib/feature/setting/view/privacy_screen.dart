@@ -16,8 +16,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/p
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/avatar_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyScreen extends GetView<PrivacyViewController> {
   static const id ="/PrivacyScreen";
@@ -27,19 +27,19 @@ const   PrivacyScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Privacy",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -53,7 +53,7 @@ const   PrivacyScreen({super.key});
               children: [
                 Text(
                   "Who can see my personal info",
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
                 SizedBox(height: AppSize.getSize(15)),
                 appTitle(
@@ -107,15 +107,15 @@ const   PrivacyScreen({super.key});
                       Expanded(
                         child: Text(
                           "Read receipts",
-                          style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                          style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                         ),
                       ),
                       Obx(
                        ()=> Switch(
                           value: controller.settingController.isOn.value,
-                          activeThumbColor: AppColors.blackColor,
-                          activeTrackColor: AppColors.greenAccentShade700,
-                          inactiveTrackColor: AppColors.blackColor,
+                          activeThumbColor: AppTheme.blackColor,
+                          activeTrackColor: AppTheme.greenAccentShade700,
+                          inactiveTrackColor: AppTheme.blackColor,
                           onChanged: (val) {
                             controller.settingController.isOn.value = val;
                           },
@@ -126,13 +126,13 @@ const   PrivacyScreen({super.key});
                 ),
                 Text(
                   "If turned off, you won't send or receive Read receipts. Read receipts are always sent for group chats.",
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
             
                 SizedBox(height: AppSize.getSize(30)),
                 Text(
                   "Disappearing messages",
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
             
                 SizedBox(height: AppSize.getSize(15)),
@@ -148,12 +148,12 @@ const   PrivacyScreen({super.key});
                           children: [
                             Text(
                               "Default message timer",
-                              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                             ),
                             Text(
                               "Start new chats with disappearing messages set to your timer",
                               style: TextStyle(
-                                color: AppColors.greyShade400,
+                                color: AppTheme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -163,7 +163,7 @@ const   PrivacyScreen({super.key});
                       Text(
                         "Off",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -195,7 +195,7 @@ const   PrivacyScreen({super.key});
                   },
                   child: Text(
                     "Live location",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(20)),
@@ -229,7 +229,7 @@ const   PrivacyScreen({super.key});
                   },
                   child: Text(
                     "Chat lock",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
@@ -247,7 +247,7 @@ const   PrivacyScreen({super.key});
                           children: [
                             Text(
                               "Allow camera effects",
-                              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                             ),
                             Text.rich(
                               TextSpan(
@@ -256,14 +256,14 @@ const   PrivacyScreen({super.key});
                                     text:
                                         "Use effects in the camera and video calls.",
                                     style: TextStyle(
-                                      color: AppColors.greyShade400,
+                                      color: AppTheme.greyShade400,
                                       fontSize: AppSize.getSize(16),
                                     ),
                                   ),
                                   TextSpan(
                                     text: "Learn more",
                                     style: TextStyle(
-                                      color: AppColors.blueshade500,
+                                      color: AppTheme.blueshade500,
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -277,9 +277,9 @@ const   PrivacyScreen({super.key});
                       Obx(
                        ()=> Switch(
                           value: controller.settingController.isYes.value,
-                          activeThumbColor: AppColors.blackColor,
-                          activeTrackColor: AppColors.greenAccentShade700,
-                          inactiveTrackColor: AppColors.blackColor,
+                          activeThumbColor: AppTheme.blackColor,
+                          activeTrackColor: AppTheme.greenAccentShade700,
+                          inactiveTrackColor: AppTheme.blackColor,
                           onChanged: (val) {
                             controller.settingController.isYes.value = val;
                           },
@@ -299,12 +299,12 @@ const   PrivacyScreen({super.key});
                     children: [
                       Text(
                         "Advanced",
-                        style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                       Text(
                         "Protect IP address in calls, Disable link previews",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -321,12 +321,12 @@ const   PrivacyScreen({super.key});
                     children: [
                       Text(
                         "Privacy checkup",
-                        style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                       Text(
                         "Control your privacy and choose the right settings for you.",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -349,10 +349,10 @@ const   PrivacyScreen({super.key});
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18))),
+          Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18))),
           Text(
             subtitle,
-            style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+            style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
           ),
         ],
       ),

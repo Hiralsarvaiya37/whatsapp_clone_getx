@@ -3,8 +3,8 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/email_address_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/pass_keys_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyCheckupScreen4 extends StatelessWidget {
   static const id = "/PrivacyCheckupScreen4";
@@ -13,19 +13,19 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -40,18 +40,18 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
             Icon(
               Icons.person_add_alt_outlined,
               size: AppSize.getSize(70),
-              color: AppColors.greenAccentShade700,
+              color: AppTheme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Add more protection to your account",
-              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(24)),
+              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(24)),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
               "Help protect your account by adding an extra layer of security.",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
               textAlign: TextAlign.center,
             ),
 
@@ -100,7 +100,7 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Column(
@@ -108,18 +108,18 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                 ),
                 SizedBox(height: AppSize.getSize(5)),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
               ],
             ),
           ),
           SizedBox(width: AppSize.getSize(40)),
-          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: AppColors.greyShade400),
+          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: AppTheme.greyShade400),
         ],
       ),
     );

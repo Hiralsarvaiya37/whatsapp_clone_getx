@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/controller/help_and_feedback_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
   static const id = "/SendFeedbackScreen";
@@ -14,21 +14,21 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Send feedback",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -52,14 +52,14 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                             text:
                                 "For other issues like span or scams, you can get help or contact support from the ",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
                           TextSpan(
                             text: "Help center.",
                             style: TextStyle(
-                              color: AppColors.greyShade800,
+                              color: AppTheme.greyShade800,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -77,23 +77,23 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                       onTapOutside: (event) {
                         FocusScope.of(context).unfocus();
                       },
-                      cursorColor: AppColors.greyShade400,
+                      cursorColor: AppTheme.greyShade400,
                       cursorWidth: AppSize.getSize(3),
                       maxLines: 4,
                       enableInteractiveSelection: false,
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
                       decoration: InputDecoration(
                         labelText: "Describe the technical issue",
                         floatingLabelStyle: TextStyle(
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                           fontSize: AppSize.getSize(18),
                         ),
                         labelStyle: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -101,7 +101,7 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                             AppSize.getSize(10),
                           ),
                           borderSide: BorderSide(
-                            color: AppColors.greyColor,
+                            color: AppTheme.greyColor,
                             width: AppSize.getSize(2),
                           ),
                         ),
@@ -110,7 +110,7 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                             AppSize.getSize(10),
                           ),
                           borderSide: BorderSide(
-                            color: AppColors.greyShade800,
+                            color: AppTheme.greyShade800,
                             width: AppSize.getSize(2),
                           ),
                         ),
@@ -127,7 +127,7 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                     Text(
                       "Screenshots or recordings (optional) Tap screenshot to edit or remove sensitive info",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -139,12 +139,12 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                           height: AppSize.getSize(95),
                           width: AppSize.getSize(95),
                           decoration: BoxDecoration(
-                            color: AppColors.greyShade800,
+                            color: AppTheme.greyShade800,
                           ),
                           child: Icon(
                             Icons.add_photo_alternate_outlined,
                             size: AppSize.getSize(25),
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                           ),
                         ),
                       ],
@@ -162,7 +162,7 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                         Text(
                           "By sending, you allow WhatsApp to review related technical info to help address your feedback.",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -173,7 +173,7 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                           child: Text(
                             "Learn more",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.bold,
                             ),
@@ -186,8 +186,8 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: controller.hasText.value
-                            ? AppColors.greenAccentShade700
-                            : AppColors.greyShade800,
+                            ? AppTheme.greenAccentShade700
+                            : AppTheme.greyShade800,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(30),
                         ),
@@ -196,8 +196,8 @@ class SendFeedbackScreen extends GetView<HelpAndFeedbackViewController> {
                         "Send",
                         style: TextStyle(
                           color: controller.hasText.value
-                              ? AppColors.blackColor
-                              : AppColors.greyShade400,
+                              ? AppTheme.blackColor
+                              : AppTheme.greyShade400,
                           fontSize: AppSize.getSize(15),
                         ),
                       ),

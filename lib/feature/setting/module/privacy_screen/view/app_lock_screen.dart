@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AppLockScreen extends GetView<PrivacyViewController> {
   static const id = "/AppLockScreen";
@@ -11,19 +11,19 @@ class AppLockScreen extends GetView<PrivacyViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "App lock",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -41,11 +41,11 @@ class AppLockScreen extends GetView<PrivacyViewController> {
                   children: [
                     Text(
                       "Unlock with biometric",
-                      style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                      style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                     ),
                     Text(
                       "When enabled, you'll need to use fingerprint, face or other unique identifiers to open WhatsApp. You can still answer calls if WhatsApp is locked.",
-                      style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                      style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                     ),
                   ],
                 ),
@@ -53,9 +53,9 @@ class AppLockScreen extends GetView<PrivacyViewController> {
           
               Obx(
                 ()=> Switch(value: controller.isOn.value,
-                activeThumbColor: AppColors.blackColor,
-                activeTrackColor: AppColors.greenAccentShade700,
-                inactiveTrackColor: AppColors.blackColor,
+                activeThumbColor: AppTheme.blackColor,
+                activeTrackColor: AppTheme.greenAccentShade700,
+                inactiveTrackColor: AppTheme.blackColor,
                  onChanged: (val){
                     controller.isOn.value = val;
                 }),

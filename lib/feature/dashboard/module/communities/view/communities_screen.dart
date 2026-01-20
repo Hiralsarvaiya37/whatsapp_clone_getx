@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 // void main() => runApp(MaterialApp(home: CommunitiesScreen()));
 
@@ -13,14 +13,14 @@ class CommunitiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             pinned: true,
             expandedHeight: AppSize.getSize(200),
             collapsedHeight: AppSize.getSize(120),
-            backgroundColor: AppColors.blackColor,
+            backgroundColor: AppTheme.blackColor,
             automaticallyImplyLeading: false,
             toolbarHeight: AppSize.getSize(0),
             flexibleSpace: LayoutBuilder(
@@ -48,7 +48,7 @@ class CommunitiesScreen extends StatelessWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(25),
                               ),
                             ),
@@ -75,7 +75,7 @@ class CommunitiesScreen extends StatelessWidget {
                                         Text(
                                           "HSSC Group ",
                                           style: TextStyle(
-                                            color: AppColors.whiteColor,
+                                            color: AppTheme.whiteColor,
                                             fontSize: AppSize.getSize(18),
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -85,7 +85,7 @@ class CommunitiesScreen extends StatelessWidget {
                                         Text(
                                           "Request to join",
                                           style: TextStyle(
-                                            color: AppColors.greyColor,
+                                            color: AppTheme.greyColor,
                                             fontSize: AppSize.getSize(16),
                                           ),
                                         ),
@@ -106,7 +106,7 @@ class CommunitiesScreen extends StatelessWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(25),
                               ),
                             ),
@@ -131,7 +131,7 @@ class CommunitiesScreen extends StatelessWidget {
                                       Text(
                                         "HSSC Group ${2022}",
                                         style: TextStyle(
-                                          color: AppColors.whiteColor,
+                                          color: AppTheme.whiteColor,
                                           fontSize: AppSize.getSize(18),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -141,7 +141,7 @@ class CommunitiesScreen extends StatelessWidget {
                                       Text(
                                         "Request to join",
                                         style: TextStyle(
-                                          color: AppColors.greyColor,
+                                          color: AppTheme.greyColor,
                                           fontSize: AppSize.getSize(16),
                                         ),
                                       ),
@@ -171,7 +171,7 @@ class CommunitiesScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(8), vertical: AppSize.getSize(5)),
                       child: Icon(
                         Icons.campaign,
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         size: AppSize.getSize(30),
                       ),
                     ),
@@ -186,7 +186,7 @@ class CommunitiesScreen extends StatelessWidget {
                             Text(
                               "Announcements",
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -195,7 +195,7 @@ class CommunitiesScreen extends StatelessWidget {
                             Text(
                               "Yesterday",
                               style: TextStyle(
-                                color: AppColors.greyColor,
+                                color: AppTheme.greyColor,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -205,7 +205,7 @@ class CommunitiesScreen extends StatelessWidget {
                           "+15487851454 hbcsdwdwdh bxhsbhsbsh",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: AppColors.greyColor, fontSize: AppSize.getSize(16)),
+                          style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
                         ),
                       ],
                     ),
@@ -220,7 +220,7 @@ class CommunitiesScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
               child: Text(
                 "Groups you can join",
-                style: TextStyle(color: AppColors.greyColor, fontSize: AppSize.getSize(17)),
+                style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(17)),
               ),
             ),
           ),
@@ -248,7 +248,7 @@ class CommunitiesScreen extends StatelessWidget {
                           Text(
                             "HSSC Group 2022",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.w600,
                             ),
@@ -257,7 +257,7 @@ class CommunitiesScreen extends StatelessWidget {
                           ),
                           Text(
                             "Request to join",
-                            style: TextStyle(color: AppColors.greyColor, fontSize: AppSize.getSize(16)),
+                            style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
                           ),
                         ],
                       ),
@@ -272,7 +272,7 @@ class CommunitiesScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: AppColors.blackColor,
+        color: AppTheme.blackColor,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(11)),
           child: Container(
@@ -283,12 +283,12 @@ class CommunitiesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.add, color: AppColors.blackColor, size: AppSize.getSize(25)),
+                Icon(Icons.add, color: AppTheme.blackColor, size: AppSize.getSize(25)),
                 SizedBox(width: AppSize.getSize(10)),
                 Text(
                   "Add group",
                   style: TextStyle(
-                    color: AppColors.blackColor,
+                    color: AppTheme.blackColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.w500,
                   ),
@@ -320,7 +320,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
     final double titleFontSize = lerpDouble(22, 18, progress)!;
 
     return Container(
-      color: AppColors.blackColor,
+      color: AppTheme.blackColor,
       padding: EdgeInsets.only(
         left: 20,
         right: 20,
@@ -348,7 +348,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                 Text(
                   "Haryana Govt Jobs 2025",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: titleFontSize,
                     fontWeight: FontWeight.w600,
                   ),
@@ -359,7 +359,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: Text(
                     "Community • 5 groups",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16)),
                   ),
                 ),
               ],

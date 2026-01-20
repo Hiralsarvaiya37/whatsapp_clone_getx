@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccessibilityScreen extends GetView<SettingController> {
   static const id ="/AccessibilityScreen";
@@ -13,19 +13,19 @@ class AccessibilityScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Accessibility",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -50,7 +50,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                         Text(
                           "Increase contrast",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -58,7 +58,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                         Text(
                           "Darken key colors to make things easier to see while in light mode.",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -69,9 +69,9 @@ class AccessibilityScreen extends GetView<SettingController> {
                   Obx(
                     ()=> Switch(
                       value: controller.isOn.value,
-                      activeThumbColor: AppColors.blackColor,
-                      activeTrackColor: AppColors.greenAccentShade700,
-                      inactiveTrackColor: AppColors.blackColor,
+                      activeThumbColor: AppTheme.blackColor,
+                      activeTrackColor: AppTheme.greenAccentShade700,
+                      inactiveTrackColor: AppTheme.blackColor,
                       onChanged: (val) {
                           controller.isOn.value = val;
                       },
@@ -91,14 +91,14 @@ class AccessibilityScreen extends GetView<SettingController> {
                   Text(
                     "Animation",
                     style: TextStyle(
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     "Choose whether stickers and GIFs move automatically.",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),

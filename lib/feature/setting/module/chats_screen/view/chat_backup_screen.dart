@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/end_to_end_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatBackupScreen extends GetView<ChatViewController> {
   static const id = "/ChatBackupScreen";
@@ -12,9 +12,9 @@ class ChatBackupScreen extends GetView<ChatViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class ChatBackupScreen extends GetView<ChatViewController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Chat backup",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -46,14 +46,14 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               Text(
                 "Backup settings",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
                 "Back up your chats and media to your Google Account's storage. You can restore them on a new phone after you download WhatsApp on it.",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -61,7 +61,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               Text(
                 "Local: 2:09 AM",
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -69,7 +69,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               Text(
                 "Last Backup: Never",
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -78,7 +78,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                 height: AppSize.getSize(42),
                 width: AppSize.getSize(110),
                 decoration: BoxDecoration(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                 ),
                 alignment: Alignment.center,
@@ -91,7 +91,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               Text(
                 "Manage Goggle storage",
                 style: TextStyle(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   fontSize: AppSize.getSize(16),
                   fontWeight: FontWeight.bold,
                 ),
@@ -107,7 +107,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppColors.greyShade900,
+                                color: AppTheme.greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -124,7 +124,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     Text(
                                       "Choose an account",
                                       style: TextStyle(
-                                        color: AppColors.whiteColor,
+                                        color: AppTheme.whiteColor,
                                         fontSize: AppSize.getSize(22),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -158,7 +158,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                             "Cancel",
                                             style: TextStyle(
                                               color:
-                                                  AppColors.greenAccentShade700,
+                                                  AppTheme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -184,7 +184,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                     Text(
                       "Goggle Account",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
@@ -193,7 +193,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                       () => Text(
                         controller.selectedGoogleAccount.value,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -213,7 +213,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppColors.greyShade900,
+                                color: AppTheme.greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -230,7 +230,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     Text(
                                       "Automatic backups",
                                       style: TextStyle(
-                                        color: AppColors.whiteColor,
+                                        color: AppTheme.whiteColor,
                                         fontSize: AppSize.getSize(22),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -288,7 +288,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                             "Cancel",
                                             style: TextStyle(
                                               color:
-                                                  AppColors.greenAccentShade700,
+                                                  AppTheme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -313,7 +313,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                     Text(
                       "Automatic backups",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -322,7 +322,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                       () => Text(
                         controller.backupFrequency.value,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -340,14 +340,14 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               Text(
                 "End-to-end encryption",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
                 "For added security, you can protect your backup with end-to-end encryption.",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -363,7 +363,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                       Icon(
                         Icons.lock_outline,
                         size: AppSize.getSize(30),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Column(
@@ -372,7 +372,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                           Text(
                             "End-to-end encrypted backup",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.w600,
                             ),
@@ -380,7 +380,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                           Text(
                             "Off",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -417,7 +417,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
@@ -425,9 +425,9 @@ class ChatBackupScreen extends GetView<ChatViewController> {
             ),
             Switch(
               value: switchValue,
-              activeThumbColor: AppColors.blackColor,
-              activeTrackColor: AppColors.greenAccentShade700,
-              inactiveTrackColor: AppColors.blackColor,
+              activeThumbColor: AppTheme.blackColor,
+              activeTrackColor: AppTheme.greenAccentShade700,
+              inactiveTrackColor: AppTheme.blackColor,
               onChanged: (val) {
                 if (index == 1) {
                   controller.isOn1.value = val;
@@ -467,8 +467,8 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               shape: BoxShape.circle,
               border: Border.all(
                 color: isSelected
-                    ? AppColors.greenAccentShade700
-                    : AppColors.greyColor,
+                    ? AppTheme.greenAccentShade700
+                    : AppTheme.greyColor,
                 width: AppSize.getSize(2),
               ),
             ),
@@ -478,7 +478,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                       height: AppSize.getSize(12),
                       width: AppSize.getSize(12),
                       decoration: BoxDecoration(
-                        color: AppColors.greenAccentShade700,
+                        color: AppTheme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -489,7 +489,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
           Text(
             title,
             style: TextStyle(
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
               fontSize: AppSize.getSize(16),
               fontWeight: FontWeight.w600,
             ),

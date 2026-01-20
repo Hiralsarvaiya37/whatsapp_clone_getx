@@ -4,8 +4,8 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class BroadcastsScreen extends StatelessWidget {
   static const id = "/BroadcastsScreen";
@@ -14,19 +14,19 @@ class BroadcastsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Broadcasts",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -44,7 +44,7 @@ class BroadcastsScreen extends StatelessWidget {
                       child: Text(
                         "This month",
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(16),
                           fontWeight: FontWeight.w600,
                         ),
@@ -53,7 +53,7 @@ class BroadcastsScreen extends StatelessWidget {
                     Text(
                       "01 Dec- 31 Dec",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
@@ -70,7 +70,7 @@ class BroadcastsScreen extends StatelessWidget {
                           Text(
                             "0",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(16),
                               fontWeight: FontWeight.w600,
                             ),
@@ -78,7 +78,7 @@ class BroadcastsScreen extends StatelessWidget {
                           Text(
                             "Sent",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(14),
                             ),
                           ),
@@ -91,7 +91,7 @@ class BroadcastsScreen extends StatelessWidget {
                         Text(
                           "35",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -99,7 +99,7 @@ class BroadcastsScreen extends StatelessWidget {
                         Text(
                           "Remaining",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(14),
                           ),
                         ),
@@ -111,7 +111,7 @@ class BroadcastsScreen extends StatelessWidget {
                 Container(
                   height: AppSize.getSize(10),
                   decoration: BoxDecoration(
-                    color: AppColors.greyShade800,
+                    color: AppTheme.greyShade800,
                     borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                   ),
                 ),
@@ -123,12 +123,12 @@ class BroadcastsScreen extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: "Send up to 35 broadcasts month. ",
-                            style: TextStyle(color: AppColors.greyShade400),
+                            style: TextStyle(color: AppTheme.greyShade400),
                           ),
                           TextSpan(
                             text: "Learn more",
                             style: TextStyle(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.w600,
                             ),
                             recognizer: TapGestureRecognizer()
@@ -150,7 +150,7 @@ class BroadcastsScreen extends StatelessWidget {
                         Text(
                           "No broadcasts",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -173,7 +173,7 @@ class BroadcastsScreen extends StatelessWidget {
                 height: AppSize.getSize(55),
                 width: AppSize.getSize(55),
                 decoration: BoxDecoration(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                 ),
                 child: Icon(Icons.add, size: AppSize.getSize(25)),

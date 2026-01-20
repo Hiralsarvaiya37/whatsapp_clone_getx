@@ -17,9 +17,9 @@ import 'package:whatsapp_clone_getx/feature/setting/view/notifications_screen.da
 import 'package:whatsapp_clone_getx/feature/setting/view/privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/qr_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/storage_and_data_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SettingScreen extends GetView<SettingController> {
   static const id = "/SettingScreen";
@@ -48,16 +48,16 @@ class SettingScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: Icon(
             Icons.arrow_back,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             size: AppSize.getSize(25),
           ),
         ),
@@ -65,14 +65,14 @@ class SettingScreen extends GetView<SettingController> {
           "Settings",
           style: TextStyle(
             fontSize: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           Icon(
             Icons.search,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             size: AppSize.getSize(25),
           ),
           SizedBox(width: AppSize.getSize(20)),
@@ -94,19 +94,28 @@ class SettingScreen extends GetView<SettingController> {
                     children: [
                       Obx(
                         () => ClipOval(
-                          child: controller.profilePicUrl.value.isNotEmpty
+                          child: controller.profilePicfile.value != null
+                              ? Image.file(
+                                  File(controller.profilePicfile.value!),
+                                  height: AppSize.getSize(55),
+                                  width: AppSize.getSize(55),
+                                  fit: BoxFit.cover,
+                                )
+                              : controller.profilePicUrl.value.isNotEmpty
                               ? Image.network(
                                   controller.profilePicUrl.value,
                                   height: AppSize.getSize(55),
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        }
+                                        return CircularProgressIndicator();
+                                      },
                                 )
-                              : Image.asset(
-                                  "lib/assets/i1.webp",
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,
-                                ),
+                              :CircularProgressIndicator(),
                         ),
                       ),
                       Positioned(
@@ -118,17 +127,17 @@ class SettingScreen extends GetView<SettingController> {
                             height: AppSize.getSize(22),
                             width: AppSize.getSize(22),
                             decoration: BoxDecoration(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: AppColors.blackColor,
+                                color: AppTheme.blackColor,
                                 width: AppSize.getSize(0.5),
                               ),
                             ),
                             child: Icon(
                               Icons.edit,
                               size: AppSize.getSize(16),
-                              color: AppColors.blackColor,
+                              color: AppTheme.blackColor,
                             ),
                           ),
                         ),
@@ -144,7 +153,7 @@ class SettingScreen extends GetView<SettingController> {
                         Text(
                           "User account",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -155,7 +164,7 @@ class SettingScreen extends GetView<SettingController> {
                             vertical: AppSize.getSize(2),
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.greyShade400),
+                            border: Border.all(color: AppTheme.greyShade400),
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(20),
                             ),
@@ -163,7 +172,7 @@ class SettingScreen extends GetView<SettingController> {
                           child: Text(
                             "Busy",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(14),
                             ),
                           ),
@@ -178,7 +187,7 @@ class SettingScreen extends GetView<SettingController> {
                     },
                     child: Icon(
                       Icons.qr_code,
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       size: AppSize.getSize(28),
                     ),
                   ),
@@ -189,7 +198,7 @@ class SettingScreen extends GetView<SettingController> {
                     },
                     child: Icon(
                       Icons.add_circle_outline,
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       size: AppSize.getSize(28),
                     ),
                   ),
@@ -207,14 +216,14 @@ class SettingScreen extends GetView<SettingController> {
                   return ListTile(
                     leading: Icon(
                       item.iconData,
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                       size: AppSize.getSize(28),
                     ),
 
                     title: Text(
                       item.titles,
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -222,7 +231,7 @@ class SettingScreen extends GetView<SettingController> {
                         ? Text(
                             item.subtitles,
                             style: TextStyle(
-                              color: AppColors.greyColor,
+                              color: AppTheme.greyColor,
                               fontSize: AppSize.getSize(16),
                             ),
                           )
@@ -295,11 +304,11 @@ class SettingScreen extends GetView<SettingController> {
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: AppColors.greyShade800,
+                      color: AppTheme.greyShade800,
                       width: AppSize.getSize(1),
                     ),
                     bottom: BorderSide(
-                      color: AppColors.greyShade800,
+                      color: AppTheme.greyShade800,
                       width: AppSize.getSize(1),
                     ),
                   ),
@@ -312,13 +321,13 @@ class SettingScreen extends GetView<SettingController> {
                         Icon(
                           Icons.all_inclusive,
                           size: AppSize.getSize(25),
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                         ),
                         SizedBox(width: AppSize.getSize(10)),
                         Text(
                           "Meta",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -329,7 +338,7 @@ class SettingScreen extends GetView<SettingController> {
                     Text(
                       "Accounts Center",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(17),
                       ),
                     ),
@@ -338,7 +347,7 @@ class SettingScreen extends GetView<SettingController> {
                     Text(
                       "Control your experience across WhatsApp, Facebook, Instagram and more.",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                       maxLines: 2,
@@ -352,7 +361,7 @@ class SettingScreen extends GetView<SettingController> {
               Text(
                 "Also from Meta",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(17),
                 ),
               ),
@@ -382,20 +391,20 @@ class SettingScreen extends GetView<SettingController> {
           height: AppSize.getSize(50),
           width: AppSize.getSize(50),
           decoration: BoxDecoration(
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             borderRadius: BorderRadius.circular(AppSize.getSize(50)),
           ),
           child: Icon(
             icon,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         SizedBox(height: AppSize.getSize(7)),
         Text(
           label,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(16),
           ),
           textAlign: TextAlign.center,
@@ -407,7 +416,7 @@ class SettingScreen extends GetView<SettingController> {
   void openAddAccountSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.greyShade900,
+      backgroundColor: AppTheme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -425,7 +434,7 @@ class SettingScreen extends GetView<SettingController> {
                   height: AppSize.getSize(4),
                   width: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                   ),
                 ),
@@ -438,7 +447,7 @@ class SettingScreen extends GetView<SettingController> {
                   vertical: AppSize.getSize(20),
                 ),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.greyShade800),
+                  border: Border.all(color: AppTheme.greyShade800),
                   borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                 ),
                 child: Column(
@@ -461,14 +470,14 @@ class SettingScreen extends GetView<SettingController> {
                               Text(
                                 "Add new account",
                                 style: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),
                                 ),
                               ),
                               Text(
                                 "+26587848545",
                                 style: TextStyle(
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
@@ -477,7 +486,7 @@ class SettingScreen extends GetView<SettingController> {
                         ),
                         Icon(
                           Icons.check_circle,
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                           size: AppSize.getSize(25),
                         ),
                       ],
@@ -494,11 +503,11 @@ class SettingScreen extends GetView<SettingController> {
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(50),
                             ),
-                            color: AppColors.greyShade900,
+                            color: AppTheme.greyShade900,
                           ),
                           child: Icon(
                             Icons.add,
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             size: AppSize.getSize(28),
                           ),
                         ),
@@ -506,7 +515,7 @@ class SettingScreen extends GetView<SettingController> {
                         Text(
                           "Add WhatsApp account",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -526,7 +535,7 @@ class SettingScreen extends GetView<SettingController> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: AppColors.greyShade900,
+      backgroundColor: AppTheme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -550,7 +559,7 @@ class SettingScreen extends GetView<SettingController> {
                       height: AppSize.getSize(5),
                       width: AppSize.getSize(40),
                       decoration: BoxDecoration(
-                        color: AppColors.greyColor,
+                        color: AppTheme.greyColor,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(20),
                         ),
@@ -569,14 +578,14 @@ class SettingScreen extends GetView<SettingController> {
                         child: Icon(
                           Icons.close,
                           size: AppSize.getSize(25),
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                         ),
                       ),
                       SizedBox(width: AppSize.getSize(25)),
                       Text(
                         "App language",
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(20),
                           fontWeight: FontWeight.w600,
                         ),
@@ -644,8 +653,8 @@ class SettingScreen extends GetView<SettingController> {
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: isSelected
-                        ? AppColors.greenAccentShade700
-                        : AppColors.greyColor,
+                        ? AppTheme.greenAccentShade700
+                        : AppTheme.greyColor,
                     width: 2,
                   ),
                   shape: BoxShape.circle,
@@ -656,7 +665,7 @@ class SettingScreen extends GetView<SettingController> {
                           height: AppSize.getSize(12),
                           width: AppSize.getSize(12),
                           decoration: BoxDecoration(
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -673,7 +682,7 @@ class SettingScreen extends GetView<SettingController> {
                     Text(
                       title,
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
@@ -683,7 +692,7 @@ class SettingScreen extends GetView<SettingController> {
                       Text(
                         subtitle,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(15),
                         ),
                       ),
@@ -700,7 +709,7 @@ class SettingScreen extends GetView<SettingController> {
   void showImagePickerSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.greyShade900,
+      backgroundColor: AppTheme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -723,19 +732,19 @@ class SettingScreen extends GetView<SettingController> {
                     Container(
                       padding: EdgeInsets.all(AppSize.getSize(14)),
                       decoration: BoxDecoration(
-                        color: AppColors.greenAccentShade700,
+                        color: AppTheme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.camera_alt,
-                        color: AppColors.blackColor,
+                        color: AppTheme.blackColor,
                         size: AppSize.getSize(25),
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
                       "Camera",
-                      style: TextStyle(color: AppColors.whiteColor),
+                      style: TextStyle(color: AppTheme.whiteColor),
                     ),
                   ],
                 ),
@@ -752,19 +761,19 @@ class SettingScreen extends GetView<SettingController> {
                     Container(
                       padding: EdgeInsets.all(AppSize.getSize(14)),
                       decoration: BoxDecoration(
-                        color: AppColors.greenAccentShade700,
+                        color: AppTheme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.photo,
-                        color: AppColors.blackColor,
+                        color: AppTheme.blackColor,
                         size: AppSize.getSize(25),
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
                       "Gallery",
-                      style: TextStyle(color: AppColors.whiteColor),
+                      style: TextStyle(color: AppTheme.whiteColor),
                     ),
                   ],
                 ),

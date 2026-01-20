@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AvatarScreen extends StatelessWidget {
   static const id = "/AvatarScreen";
@@ -9,19 +9,19 @@ class AvatarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Avatar",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -33,14 +33,14 @@ class AvatarScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: AppSize.getSize(20)),
-            Icon(Icons.groups, size: AppSize.getSize(80), color: AppColors.greenAccentShade700),
+            Icon(Icons.groups, size: AppSize.getSize(80), color: AppTheme.greenAccentShade700),
             SizedBox(height: AppSize.getSize(30)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Say more with Avatars now on WhatsApp",
-                  style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(17)),
+                  style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(17)),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -49,7 +49,7 @@ class AvatarScreen extends StatelessWidget {
             Container(
               height: AppSize.getSize(43),
               decoration: BoxDecoration(
-                color: AppColors.greenAccentShade700,
+                color: AppTheme.greenAccentShade700,
                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
               ),
               alignment: Alignment.center,
@@ -65,10 +65,10 @@ class AvatarScreen extends StatelessWidget {
                 Text(
                   "Learn more",
                   style: TextStyle(
-                    color: AppColors.blueshade500,
+                    color: AppTheme.blueshade500,
                     fontSize: AppSize.getSize(18),
                     decoration: TextDecoration.underline,
-                    decorationColor: AppColors.blueshade500
+                    decorationColor: AppTheme.blueshade500
                   ),
                 ),
               ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatHistoryScreen extends GetView<ChatViewController> {
   static const id = "/ChatHistoryScreen";
@@ -11,19 +11,19 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Chat history",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -46,7 +46,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                         child: Container(
                          
                           decoration: BoxDecoration(
-                            color: AppColors.greyShade900,
+                            color: AppTheme.greyShade900,
                             borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                           ),
                           child: Padding(
@@ -60,7 +60,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 Text(
                                   "Are you sure want to archive ALL chats?",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -75,7 +75,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                       child: Text(
                                         "Cancel",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -90,7 +90,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         child: Text(
                                           "Ok",
                                           style: TextStyle(
-                                            color: AppColors.greenAccentShade700,
+                                            color: AppTheme.greenAccentShade700,
                                             fontSize: AppSize.getSize(16),
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -126,7 +126,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                           ),
-                          backgroundColor: AppColors.greyShade900,
+                          backgroundColor: AppTheme.greyShade900,
                           child: Padding(
                             padding: EdgeInsets.all(AppSize.getSize(20)),
                             child: Column(
@@ -136,7 +136,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 Text(
                                   "Clear all chats?",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(22),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -179,7 +179,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                       child: Text(
                                         "Cancel",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -193,7 +193,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                       child: Text(
                                         "Clear chats",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -226,7 +226,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                           ),
-                          backgroundColor: AppColors.greyShade900,
+                          backgroundColor: AppTheme.greyShade900,
                           child: Padding(
                             padding: EdgeInsets.all(AppSize.getSize(20)),
                             child: Column(
@@ -236,7 +236,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 Text(
                                   "Delete all chats?",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(22),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -261,7 +261,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                       child: Text(
                                         "Cancel",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -275,7 +275,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                       child: Text(
                                         "Delete chats",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -305,12 +305,12 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
    
       return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Text(
           title,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),
@@ -337,15 +337,15 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
             width: AppSize.getSize(22),
             decoration: BoxDecoration(
               color: isSelected
-                  ? AppColors.greenAccentShade700
-                  : AppColors.greyShade900,
+                  ? AppTheme.greenAccentShade700
+                  : AppTheme.greyShade900,
               border: Border.all(
-                color: isSelected ? AppColors.greenAccentShade700 : AppColors.greyColor,
+                color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
                 width: AppSize.getSize(2),
               ),
             ),
             child: isSelected
-                ? Icon(Icons.check, color: AppColors.blackColor, size: AppSize.getSize(18))
+                ? Icon(Icons.check, color: AppTheme.blackColor, size: AppSize.getSize(18))
                 : SizedBox(),
           ),
           SizedBox(width: AppSize.getSize(20)),
@@ -358,7 +358,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
               },
               child: Text(
                 title,
-                style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16)),
               ),
             ),
           ),

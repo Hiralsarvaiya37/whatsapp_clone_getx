@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatMessagesScreen extends GetView<ChatController> {
   static const id = "/ChatMessagesScreen";
@@ -12,7 +12,9 @@ class ChatMessagesScreen extends GetView<ChatController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -20,7 +22,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Row(
@@ -38,7 +40,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
               controller.otherUserName,
               style: TextStyle(
                 fontSize: AppSize.getSize(23),
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
               ),
             ),
           ],
@@ -48,19 +50,19 @@ class ChatMessagesScreen extends GetView<ChatController> {
           Icon(
             Icons.videocam_outlined,
             size: AppSize.getSize(27),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.phone,
             size: AppSize.getSize(27),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.more_vert,
             size: AppSize.getSize(27),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
         ],
@@ -105,8 +107,8 @@ class ChatMessagesScreen extends GetView<ChatController> {
                           padding: EdgeInsets.all(AppSize.getSize(10)),
                           decoration: BoxDecoration(
                             color: isMe
-                                ? AppColors.greenColor
-                                : AppColors.greyShade800,
+                                ? AppTheme.greenColor
+                                : AppTheme.greyShade800,
                             borderRadius: isMe
                                 ? BorderRadius.only(
                                     topLeft: Radius.circular(14),
@@ -123,7 +125,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                           ),
                           child: Text(
                             data['message'] ?? "",
-                            style: TextStyle(color: AppColors.whiteColor),
+                            style: TextStyle(color: AppTheme.whiteColor),
                           ),
                         ),
                       );
@@ -146,14 +148,14 @@ class ChatMessagesScreen extends GetView<ChatController> {
                       horizontal: AppSize.getSize(12),
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.greyShade900,
+                      color: AppTheme.greyShade900,
                       borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                     ),
                     child: Row(
                       children: [
                         Icon(
                           Icons.sticky_note_2_outlined,
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                         ),
                         SizedBox(width: AppSize.getSize(10)),
 
@@ -166,9 +168,9 @@ class ChatMessagesScreen extends GetView<ChatController> {
                             minLines: 1,
                             maxLines: 4,
                             keyboardType: TextInputType.multiline,
-                            cursorColor: AppColors.greenAccentShade700,
+                            cursorColor: AppTheme.greenAccentShade700,
                             cursorWidth: 3,
-                            style: TextStyle(color: AppColors.whiteColor),
+                            style: TextStyle(color: AppTheme.whiteColor),
 
                             onChanged: (value) {
                               controller.isShow.value = value.isNotEmpty;
@@ -177,7 +179,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                             decoration: InputDecoration(
                               hintText: "Message",
                               hintStyle: TextStyle(
-                                color: AppColors.greyShade400,
+                                color: AppTheme.greyShade400,
                               ),
                               border: InputBorder.none,
 
@@ -187,18 +189,18 @@ class ChatMessagesScreen extends GetView<ChatController> {
                                   children: [
                                     Icon(
                                       Icons.attach_file,
-                                      color: AppColors.greyShade400,
+                                      color: AppTheme.greyShade400,
                                     ),
                                     if (!controller.isShow.value) ...[
                                       SizedBox(width: AppSize.getSize(8)),
                                       Icon(
                                         Icons.currency_rupee_sharp,
-                                        color: AppColors.greyShade400,
+                                        color: AppTheme.greyShade400,
                                       ),
                                       SizedBox(width: AppSize.getSize(8)),
                                       Icon(
                                         Icons.camera_alt_outlined,
-                                        color: AppColors.greyShade400,
+                                        color: AppTheme.greyShade400,
                                       ),
                                     ],
                                   ],
@@ -216,7 +218,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                   height: AppSize.getSize(45),
                   width: AppSize.getSize(45),
                   decoration: BoxDecoration(
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                     shape: BoxShape.circle,
                   ),
                   child: InkWell(

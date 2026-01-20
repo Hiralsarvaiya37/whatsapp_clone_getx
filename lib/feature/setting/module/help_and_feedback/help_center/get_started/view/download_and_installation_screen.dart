@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DownloadAndInstallationScreen extends StatelessWidget {
   static const id = "/DownloadAndInstallationScreen";
@@ -12,29 +12,29 @@ class DownloadAndInstallationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Download and installation",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.search, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          Icon(Icons.search, size: AppSize.getSize(25), color: AppTheme.whiteColor),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppColors.whiteColor),
-            color: AppColors.greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+            color: AppTheme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -44,7 +44,7 @@ class DownloadAndInstallationScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -62,7 +62,7 @@ class DownloadAndInstallationScreen extends StatelessWidget {
             children: [
               Text(
                 "Download and installation",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo("How to download or uninstall WhatsApp", context),
@@ -89,13 +89,13 @@ class DownloadAndInstallationScreen extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.file_open_sharp, size: AppSize.getSize(30), color: AppColors.greyShade400),
+            Icon(Icons.file_open_sharp, size: AppSize.getSize(30), color: AppTheme.greyShade400),
             SizedBox(width: AppSize.getSize(30)),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontWeight: FontWeight.w600,
                   fontSize: AppSize.getSize(18),
                 ),

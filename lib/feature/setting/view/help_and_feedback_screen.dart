@@ -4,8 +4,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/vie
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/channel_reports_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/send_feedback_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpAndFeedbackScreen extends StatelessWidget {
   static const id = "/HelpAndFeedbackScreen";
@@ -14,19 +14,19 @@ class HelpAndFeedbackScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Help",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -101,7 +101,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyColor),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyColor),
         SizedBox(width: AppSize.getSize(30)),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +109,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -117,7 +117,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             if (isShow && subtitle.isNotEmpty)
               Text(
                 subtitle,
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
           ],
         ),

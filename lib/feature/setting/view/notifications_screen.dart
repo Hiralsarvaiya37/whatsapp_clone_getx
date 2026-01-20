@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class NotificationsScreen extends GetView<SettingController> {
   static const id = "/NotificationsScreen";
@@ -11,19 +11,19 @@ class NotificationsScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Notifications",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -51,7 +51,7 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Messages",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
@@ -71,14 +71,14 @@ class NotificationsScreen extends GetView<SettingController> {
                 "Popup notification",
                 "Not available",
                 showSwitch: false,
-                titlecolor: AppColors.greyShade700,
-                subtitlecolor: AppColors.greyShade700,
+                titlecolor: AppTheme.greyShade700,
+                subtitlecolor: AppTheme.greyShade700,
                 onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: AppColors.greyShade900,
+                        backgroundColor: AppTheme.greyShade900,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                         ),
@@ -98,7 +98,7 @@ class NotificationsScreen extends GetView<SettingController> {
                                 Text(
                                   "Popup notifications are no longer available in your version of Android",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -114,7 +114,7 @@ class NotificationsScreen extends GetView<SettingController> {
                                       child: Text(
                                         "Learn more",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -128,7 +128,7 @@ class NotificationsScreen extends GetView<SettingController> {
                                       child: Text(
                                         "Ok",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -166,7 +166,7 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Groups",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
@@ -208,7 +208,7 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Calls",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile( context,"Ringtone", "Default", showSwitch: false),
@@ -225,7 +225,7 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Status",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
@@ -256,7 +256,7 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 "Home screen notifications",
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile(
@@ -287,14 +287,14 @@ class NotificationsScreen extends GetView<SettingController> {
         return StatefulBuilder(
           builder: (context, setStateDialog) {
             return AlertDialog(
-              backgroundColor: AppColors.greyShade900,
+              backgroundColor: AppTheme.greyShade900,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
               ),
               title: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w600,
                 ),
@@ -322,7 +322,7 @@ class NotificationsScreen extends GetView<SettingController> {
                           child: Text(
                             "Cancel",
                             style: TextStyle(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -334,7 +334,7 @@ class NotificationsScreen extends GetView<SettingController> {
                           child: Text(
                             "Ok",
                             style: TextStyle(
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -374,7 +374,7 @@ class NotificationsScreen extends GetView<SettingController> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? AppColors.greenAccentShade700 : AppColors.greyColor,
+                  color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -385,14 +385,14 @@ class NotificationsScreen extends GetView<SettingController> {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                         ),
                       ),
                     )
                   : null,
             ),
             SizedBox(width: AppSize.getSize(15)),
-            Text(text, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(16))),
+            Text(text, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16))),
           ],
         ),
       ),
@@ -458,7 +458,7 @@ class NotificationsScreen extends GetView<SettingController> {
                 Text(
                   title,
                   style: TextStyle(
-                    color: titlecolor ?? AppColors.whiteColor,
+                    color: titlecolor ?? AppTheme.whiteColor,
                     fontSize: AppSize.getSize(17),
                     fontWeight: FontWeight.w600,
                   ),
@@ -466,7 +466,7 @@ class NotificationsScreen extends GetView<SettingController> {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: subtitlecolor ?? AppColors.greyShade400,
+                    color: subtitlecolor ?? AppTheme.greyShade400,
                     fontSize: 15,
                   ),
                 ),
@@ -478,9 +478,9 @@ class NotificationsScreen extends GetView<SettingController> {
             Obx(
             ()=> Switch(
                 value: controller.isOn4[index],
-                activeTrackColor: AppColors.greenAccentShade700,
-                activeThumbColor: AppColors.blackColor,
-                inactiveTrackColor: AppColors.blackColor,
+                activeTrackColor: AppTheme.greenAccentShade700,
+                activeThumbColor: AppTheme.blackColor,
+                inactiveTrackColor: AppTheme.blackColor,
                 onChanged: (val) {
                     controller.isOn4[index] = val;
                 },

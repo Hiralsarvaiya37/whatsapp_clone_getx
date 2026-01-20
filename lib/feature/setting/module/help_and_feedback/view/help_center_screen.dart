@@ -14,8 +14,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/hel
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/show_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/voice_and_video_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpCenterScreen extends StatelessWidget {
   static const id = "/HelpCenterScreen";
@@ -24,27 +24,27 @@ class HelpCenterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Help center",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppColors.whiteColor),
-            color: AppColors.greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+            color: AppTheme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -55,7 +55,7 @@ class HelpCenterScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontWeight: FontWeight.w600,
                     fontSize: AppSize.getSize(16),
                   ),
@@ -79,13 +79,13 @@ class HelpCenterScreen extends StatelessWidget {
                         Icon(
                           Icons.call,
                           size: AppSize.getSize(60),
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
                           "How can we help?",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(22),
                             fontWeight: FontWeight.w600,
                           ),
@@ -105,7 +105,7 @@ class HelpCenterScreen extends StatelessWidget {
                           height: AppSize.getSize(45),
                           width: MediaQuery.of(context).size.width * AppSize.getSize(0.88),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.greyColor, width: AppSize.getSize(1)),
+                            border: Border.all(color: AppTheme.greyColor, width: AppSize.getSize(1)),
                             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                           ),
                           child: Padding(
@@ -116,13 +116,13 @@ class HelpCenterScreen extends StatelessWidget {
                                 Icon(
                                   Icons.search,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(15)),
                                 Text(
                                   "Search Help Center",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -136,7 +136,7 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Help topics",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   InkWell(
@@ -217,7 +217,7 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Popular articles",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appTile(
@@ -255,7 +255,7 @@ class HelpCenterScreen extends StatelessWidget {
                           Text(
                             "Show more",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontWeight: FontWeight.w600,
                               fontSize: AppSize.getSize(17),
                             ),
@@ -278,13 +278,13 @@ class HelpCenterScreen extends StatelessWidget {
   Widget appInfo(String title, IconData icon) {
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greenAccentShade700),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greenAccentShade700),
         SizedBox(width: AppSize.getSize(20)),
         Expanded(
           child: Text(
             title,
             style: TextStyle(
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
               fontSize: AppSize.getSize(17),
               fontWeight: FontWeight.w600,
             ),
@@ -301,13 +301,13 @@ class HelpCenterScreen extends StatelessWidget {
       },
       child: Row(
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(17),
                 fontWeight: FontWeight.w600,
               ),

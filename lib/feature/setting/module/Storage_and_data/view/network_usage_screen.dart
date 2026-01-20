@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class NetworkUsageScreen extends StatelessWidget {
   static const id = "/NetworkUsageScreen";
@@ -9,19 +9,19 @@ class NetworkUsageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Network usage",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -41,7 +41,7 @@ class NetworkUsageScreen extends StatelessWidget {
                     Text(
                       "Usage",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
@@ -53,14 +53,14 @@ class NetworkUsageScreen extends StatelessWidget {
                         Text(
                           "790.3 ",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(25),
                           ),
                         ),
                         Text(
                           "MB",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -81,12 +81,12 @@ class NetworkUsageScreen extends StatelessWidget {
                           Icon(
                             Icons.arrow_upward,
                             size: AppSize.getSize(15),
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                           ),
                           Text(
                             " Sent",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -95,7 +95,7 @@ class NetworkUsageScreen extends StatelessWidget {
                       Text(
                         "77.6 MB",
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -110,12 +110,12 @@ class NetworkUsageScreen extends StatelessWidget {
                           Icon(
                             Icons.arrow_downward,
                             size: AppSize.getSize(15),
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                           ),
                           Text(
                             " Received",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -124,7 +124,7 @@ class NetworkUsageScreen extends StatelessWidget {
                       Text(
                         "712.8 MB",
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -203,7 +203,7 @@ class NetworkUsageScreen extends StatelessWidget {
                     Text(
                       "Reset statistics",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
@@ -211,7 +211,7 @@ class NetworkUsageScreen extends StatelessWidget {
                     Text(
                       "Last reset time: Never",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                     ),
@@ -237,7 +237,7 @@ class NetworkUsageScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
         SizedBox(width: AppSize.getSize(20)),
 
         Expanded(
@@ -249,7 +249,7 @@ class NetworkUsageScreen extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(17),
                       fontWeight: FontWeight.w600,
                     ),
@@ -260,12 +260,12 @@ class NetworkUsageScreen extends StatelessWidget {
                       Icon(
                         Icons.arrow_upward,
                         size: AppSize.getSize(15),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                       Text(
                         subtitle,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(15),
                         ),
                       ),
@@ -273,12 +273,12 @@ class NetworkUsageScreen extends StatelessWidget {
                       Icon(
                         Icons.arrow_downward,
                         size: AppSize.getSize(15),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                       Text(
                         thirdtitle,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(15),
                         ),
                       ),
@@ -290,7 +290,7 @@ class NetworkUsageScreen extends StatelessWidget {
               Container(
                 height: AppSize.getSize(5),
                 decoration: BoxDecoration(
-                  color: AppColors.greyShade900,
+                  color: AppTheme.greyShade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                 ),
                 child: Align(
@@ -298,7 +298,7 @@ class NetworkUsageScreen extends StatelessWidget {
                   child: Container(
                     width: width,
                     decoration: BoxDecoration(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                     ),
                   ),
@@ -311,7 +311,7 @@ class NetworkUsageScreen extends StatelessWidget {
                     Text(
                       "4 outgoing • 6 incoming",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                     ),

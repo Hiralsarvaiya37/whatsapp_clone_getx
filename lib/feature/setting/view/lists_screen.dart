@@ -4,8 +4,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/lis
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/unread_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ListsScreen extends StatelessWidget {
   static const id = "/ListsScreen";
@@ -14,19 +14,19 @@ class ListsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Lists",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,14 +37,14 @@ class ListsScreen extends StatelessWidget {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                backgroundColor: AppColors.greyShade900,
+                backgroundColor: AppTheme.greyShade900,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.getSize(20))),
                 ),
                 builder: (context) {
                   return Container(
                     height: MediaQuery.of(context).size.height * AppSize.getSize(0.97),
-                    color: AppColors.greyShade900,
+                    color: AppTheme.greyShade900,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: AppSize.getSize(20),
@@ -58,7 +58,7 @@ class ListsScreen extends StatelessWidget {
                               height: AppSize.getSize(6),
                               width: AppSize.getSize(45),
                               decoration: BoxDecoration(
-                                color: AppColors.greyColor,
+                                color: AppTheme.greyColor,
                                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                               ),
                             ),
@@ -74,13 +74,13 @@ class ListsScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.clear,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                 ),
                               ),
                               Text(
                                 "Edit Lists",
                                 style: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(22),
                                 ),
                               ),
@@ -91,7 +91,7 @@ class ListsScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.done,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                 ),
                               ),
                             ],
@@ -101,7 +101,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             "You can edit lists and filters here or reorder how they appear on the Chats tab.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -110,7 +110,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             "Your lists",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -121,7 +121,7 @@ class ListsScreen extends StatelessWidget {
                                 child: Text(
                                   "Favorites",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                 ),
@@ -129,7 +129,7 @@ class ListsScreen extends StatelessWidget {
                               Icon(
                                 Icons.drag_handle,
                                 size: AppSize.getSize(25),
-                                color: AppColors.greyShade400,
+                                color: AppTheme.greyShade400,
                               ),
                             ],
                           ),
@@ -143,7 +143,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             "Available presets",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -151,7 +151,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             "If you remove a preset list like Unread or Groups, it will become available here.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -163,7 +163,7 @@ class ListsScreen extends StatelessWidget {
                 },
               );
             },
-            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: AppColors.whiteColor),
+            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: AppTheme.whiteColor),
           ),
           SizedBox(width: AppSize.getSize(15)),
         ],
@@ -176,7 +176,7 @@ class ListsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: AppSize.getSize(20)),
-              Icon(Icons.add, size: AppSize.getSize(70), color: AppColors.greenAccentShade700),
+              Icon(Icons.add, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "Any list create becomes a filter at the top of your Chats tab.",
@@ -189,14 +189,14 @@ class ListsScreen extends StatelessWidget {
                 height: AppSize.getSize(45),
                 width: AppSize.getSize(300),
                 decoration: BoxDecoration(
-                  color: AppColors.greenshade900,
+                  color: AppTheme.greenshade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   "+  Create a custom list",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -207,7 +207,7 @@ class ListsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Your lists",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
@@ -238,7 +238,7 @@ class ListsScreen extends StatelessWidget {
                         Text(
                           "Available presets",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -246,7 +246,7 @@ class ListsScreen extends StatelessWidget {
                         Text(
                           "If you remove a preset list like Unread or Groups, it will become available here.",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                           textAlign: TextAlign.center,
@@ -272,10 +272,10 @@ class ListsScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18))),
+              Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18))),
               Text(
                 subtitle,
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
@@ -291,18 +291,18 @@ class ListsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18))),
+              Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18))),
               SizedBox(height: AppSize.getSize(5)),
               Text(
                 subtitle,
-                style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
         ),
         openDeleteDialog(context, "Delete $title?", getDeleteMessage(title)),
         SizedBox(width: AppSize.getSize(20)),
-        Icon(Icons.drag_handle, size: AppSize.getSize(25), color: AppColors.greyShade400),
+        Icon(Icons.drag_handle, size: AppSize.getSize(25), color: AppTheme.greyShade400),
       ],
     );
   }
@@ -330,13 +330,13 @@ class ListsScreen extends StatelessWidget {
           context: context,
           builder: (context) {
             return Dialog(
-              backgroundColor: AppColors.greyShade900,
+              backgroundColor: AppTheme.greyShade900,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.greyShade900,
+                  color: AppTheme.greyShade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                 ),
                 child: Padding(
@@ -347,13 +347,13 @@ class ListsScreen extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(22)),
+                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(22)),
                       ),
                       SizedBox(height: AppSize.getSize(20)),
                       Text(
                         messsage,
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -368,7 +368,7 @@ class ListsScreen extends StatelessWidget {
                             child: Text(
                               "Cancel",
                               style: TextStyle(
-                                color: AppColors.greenAccentShade700,
+                                color: AppTheme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -382,7 +382,7 @@ class ListsScreen extends StatelessWidget {
                             child: Text(
                               "Delete",
                               style: TextStyle(
-                                color: AppColors.greenAccentShade700,
+                                color: AppTheme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -398,7 +398,7 @@ class ListsScreen extends StatelessWidget {
           },
         );
       },
-      child: Icon(Icons.delete, size: AppSize.getSize(25), color: AppColors.greyShade400),
+      child: Icon(Icons.delete, size: AppSize.getSize(25), color: AppTheme.greyShade400),
     );
   }
 }

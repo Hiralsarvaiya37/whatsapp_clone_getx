@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatviewScreen extends StatelessWidget {
   static const id = "/ChatviewScreen";
@@ -17,25 +17,26 @@ class ChatviewScreen extends StatelessWidget {
     String currentUser = "user1";
 
     return Scaffold(
+      backgroundColor: AppTheme.blackColor,
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: AppSize.getSize(12)),
         child: Column(
           children: [
             TextField(
               onTapOutside: (event) => FocusScope.of(context).unfocus(),
-              style: TextStyle(color: AppColors.whiteColor),
-              cursorColor: AppColors.greenAccentShade700,
+              style: TextStyle(color: AppTheme.whiteColor),
+              cursorColor: AppTheme.greenAccentShade700,
               decoration: InputDecoration(
                 isDense: true,
                 filled: true,
-                fillColor: AppColors.greyShade800,
+                fillColor: AppTheme.greyShade800,
                 prefixIcon: Icon(
                   Icons.search,
                   size: AppSize.getSize(23),
-                  color: AppColors.greyShade400,
+                  color: AppTheme.whiteColor,
                 ),
                 hintText: "Ask Meta AI or Search",
-                hintStyle: TextStyle(color: AppColors.greyShade400),
+                hintStyle: TextStyle(color: AppTheme.whiteColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                   borderSide: BorderSide.none,
@@ -61,12 +62,12 @@ class ChatviewScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(30),
                         ),
-                        color: AppColors.greyShade800,
+                        color: AppTheme.greyShade800,
                       ),
                       child: Text(
                         filters[index],
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -118,7 +119,7 @@ class ChatviewScreen extends StatelessWidget {
                                 Text(
                                   user,
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -126,7 +127,7 @@ class ChatviewScreen extends StatelessWidget {
                                 Text(
                                   "Last message preview",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -138,12 +139,12 @@ class ChatviewScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "11:11",
-                                style: TextStyle(color: AppColors.whiteColor),
+                                style: TextStyle(color: AppTheme.whiteColor),
                               ),
                               SizedBox(height: 5),
                               Icon(
                                 Icons.push_pin,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(18),
                               ),
                             ],

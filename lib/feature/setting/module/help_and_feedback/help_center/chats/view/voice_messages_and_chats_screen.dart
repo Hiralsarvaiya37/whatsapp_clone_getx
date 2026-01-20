@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class VoiceMessagesAndChatsScreen extends StatelessWidget {
   static const id = "/VoiceMessagesAndChatsScreen";
@@ -12,9 +12,9 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Voice Messages and Chats",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,16 +37,16 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -56,7 +56,7 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -79,7 +79,7 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
                 Text(
                   "Voice Messages and Chats",
                   style: TextStyle(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -116,14 +116,14 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
             Icon(
               Icons.file_open_sharp,
               size: AppSize.getSize(30),
-              color: AppColors.greyShade400,
+              color: AppTheme.greyShade400,
             ),
             SizedBox(width: AppSize.getSize(30)),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontWeight: FontWeight.w600,
                   fontSize: AppSize.getSize(18),
                 ),

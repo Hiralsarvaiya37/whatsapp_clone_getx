@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class CallsScreen extends GetView<PrivacyViewController> {
   static const id = "/CallsScreen";
@@ -13,20 +13,20 @@ class CallsScreen extends GetView<PrivacyViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
 
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Calls",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -44,12 +44,12 @@ class CallsScreen extends GetView<PrivacyViewController> {
                 children: [
                   Text(
                     "Slience unknown callers",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                   SizedBox(height: AppSize.getSize(10)),
                   Text(
                     "Calls from unknown numbers will be silenced. They will still be shown in the calls tab and in your notifications. ",
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   InkWell(
                     onTap: () {
@@ -58,7 +58,7 @@ class CallsScreen extends GetView<PrivacyViewController> {
                     child: Text(
                       "Learn more",
                       style: TextStyle(
-                        color: AppColors.blueshade500,
+                        color: AppTheme.blueshade500,
                         fontWeight: FontWeight.w600,
                         fontSize: AppSize.getSize(16),
                       ),
@@ -72,9 +72,9 @@ class CallsScreen extends GetView<PrivacyViewController> {
                 children: [
                   Switch(
                     value: controller.isOn.value,
-                    activeThumbColor: AppColors.blackColor,
-                    activeTrackColor: AppColors.greenAccentShade700,
-                    inactiveTrackColor: AppColors.blackColor,
+                    activeThumbColor: AppTheme.blackColor,
+                    activeTrackColor: AppTheme.greenAccentShade700,
+                    inactiveTrackColor: AppTheme.blackColor,
                     onChanged: (val) {
                         controller.isOn.value = val;
                     },

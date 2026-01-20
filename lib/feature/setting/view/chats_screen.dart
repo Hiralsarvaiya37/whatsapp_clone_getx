@@ -5,8 +5,10 @@ import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/cha
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
 
 class ChatsScreen extends GetView<SettingController> {
   static const id = "/ChatsScreen";
@@ -15,9 +17,9 @@ class ChatsScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,13 +27,13 @@ class ChatsScreen extends GetView<SettingController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Chats",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -49,7 +51,7 @@ class ChatsScreen extends GetView<SettingController> {
               Text(
                 "Display",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -64,7 +66,7 @@ class ChatsScreen extends GetView<SettingController> {
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppColors.greyShade900,
+                                color: AppTheme.greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -81,7 +83,7 @@ class ChatsScreen extends GetView<SettingController> {
                                     Text(
                                       "Choose theme",
                                       style: TextStyle(
-                                        color: AppColors.whiteColor,
+                                        color: AppTheme.whiteColor,
                                         fontSize: 22,
                                       ),
                                     ),
@@ -117,7 +119,7 @@ class ChatsScreen extends GetView<SettingController> {
                                             "Cancel",
                                             style: TextStyle(
                                               color:
-                                                  AppColors.greenAccentShade700,
+                                                  AppTheme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -132,7 +134,7 @@ class ChatsScreen extends GetView<SettingController> {
                                             "Ok",
                                             style: TextStyle(
                                               color:
-                                                  AppColors.greenAccentShade700,
+                                                  AppTheme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -155,7 +157,7 @@ class ChatsScreen extends GetView<SettingController> {
                     Icon(
                       Icons.settings,
                       size: AppSize.getSize(30),
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(30)),
                     Column(
@@ -164,7 +166,7 @@ class ChatsScreen extends GetView<SettingController> {
                         Text(
                           "Theme",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -173,7 +175,7 @@ class ChatsScreen extends GetView<SettingController> {
                           () => Text(
                             controller.selectedTheme.value,
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -193,13 +195,13 @@ class ChatsScreen extends GetView<SettingController> {
                     Icon(
                       Icons.chat,
                       size: AppSize.getSize(30),
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(30)),
                     Text(
                       "Default chat theme",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
@@ -212,7 +214,7 @@ class ChatsScreen extends GetView<SettingController> {
               Text(
                 "Chat settings",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -254,7 +256,7 @@ class ChatsScreen extends GetView<SettingController> {
               Text(
                 "Archived chats",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -301,12 +303,12 @@ class ChatsScreen extends GetView<SettingController> {
   Widget chatInfo(String title, IconData icon) {
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Text(
           title,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),
@@ -340,7 +342,7 @@ class ChatsScreen extends GetView<SettingController> {
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
@@ -348,7 +350,7 @@ class ChatsScreen extends GetView<SettingController> {
                   Text(
                     subtitle,
                     style: TextStyle(
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -359,9 +361,9 @@ class ChatsScreen extends GetView<SettingController> {
           if (showSwitch)
             Switch(
               value: switchValue ?? false,
-              activeThumbColor: AppColors.blackColor,
-              activeTrackColor: AppColors.greenAccentShade700,
-              inactiveTrackColor: AppColors.blackColor,
+              activeThumbColor: AppTheme.blackColor,
+              activeTrackColor: AppTheme.greenAccentShade700,
+              inactiveTrackColor: AppTheme.blackColor,
               onChanged: onChanged,
             ),
         ],
@@ -378,20 +380,19 @@ class ChatsScreen extends GetView<SettingController> {
     return InkWell(
       onTap: () {
         dialogSetState(() {
-          if (title == "Small" || title == "Medium" || title == "Large") {
-            controller.selectedFontSize.value = title;
-          } else {
-            controller.selectedTheme.value = title;
-          }
-        });
-        if (title == "Small" || title == "Medium" || title == "Large") {
-          controller.selectedFontSize.value = title;
-        } else {
           controller.selectedTheme.value = title;
+        });
+
+        if (title == "Light") {
+          AppTheme.changeTheme(P1());
+        } else if (title == "Dark") {
+          AppTheme.changeTheme(DefulatPallet());
+        } else {
+          AppTheme.changeTheme(DefulatPallet());
         }
       },
       child: Container(
-        color: AppColors.greyShade900,
+        color: AppTheme.greyShade900,
         child: Row(
           children: [
             Container(
@@ -401,8 +402,8 @@ class ChatsScreen extends GetView<SettingController> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? AppColors.greenAccentShade700
-                      : AppColors.greyColor,
+                      ? AppTheme.greenAccentShade700
+                      : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -412,7 +413,7 @@ class ChatsScreen extends GetView<SettingController> {
                         height: AppSize.getSize(12),
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
-                          color: AppColors.greenAccentShade700,
+                          color: AppTheme.greenAccentShade700,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -423,7 +424,7 @@ class ChatsScreen extends GetView<SettingController> {
             Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

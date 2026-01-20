@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class FavoritesScreen extends GetView<CallController> {
   static const id = "/FavoritesScreen";
@@ -11,15 +11,15 @@ class FavoritesScreen extends GetView<CallController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
 
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             size: AppSize.getSize(25),
           ),
         ),
@@ -28,16 +28,16 @@ class FavoritesScreen extends GetView<CallController> {
                               FocusScope.of(context).unfocus();
                             },
           controller: controller.searchController,
-          cursorColor: AppColors.greenAccentShade700,
+          cursorColor: AppTheme.greenAccentShade700,
           cursorWidth: 3,
           onChanged: controller.searchContacts,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
           ),
           decoration: InputDecoration(
             hintText: "Search",
-            hintStyle: TextStyle(color: AppColors.greyShade400),
+            hintStyle: TextStyle(color: AppTheme.greyShade400),
             border: InputBorder.none,
           ),
         ),
@@ -74,12 +74,12 @@ class FavoritesScreen extends GetView<CallController> {
         height: AppSize.getSize(60),
         width: AppSize.getSize(60),
         decoration: BoxDecoration(
-          color: AppColors.greenAccentShade700,
+          color: AppTheme.greenAccentShade700,
           borderRadius: BorderRadius.circular(AppSize.getSize(15)),
         ),
         child: Icon(
           Icons.check,
-          color: AppColors.blackColor,
+          color: AppTheme.blackColor,
           size: AppSize.getSize(25),
         ),
       ),
@@ -108,7 +108,7 @@ class FavoritesScreen extends GetView<CallController> {
               Text(
                 controller.favorites[index],
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(14),
                 ),
               ),
@@ -136,7 +136,7 @@ class FavoritesScreen extends GetView<CallController> {
         Text(
           name,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
           ),
         ),
@@ -152,7 +152,7 @@ class FavoritesScreen extends GetView<CallController> {
       children: [
         Text(
           title,
-          style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+          style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
         ),
         SizedBox(height: AppSize.getSize(15)),
 

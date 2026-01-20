@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/lastseen_and_online_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/privacy_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyCheckupScreen2 extends StatelessWidget {
   static const id = "/PrivacyCheckupScreen2";
@@ -13,23 +13,23 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: Icon(Icons.arrow_back),
           iconSize: AppSize.getSize(25),
-          color: AppColors.whiteColor,
+          color: AppTheme.whiteColor,
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
       ),
@@ -42,17 +42,17 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
             Icon(
               Icons.manage_search,
               size: AppSize.getSize(80),
-              color: AppColors.greenAccentShade700,
+              color: AppTheme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Control your personal info",
-              style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(22)),
+              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(22)),
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
               "Choose the best audience for your personal info, like online status and acticity.",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               textAlign: TextAlign.center,
             ),
 
@@ -100,7 +100,7 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Column(
@@ -108,18 +108,18 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                 ),
                 SizedBox(height: AppSize.getSize(5)),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
               ],
             ),
           ),
           SizedBox(width: 40),
-          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: AppColors.greyShade400),
+          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: AppTheme.greyShade400),
         ],
       ),
     );

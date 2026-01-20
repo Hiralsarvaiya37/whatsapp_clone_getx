@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/splash/controller/splash_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SplashScreen extends StatefulWidget {
   static const id = "/";
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             "From",
-            style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+            style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -54,13 +54,13 @@ class _SplashScreenState extends State<SplashScreen> {
               Icon(
                 Icons.all_inclusive,
                 size: AppSize.getSize(23),
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
               ),
               SizedBox(width: AppSize.getSize(5)),
               Text(
                 "Meta",
                 style: TextStyle(
-                  color: AppColors.whiteColor,
+                  color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.bold,
                 ),

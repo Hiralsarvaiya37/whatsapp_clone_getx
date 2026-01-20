@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class InviteFriendScreen extends StatelessWidget {
   static const id = "/InviteFriendScreen";
@@ -13,9 +13,9 @@ class InviteFriendScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +23,13 @@ class InviteFriendScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Invite a friend",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -38,7 +38,7 @@ class InviteFriendScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(20)),
         ],
@@ -58,7 +58,7 @@ class InviteFriendScreen extends StatelessWidget {
                     height: AppSize.getSize(45),
                     width: AppSize.getSize(45),
                     decoration: BoxDecoration(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -70,7 +70,7 @@ class InviteFriendScreen extends StatelessWidget {
                   Text(
                     "Share link",
                     style: TextStyle(
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
@@ -81,7 +81,7 @@ class InviteFriendScreen extends StatelessWidget {
               Text(
                 "From contacts",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -97,7 +97,7 @@ class InviteFriendScreen extends StatelessWidget {
                       showModalBottomSheet(
                         context: context,
                         isScrollControlled: true,
-                        backgroundColor: AppColors.greyShade900,
+                        backgroundColor: AppTheme.greyShade900,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(AppSize.getSize(20)),
@@ -120,7 +120,7 @@ class InviteFriendScreen extends StatelessWidget {
                                   height: AppSize.getSize(6),
                                   width: AppSize.getSize(35),
                                   decoration: BoxDecoration(
-                                    color: AppColors.greyColor,
+                                    color: AppTheme.greyColor,
                                     borderRadius: BorderRadius.circular(
                                       AppSize.getSize(10),
                                     ),
@@ -130,7 +130,7 @@ class InviteFriendScreen extends StatelessWidget {
                                 Text(
                                   "Send SMS invite?",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(20),
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -139,7 +139,7 @@ class InviteFriendScreen extends StatelessWidget {
                                 Text(
                                   "User isn't on WhatsApp. Do you want to invite them to join?",
                                   style: TextStyle(
-                                    color: AppColors.greyShade400,
+                                    color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                   textAlign: TextAlign.center,
@@ -149,19 +149,19 @@ class InviteFriendScreen extends StatelessWidget {
                                   height: AppSize.getSize(45),
                                   width: AppSize.getSize(45),
                                   decoration: BoxDecoration(
-                                    color: AppColors.greyShade500,
+                                    color: AppTheme.greyShade500,
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
                                     Icons.person,
                                     size: AppSize.getSize(30),
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   "User",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(14),
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -173,11 +173,11 @@ class InviteFriendScreen extends StatelessWidget {
                                     FocusScope.of(context).unfocus();
                                   },
                                   controller: messageController,
-                                  cursorColor: AppColors.greenAccentShade700,
+                                  cursorColor: AppTheme.greenAccentShade700,
                                   enableInteractiveSelection: false,
                                   cursorWidth: AppSize.getSize(3),
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(16),
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -186,7 +186,7 @@ class InviteFriendScreen extends StatelessWidget {
                                   decoration: InputDecoration(
                                     labelText: "Message",
                                     labelStyle: TextStyle(
-                                      color: AppColors.greyShade400,
+                                      color: AppTheme.greyShade400,
                                       fontSize: AppSize.getSize(16),
                                     ),
                                     floatingLabelBehavior:
@@ -194,7 +194,7 @@ class InviteFriendScreen extends StatelessWidget {
                                     border: InputBorder.none,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: AppColors.greyColor,
+                                        color: AppTheme.greyColor,
                                         width: AppSize.getSize(1),
                                       ),
                                       borderRadius: BorderRadius.circular(
@@ -203,7 +203,7 @@ class InviteFriendScreen extends StatelessWidget {
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: AppColors.greenAccentShade700,
+                                        color: AppTheme.greenAccentShade700,
                                         width: AppSize.getSize(1),
                                       ),
                                       borderRadius: BorderRadius.circular(
@@ -216,7 +216,7 @@ class InviteFriendScreen extends StatelessWidget {
                                 Container(
                                   height: AppSize.getSize(40),
                                   decoration: BoxDecoration(
-                                    color: AppColors.greenAccentShade700,
+                                    color: AppTheme.greenAccentShade700,
                                     borderRadius: BorderRadius.circular(
                                       AppSize.getSize(30),
                                     ),
@@ -241,7 +241,7 @@ class InviteFriendScreen extends StatelessWidget {
                                       Text(
                                         "Not now",
                                         style: TextStyle(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -262,13 +262,13 @@ class InviteFriendScreen extends StatelessWidget {
                           height: AppSize.getSize(45),
                           width: AppSize.getSize(45),
                           decoration: BoxDecoration(
-                            color: AppColors.greyShade500,
+                            color: AppTheme.greyShade500,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.person,
                             size: AppSize.getSize(30),
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                           ),
                         ),
                         SizedBox(width: AppSize.getSize(20)),
@@ -279,7 +279,7 @@ class InviteFriendScreen extends StatelessWidget {
                               Text(
                                 "User",
                                 style: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -287,7 +287,7 @@ class InviteFriendScreen extends StatelessWidget {
                               Text(
                                 "+91 2503146985",
                                 style: TextStyle(
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
@@ -297,7 +297,7 @@ class InviteFriendScreen extends StatelessWidget {
                         Text(
                           "Invite",
                           style: TextStyle(
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             fontWeight: FontWeight.bold,
                             fontSize: AppSize.getSize(16),
                           ),

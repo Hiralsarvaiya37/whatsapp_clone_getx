@@ -4,8 +4,8 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/hel
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/voice_and_video_calls/view/voice_troubleshooting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/voice_and_video_calls/view/voice_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class VoiceAndVideoCallsScreen extends StatelessWidget {
   static const id = "/VoiceAndVideoCallsScreen";
@@ -14,9 +14,9 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +24,13 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -39,16 +39,16 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -58,7 +58,7 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -81,7 +81,7 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
                 Text(
                   "Voice and Video Calls",
                   style: TextStyle(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -122,13 +122,13 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppColors.greenAccentShade700,
+          color: AppTheme.greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class EndToEndScreen extends StatelessWidget {
   static const id = "/EndToEndScreen";
@@ -9,14 +9,14 @@ class EndToEndScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.greyShade400),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.greyShade400),
         ),
       ),
       body: Column(
@@ -31,12 +31,12 @@ class EndToEndScreen extends StatelessWidget {
                   Icon(
                     Icons.lock,
                     size: AppSize.getSize(70),
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
                     "Add an extra layer of protection",
-                    style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(25)),
+                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(25)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(35)),
@@ -65,14 +65,14 @@ class EndToEndScreen extends StatelessWidget {
                 Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppColors.greenAccentShade700,
+                    color: AppTheme.greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     "Use passkey",
                     style: TextStyle(
-                      color: AppColors.blackColor,
+                      color: AppTheme.blackColor,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -82,14 +82,14 @@ class EndToEndScreen extends StatelessWidget {
                  Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.greyColor, width: AppSize.getSize(0.5)),
+                    border: Border.all(color: AppTheme.greyColor, width: AppSize.getSize(0.5)),
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     "More options",
                     style: TextStyle(
-                      color: AppColors.greenAccentShade700,
+                      color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -108,12 +108,12 @@ class EndToEndScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Expanded(
           child: Text(
             title,
-            style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+            style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
           ),
         ),
       ],

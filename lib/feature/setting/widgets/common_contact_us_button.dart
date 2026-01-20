@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class CommonContactUsButton extends StatelessWidget {
   const CommonContactUsButton({super.key});
@@ -15,7 +15,7 @@ class CommonContactUsButton extends StatelessWidget {
                 showModalBottomSheet(
                   context: context,
                   isScrollControlled: true,
-                  backgroundColor: AppColors.greyShade900,
+                  backgroundColor: AppTheme.greyShade900,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(AppSize.getSize(20)),
@@ -34,7 +34,7 @@ class CommonContactUsButton extends StatelessWidget {
                               height: AppSize.getSize(5),
                               width: AppSize.getSize(40),
                               decoration: BoxDecoration(
-                                color: AppColors.greyColor,
+                                color: AppTheme.greyColor,
                                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                               ),
                             ),
@@ -42,13 +42,13 @@ class CommonContactUsButton extends StatelessWidget {
                             Icon(
                               Icons.help,
                               size: AppSize.getSize(50),
-                              color: AppColors.greenAccentShade700,
+                              color: AppTheme.greenAccentShade700,
                             ),
                             SizedBox(height: AppSize.getSize(30)),
                             Text(
                               "Get help from official Whatsapp Support",
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: AppSize.getSize(25),
                               ),
@@ -60,13 +60,13 @@ class CommonContactUsButton extends StatelessWidget {
                                 Icon(
                                   Icons.security,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(20)),
                                 Text(
                                   "Secure chat with WhatsApp",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -79,13 +79,13 @@ class CommonContactUsButton extends StatelessWidget {
                                 Icon(
                                   Icons.switch_access_shortcut_add_outlined,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(20)),
                                 Text(
                                   "Answers may be AI generated",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -98,13 +98,13 @@ class CommonContactUsButton extends StatelessWidget {
                                 Icon(
                                   Icons.thumb_up_alt_outlined,
                                   size: AppSize.getSize(25),
-                                  color: AppColors.greyShade400,
+                                  color: AppTheme.greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(20)),
                                 Text(
                                   "Help us improve with feedback",
                                   style: TextStyle(
-                                    color: AppColors.whiteColor,
+                                    color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -119,13 +119,13 @@ class CommonContactUsButton extends StatelessWidget {
                                     text:
                                         "Some answers are generated by AI using a secure technology from Meta. WhatsApp uses your messages with WhatsApp Support to provide you with relevant answers. Your personal messages and calls remain end-to-end encrypted. ",
                                     style: TextStyle(
-                                      color: AppColors.greyShade400,
+                                      color: AppTheme.greyShade400,
                                     ),
                                   ),
                                   TextSpan(
                                     text: "Learn more",
                                     style: TextStyle(
-                                      color: AppColors.blueshade500,
+                                      color: AppTheme.blueshade500,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
@@ -137,7 +137,7 @@ class CommonContactUsButton extends StatelessWidget {
                             Container(
                               height: AppSize.getSize(40),
                               decoration: BoxDecoration(
-                                color: AppColors.greenAccentShade700,
+                                color: AppTheme.greenAccentShade700,
                                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                               ),
                               alignment: Alignment.center,
@@ -160,7 +160,7 @@ class CommonContactUsButton extends StatelessWidget {
                                   Text(
                                     "Not now",
                                     style: TextStyle(
-                                      color: AppColors.greenAccentShade700,
+                                      color: AppTheme.greenAccentShade700,
                                       fontWeight: FontWeight.bold,
                                       fontSize: AppSize.getSize(15),
                                     ),
@@ -179,7 +179,7 @@ class CommonContactUsButton extends StatelessWidget {
                 height: AppSize.getSize(55),
                 width: AppSize.getSize(150),
                 decoration: BoxDecoration(
-                  color: AppColors.greenAccentShade700,
+                  color: AppTheme.greenAccentShade700,
                   borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                 ),
                 child: Padding(

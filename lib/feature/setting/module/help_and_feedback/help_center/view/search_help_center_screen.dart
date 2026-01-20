@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SearchHelpCenterScreen extends StatelessWidget {
   static const id = "/SearchHelpCenterScreen";
@@ -9,9 +9,9 @@ class SearchHelpCenterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -19,13 +19,13 @@ class SearchHelpCenterScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Help center",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -35,9 +35,9 @@ class SearchHelpCenterScreen extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
-            color: AppColors.greyShade900,
+            color: AppTheme.greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -48,7 +48,7 @@ class SearchHelpCenterScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontWeight: FontWeight.w600,
                     fontSize: AppSize.getSize(16),
                   ),
@@ -69,8 +69,8 @@ class SearchHelpCenterScreen extends StatelessWidget {
               child: Container(
                 height: AppSize.getSize(45),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.greyShade400, width: 1.5),
-                  color: AppColors.greyShade900,
+                  border: Border.all(color: AppTheme.greyShade400, width: 1.5),
+                  color: AppTheme.greyShade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Padding(
@@ -80,7 +80,7 @@ class SearchHelpCenterScreen extends StatelessWidget {
                       Icon(
                         Icons.search,
                         size: AppSize.getSize(25),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Expanded(
@@ -88,17 +88,17 @@ class SearchHelpCenterScreen extends StatelessWidget {
                           onTapOutside: (event) {
                             FocusScope.of(context).unfocus();
                           },
-                          cursorColor: AppColors.greenAccentShade700,
+                          cursorColor: AppTheme.greenAccentShade700,
                           cursorWidth: AppSize.getSize(3),
                           style: TextStyle(
                             fontSize: AppSize.getSize(16),
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontWeight: FontWeight.w600,
                           ),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: "Search Help Center",
-                            hintStyle: TextStyle(color: AppColors.greyShade400),
+                            hintStyle: TextStyle(color: AppTheme.greyShade400),
                             isDense: true,
                           ),
                         ),

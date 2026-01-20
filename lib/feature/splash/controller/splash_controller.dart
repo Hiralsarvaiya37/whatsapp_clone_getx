@@ -6,9 +6,9 @@ import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart
 
 class SplashController extends GetxController {
   @override
-  void onInit() {
-    super.onInit();
-    Timer(Duration(seconds: 3), () {
+  void onReady() {
+    super.onReady();
+    Timer(const Duration(seconds: 2), () {
       final user = FirebaseAuth.instance.currentUser;
 
       if (user != null) {
@@ -19,3 +19,4 @@ class SplashController extends GetxController {
     });
   }
 }
+

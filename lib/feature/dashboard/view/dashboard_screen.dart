@@ -6,8 +6,8 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/co
 import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/setting_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
   static const id = "/DashboardScreen";
@@ -22,7 +22,7 @@ class DashboardScreen extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       body: Padding(
         padding: EdgeInsets.only(
           top: AppSize.getSize(35),
@@ -40,7 +40,7 @@ class DashboardScreen extends GetView<DashboardController> {
                         dashboardController.currentIndex.value,
                       ),
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(25),
                         fontWeight: FontWeight.w500,
                       ),
@@ -53,18 +53,18 @@ class DashboardScreen extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.qr_code,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
 
                             SizedBox(width: AppSize.getSize(25)),
                             Icon(
                               Icons.camera_alt_outlined,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             PopupMenuButton(
-                              color: AppColors.greyShade900,
+                              color: AppTheme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -73,7 +73,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -99,12 +99,12 @@ class DashboardScreen extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppColors.greyShade900,
+                              color: AppTheme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -113,7 +113,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -135,12 +135,12 @@ class DashboardScreen extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppColors.greyShade900,
+                              color: AppTheme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -149,7 +149,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -168,12 +168,12 @@ class DashboardScreen extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppColors.greyShade900,
+                              color: AppTheme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -182,7 +182,7 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -221,7 +221,7 @@ class DashboardScreen extends GetView<DashboardController> {
 
       bottomNavigationBar: Container(
         height: AppSize.getSize(70),
-        color: AppColors.blackColor,
+        color: AppTheme.blackColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -247,19 +247,19 @@ class DashboardScreen extends GetView<DashboardController> {
         );
       },
       child: Container(
-        color: AppColors.blackColor,
+        color: AppTheme.blackColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               iconData,
               size: AppSize.getSize(30),
-              color: AppColors.whiteColor,
+              color: AppTheme.whiteColor,
             ),
             Text(
               title,
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontWeight: FontWeight.w600,
                 fontSize: AppSize.getSize(16),
               ),
@@ -276,7 +276,7 @@ class DashboardScreen extends GetView<DashboardController> {
       child: Text(
         title,
         style: TextStyle(
-          color: AppColors.whiteColor,
+          color: AppTheme.whiteColor,
           fontSize: AppSize.getSize(17),
         ),
       ),

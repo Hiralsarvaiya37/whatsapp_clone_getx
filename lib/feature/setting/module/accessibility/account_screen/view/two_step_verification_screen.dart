@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class TwoStepVerificationScreen extends StatelessWidget {
    static const id="/TwoStepVerificationScreen";
@@ -12,19 +12,19 @@ class TwoStepVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Two-step verification",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -36,7 +36,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: AppSize.getSize(15)),
-            Icon(Icons.keyboard, size: AppSize.getSize(70), color: AppColors.greenAccentShade700),
+            Icon(Icons.keyboard, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
             SizedBox(height: AppSize.getSize(30)),
             Text.rich(
               TextSpan(
@@ -45,12 +45,12 @@ class TwoStepVerificationScreen extends StatelessWidget {
                     text:
                         "For extra security, turn on two-step verification, which will require a PIN when registering your phone number with WhatsApp again.",
 
-                    style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
                     text: "Learn more",
                     style: TextStyle(
-                      color: AppColors.blueshade500,
+                      color: AppTheme.blueshade500,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.w600,
                     ),
@@ -68,19 +68,19 @@ class TwoStepVerificationScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: AppColors.blackColor,
+        color: AppTheme.blackColor,
         child: Center(
           child: Container(
             height: AppSize.getSize(45),
             width: AppSize.getSize(120),
             decoration: BoxDecoration(
-              color: AppColors.greenAccentShade700,
+              color: AppTheme.greenAccentShade700,
               borderRadius: BorderRadius.circular(AppSize.getSize(25)),
             ),
             alignment: Alignment.center,
             child: Text(
               "Turn on",
-              style: TextStyle(color: AppColors.blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
+              style: TextStyle(color: AppTheme.blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
             ),
           ),
         ),

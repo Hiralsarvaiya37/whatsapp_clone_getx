@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class RequestAccountInfoScreen extends GetView<AccountViewController> {
    static const id="/RequestAccountInfoScreen";
@@ -13,21 +13,21 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Request account info",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -69,7 +69,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
         Text(
           title,
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(20),
             fontWeight: FontWeight.w600,
           ),
@@ -82,7 +82,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
             Icon(
               Icons.access_time_rounded,
               size: AppSize.getSize(30),
-              color: AppColors.greyShade400,
+              color: AppTheme.greyShade400,
             ),
             SizedBox(width: AppSize.getSize(20)),
             Column(
@@ -91,14 +91,14 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
                 Text(
                   "Request sent",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
                 Text(
                   "Ready by December 7, 2025",
                   style: TextStyle(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -112,7 +112,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
         Text(
           "Your report will be ready in about 3 days. You'll have a few weeks to download your report after it's available.",
           style: TextStyle(
-            color: AppColors.greyShade400,
+            color: AppTheme.greyShade400,
             fontSize: AppSize.getSize(16),
           ),
         ),
@@ -126,14 +126,14 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
               Icon(
                 Icons.replay_rounded,
                 size: AppSize.getSize(30),
-                color: AppColors.greyShade400,
+                color: AppTheme.greyShade400,
               ),
               SizedBox(width: AppSize.getSize(8)),
               Expanded(
                 child: Text(
                   "Create reports automatically",
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(17),
                   ),
                 ),
@@ -143,9 +143,9 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
               Obx(
                 () => Switch(
                   value: rxValue.value,
-                  activeThumbColor: AppColors.blackColor,
-                  activeTrackColor: AppColors.greenAccentShade700,
-                  inactiveTrackColor: AppColors.blackColor,
+                  activeThumbColor: AppTheme.blackColor,
+                  activeTrackColor: AppTheme.greenAccentShade700,
+                  inactiveTrackColor: AppTheme.blackColor,
                   onChanged: (val) => rxValue.value = val,
                 ),
               ),
@@ -161,14 +161,14 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
               TextSpan(
                 text: "A new report will be created every month. ",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               TextSpan(
                 text: "Learn more.",
                 style: TextStyle(
-                  color: AppColors.blueshade500,
+                  color: AppTheme.blueshade500,
                   fontSize: AppSize.getSize(16),
                   fontWeight: FontWeight.w600,
                 ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AppUpdatesScreen extends GetView<SettingController> {
   static const id ="/AppUpdatesScreen";
@@ -12,9 +12,9 @@ class AppUpdatesScreen extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: AppTheme.whiteColor,
       appBar: AppBar(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppTheme.whiteColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -106,17 +106,17 @@ class AppUpdatesScreen extends GetView<SettingController> {
                 ),
                 Text(
                   subtitle,
-                  style: TextStyle(fontSize: AppSize.getSize(16), color: AppColors.greyShade800),
+                  style: TextStyle(fontSize: AppSize.getSize(16), color: AppTheme.greyShade800),
                 ),
               ],
             ),
           ),
            Switch(
               value: value,
-              activeThumbColor: AppColors.blueshade900,
-              activeTrackColor: AppColors.blueshade100,
-              inactiveTrackColor: AppColors.greyShade400,
-              inactiveThumbColor: AppColors.whiteColor,
+              activeThumbColor: AppTheme.blueshade900,
+              activeTrackColor: AppTheme.blueshade100,
+              inactiveTrackColor: AppTheme.greyShade400,
+              inactiveThumbColor: AppTheme.whiteColor,
               onChanged: onChanged,
             ),
         ],

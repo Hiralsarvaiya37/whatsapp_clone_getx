@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PassKeysScreen extends StatelessWidget {
   static const id="/PassKeysScreen";
@@ -9,9 +9,9 @@ class PassKeysScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -19,13 +19,13 @@ class PassKeysScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Passkeys",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -43,7 +43,7 @@ class PassKeysScreen extends StatelessWidget {
             Text(
               "Manage your passkey",
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(22),
                 fontWeight: FontWeight.w600,
               ),
@@ -57,7 +57,7 @@ class PassKeysScreen extends StatelessWidget {
                     text:
                         "Access WhatsApp the same way you unloack your phone. with your fingerprint, face or screen lock. your passkey gives you a secure and easy way to log back into your account. ",
                     style: TextStyle(
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.w600,
                     ),
@@ -65,7 +65,7 @@ class PassKeysScreen extends StatelessWidget {
                   TextSpan(
                     text: "Learn more",
                     style: TextStyle(
-                      color: AppColors.blueshade500,
+                      color: AppTheme.blueshade500,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -76,7 +76,7 @@ class PassKeysScreen extends StatelessWidget {
 
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: AppColors.greyShade800),
+                border: Border.all(color: AppTheme.greyShade800),
                 borderRadius: BorderRadius.circular(AppSize.getSize(10)),
               ),
               child: Padding(
@@ -91,14 +91,14 @@ class PassKeysScreen extends StatelessWidget {
                       height: AppSize.getSize(50),
                       width: AppSize.getSize(50),
                       decoration: BoxDecoration(
-                        color: AppColors.greenshade900,
+                        color: AppTheme.greenshade900,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(50),
                         ),
                       ),
                       child: Icon(
                         Icons.person_add_alt_1_sharp,
-                        color: AppColors.blackColor,
+                        color: AppTheme.blackColor,
                         size: AppSize.getSize(27),
                       ),
                     ),
@@ -110,7 +110,7 @@ class PassKeysScreen extends StatelessWidget {
                           Text(
                             "Passkey",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -118,7 +118,7 @@ class PassKeysScreen extends StatelessWidget {
                           Text(
                             "This will be used to verify your account",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -129,7 +129,7 @@ class PassKeysScreen extends StatelessWidget {
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
-                                    backgroundColor: AppColors.greyShade900,
+                                    backgroundColor: AppTheme.greyShade900,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(
                                         AppSize.getSize(20),
@@ -138,7 +138,7 @@ class PassKeysScreen extends StatelessWidget {
                                     title: Text(
                                       "Delete passkey?",
                                       style: TextStyle(
-                                        color: AppColors.whiteColor,
+                                        color: AppTheme.whiteColor,
                                         fontSize: AppSize.getSize(22),
                                       ),
                                     ),
@@ -148,7 +148,7 @@ class PassKeysScreen extends StatelessWidget {
                                         Text(
                                           "If you delete this passkey, you won't be able to use it to log into your account.",
                                           style: TextStyle(
-                                            color: AppColors.greyShade400,
+                                            color: AppTheme.greyShade400,
                                             fontSize: AppSize.getSize(16),
                                           ),
                                         ),
@@ -156,7 +156,7 @@ class PassKeysScreen extends StatelessWidget {
                                         Text(
                                           "If you device to delete, be sure to also delete the passkey from your device password manager.",
                                           style: TextStyle(
-                                            color: AppColors.greyShade400,
+                                            color: AppTheme.greyShade400,
                                             fontSize: AppSize.getSize(16),
                                           ),
                                         ),
@@ -172,7 +172,7 @@ class PassKeysScreen extends StatelessWidget {
                                               child: Text(
                                                 "Cancel",
                                                 style: TextStyle(
-                                                  color: AppColors
+                                                  color: AppTheme
                                                       .greenAccentShade700,
                                                   fontSize: AppSize.getSize(17),
                                                   fontWeight: FontWeight.w400,
@@ -189,7 +189,7 @@ class PassKeysScreen extends StatelessWidget {
                                               child: Text(
                                                 "Delete",
                                                 style: TextStyle(
-                                                  color: AppColors.redColor,
+                                                  color: AppTheme.redColor,
                                                   fontSize: AppSize.getSize(17),
                                                   fontWeight: FontWeight.w400,
                                                 ),
@@ -209,7 +209,7 @@ class PassKeysScreen extends StatelessWidget {
                             child: Text(
                               "Delete",
                               style: TextStyle(
-                                color: AppColors.redColor,
+                                color: AppTheme.redColor,
                                 fontSize: AppSize.getSize(17),
                                 fontWeight: FontWeight.w400,
                               ),

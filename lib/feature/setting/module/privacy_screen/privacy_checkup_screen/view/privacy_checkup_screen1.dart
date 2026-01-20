@@ -3,8 +3,8 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyCheckupScreen1 extends StatelessWidget {
   static const id = "/PrivacyCheckupScreen1";
@@ -13,9 +13,9 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +23,13 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -47,20 +47,20 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
             Icon(
               Icons.people_sharp,
               size: AppSize.getSize(70),
-              color: AppColors.greenAccentShade700,
+              color: AppTheme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Choose who can contact you",
               style: TextStyle(
-                color: AppColors.whiteColor,
+                color: AppTheme.whiteColor,
                 fontSize: AppSize.getSize(22),
               ),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               "You're control of your privacy. Choose who can contact you and stop unwanted calls or messages.",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(35)),
@@ -107,7 +107,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppColors.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Column(
@@ -116,7 +116,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -124,7 +124,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                   maxLines: 3,
@@ -138,7 +138,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
           Icon(
             Icons.arrow_forward,
             size: AppSize.getSize(25),
-            color: AppColors.greyShade400,
+            color: AppTheme.greyShade400,
           ),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatThemeScreen extends StatelessWidget {
   static const id = "/ChatThemeScreen";
@@ -9,25 +9,25 @@ class ChatThemeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppColors.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
           "Chat theme",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: AppColors.whiteColor),
+          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: AppTheme.whiteColor),
           SizedBox(width:  AppSize.getSize(15)),
         ],
       ),
@@ -38,7 +38,7 @@ class ChatThemeScreen extends StatelessWidget {
           children: [
             Text(
               "Themes",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             SingleChildScrollView(
@@ -48,36 +48,36 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      themeBox(AppColors.redColor),
+                      themeBox(AppTheme.redColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.greenColor),
+                      themeBox(AppTheme.greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.yellowColor),
+                      themeBox(AppTheme.yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.deeppurpleColor),
+                      themeBox(AppTheme.deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.orangeColor),
+                      themeBox(AppTheme.orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.pinkColor),
+                      themeBox(AppTheme.pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.blueColor),
+                      themeBox(AppTheme.blueColor),
                       SizedBox(width: AppSize.getSize(15)),
                     ],
                   ),
                   SizedBox(height: AppSize.getSize(15)),
                   Row(
                     children: [
-                      themeBox(AppColors.pinkColor),
+                      themeBox(AppTheme.pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.orangeColor),
+                      themeBox(AppTheme.orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.deeppurpleColor),
+                      themeBox(AppTheme.deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.yellowColor),
+                      themeBox(AppTheme.yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.greenColor),
+                      themeBox(AppTheme.greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppColors.redColor),
+                      themeBox(AppTheme.redColor),
                     ],
                   ),
                 ],
@@ -87,12 +87,12 @@ class ChatThemeScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "The chat color and wallpaper will both change.",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: 16),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               "Customize",
-              style: TextStyle(color: AppColors.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Padding(
@@ -101,11 +101,11 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.chat, size: AppSize.getSize(30), color: AppColors.greyShade400),
+                      Icon(Icons.chat, size: AppSize.getSize(30), color: AppTheme.greyShade400),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         "Chat color",
-                        style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),
@@ -115,12 +115,12 @@ class ChatThemeScreen extends StatelessWidget {
                       Icon(
                         Icons.wallpaper,
                         size: AppSize.getSize(30),
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         "Wallpaper",
-                        style: TextStyle(color: AppColors.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),

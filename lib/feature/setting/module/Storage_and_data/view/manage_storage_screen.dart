@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ManageStorageScreen extends StatelessWidget {
   static const id = "/ManageStorageScreen";
@@ -11,9 +11,9 @@ class ManageStorageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +21,13 @@ class ManageStorageScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Manage storage",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -56,7 +56,7 @@ class ManageStorageScreen extends StatelessWidget {
                             Text(
                               "463",
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(25),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -64,7 +64,7 @@ class ManageStorageScreen extends StatelessWidget {
                             Text(
                               "Used",
                               style: TextStyle(
-                                color: AppColors.greyShade400,
+                                color: AppTheme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -74,7 +74,7 @@ class ManageStorageScreen extends StatelessWidget {
                         Text(
                           "MB",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.bold,
                           ),
@@ -92,7 +92,7 @@ class ManageStorageScreen extends StatelessWidget {
                           Text(
                             "10",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(25),
                               fontWeight: FontWeight.w600,
                             ),
@@ -101,7 +101,7 @@ class ManageStorageScreen extends StatelessWidget {
                           Text(
                             "GB",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.bold,
                             ),
@@ -111,7 +111,7 @@ class ManageStorageScreen extends StatelessWidget {
                       Text(
                         "Free",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -126,7 +126,7 @@ class ManageStorageScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: AppColors.whiteColor,
+                    color: AppTheme.whiteColor,
                     width: AppSize.getSize(1),
                   ),
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
@@ -138,7 +138,7 @@ class ManageStorageScreen extends StatelessWidget {
                         MediaQuery.of(context).size.width *
                         AppSize.getSize(0.7),
                     decoration: BoxDecoration(
-                      color: AppColors.amberAccentShade100,
+                      color: AppTheme.amberAccentShade100,
                       borderRadius: BorderRadius.horizontal(
                         left: Radius.circular(AppSize.getSize(20)),
                       ),
@@ -156,15 +156,15 @@ class ManageStorageScreen extends StatelessWidget {
                         height: AppSize.getSize(10),
                         width: AppSize.getSize(10),
                         decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.whiteColor),
+                          border: Border.all(color: AppTheme.whiteColor),
                           shape: BoxShape.circle,
-                          color: AppColors.greenColor,
+                          color: AppTheme.greenColor,
                         ),
                       ),
                       SizedBox(width: AppSize.getSize(10)),
                       Text(
                         "WhatsApp (485 MB)",
-                        style: TextStyle(color: AppColors.greyShade400),
+                        style: TextStyle(color: AppTheme.greyShade400),
                       ),
                     ],
                   ),
@@ -174,15 +174,15 @@ class ManageStorageScreen extends StatelessWidget {
                         height: AppSize.getSize(10),
                         width: AppSize.getSize(10),
                         decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.whiteColor),
+                          border: Border.all(color: AppTheme.whiteColor),
                           shape: BoxShape.circle,
-                          color: AppColors.yellowColor,
+                          color: AppTheme.yellowColor,
                         ),
                       ),
                       SizedBox(width: AppSize.getSize(10)),
                       Text(
                         "Other apps (39 GB)",
-                        style: TextStyle(color: AppColors.greyShade400),
+                        style: TextStyle(color: AppTheme.greyShade400),
                       ),
                     ],
                   ),
@@ -193,7 +193,7 @@ class ManageStorageScreen extends StatelessWidget {
               Text(
                 "Review and delete items",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -204,7 +204,7 @@ class ManageStorageScreen extends StatelessWidget {
                     child: Text(
                       "Larger than 5 MB",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -212,7 +212,7 @@ class ManageStorageScreen extends StatelessWidget {
                   Text(
                     "80.7 MB  >",
                     style: TextStyle(
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -222,16 +222,16 @@ class ManageStorageScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  appColor(AppColors.deeppurpleColor),
-                  appColor(AppColors.orangeColor),
-                  appColor(AppColors.pinkColor),
+                  appColor(AppTheme.deeppurpleColor),
+                  appColor(AppTheme.orangeColor),
+                  appColor(AppTheme.pinkColor),
                 ],
               ),
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "Tools to save space",
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -245,7 +245,7 @@ class ManageStorageScreen extends StatelessWidget {
                     Icon(
                       Icons.schedule_outlined,
                       size: AppSize.getSize(30),
-                      color: AppColors.greyShade400,
+                      color: AppTheme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(20)),
                     Expanded(
@@ -255,14 +255,14 @@ class ManageStorageScreen extends StatelessWidget {
                           Text(
                             "Turn on disappearing messages",
                             style: TextStyle(
-                              color: AppColors.whiteColor,
+                              color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
                           Text(
                             "Stay in control of future storage needs and build privacy into your chats.",
                             style: TextStyle(
-                              color: AppColors.greyShade400,
+                              color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -278,7 +278,7 @@ class ManageStorageScreen extends StatelessWidget {
                   Icon(
                     Icons.settings,
                     size: AppSize.getSize(30),
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Expanded(
@@ -288,14 +288,14 @@ class ManageStorageScreen extends StatelessWidget {
                         Text(
                           "Manage downloads",
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
                         Text(
                           "Save storage by deleting app downloads you don't use.",
                           style: TextStyle(
-                            color: AppColors.greyShade400,
+                            color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -311,7 +311,7 @@ class ManageStorageScreen extends StatelessWidget {
                     child: Text(
                       "Chats",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -320,13 +320,13 @@ class ManageStorageScreen extends StatelessWidget {
                     height: AppSize.getSize(35),
                     width: AppSize.getSize(35),
                     decoration: BoxDecoration(
-                      color: AppColors.greyShade900,
+                      color: AppTheme.greyShade900,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
                       Icons.search,
                       size: AppSize.getSize(20),
-                      color: AppColors.whiteColor,
+                      color: AppTheme.whiteColor,
                     ),
                   ),
                 ],
@@ -355,7 +355,7 @@ class ManageStorageScreen extends StatelessWidget {
                             Text(
                               "User",
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                               ),
                             ),
@@ -365,7 +365,7 @@ class ManageStorageScreen extends StatelessWidget {
                       Text(
                         "112.9 MB",
                         style: TextStyle(
-                          color: AppColors.greyShade400,
+                          color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),

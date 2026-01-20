@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
-import 'package:whatsapp_clone_getx/utils/app_colors.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DeleteAccountScreen extends GetView<AccountViewController> {
   static const id = "/DeleteAccountScreen";
@@ -13,9 +13,9 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
+        backgroundColor: AppTheme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +23,13 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
           ),
         ),
         title: Text(
           "Delete this account",
           style: TextStyle(
-            color: AppColors.whiteColor,
+            color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -51,7 +51,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   Icon(
                     Icons.warning_amber,
                     size: AppSize.getSize(30),
-                    color: AppColors.redShade600,
+                    color: AppTheme.redShade600,
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Expanded(
@@ -61,7 +61,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                         Text(
                           "If you delete this account:",
                           style: TextStyle(
-                            color: AppColors.redShade600,
+                            color: AppTheme.redShade600,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.bold,
                           ),
@@ -99,7 +99,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   Icon(
                     Icons.system_security_update,
                     size: AppSize.getSize(30),
-                    color: AppColors.greyShade400,
+                    color: AppTheme.greyShade400,
                   ),
                   SizedBox(width: AppSize.getSize(30)),
                   Column(
@@ -108,7 +108,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       Text(
                         "Change number insted?",
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -122,7 +122,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                           height: AppSize.getSize(42),
                           width: AppSize.getSize(170),
                           decoration: BoxDecoration(
-                            color: AppColors.greenAccentShade700,
+                            color: AppTheme.greenAccentShade700,
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(25),
                             ),
@@ -151,7 +151,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                     Text(
                       "To delete your account, confirm your country code and enter your phone number.",
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -159,7 +159,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                     Text(
                       "Country",
                       style: TextStyle(
-                        color: AppColors.greyShade400,
+                        color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                     ),
@@ -170,7 +170,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
-                            color: AppColors.greyColor,
+                            color: AppTheme.greyColor,
                             width: 1,
                           ),
                         ),
@@ -184,12 +184,12 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                   context: context,
                                   showPhoneCode: false,
                                   countryListTheme: CountryListThemeData(
-                                    backgroundColor: AppColors.blackColor,
+                                    backgroundColor: AppTheme.blackColor,
                                     searchTextStyle: TextStyle(
                                       color: Colors.white,
                                     ),
                                     textStyle: TextStyle(
-                                      color: AppColors.whiteColor,
+                                      color: AppTheme.whiteColor,
                                       fontSize: 16,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -199,20 +199,20 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                     inputDecoration: InputDecoration(
                                       labelText: 'Search',
                                       labelStyle: TextStyle(
-                                        color: AppColors.greyShade400,
+                                        color: AppTheme.greyShade400,
                                       ),
                                       prefixIcon: Icon(
                                         Icons.search,
-                                        color: AppColors.greyShade400,
+                                        color: AppTheme.greyShade400,
                                       ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: AppColors.greyShade400,
+                                          color: AppTheme.greyShade400,
                                         ),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: AppColors.greenAccentShade700,
+                                          color: AppTheme.greenAccentShade700,
                                           width: 1.5,
                                         ),
                                       ),
@@ -232,7 +232,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                       child: Text(
                                         country?.name ?? "India",
                                         style: TextStyle(
-                                          color: AppColors.whiteColor,
+                                          color: AppTheme.whiteColor,
                                           fontSize: AppSize.getSize(18),
                                         ),
                                       ),
@@ -240,7 +240,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                     Icon(
                                       Icons.arrow_drop_down,
                                       size: AppSize.getSize(25),
-                                      color: AppColors.greyShade400,
+                                      color: AppTheme.greyShade400,
                                     ),
                                   ],
                                 );
@@ -266,7 +266,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                               },
                               readOnly: true,
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                               ),
                               decoration: InputDecoration(
@@ -274,18 +274,18 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                     ? "+${country.phoneCode}"
                                     : "+91",
                                 hintStyle: TextStyle(
-                                  color: AppColors.whiteColor,
+                                  color: AppTheme.whiteColor,
                                 ),
                                 contentPadding: EdgeInsets.zero,
                                 isDense: true,
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: AppColors.greyColor,
+                                    color: AppTheme.greyColor,
                                   ),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: AppColors.greenAccentShade700,
+                                    color: AppTheme.greenAccentShade700,
                                   ),
                                 ),
                               ),
@@ -299,22 +299,22 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                               FocusScope.of(context).unfocus();
                             },
                             keyboardType: TextInputType.phone,
-                            cursorColor: AppColors.greenAccentShade700,
-                            style: TextStyle(color: AppColors.whiteColor),
+                            cursorColor: AppTheme.greenAccentShade700,
+                            style: TextStyle(color: AppTheme.whiteColor),
                             decoration: InputDecoration(
                               hintText: "Phone number",
-                              hintStyle: TextStyle(color: AppColors.greyColor),
+                              hintStyle: TextStyle(color: AppTheme.greyColor),
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: AppColors.greyColor,
+                                  color: AppTheme.greyColor,
                                   width: AppSize.getSize(1.3),
                                 ),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: AppColors.greenAccentShade700,
+                                  color: AppTheme.greenAccentShade700,
                                   width: AppSize.getSize(2),
                                 ),
                               ),
@@ -329,7 +329,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       height: AppSize.getSize(40),
                       width: AppSize.getSize(140),
                       decoration: BoxDecoration(
-                        color: AppColors.redShade600,
+                        color: AppTheme.redShade600,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(25),
                         ),
@@ -360,7 +360,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
             Text(
               "•",
               style: TextStyle(
-                color: AppColors.greyShade400,
+                color: AppTheme.greyShade400,
                 fontSize: AppSize.getSize(22),
                 height: AppSize.getSize(1.1),
               ),
@@ -370,7 +370,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppColors.greyShade400,
+                  color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                   height: AppSize.getSize(1.3),
                 ),
