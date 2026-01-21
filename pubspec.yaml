@@ -1,7 +1,7 @@
 name: whatsapp_clone_getx
 description: "A new Flutter project."
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -16,39 +16,47 @@ dependencies:
   get: ^4.7.3
   image_picker: ^1.2.1
   video_player: ^2.10.1
-  language_info_plus: ^1.1.0
   country_picker: ^2.0.27
   firebase_core: ^4.3.0
   cloud_firestore: ^6.1.1
   uuid: ^4.5.2
   firebase_auth: ^6.1.3
   firebase_storage: ^13.0.5
+  flutter_native_splash: ^2.4.7
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
   flutter_lints: ^6.0.0
-  flutter_launcher_icons: ^0.14.4  # Launcher icons generator
 
+# App icon config
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icon/icon_new.png"  # Path to your 1024x1024 PNG icon
+  image_path: "assets/icon/icon2.png"
 
-  # Optional: For Android adaptive icons (recommended for modern look)
-  # adaptive_icon_background: "#075E54"  # WhatsApp-like green
-  # adaptive_icon_foreground: "assets/icon/icon_new.png"
-
-  # Optional: For iOS advanced icons (iOS 18+ dark/tinted support)
-  # remove_alpha_ios: true
+# Native splash config
+flutter_native_splash:
+  color: "#121212"
+  image: assets/icon/icon2.png
+  # android: true
+  # ios: true
+  android_12:
+    image: assets/icon/icon2.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/icon/icon2.png
+    icon_background_color_dark: "#121212"
 
 flutter:
+  generate: true
   uses-material-design: true
-
   assets:
     - assets/
     - assets/icon/
+
 
   # fonts:
   #   - family: Schyler

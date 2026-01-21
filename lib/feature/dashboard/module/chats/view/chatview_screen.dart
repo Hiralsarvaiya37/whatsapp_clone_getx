@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatviewScreen extends StatelessWidget {
+class ChatviewScreen extends GetView<ChatController> {
   static const id = "/ChatviewScreen";
   ChatviewScreen({super.key});
-
   final List<String> filters = ["All", "Unread", "Favorites", "Groups", "+"];
   final List<String> users = List.generate(50, (index) => "User ${index + 1}");
 
@@ -35,7 +35,7 @@ class ChatviewScreen extends StatelessWidget {
                   size: AppSize.getSize(23),
                   color: AppTheme.whiteColor,
                 ),
-                hintText: "Ask Meta AI or Search",
+                hintText: context.l10n.askMetaAIorSearch,
                 hintStyle: TextStyle(color: AppTheme.whiteColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
@@ -92,8 +92,8 @@ class ChatviewScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
                     child: InkWell(
                       onTap: () {
-                        final chatController = Get.find<ChatController>();
-                        chatController.initChat(
+                        
+                        controller.initChat(
                           myId: currentUser,
                           otherId: user,
                           otherName: user,
@@ -125,7 +125,7 @@ class ChatviewScreen extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                  "Last message preview",
+                                 context.l10n.lastmessagepreview,
                                   style: TextStyle(
                                     color: AppTheme.greyShade400,
                                   ),

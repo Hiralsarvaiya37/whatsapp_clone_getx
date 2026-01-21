@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_controller.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 class OtpScreen extends GetView<OtpController> {
   static const id = "/OtpScreen";
@@ -12,7 +13,7 @@ class OtpScreen extends GetView<OtpController> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text("OTP Screen"),
+        title: Text(context.l10n.oTPScreen),
         centerTitle: true,
       ),
       body: Column(
@@ -26,7 +27,7 @@ class OtpScreen extends GetView<OtpController> {
               },
               controller: controller.otpController,
               decoration: InputDecoration(
-                hintText: "Enter the Otp",
+                hintText: context.l10n.entertheOtp,
                 prefixIcon: Icon(Icons.phone),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -39,7 +40,7 @@ class OtpScreen extends GetView<OtpController> {
             onPressed: () async {
               controller.onOtpPress();
             },
-            child: Text("OTP"),
+            child: Text(context.l10n.oTP),
           ),
         ],
       ),

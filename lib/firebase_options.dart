@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,9 +28,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -39,15 +48,6 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAXPFa_j4nHI1JzD5mg1fSFREkYo3XDC5E',
-    appId: '1:297529623434:web:7e0d4be741f7bfbfc5fe73',
-    messagingSenderId: '297529623434',
-    projectId: 'whatsapp-clone-firebase-01',
-    authDomain: 'whatsapp-clone-firebase-01.firebaseapp.com',
-    storageBucket: 'whatsapp-clone-firebase-01.firebasestorage.app',
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCjFJlSkTJ6g5HZICIKJ0hw6-lzkMBJMQ8',
@@ -68,21 +68,4 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.whatsappCloneGetx',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAoAefiIy1zTvKfr8EyzJjdYACoSTRBzg0',
-    appId: '1:297529623434:ios:21bdf9ee8eb9040dc5fe73',
-    messagingSenderId: '297529623434',
-    projectId: 'whatsapp-clone-firebase-01',
-    storageBucket: 'whatsapp-clone-firebase-01.firebasestorage.app',
-    iosBundleId: 'com.example.whatsappCloneGetx',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAXPFa_j4nHI1JzD5mg1fSFREkYo3XDC5E',
-    appId: '1:297529623434:web:5f19b7565a9dbb3cc5fe73',
-    messagingSenderId: '297529623434',
-    projectId: 'whatsapp-clone-firebase-01',
-    authDomain: 'whatsapp-clone-firebase-01.firebaseapp.com',
-    storageBucket: 'whatsapp-clone-firebase-01.firebasestorage.app',
-  );
 }

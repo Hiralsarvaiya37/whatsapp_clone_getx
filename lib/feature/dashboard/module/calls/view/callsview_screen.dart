@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class CallsviewScreen extends StatelessWidget {
@@ -40,7 +41,7 @@ class CallsviewScreen extends StatelessWidget {
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         Text(
-                          "Call",
+                          context.l10n.call,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -67,7 +68,7 @@ class CallsviewScreen extends StatelessWidget {
                       ),
                       SizedBox(height: AppSize.getSize(7)),
                       Text(
-                        "Schedule",
+                        context.l10n.schedule,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
@@ -93,7 +94,7 @@ class CallsviewScreen extends StatelessWidget {
                       ),
                       SizedBox(height: AppSize.getSize(7)),
                       Text(
-                        "Keypad",
+                        context.l10n.keypad,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
@@ -123,7 +124,7 @@ class CallsviewScreen extends StatelessWidget {
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         Text(
-                          "Favorites",
+                          context.l10n.favorites,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -140,7 +141,7 @@ class CallsviewScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Recent",
+                    context.l10n.recent,
                     style: TextStyle(
                       color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(20),
@@ -172,7 +173,7 @@ class CallsviewScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Demo",
+                            context.l10n.demo,
                             style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
                           ),
                           Row(
@@ -184,7 +185,7 @@ class CallsviewScreen extends StatelessWidget {
                               ),
                               SizedBox(width: AppSize.getSize(7)),
                               Text(
-                                "Yesterday 10:07 PM",
+                               context.l10n.yesterday10_07PM,
                                 style: TextStyle(
                                   color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(16),

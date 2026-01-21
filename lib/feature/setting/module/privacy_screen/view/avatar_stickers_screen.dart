@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AvatarStickersScreen extends StatelessWidget {
-   AvatarStickersScreen({super.key});
+class AvatarStickersScreen extends GetView<PrivacyViewController> {
+  static const id = "/AvatarStickersScreen";
+  const AvatarStickersScreen({super.key});
 
-  final PrivacyViewController avatarController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +60,10 @@ class AvatarStickersScreen extends StatelessWidget {
 
   Widget radioTile(String title) {
    return Obx((){
-     bool isselected = avatarController.selectedOption.value == title;
+     bool isselected = controller.selectedOption.value == title;
     return InkWell(
       onTap: () {
-          avatarController.selectedOption.value = title;
+          controller.selectedOption.value = title;
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),

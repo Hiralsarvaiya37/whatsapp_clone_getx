@@ -11,8 +11,10 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/ch
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/update_bindings.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
@@ -109,6 +111,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privac
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/about_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/avatar_stickers_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/chat_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
@@ -150,6 +153,11 @@ class AppRouter {
       page: () => DashboardScreen(),
       binding: DashboardBinding(),
     ),
+     GetPage(
+      name: UpdateviewScreen.id,
+      page: () => UpdateviewScreen(),
+      binding: UpdateBindings(),
+    ),
     GetPage(
       name: SettingScreen.id,
       page: () => SettingScreen(),
@@ -183,6 +191,7 @@ class AppRouter {
       binding: PrivacyViewBinding(),
     ),
     GetPage(name: AvatarScreen.id, page: () => AvatarScreen()),
+    GetPage(name: AvatarStickersScreen.id, page: () => AvatarStickersScreen()),
     GetPage(
       name: ListsScreen.id,
       page: () => ListsScreen(),
@@ -416,6 +425,11 @@ class AppRouter {
     GetPage(
       name: ChatMessagesScreen.id,
       page: () => ChatMessagesScreen(),
+      binding: ChatBinding(),
+    ),
+     GetPage(
+      name: ChatviewScreen.id,
+      page: () => ChatviewScreen(),
       binding: ChatBinding(),
     ),
     GetPage(

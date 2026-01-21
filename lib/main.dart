@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
+import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
 import 'firebase_options.dart';
 
@@ -19,7 +19,6 @@ void main() async {
       statusBarBrightness: Brightness.dark,
     ),
   );
-  Get.put(ChatController(), permanent: true);
   runApp(const MyApp());
 }
 
@@ -34,6 +33,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: SplashScreen.id,
       getPages: AppRouter.appRoute,
+      locale: Locale("en"),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(

@@ -17,7 +17,7 @@ enum SettingOptionEnum {
 }
 
 extension SettingOptionEnumExtension on SettingOptionEnum {
-  String get titles {
+  String get titleKey {
     switch (this) {
       case SettingOptionEnum.account:
         return "Account";

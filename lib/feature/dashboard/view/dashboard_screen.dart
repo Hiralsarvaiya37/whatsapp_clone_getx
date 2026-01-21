@@ -15,12 +15,10 @@ class DashboardScreen extends GetView<DashboardController> {
 
   final pageController = PageController();
 
-  final DashboardController dashboardController = Get.put(
-    DashboardController(),
-  );
-
   @override
   Widget build(BuildContext context) {
+    AppSize.setupData(MediaQuery.of(context));
+
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       body: Padding(
@@ -36,9 +34,7 @@ class DashboardScreen extends GetView<DashboardController> {
                 Expanded(
                   child: Obx(
                     () => Text(
-                      dashboardController.getAppBarName(
-                        dashboardController.currentIndex.value,
-                      ),
+                      controller.getAppBarName(controller.currentIndex.value),
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(25),
@@ -48,7 +44,7 @@ class DashboardScreen extends GetView<DashboardController> {
                   ),
                 ),
                 Obx(
-                  () => dashboardController.currentIndex.value == 0
+                  () => controller.currentIndex.value == 0
                       ? Row(
                           children: [
                             Icon(
@@ -94,7 +90,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : dashboardController.currentIndex.value == 1
+                      : controller.currentIndex.value == 1
                       ? Row(
                           children: [
                             Icon(
@@ -130,7 +126,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : dashboardController.currentIndex.value == 2
+                      : controller.currentIndex.value == 2
                       ? Row(
                           children: [
                             Icon(
@@ -163,7 +159,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : dashboardController.currentIndex.value == 3
+                      : controller.currentIndex.value == 3
                       ? Row(
                           children: [
                             Icon(
@@ -224,6 +220,7 @@ class DashboardScreen extends GetView<DashboardController> {
         color: AppTheme.blackColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.min,
           children: [
             bottomOption("Chats", Icons.chat, 0),
             bottomOption("Updates", Icons.update, 1),
@@ -238,7 +235,7 @@ class DashboardScreen extends GetView<DashboardController> {
   Widget bottomOption(String title, IconData iconData, int page) {
     return GestureDetector(
       onTap: () {
-        dashboardController.changeIndex(page);
+        controller.changeIndex(page);
 
         pageController.animateToPage(
           page,

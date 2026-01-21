@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatMessagesScreen extends GetView<ChatController> {
@@ -84,7 +85,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                     return Center(child: CircularProgressIndicator());
                   }
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                    return Center(child: Text("No messages"));
+                    return Center(child: Text(context.l10n.nomessages));
                   }
 
                   final docs = snapshot.data!.docs;
@@ -177,7 +178,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                             },
 
                             decoration: InputDecoration(
-                              hintText: "Message",
+                              hintText: context.l10n.message,
                               hintStyle: TextStyle(
                                 color: AppTheme.greyShade400,
                               ),

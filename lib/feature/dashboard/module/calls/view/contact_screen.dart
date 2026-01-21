@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ContactScreen extends GetView<CallController> {
@@ -31,7 +32,7 @@ class ContactScreen extends GetView<CallController> {
           cursorWidth: 3,
           style: TextStyle(color: AppTheme.whiteColor),
           decoration: InputDecoration(
-            hintText: "Search...",
+            hintText: context.l10n.search,
             hintStyle: TextStyle(color: AppTheme.greyShade400),
             border: InputBorder.none,
           ),
@@ -71,7 +72,7 @@ class ContactScreen extends GetView<CallController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Add up to 31 people",
+                        context.l10n.addupto31people,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
@@ -93,7 +94,7 @@ class ContactScreen extends GetView<CallController> {
                       if (controller.filteredFrequently.isNotEmpty)
                         Obx(
                           () => contactListView(
-                            title: "Frequently Contacted",
+                            title: context.l10n.frequentlyContacted,
                             list: controller.filteredFrequently,
                           ),
                         ),
@@ -104,8 +105,8 @@ class ContactScreen extends GetView<CallController> {
                         Obx(
                           () => contactListView(
                             title: controller.query.value.isEmpty
-                                ? "All Contacts"
-                                : "Results",
+                                ? context.l10n.allContacts
+                                : context.l10n.results,
                             list: controller.filteredAll,
                           ),
                         ),

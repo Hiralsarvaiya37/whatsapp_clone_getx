@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:language_info_plus/language_info_plus.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/account_setting_screen.dart';
@@ -18,7 +17,9 @@ import 'package:whatsapp_clone_getx/feature/setting/view/privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/qr_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/storage_and_data_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SettingScreen extends GetView<SettingController> {
@@ -62,7 +63,7 @@ class SettingScreen extends GetView<SettingController> {
           ),
         ),
         title: Text(
-          "Settings",
+          context.l10n.settings,
           style: TextStyle(
             fontSize: AppSize.getSize(25),
             color: AppTheme.whiteColor,
@@ -220,8 +221,8 @@ class SettingScreen extends GetView<SettingController> {
                       size: AppSize.getSize(28),
                     ),
 
-                    title: Text(
-                      item.titles,
+                   title: Text(item.titleKey.tr,
+
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
@@ -238,53 +239,53 @@ class SettingScreen extends GetView<SettingController> {
                         : null,
 
                     onTap: () {
-                      if (item.titles == "Account") {
+                      if (item.titleKey == "Account") {
                         Get.toNamed(AccountSettingScreen.id);
                       }
 
-                      if (item.titles == "Privacy") {
+                      if (item.titleKey == "Privacy") {
                         Get.toNamed(PrivacyScreen.id);
                       }
 
-                      if (item.titles == "Avatar") {
+                      if (item.titleKey == "Avatar") {
                         Get.toNamed(AvatarScreen.id);
                       }
 
-                      if (item.titles == "Lists") {
+                      if (item.titleKey == "Lists") {
                         Get.toNamed(ListsScreen.id);
                       }
 
-                      if (item.titles == "Chat") {
+                      if (item.titleKey == "Chat") {
                         Get.toNamed(ChatsScreen.id);
                       }
 
-                      if (item.titles == "Broadcasts") {
+                      if (item.titleKey == "Broadcasts") {
                         Get.toNamed(BroadcastsScreen.id);
                       }
 
-                      if (item.titles == "Notifications") {
+                      if (item.titleKey == "Notifications") {
                         Get.toNamed(NotificationsScreen.id);
                       }
 
-                      if (item.titles == "Storage and data") {
+                      if (item.titleKey == "Storage and data") {
                         Get.toNamed(StorageAndDataScreen.id);
                       }
 
-                      if (item.titles == "Accessibility") {
+                      if (item.titleKey == "Accessibility") {
                         Get.toNamed(AccessibilityScreen.id);
                       }
 
-                      if (item.titles == "App language") {
+                      if (item.titleKey == "App language") {
                         openModalSheet(context);
                       }
 
-                      if (item.titles == "Help and feedback") {
+                      if (item.titleKey == "Help and feedback") {
                         Get.toNamed(HelpAndFeedbackScreen.id);
                       }
-                      if (item.titles == "Invite a friend") {
+                      if (item.titleKey == "Invite a friend") {
                         Get.toNamed(InviteFriendScreen.id);
                       }
-                      if (item.titles == "App updates") {
+                      if (item.titleKey == "App updates") {
                         Get.toNamed(AppUpdatesScreen.id);
                       }
                     },
@@ -594,20 +595,17 @@ class SettingScreen extends GetView<SettingController> {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Expanded(
-                    child: Obx(
-                      () => ListView.builder(
-                        itemCount: controller.allLanguages.length,
+                    child:  ListView.builder(
+                        itemCount: LanguageEnum.values.length,
                         itemBuilder: (context, index) {
-                          final lang = controller.allLanguages[index];
-                          return Padding(
+                           return Padding(
                             padding: EdgeInsets.only(
                               bottom: AppSize.getSize(20),
                             ),
-                            child: radioTile(lang, setModalState, modalContext),
+                            child: radioTile(LanguageEnum.values[index], setModalState, modalContext),
                           );
                         },
                       ),
-                    ),
                   ),
                 ],
               ),
@@ -619,27 +617,18 @@ class SettingScreen extends GetView<SettingController> {
   }
 
   Widget radioTile(
-    Language lang,
+    LanguageEnum lang,
     void Function(VoidCallback) setModalState,
     BuildContext context,
   ) {
     return Obx(() {
-      bool isSelected = controller.selectedLanguage.value?.code == lang.code;
+      bool isSelected = controller.selectedLanguage.value.code == lang.code;
 
-      String title = lang.name;
-      String? subtitle;
-
-      if (lang.name.contains('(')) {
-        final parts = lang.name.split('(');
-        title = parts.first.trim();
-        subtitle = '(${parts.last}';
-      }
+      String title = lang.title;
 
       return InkWell(
         onTap: () {
-          setModalState(() {
-            controller.selectedLanguage.value = lang;
-          });
+          controller.changeLanguage(lang);
           Navigator.pop(context);
         },
         child: Padding(
@@ -688,14 +677,6 @@ class SettingScreen extends GetView<SettingController> {
                       ),
                     ),
 
-                    if (subtitle != null)
-                      Text(
-                        subtitle,
-                        style: TextStyle(
-                          color: AppTheme.greyShade400,
-                          fontSize: AppSize.getSize(15),
-                        ),
-                      ),
                   ],
                 ),
               ),

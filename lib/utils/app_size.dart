@@ -8,6 +8,7 @@ class AppSize {
   static double topPadding = 0;
   static double useWidth = 0;
   static double useHeight = 0;
+  
   static void setupData(MediaQueryData queryData) {
     size = queryData.size;
     bottomPadding = queryData.viewPadding.bottom;

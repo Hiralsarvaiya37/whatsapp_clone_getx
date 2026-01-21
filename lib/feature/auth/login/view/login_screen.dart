@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 class LoginScreen extends GetView<LoginController> {
   static const id = "/LoginScreen";
-  const LoginScreen({super.key});
+   LoginScreen({super.key});
+  final LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class LoginScreen extends GetView<LoginController> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text("Phone Auth"),
+        title: Text(context.l10n.phoneAuth),
         centerTitle: true,
       ),
       body: Column(
@@ -26,7 +28,7 @@ class LoginScreen extends GetView<LoginController> {
               },
               controller: controller.phoneController,
               decoration: InputDecoration(
-                hintText: "Enter phone number",
+                hintText: context.l10n.enterphonenumber,
                 prefixIcon: Icon(Icons.phone),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -39,7 +41,7 @@ class LoginScreen extends GetView<LoginController> {
             onPressed: () async {
               controller.onVerifyNum(context);
             },
-            child: Text("Verify phone Number"),
+            child: Text(context.l10n.verifyphoneNumber),
           ),
         ],
       ),

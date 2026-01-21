@@ -6,7 +6,7 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const id = "/";
+  static const id = "/SplashScreen";
   const SplashScreen({super.key});
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class FavoritesScreen extends GetView<CallController> {
@@ -36,7 +37,7 @@ class FavoritesScreen extends GetView<CallController> {
             fontSize: AppSize.getSize(18),
           ),
           decoration: InputDecoration(
-            hintText: "Search",
+            hintText: context.l10n.search,
             hintStyle: TextStyle(color: AppTheme.greyShade400),
             border: InputBorder.none,
           ),
@@ -58,13 +59,13 @@ class FavoritesScreen extends GetView<CallController> {
               SizedBox(height: AppSize.getSize(25)),
 
               sectionWidget(
-                "Frequently contacted",
+                context.l10n.frequentlyContacted,
                 controller.filteredFavoritesFrequently,
               ),
 
               SizedBox(height: AppSize.getSize(30)),
 
-              sectionWidget("Contacts on WhatsApp", controller.filteredAllFav),
+              sectionWidget(context.l10n.contactsonWhatsApp, controller.filteredAllFav),
             ],
           ),
         ),

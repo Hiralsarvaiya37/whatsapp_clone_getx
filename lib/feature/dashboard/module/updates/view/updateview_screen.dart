@@ -8,11 +8,10 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class UpdateviewScreen extends StatelessWidget {
+class UpdateviewScreen extends GetView<UpdateviewController> {
   static const id = "/UpdateviewScreen";
-  UpdateviewScreen({super.key});
+ const UpdateviewScreen({super.key});
 
-  final UpdateviewController controller = Get.put(UpdateviewController());
 
   Future pickFromCamera() async {
     final ImagePicker picker = ImagePicker();

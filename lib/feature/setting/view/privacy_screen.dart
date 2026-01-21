@@ -4,6 +4,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/contro
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/about_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/avatar_stickers_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/chat_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
@@ -15,7 +16,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/p
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/view/avatar_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
@@ -185,7 +185,7 @@ const   PrivacyScreen({super.key});
                   "Avatar stickers",
                   "My contacts",
                   onTap: () {
-                    Get.toNamed(AvatarScreen.id);
+                    Get.toNamed(AvatarStickersScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),

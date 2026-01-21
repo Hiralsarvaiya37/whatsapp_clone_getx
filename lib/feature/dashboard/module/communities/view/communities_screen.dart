@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 // void main() => runApp(MaterialApp(home: CommunitiesScreen()));
@@ -73,7 +74,7 @@ class CommunitiesScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "HSSC Group ",
+                                          context.l10n.hSSCGroup,
                                           style: TextStyle(
                                             color: AppTheme.whiteColor,
                                             fontSize: AppSize.getSize(18),
@@ -83,7 +84,7 @@ class CommunitiesScreen extends StatelessWidget {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         Text(
-                                          "Request to join",
+                                         context.l10n.requesttojoin,
                                           style: TextStyle(
                                             color: AppTheme.greyColor,
                                             fontSize: AppSize.getSize(16),
@@ -139,7 +140,7 @@ class CommunitiesScreen extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       Text(
-                                        "Request to join",
+                                        context.l10n.requesttojoin,
                                         style: TextStyle(
                                           color: AppTheme.greyColor,
                                           fontSize: AppSize.getSize(16),
@@ -184,7 +185,7 @@ class CommunitiesScreen extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "Announcements",
+                              context.l10n.announcements,
                               style: TextStyle(
                                 color: AppTheme.whiteColor,
                                 fontSize: AppSize.getSize(18),
@@ -193,7 +194,7 @@ class CommunitiesScreen extends StatelessWidget {
                             ),
                             Spacer(),
                             Text(
-                              "Yesterday",
+                              context.l10n.yesterday,
                               style: TextStyle(
                                 color: AppTheme.greyColor,
                                 fontSize: AppSize.getSize(16),
@@ -202,7 +203,7 @@ class CommunitiesScreen extends StatelessWidget {
                           ],
                         ),
                         Text(
-                          "+15487851454 hbcsdwdwdh bxhsbhsbsh",
+                          context.l10n.hh15487851454hbcsdwdwdhbxhsbhsbsh,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
@@ -219,7 +220,7 @@ class CommunitiesScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
               child: Text(
-                "Groups you can join",
+                context.l10n.groupsyoucanjoin,
                 style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(17)),
               ),
             ),
@@ -246,7 +247,7 @@ class CommunitiesScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "HSSC Group 2022",
+                            context.l10n.hSSCGroup2022,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
@@ -256,7 +257,7 @@ class CommunitiesScreen extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            "Request to join",
+                            context.l10n.requesttojoin,
                             style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
                           ),
                         ],
@@ -286,7 +287,7 @@ class CommunitiesScreen extends StatelessWidget {
                 Icon(Icons.add, color: AppTheme.blackColor, size: AppSize.getSize(25)),
                 SizedBox(width: AppSize.getSize(10)),
                 Text(
-                  "Add group",
+                 context.l10n.addgroup,
                   style: TextStyle(
                     color: AppTheme.blackColor,
                     fontSize: AppSize.getSize(16),
@@ -346,7 +347,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Haryana Govt Jobs 2025",
+                  context.l10n.haryanaGovtJobs2025,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: titleFontSize,
@@ -358,7 +359,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                 Opacity(
                   opacity: 1 - progress,
                   child: Text(
-                    "Community • 5 groups",
+                    context.l10n.community_5groups,
                     style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16)),
                   ),
                 ),

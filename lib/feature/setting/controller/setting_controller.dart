@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:get/state_manager.dart';
-import 'package:language_info_plus/language_info_plus.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
+import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 
 class SettingController extends GetxController {
   RxBool isOn = false.obs;
@@ -22,8 +23,7 @@ class SettingController extends GetxController {
   RxString selectedFontSize = "Medium".obs;
   RxString selectedTheme = "System default".obs;
   RxString selectedoption1 = "White".obs;
-  Rx<Language?> selectedLanguage = Rx<Language?>(null);
-  RxList<Language> allLanguages = LanguageInfoPlus.languages.obs;
+  Rx<LanguageEnum> selectedLanguage = LanguageEnum.en.obs;
   RxList<bool> isOn4 = List.generate(9, (_) => false).obs;
   RxMap<String, bool> selectedItems = {
     "Photos": false,
@@ -49,8 +49,9 @@ class SettingController extends GetxController {
     }
   }
 
-  void changeLanguage(Language lang) {
+  void changeLanguage(LanguageEnum lang) {
     selectedLanguage.value = lang;
+    Get.updateLocale(Locale(lang.code));
   }
 
   RxList<StatusItem> statusList = <StatusItem>[].obs;
