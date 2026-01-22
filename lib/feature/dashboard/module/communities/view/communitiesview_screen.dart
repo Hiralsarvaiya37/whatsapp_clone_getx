@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class CommunitiesviewScreen extends StatelessWidget {
@@ -66,7 +67,7 @@ class CommunitiesviewScreen extends StatelessWidget {
               ),
               SizedBox(width: AppSize.getSize(20)),
               Text(
-                "New community",
+                context.l10n.newcommunity,
                 style: TextStyle(
                   color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(20),
@@ -91,7 +92,7 @@ class CommunitiesviewScreen extends StatelessWidget {
               ),
               SizedBox(width: AppSize.getSize(20)),
               Text(
-                "hudh huhewns sxhwu",
+                context.l10n.hudhhuhewnssxhwu,
                 style: TextStyle(
                   color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(20),
@@ -129,7 +130,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "Announcements",
+                        context.l10n.announcements,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
@@ -138,7 +139,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          "Yesterday",
+                          context.l10n.yesterday,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -148,7 +149,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      "+15487851454 hbcsdwdwdh bxhsbhsbsh",
+                      context.l10n.hh15487851454hbcsdwdwdhbxhsbhsbsh,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -190,7 +191,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                           ),
                           SizedBox(width: AppSize.getSize(28)),
                           Text(
-                            "View all",
+                            context.l10n.viewall,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(20),
@@ -218,7 +219,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
-                        "hudh heujwns sjhdu",
+                        context.l10n.hudhhuhewnssxhwu,
                         style: TextStyle(
                           color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(20),
@@ -258,7 +259,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Announcements",
+                                  context.l10n.announcements,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
@@ -276,7 +277,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                               ],
                             ),
                             Text(
-                              "+15487851454 hbcsdwdwdh bxhsbhsbsh...",
+                              context.l10n.hh15487851454hbcsdwdwdhbxhsbhsbsh,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -308,7 +309,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "hudh huheud",
+                            context.l10n.hudhhuheud,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(20),
@@ -316,7 +317,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "hudh huudjwns sxhwudu",
+                            context.l10n.hudhhuhewnssxhwu,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -349,7 +350,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                 ),
                 SizedBox(width: AppSize.getSize(28)),
                 Text(
-                  "View all",
+                  context.l10n.viewall,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(20),

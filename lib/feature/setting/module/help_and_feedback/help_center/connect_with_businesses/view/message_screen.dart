@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class MessageScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class MessageScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Message",
+          context.l10n.message,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class MessageScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                 context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,24 +79,24 @@ class MessageScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Message",
+                  context.l10n.message,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About connecting with businesses", context),
-                appInfo("Controls when communicating with businesses", context),
-                appInfo("About verified business accounts", context),
-                appInfo("Business account becomes a standard account", context),
-                appInfo("About support for customer issues", context),
+                appInfo(context.l10n.aboutconnectingwithbusinesses, context),
+                appInfo(context.l10n.controlswhencommunicatingwithbusinesses, context),
+                appInfo(context.l10n.aboutverifiedbusinessaccounts, context),
+                appInfo(context.l10n.businessaccountbecomesastandardaccount, context),
+                appInfo(context.l10n.aboutsupportforcustomerissues, context),
                 appInfo(
-                  "About responding to surveys about business messages",
+                  context.l10n.aboutrespondingtosurveysaboutbusinessmessages,
                   context,
                 ),
                 appInfo(
-                  "About group chats with multiple represntatives of a business",
+                  context.l10n.aboutgroupchatswithmultiplerepresntativesofabusiness,
                   context,
                 ),
               ],

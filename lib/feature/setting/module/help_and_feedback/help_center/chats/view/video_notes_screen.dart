@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class VideoNotesScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class VideoNotesScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Video Notes",
+          context.l10n.videoNotes,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class VideoNotesScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,18 +79,18 @@ class VideoNotesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Video Notes",
+                 context.l10n.videoNotes,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About video notes", context),
-                appInfo("How to send video notes", context),
-                appInfo("How to play video notes", context),
-                appInfo("How to preview video notes", context),
-                appInfo("How to delete a video note", context),
+                appInfo(context.l10n.aboutvideonotes, context),
+                appInfo(context.l10n.howtosendvideonotes, context),
+                appInfo(context.l10n.howtoplayvideonotes, context),
+                appInfo(context.l10n.howtopreviewvideonotes, context),
+                appInfo(context.l10n.howtodeleteavideonote, context),
               ],
             ),
           ),

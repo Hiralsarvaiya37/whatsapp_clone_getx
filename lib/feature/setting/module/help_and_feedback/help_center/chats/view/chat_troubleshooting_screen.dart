@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatTroubleshootingScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class ChatTroubleshootingScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Troubleshooting",
+          context.l10n.troubleshooting,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class ChatTroubleshootingScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,59 +79,59 @@ class ChatTroubleshootingScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Troubleshooting",
+                    context.l10n.troubleshooting,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("Can't send or receive messages", context),
+                  appInfo(context.l10n.cantsendorreceivemessages, context),
                   appInfo(
-                    "About 'Waiting for this message. This may take a while.'",
+                    context.l10n.aboutWaitingforthismessageThismaytakeawhile,
                     context,
                   ),
                   appInfo(
-                    "Seeing 'Waiting for this message. Check your phone'",
+                    context.l10n.seeingWaitingforthismessageCheckyourphone,
                     context,
                   ),
-                  appInfo("Fix incorrect timestamps on messages", context),
+                  appInfo(context.l10n.fixincorrecttimestampsonmessages, context),
                   appInfo(
-                    "Can't remember password for encrypted backup",
-                    context,
-                  ),
-                  appInfo(
-                    "Can't back up or restore your chat history",
+                    context.l10n.cantrememberpasswordforencryptedbackup,
                     context,
                   ),
                   appInfo(
-                    "Can't move chats from an Android device to an iPhone",
+                    context.l10n.cantbackuporrestoreyourchathistory,
                     context,
                   ),
                   appInfo(
-                    "Can't move chats from an iPhone to an Android device",
+                    context.l10n.cantmovechatsfromanAndroiddevicetoaniPhone,
                     context,
                   ),
-                  appInfo("Can't  transfer chat history", context),
-                  appInfo("Can't change or assign a group admin", context),
-                  appInfo("Can't download, open, or send media files", context),
                   appInfo(
-                    "Can't hear voice messages, status audio, or videos",
+                    context.l10n.cantmovechatsfromaniPhonetoanAndroiddevice,
                     context,
                   ),
-                  appInfo("Can't record voice messages", context),
-                  appInfo("Seeing blurry photos", context),
-                  appInfo("Can't send longer videos", context),
+                  appInfo(context.l10n.canttransferchathistory, context),
+                  appInfo(context.l10n.cantchangeorassignagroupadmin, context),
+                  appInfo(context.l10n.cantdownloadopenorsendmediafiles, context),
                   appInfo(
-                    "What does 'Invite via Link unavailable' mean?",
+                    context.l10n.canthearvoicemessagesstatusaudioorvideos,
                     context,
                   ),
-                  appInfo("Can't join group with invite link", context),
-                  appInfo("How to edit your profile", context),
-                  appInfo("How to free up storage on WhatsApp", context),
-                  appInfo("How to chnage your ringtone for WhatsApp", context),
-                  appInfo("How to use dark mode", context),
-                  appInfo("How to change font size", context),
+                  appInfo(context.l10n.cantrecordvoicemessages, context),
+                  appInfo(context.l10n.seeingblurryphotos, context),
+                  appInfo(context.l10n.cantsendlongervideos, context),
+                  appInfo(
+                    context.l10n.whatdoesInviteviaLinkunavailablemean,
+                    context,
+                  ),
+                  appInfo(context.l10n.cantjoingroupwithinvitelink, context),
+                  appInfo(context.l10n.howtoedityourprofile, context),
+                  appInfo(context.l10n.howtofreeupstorageonWhatsApp, context),
+                  appInfo(context.l10n.howtochnageyourringtoneforWhatsApp, context),
+                  appInfo(context.l10n.howtousedarkmode, context),
+                  appInfo(context.l10n.howtochangefontsize, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

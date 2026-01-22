@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AdminScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class AdminScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Admin",
+         context.l10n.admin,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class AdminScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,7 +78,7 @@ class AdminScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Admin",
+                  context.l10n.admin,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
@@ -85,24 +86,24 @@ class AdminScreen extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 appInfo(
-                  "How to add or suggest a group to a community",
+                  context.l10n.howtoaddorsuggestagrouptoacommunity,
                   context,
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to manage community admins", context),
+                appInfo(context.l10n.howtomanagecommunityadmins, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to invite members into a community", context),
+                appInfo(context.l10n.howtoinvitemembersintoacommunity, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to make changes to a community", context),
+                appInfo(context.l10n.howtomakechangestoacommunity, context),
                 SizedBox(height: AppSize.getSize(30)),
                 appInfo(
-                  "How to create and customize events in community groups",
+                  context.l10n.howtocreateandcustomizeeventsincommunitygroups,
                   context,
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to remove a member from a community", context),
+                appInfo(context.l10n.howtoremoveamemberfromacommunity, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to deactivate a community", context),
+                appInfo(context.l10n.howtodeactivateacommunity, context),
               ],
             ),
           ),

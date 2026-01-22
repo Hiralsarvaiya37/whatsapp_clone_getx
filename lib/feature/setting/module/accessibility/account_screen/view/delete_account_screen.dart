@@ -4,6 +4,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DeleteAccountScreen extends GetView<AccountViewController> {
@@ -27,7 +28,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
           ),
         ),
         title: Text(
-          "Delete this account",
+          context.l10n.deletethisaccount,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -59,7 +60,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "If you delete this account:",
+                          context.l10n.ifyoudeletethisaccount,
                           style: TextStyle(
                             color: AppTheme.redShade600,
                             fontSize: AppSize.getSize(18),
@@ -68,23 +69,23 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                         ),
                         SizedBox(height: AppSize.getSize(15)),
                         appTitle(
-                          "The account will be deleted from WhatsApp and all your devices",
+                          context.l10n.theaccountwillbedeletedfromWhatsAppandallyourdevices,
                         ),
                         SizedBox(height: AppSize.getSize(7)),
-                        appTitle("Your message history will be erased"),
+                        appTitle(context.l10n.yourmessagehistorywillbeerased),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          "You will be removed from all your WhatsApp groups",
+                          context.l10n.youwillberemovedfromallyourWhatsAppgroups,
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          "Delete your payments history and cancel any pending payments",
+                          context.l10n.deleteyourpaymentshistoryandcancelanypendingpayments,
                         ),
                         SizedBox(height: AppSize.getSize(7)),
-                        appTitle("Any channels you created will be deleted"),
+                        appTitle(context.l10n.anychannelsyoucreatedwillbedeleted),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          "Any active channel subscriptions associated with this account will be canceled",
+                          context.l10n.anyactivechannelsubscriptionsassociatedwiththisaccountwillbecanceled,
                         ),
                       ],
                     ),
@@ -106,7 +107,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Change number insted?",
+                        context.l10n.changenumberinsted,
                         style: TextStyle(
                           color: AppTheme.whiteColor,
                           fontSize: AppSize.getSize(18),
@@ -129,7 +130,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                           ),
                           alignment: Alignment.center,
                           child: Text(
-                            "Change number",
+                            context.l10n.changenumber,
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: AppSize.getSize(15),
@@ -149,7 +150,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "To delete your account, confirm your country code and enter your phone number.",
+                      context.l10n.todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber,
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(16),
@@ -157,7 +158,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                     ),
                     SizedBox(height: AppSize.getSize(25)),
                     Text(
-                      "Country",
+                      context.l10n.country,
                       style: TextStyle(
                         color: AppTheme.greyShade400,
                         fontSize: AppSize.getSize(14),
@@ -230,7 +231,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        country?.name ?? "India",
+                                        country?.name ?? context.l10n.india,
                                         style: TextStyle(
                                           color: AppTheme.whiteColor,
                                           fontSize: AppSize.getSize(18),
@@ -302,7 +303,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                             cursorColor: AppTheme.greenAccentShade700,
                             style: TextStyle(color: AppTheme.whiteColor),
                             decoration: InputDecoration(
-                              hintText: "Phone number",
+                              hintText: context.l10n.phonenumber,
                               hintStyle: TextStyle(color: AppTheme.greyColor),
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
@@ -336,7 +337,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "Delete Account",
+                        context.l10n.deleteAccount,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),

@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccountBansScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class AccountBansScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Account Bans",
+          context.l10n.accountBans,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class AccountBansScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,20 +78,20 @@ class AccountBansScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Account Bans",
+                  context.l10n.accountBans,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About account bans", context),
-                appInfo("About account bans on the WhatsApp Business app", context),
-                appInfo("About temporarily banned accounts", context),
-                appInfo("After your account is unbanned", context),
-                appInfo("About account bans for previously owned phone numbers", context),
-                appInfo("About account bans for unofficial apps", context),
-                appInfo("How to contact the Grievance Officer and WhatsApp in india", context),
+                appInfo(context.l10n.aboutaccountbans, context),
+                appInfo(context.l10n.aboutaccountbansontheWhatsAppBusinessapp, context),
+                appInfo(context.l10n.abouttemporarilybannedaccounts, context),
+                appInfo(context.l10n.afteryouraccountisunbanned, context),
+                appInfo(context.l10n.aboutaccountbansforpreviouslyownedphonenumbers, context),
+                appInfo(context.l10n.aboutaccountbansforunofficialapps, context),
+                appInfo(context.l10n.howtocontacttheGrievanceOfficerandWhatsAppinindia, context),
               ],
             ),
           ),

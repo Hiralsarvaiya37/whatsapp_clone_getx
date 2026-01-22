@@ -13,6 +13,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/account_options_enum.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccountViewController extends GetxController {
@@ -129,7 +130,7 @@ class AccountViewController extends GetxController {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Add new account",
+                                  context.l10n.addnewaccount,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
@@ -174,7 +175,7 @@ class AccountViewController extends GetxController {
                           ),
                           SizedBox(width: 15),
                           Text(
-                            "Add WhatsApp account",
+                            context.l10n.addWhatsAppaccount,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),

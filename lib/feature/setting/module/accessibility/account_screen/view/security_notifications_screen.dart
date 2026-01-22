@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SecurityNotificationsScreen extends GetView<AccountViewController> {
@@ -27,7 +28,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
           ),
         ),
         title: Text(
-          "Security notifications",
+          context.l10n.securitynotifications,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -60,7 +61,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Your chats and calls are private",
+                          context.l10n.yourchatsandcallsareprivate,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
@@ -68,7 +69,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
-                          "End-to-end encryption keeps your personal messaged and calls between you and the people you choose. no one outside of the chat, not even WhatsApp, can read, listen to, or share them. this includes your.",
+                          context.l10n.endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour,
                           softWrap: true,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
@@ -92,7 +93,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
-                        "Text and voice messages",
+                        context.l10n.textandvoicemessages,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(17),
@@ -110,7 +111,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
-                        "Audio and video calls",
+                        context.l10n.audioandvideocalls,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(17),
@@ -128,7 +129,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
-                        "Photos, videos and documents",
+                        context.l10n.photosvideosanddocuments,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(17),
@@ -146,7 +147,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
-                        "Location sharing",
+                        context.l10n.locationsharing,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(17),
@@ -164,7 +165,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
-                        "Status updates",
+                        context.l10n.statusupdates,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(17),
@@ -176,7 +177,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                   Row(
                     children: [
                       Text(
-                        "Learn more",
+                        context.l10n.leaenmore,
                         style: TextStyle(
                           color: AppTheme.blueshade500,
                           fontSize: AppSize.getSize(18),
@@ -193,7 +194,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                           children: [
                             Expanded(
                               child: Text(
-                                "Show security notifications on this device",
+                                context.l10n.showsecuritynotificationsonthisdevice,
                                 style: TextStyle(
                                   color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),
@@ -234,7 +235,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                                 ),
                               ),
                               TextSpan(
-                                text: "Learn more",
+                                text: context.l10n.leaenmore,
                                 style: TextStyle(
                                   color: AppTheme.blueshade500,
                                   fontSize: AppSize.getSize(16),

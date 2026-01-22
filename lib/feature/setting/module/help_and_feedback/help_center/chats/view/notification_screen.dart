@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class NotificationScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Notifications",
+          context.l10n.notifications,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class NotificationScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,26 +78,26 @@ class NotificationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Notifications",
+                  context.l10n.notifications,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to manage your notifications", context),
-                appInfo("How to manage conversation tones", context),
-                appInfo("How to change your ringtone for WhatsApp", context),
+                appInfo(context.l10n.howtomanageyournotifications, context),
+                appInfo(context.l10n.howtomanageconversationtones, context),
+                appInfo(context.l10n.howtochangeyourringtoneforWhatsApp, context),
                 appInfo(
-                  "How to mute or unmute individual or group chat notifications",
+                  context.l10n.howtomuteorunmuteindividualorgroupchatnotifications,
                   context,
                 ),
-                appInfo("Can't see or hear notifications", context),
+                appInfo(context.l10n.cantseeorhearnotifications, context),
                 appInfo(
-                  "Troubleshoot problems with notification badges",
+                  context.l10n.troubleshootproblemswithnotificationbadges,
                   context,
                 ),
-                appInfo("Can't see notification count", context),
+                appInfo(context.l10n.cantseenotificationcount, context),
               ],
             ),
           ),

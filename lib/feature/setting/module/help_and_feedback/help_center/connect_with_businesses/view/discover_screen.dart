@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DiscoverScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class DiscoverScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Discover",
+         context.l10n.discover,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class DiscoverScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,33 +79,33 @@ class DiscoverScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Discover",
+                    context.l10n.discover,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("About ads in WhatsApp Status and Channels", context),
+                  appInfo(context.l10n.aboutadsinWhatsAppStatusandChannels, context),
                   appInfo(
-                    "How to view and adjust your ad preferences in WhatsApp Status or Channles",
+                    context.l10n.howtoviewandadjustyouradpreferencesinWhatsAppStatusorChannles,
                     context,
                   ),
                   appInfo(
-                    "How to hide or report an ad in WhatsApp Status or Channels",
+                    context.l10n.howtohideorreportanadinWhatsAppStatusorChannels,
                     context,
                   ),
                   appInfo(
-                    "How to search for businesses inside WhatsApp",
+                    context.l10n.howtosearchforbusinessesinsideWhatsApp,
                     context,
                   ),
                   appInfo(
-                    "How to select a location when looking for businesses",
+                    context.l10n.howtoselectalocationwhenlookingforbusinesses,
                     context,
                   ),
-                  appInfo("How to scan a business' WhatsApp QR code", context),
+                  appInfo(context.l10n.howtoscanabusinessWhatsAppQRcode, context),
                   appInfo(
-                    "How your search history is handled in the Discover businesses feature",
+                    context.l10n.howyoursearchhistoryishandledintheDiscoverbusinessesfeature,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

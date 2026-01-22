@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatHistoryScreen extends GetView<ChatViewController> {
@@ -21,7 +22,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Chat history",
+          context.l10n.chathistory,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -34,7 +35,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            appInfo("Export chat", Icons.file_upload_outlined),
+            appInfo(context.l10n.exportchat, Icons.file_upload_outlined),
             SizedBox(height: AppSize.getSize(30)),
             Obx(
               ()=> InkWell(
@@ -58,7 +59,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  "Are you sure want to archive ALL chats?",
+                                  context.l10n.areyousurewanttoarchiveALLchats,
                                   style: TextStyle(
                                     color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
@@ -73,7 +74,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Cancel",
+                                        context.l10n.cancel,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -88,7 +89,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                           Navigator.pop(context);
                                         },
                                         child: Text(
-                                          "Ok",
+                                         context.l10n.ok,
                                           style: TextStyle(
                                             color: AppTheme.greenAccentShade700,
                                             fontSize: AppSize.getSize(16),
@@ -109,7 +110,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                   );
                 },
                 child: appInfo(
-                  controller.isArchived.value ? "Unarchive all chats" : "Archive all chats",
+                  controller.isArchived.value ? context.l10n.unarchiveallchats : context.l10n.archiveallchats,
                   Icons.archive_outlined,
                 ),
               ),
@@ -134,7 +135,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Clear all chats?",
+                                  context.l10n.clearallchats,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(22),
@@ -154,13 +155,13 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                     children: [
                                       deleteOptionTile(
                                         1,
-                                        "Also delete media received in chats from the device gallery",
+                                        context.l10n.alsodeletemediareceivedinchatsfromthedevicegallery,
                                         dialogSetState,
                                       ),
                                       SizedBox(height: AppSize.getSize(25)),
                                       deleteOptionTile(
                                         2,
-                                        "Delete starred messages",
+                                        context.l10n.deletestarredmessages,
                                         dialogSetState,
                                       ),
                                     ],
@@ -177,7 +178,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Cancel",
+                                        context.l10n.cancel,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -191,7 +192,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Clear chats",
+                                        context.l10n.clearchats,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -211,7 +212,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                   },
                 );
               },
-              child: appInfo("Clear all chats", Icons.remove_circle_outline),
+              child: appInfo(context.l10n.clearallchats, Icons.remove_circle_outline),
             ),
 
             SizedBox(height: AppSize.getSize(30)),
@@ -234,7 +235,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Delete all chats?",
+                                  context.l10n.deleteallchats,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(22),
@@ -245,7 +246,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 SizedBox(height: AppSize.getSize(25)),
                                 deleteOptionTile(
                                   1,
-                                  "Also delete media received in chats from the device gallery",
+                                  context.l10n.alsodeletemediareceivedinchatsfromthedevicegallery,
                                   dialogSetState,
                                 ),
 
@@ -259,7 +260,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Cancel",
+                                       context.l10n.cancel,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -273,7 +274,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Delete chats",
+                                        context.l10n.deletechats,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -293,7 +294,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                   },
                 );
               },
-              child: appInfo("Delete all chats", Icons.delete),
+              child: appInfo(context.l10n.deleteallchats, Icons.delete),
             ),
           ],
         ),

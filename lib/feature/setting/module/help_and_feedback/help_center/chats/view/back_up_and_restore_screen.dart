@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class BackUpAndRestoreScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class BackUpAndRestoreScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Back up and Restore",
+          context.l10n.backupandRestore,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class BackUpAndRestoreScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -79,28 +80,28 @@ class BackUpAndRestoreScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Back up and Restore",
+                    context.l10n.backupandRestore,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to back up your chat history", context),
-                  appInfo("How to restore your chat history", context),
-                  appInfo("How to transfer your chat history", context),
+                  appInfo(context.l10n.howtobackupyourchathistory, context),
+                  appInfo(context.l10n.howtorestoreyourchathistory, context),
+                  appInfo(context.l10n.howtotransferyourchathistory, context),
                   appInfo(
-                    "How to move chats from an Android device to an iPhone",
+                    context.l10n.howtomovechatsfromanAndroiddevicetoaniPhone,
                     context,
                   ),
                   appInfo(
-                    "How to move chats from an iPhone to an Android device",
+                    context.l10n.howtomovechatsfromaniPhonetoanAndroiddevice,
                     context,
                   ),
-                  appInfo("About end-to-end encrypted backup", context),
-                  appInfo("About Google Account backups", context),
+                  appInfo(context.l10n.aboutendtoendencryptedbackup, context),
+                  appInfo(context.l10n.aboutGoogleAccountbackups, context),
                   appInfo(
-                    "How to turn off WhatsApp in your device backup",
+                    context.l10n.howtoturnoffWhatsAppinyourdevicebackup,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

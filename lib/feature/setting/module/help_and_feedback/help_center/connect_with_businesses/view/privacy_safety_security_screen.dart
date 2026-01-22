@@ -4,6 +4,7 @@ import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacySafetySecurityScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class PrivacySafetySecurityScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Privacy, Safety, and Security",
+          context.l10n.privacySafetyandSecurity,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class PrivacySafetySecurityScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -79,41 +80,41 @@ class PrivacySafetySecurityScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Privacy, Safety, and Security",
+                    context.l10n.privacySafetyandSecurity,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to block or unblock a business", context),
-                  appInfo("How to report a catalog or business", context),
+                  appInfo(context.l10n.howtoblockorunblockabusiness, context),
+                  appInfo(context.l10n.howtoreportacatalogorbusiness, context),
                   appInfo(
-                    "Privacy and security for business messages",
+                    context.l10n.privacyandsecurityforbusinessmessages,
                     context,
                   ),
                   appInfo(
-                    "About sharing your information with businesses on WhatsApp",
+                    context.l10n.aboutsharingyourinformationwithbusinessesonWhatsApp,
                     context,
                   ),
                   appInfo(
-                    "About security codes that automatically fill on WhatsApp",
+                    context.l10n.aboutsecuritycodesthatautomaticallyfillonWhatsApp,
                     context,
                   ),
                   appInfo(
-                    "About receiving security codes on linked devices",
+                    context.l10n.aboutreceivingsecuritycodesonlinkeddevices,
                     context,
                   ),
                   appInfo(
-                    "Can't receive security codes from other apps on WhatsApp",
+                    context.l10n.cantreceivesecuritycodesfromotherappsonWhatsApp,
                     context,
                   ),
                   appInfo(
-                    "About interactions with business chats that include offers and announcements",
+                    context.l10n.aboutinteractionswithbusinesschatsthatincludeoffersandannouncements,
                     context,
                   ),
                   appInfo(
-                    "About complaints raised by WhatsApp users in relation to the goods or services sold by Businesses in india",
+                    context.l10n.aboutcomplaintsraisedbyWhatsAppusersinrelationtothegoodsorservicessoldbyBusinessesinindia,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

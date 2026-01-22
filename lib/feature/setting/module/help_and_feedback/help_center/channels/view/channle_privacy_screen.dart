@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChannlePrivacyScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class ChannlePrivacyScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Privacy, Safety and Security",
+          context.l10n.privacySafetyandSecurity,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class ChannlePrivacyScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,22 +79,22 @@ class ChannlePrivacyScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Privacy, Safety and Security",
+                  context.l10n.privacySafetyandSecurity,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About safety and privacy on channels", context),
-                appInfo("How to report a channel", context),
+                appInfo(context.l10n.aboutsafetyandprivacyonchannels, context),
+                appInfo(context.l10n.howtoreportachannel, context),
                 appInfo(
-                  "Building Private, Safe, and Secure WhatsApp channels",
+                  context.l10n.buildingPrivateSafeandSecureWhatsAppchannels,
                   context,
                 ),
-                appInfo("WhatsApp Channels Guidelines", context),
+                appInfo(context.l10n.whatsAppChannelsGuidelines, context),
                 appInfo(
-                  "About safety and privacy on channels for admins",
+                  context.l10n.aboutsafetyandprivacyonchannelsforadmins,
                   context,
                 ),
               ],

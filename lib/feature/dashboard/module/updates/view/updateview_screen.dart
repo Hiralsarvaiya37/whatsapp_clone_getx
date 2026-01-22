@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class UpdateviewScreen extends GetView<UpdateviewController> {
@@ -55,7 +56,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               Row(
                 children: [
                   Text(
-                    "Status",
+                    context.l10n.status,
                     style: TextStyle(
                       color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(20),
@@ -158,7 +159,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "My status",
+                          context.l10n.mystatus,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(20),
@@ -168,8 +169,8 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                         Obx(
                           () => Text(
                             controller.statusList.isEmpty
-                                ? "Tap to add status"
-                                : "3 minutes ago",
+                                ? context.l10n.taptoaddstatus
+                                : context.l10n.minutesago,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -186,7 +187,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               Row(
                 children: [
                   Text(
-                    "Recent updates",
+                    context.l10n.recentupdates,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
@@ -214,7 +215,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Users",
+                            context.l10n.users,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(19),
@@ -222,7 +223,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             ),
                           ),
                           Text(
-                            "25 minutes ago",
+                            context.l10n.minutesago,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(15),
@@ -240,7 +241,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               Row(
                 children: [
                   Text(
-                    "Viewed updates",
+                    context.l10n.viewedupdates,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
@@ -275,7 +276,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Channels",
+                            context.l10n.channels,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(20),
@@ -286,7 +287,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                           SizedBox(height: AppSize.getSize(5)),
 
                           Text(
-                            "Stay updated on topics that matters to you. Find channels to follow below.",
+                            context.l10n.stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -318,7 +319,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Users",
+                                        context.l10n.users,
                                         style: TextStyle(
                                           color: AppTheme.whiteColor,
                                           fontSize: AppSize.getSize(19),
@@ -326,7 +327,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                                         ),
                                       ),
                                       Text(
-                                        "25 minutes ago",
+                                        context.l10n.minutesago,
                                         style: TextStyle(
                                           color: AppTheme.greyShade400,
                                           fontSize: AppSize.getSize(15),
@@ -346,7 +347,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Channels",
+                                context.l10n.channels,
                                 style: TextStyle(
                                   color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(19),
@@ -357,7 +358,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                               SizedBox(height: AppSize.getSize(5)),
 
                               Text(
-                                "Stay updated on topics that matters to you. Find channels to follow below.",
+                                context.l10n.stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
                                 style: TextStyle(
                                   color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(16),
@@ -373,7 +374,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               Row(
                 children: [
                   Text(
-                    "Find channels to follow",
+                    context.l10n.findchannelstofollow,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
@@ -426,7 +427,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Demo",
+                                context.l10n.demo,
                                 style: TextStyle(
                                   color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),
@@ -434,7 +435,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                                 ),
                               ),
                               Text(
-                                "574K followers",
+                                context.l10n.followers,
                                 style: TextStyle(
                                   color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(15),
@@ -456,7 +457,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             ),
                           ),
                           child: Text(
-                            "Follow",
+                            context.l10n.follow,
                             style: TextStyle(
                               color: AppTheme.blackColor,
                               fontSize: AppSize.getSize(16),
@@ -493,7 +494,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Text(
-                      "Explore more",
+                      context.l10n.exploremore,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
                         color: AppTheme.greenAccentShade700,
@@ -522,7 +523,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Text(
-                      "Create channel",
+                      context.l10n.createchannel,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
                         color: AppTheme.greenAccentShade700,
@@ -619,7 +620,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      "Camera",
+                      context.l10n.camera,
                       style: TextStyle(color: AppTheme.whiteColor),
                     ),
                   ],
@@ -648,7 +649,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      "Gallery",
+                      context.l10n.gallery,
                       style: TextStyle(color: AppTheme.whiteColor),
                     ),
                   ],
@@ -676,7 +677,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      "Video",
+                      context.l10n.video,
                       style: TextStyle(color: AppTheme.whiteColor),
                     ),
                   ],

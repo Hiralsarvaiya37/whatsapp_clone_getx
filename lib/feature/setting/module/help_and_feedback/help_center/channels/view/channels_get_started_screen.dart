@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChannelsGetStartedScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class ChannelsGetStartedScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Get Started",
+          context.l10n.getStarted,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class ChannelsGetStartedScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,23 +79,23 @@ class ChannelsGetStartedScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Get Started",
+                  context.l10n.getStarted,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About WhatsApp Channels", context),
-                appInfo("About creating a WhatsApp Channel", context),
-                appInfo("How to find and follow WhatsApp Channels", context),
-                appInfo("How to create a WhatsApp Channel", context),
+                appInfo(context.l10n.aboutWhatsAppChannels, context),
+                appInfo(context.l10n.aboutcreatingaWhatsAppChannel, context),
+                appInfo(context.l10n.howtofindandfollowWhatsAppChannels, context),
+                appInfo(context.l10n.howtocreateaWhatsAppChannel, context),
                 appInfo(
-                  "How to forward from channels to chat or status",
+                  context.l10n.howtoforwardfromchannelstochatorstatus,
                   context,
                 ),
-                appInfo("About how WhatsApp recommends channels", context),
-                appInfo("About channel subscriptions", context),
+                appInfo(context.l10n.abouthowWhatsApprecommendschannels, context),
+                appInfo(context.l10n.aboutchannelsubscriptions, context),
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ShopScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class ShopScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Shop",
+          context.l10n.shop,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class ShopScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,28 +79,28 @@ class ShopScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Shop",
+                  context.l10n.shop,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About shopping on WhatsApp", context),
-                appInfo("How to shop while chatting with businesses", context),
-                appInfo("About using the shopping button", context),
-                appInfo("How to view a catalog", context),
+                appInfo(context.l10n.aboutshoppingonWhatsApp, context),
+                appInfo(context.l10n.howtoshopwhilechattingwithbusinesses, context),
+                appInfo(context.l10n.aboutusingtheshoppingbutton, context),
+                appInfo(context.l10n.howtoviewacatalog, context),
                 appInfo(
-                  "How to share products or services from a catalog",
+                  context.l10n.howtoshareproductsorservicesfromacatalog,
                   context,
                 ),
                 appInfo(
-                  "About sharing your catalog to your WhatsApp business status",
+                 context.l10n.aboutsharingyourcatalogtoyourWhatsAppbusinessstatus,
                   context,
                 ),
-                appInfo("How to place an order using cart", context),
+                appInfo(context.l10n.howtoplaceanorderusingcart, context),
                 appInfo(
-                  "About buying goods or services from businesses",
+                  context.l10n.aboutbuyinggoodsorservicesfrombusinesses,
                   context,
                 ),
               ],

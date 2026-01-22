@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class VoiceMessagesAndChatsScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Voice Messages and Chats",
+          context.l10n.voiceMessagesandChats,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,23 +78,23 @@ class VoiceMessagesAndChatsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Voice Messages and Chats",
+                  context.l10n.voiceMessagesandChats,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to send voice messages", context),
-                appInfo("How to play voice messages", context),
+                appInfo(context.l10n.howtosendvoicemessages, context),
+                appInfo(context.l10n.howtoplayvoicemessages, context),
                 appInfo(
-                  "How to turn voice message transcripts on or off",
+                  context.l10n.howtoturnvoicemessagetranscriptsonoroff,
                   context,
                 ),
-                appInfo("How to preview a voice message", context),
-                appInfo("How to delete voice messages", context),
-                appInfo("About voice chats", context),
-                appInfo("How to start a voice chat", context),
+                appInfo(context.l10n.howtopreviewavoicemessage, context),
+                appInfo(context.l10n.howtodeletevoicemessages, context),
+                appInfo(context.l10n.aboutvoicechats, context),
+                appInfo(context.l10n.howtostartavoicechat, context),
               ],
             ),
           ),

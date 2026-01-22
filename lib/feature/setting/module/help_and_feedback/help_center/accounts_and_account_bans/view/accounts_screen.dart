@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccountsScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class AccountsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Accounts",
+          context.l10n.accounts,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class AccountsScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,27 +79,27 @@ class AccountsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Accounts",
+                    context.l10n.accounts,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to request account information", context),
-                  appInfo("How to request channels report", context),
-                  appInfo("How to request ads report", context),
-                  appInfo("About changing phones", context),
-                  appInfo("How to change your phone number", context),
-                  appInfo("About changing phone numbers", context),
-                  appInfo("Can't change phone number", context),
+                  appInfo(context.l10n.howtorequestaccountinformation, context),
+                  appInfo(context.l10n.howtorequestchannelsreport, context),
+                  appInfo(context.l10n.howtorequestadsreport, context),
+                  appInfo(context.l10n.aboutchangingphones, context),
+                  appInfo(context.l10n.howtochangeyourphonenumber, context),
+                  appInfo(context.l10n.aboutchangingphonenumbers, context),
+                  appInfo(context.l10n.cantchangephonenumber, context),
                   appInfo(
-                    "About using one WhatsApp account on multiple phones, or with multiple phone numbers",
+                    context.l10n.aboutusingoneWhatsAppaccountonmultiplephonesorwithmultiplephonenumbers,
                     context,
                   ),
-                  appInfo("How to delete your account", context),
-                  appInfo("About inactive account deletion", context),
-                  appInfo("About account deactivation", context),
+                  appInfo(context.l10n.howtodeleteyouraccount, context),
+                  appInfo(context.l10n.aboutinactiveaccountdeletion, context),
+                  appInfo(context.l10n.aboutaccountdeactivation, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

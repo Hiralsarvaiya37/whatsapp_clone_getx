@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChannelFollowersAndViewersScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Channel Followers and Viewers",
+          context.l10n.channelFollowersandViewers,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,23 +78,23 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Channel Followers and Viewers",
+                  context.l10n.channelFollowersandViewers,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to react to channel updates", context),
-                appInfo("How to vote on channel polls", context),
-                appInfo("How to manage channel notifications", context),
+                appInfo(context.l10n.howtoreacttochannelupdates, context),
+                appInfo(context.l10n.howtovoteonchannelpolls, context),
+                appInfo(context.l10n.howtomanagechannelnotifications, context),
                 appInfo(
-                  "How to listen to voice updates on WhatsApp Channels",
+                  context.l10n.howtolistentovoiceupdatesonWhatsAppChannels,
                   context,
                 ),
-                appInfo("How to unfollow a channel", context),
-                appInfo("How to pin channels and star updates", context),
-                appInfo("How to manage your channel subscription", context),
+                appInfo(context.l10n.howtounfollowachannel, context),
+                appInfo(context.l10n.howtopinchannelsandstarupdates, context),
+                appInfo(context.l10n.howtomanageyourchannelsubscription, context),
               ],
             ),
           ),

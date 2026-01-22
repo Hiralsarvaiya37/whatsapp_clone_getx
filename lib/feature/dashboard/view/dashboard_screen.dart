@@ -7,6 +7,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_contr
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/setting_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
@@ -78,14 +79,14 @@ class DashboardScreen extends GetView<DashboardController> {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile("New group", 1),
-                                popupTile("New community", 2),
-                                popupTile("Broadcast lists", 3),
-                                popupTile("Linked devices", 4),
-                                popupTile("Starred", 5),
-                                popupTile("Payments", 6),
-                                popupTile("Read all", 7),
-                                popupTile("Settings", 8),
+                                popupTile(context.l10n.newgroup, 1),
+                                popupTile(context.l10n.newcommunity, 2),
+                                popupTile(context.l10n.broadcastlists, 3),
+                                popupTile(context.l10n.linkeddevices, 4),
+                                popupTile(context.l10n.starred, 5),
+                                popupTile(context.l10n.payments, 6),
+                                popupTile(context.l10n.readall, 7),
+                                popupTile(context.l10n.settings, 8),
                               ],
                             ),
                           ],
@@ -118,10 +119,10 @@ class DashboardScreen extends GetView<DashboardController> {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile("Create channel", 1),
-                                popupTile("Status privacy", 2),
-                                popupTile("Starred", 3),
-                                popupTile("Settings", 8),
+                                popupTile(context.l10n.createchannel, 1),
+                                popupTile(context.l10n.statusprivacy, 2),
+                                popupTile(context.l10n.starred, 3),
+                                popupTile(context.l10n.settings, 8),
                               ],
                             ),
                           ],
@@ -154,7 +155,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile("Settings", 8),
+                                popupTile(context.l10n.settings, 8),
                               ],
                             ),
                           ],
@@ -187,9 +188,9 @@ class DashboardScreen extends GetView<DashboardController> {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile("Clear call log", 1),
-                                popupTile("Scheduled calls", 2),
-                                popupTile("Settings", 8),
+                                popupTile(context.l10n.clearcalllog, 1),
+                                popupTile(context.l10n.scheduledcalls, 2),
+                                popupTile(context.l10n.settings, 8),
                               ],
                             ),
                           ],
@@ -222,10 +223,10 @@ class DashboardScreen extends GetView<DashboardController> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
-            bottomOption("Chats", Icons.chat, 0),
-            bottomOption("Updates", Icons.update, 1),
-            bottomOption("Communities", Icons.groups_2_outlined, 2),
-            bottomOption("Calls", Icons.call, 3),
+            bottomOption(context.l10n.chats, Icons.chat, 0),
+            bottomOption(context.l10n.updates, Icons.update, 1),
+            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2),
+            bottomOption(context.l10n.calls, Icons.call, 3),
           ],
         ),
       ),

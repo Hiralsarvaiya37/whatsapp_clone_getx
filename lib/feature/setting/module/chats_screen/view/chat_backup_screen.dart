@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/end_to_end_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatBackupScreen extends GetView<ChatViewController> {
@@ -26,7 +27,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
           ),
         ),
         title: Text(
-          "Chat backup",
+          context.l10n.chatbackup,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -44,14 +45,14 @@ class ChatBackupScreen extends GetView<ChatViewController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Backup settings",
+                context.l10n.backupsettings,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
-                "Back up your chats and media to your Google Account's storage. You can restore them on a new phone after you download WhatsApp on it.",
+                context.l10n.backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -59,7 +60,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               ),
               SizedBox(height: AppSize.getSize(20)),
               Text(
-                "Local: 2:09 AM",
+                context.l10n.local2_09AM,
                 style: TextStyle(
                   color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
@@ -67,7 +68,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               ),
               SizedBox(height: AppSize.getSize(5)),
               Text(
-                "Last Backup: Never",
+                context.l10n.lastBackupNever,
                 style: TextStyle(
                   color: AppTheme.whiteColor,
                   fontSize: AppSize.getSize(18),
@@ -83,13 +84,13 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  "Back up",
+                  context.l10n.backup,
                   style: TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(height: AppSize.getSize(30)),
               Text(
-                "Manage Goggle storage",
+                context.l10n.manageGogglestorage,
                 style: TextStyle(
                   color: AppTheme.greenAccentShade700,
                   fontSize: AppSize.getSize(16),
@@ -122,7 +123,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Choose an account",
+                                      context.l10n.chooseanaccount,
                                       style: TextStyle(
                                         color: AppTheme.whiteColor,
                                         fontSize: AppSize.getSize(22),
@@ -132,7 +133,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(40)),
                                     Obx(
                                       () => radioTile(
-                                        "abcced123@gmail.com",
+                                        contex.l10n.abcced123gmail_com,
                                         dialogSetState,
                                         controller.selectedGoogleAccount.value,
                                       ),
@@ -140,7 +141,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(30)),
                                     Obx(
                                       () => radioTile(
-                                        "Add account",
+                                        context.l10n.addaccount,
                                         dialogSetState,
                                         controller.selectedGoogleAccount.value,
                                       ),
@@ -155,7 +156,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                             Navigator.pop(context);
                                           },
                                           child: Text(
-                                            "Cancel",
+                                            contex.l10n.cancel,
                                             style: TextStyle(
                                               color:
                                                   AppTheme.greenAccentShade700,
@@ -182,7 +183,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Goggle Account",
+                      context.l10n.goggleAccount,
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
@@ -228,7 +229,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Automatic backups",
+                                      context.l10n.automaticbackups,
                                       style: TextStyle(
                                         color: AppTheme.whiteColor,
                                         fontSize: AppSize.getSize(22),
@@ -238,7 +239,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(40)),
                                     Obx(
                                       () => radioTile(
-                                        "Daily",
+                                        context.l10n.daily,
                                         dialogSetState,
                                         controller.backupFrequency.value,
                                       ),
@@ -246,7 +247,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(30)),
                                     Obx(
                                       () => radioTile(
-                                        "Weekly",
+                                        contex.l10n.weekly,
                                         dialogSetState,
                                         controller.backupFrequency.value,
                                       ),
@@ -254,7 +255,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(30)),
                                     Obx(
                                       () => radioTile(
-                                        "Monthly",
+                                        context.l10n.monthly,
                                         dialogSetState,
                                         controller.backupFrequency.value,
                                       ),
@@ -262,7 +263,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(30)),
                                     Obx(
                                       () => radioTile(
-                                        "Only when I tap 'Back up",
+                                        contex.l10n.onlywhenItapBackup,
                                         dialogSetState,
                                         controller.backupFrequency.value,
                                       ),
@@ -270,7 +271,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                     SizedBox(height: AppSize.getSize(30)),
                                     Obx(
                                       () => radioTile(
-                                        "Off",
+                                        contex.l10n.off,
                                         dialogSetState,
                                         controller.backupFrequency.value,
                                       ),
@@ -285,7 +286,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                             Navigator.pop(context);
                                           },
                                           child: Text(
-                                            "Cancel",
+                                            contex.l10n.cancel,
                                             style: TextStyle(
                                               color:
                                                   AppTheme.greenAccentShade700,
@@ -311,7 +312,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Automatic backups",
+                      context.l10n.automaticbackups,
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: 18,
@@ -332,20 +333,20 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               ),
 
               SizedBox(height: AppSize.getSize(35)),
-              appTile("Include videos", 1),
+              appTile(context.l10n.includevideos, 1),
               SizedBox(height: AppSize.getSize(30)),
-              appTile("Back up using cellular", 2),
+              appTile(context.l10n.backupusingcellular, 2),
 
               SizedBox(height: AppSize.getSize(40)),
               Text(
-                "End-to-end encryption",
+                context.l10n.endtoendencryption,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
-                "For added security, you can protect your backup with end-to-end encryption.",
+                context.l10n.foraddedsecurityyoucanprotectyourbackupwithendtoendencryption,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -370,7 +371,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "End-to-end encrypted backup",
+                            context.l10n.endtoendencryptedbackup,
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(18),
@@ -378,7 +379,7 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                             ),
                           ),
                           Text(
-                            "Off",
+                            context.l10n.off,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),

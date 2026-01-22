@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class MediaScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class MediaScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Media",
+          context.l10n.media,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class MediaScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                 context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,32 +79,32 @@ class MediaScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Media",
+                    context.l10n.media,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to send media, contacts, or location", context),
-                  appInfo("Finding media files", context),
-                  appInfo("How to forward media", context),
-                  appInfo("How to edit photos and videos", context),
+                  appInfo(context.l10n.howtosendmediacontactsorlocation, context),
+                  appInfo(context.l10n.findingmediafiles, context),
+                  appInfo(context.l10n.howtoforwardmedia, context),
+                  appInfo(context.l10n.howtoeditphotosandvideos, context),
                   appInfo(
-                    "How to stop WhatsApp from saving media to your phone",
+                    context.l10n.howtostopWhatsAppfromsavingmediatoyourphone,
                     context,
                   ),
-                  appInfo("How to use stickers", context),
+                  appInfo(context.l10n.howtousestickers, context),
                   appInfo(
-                    "How to create and share custom stickers and sticker packs",
+                    context.l10n.howtocreateandsharecustomstickersandstickerpacks,
                     context,
                   ),
-                  appInfo("How to create avatars", context),
-                  appInfo("How to use avatars", context),
-                  appInfo("How to create GIFs", context),
-                  appInfo("How to send GIFs", context),
-                  appInfo("How to use emoji", context),
-                  appInfo("How to configure auto-download", context),
+                  appInfo(context.l10n.howtocreateavatars, context),
+                  appInfo(context.l10n.howtouseavatars, context),
+                  appInfo(context.l10n.howtocreateGIFs, context),
+                  appInfo(context.l10n.howtosendGIFs, context),
+                  appInfo(context.l10n.howtouseemoji, context),
+                  appInfo(context.l10n.howtoconfigureautodownload, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

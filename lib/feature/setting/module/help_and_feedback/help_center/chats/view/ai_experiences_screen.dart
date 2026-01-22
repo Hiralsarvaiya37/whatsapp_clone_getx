@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AiExperiencesScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class AiExperiencesScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "AI Experiences",
+          context.l10n.aIExperiences,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class AiExperiencesScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,7 +79,7 @@ class AiExperiencesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "AI Experiences",
+                    context.l10n.aIExperiences,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
@@ -86,72 +87,72 @@ class AiExperiencesScreen extends StatelessWidget {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   appInfo(
-                    "About AI experiences available through WhatsApp",
+                    context.l10n.aboutAIexperiencesavailablethroughWhatsApp,
                     context,
                   ),
                   appInfo(
-                    "About using AI experiences available through WhatsApp",
-                    context,
+                    context.l10n.aboutusingAIexperiencesavailablethroughWhatsApp,
+                    context
                   ),
-                  appInfo("About Meta AI", context),
-                  appInfo("How to chat with Meta AI", context),
+                  appInfo(context.l10n.aboutMetaAI, context),
+                  appInfo(context.l10n.howtochatwithMetaAI, context),
                   appInfo(
-                    "How to chat with Meta AI in an individual or group chat",
-                    context,
-                  ),
-                  appInfo(
-                    "About searching WhatsApp and asking Meta AI",
+                    context.l10n.howtochatwithMetaAIinanindividualorgroupchat,
                     context,
                   ),
                   appInfo(
-                    "How to ask Meta AI in the WhatsApp search bar",
+                    context.l10n.aboutsearchingWhatsAppandaskingMetaAI,
                     context,
                   ),
                   appInfo(
-                    "How to create an animated AI image in a chat",
+                    context.l10n.howtoaskMetaAIintheWhatsAppsearchbar,
                     context,
                   ),
                   appInfo(
-                    "How to generate an AI image for your profile photo or group icon",
-                    context,
-                  ),
-                  appInfo("How to edit AI-generated images", context),
-                  appInfo(
-                    "How to edit your photos or images with Meta AI",
-                    context,
-                  ),
-                  appInfo("How to prompt Meta AI with an image", context),
-                  appInfo(
-                    "How to create and use AI-generated call backgrounds",
+                    context.l10n.howtocreateananimatedAIimageinachat,
                     context,
                   ),
                   appInfo(
-                    "How to share an AI-generated image to your status",
+                   context.l10n.howtogenerateanAIimageforyourprofilephotoorgroupicon,
                     context,
                   ),
-                  appInfo("About AIs", context),
-                  appInfo("How to chat with AIs", context),
-                  appInfo("How to report an AI", context),
+                  appInfo(context.l10n.howtoeditAIgeneratedimages, context),
                   appInfo(
-                    "About creating an AI through Meta AI Studio",
+                    context.l10n.howtoedityourphotosorimageswithMetaAI,
                     context,
                   ),
+                  appInfo(context.l10n.howtopromptMetaAIwithanimage, context),
                   appInfo(
-                    "How to create an AI through Meta AI studio",
-                    context,
-                  ),
-                  appInfo(
-                    "How to edit your AI through Meta AI Studio",
+                    context.l10n.howtocreateanduseAIgeneratedcallbackgrounds,
                     context,
                   ),
                   appInfo(
-                    "How to delete your AI through Meta AI Studio",
+                   context.l10n.howtoshareanAIgeneratedimagetoyourstatus,
                     context,
                   ),
-                  appInfo("About AI stickers", context),
-                  appInfo("How to create and share AI stickers", context),
+                  appInfo(context.l10n.aboutAIs, context),
+                  appInfo(context.l10n.howtochatwithAIs, context),
+                  appInfo(context.l10n.howtoreportanAI, context),
                   appInfo(
-                    "About the availbility of AI experiences available through WhatsApp",
+                    context.l10n.aboutcreatinganAIthroughMetaAIStudio,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.howtocreateanAIthroughMetaAIstudio,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.howtoedityourAIthroughMetaAIStudio,
+                    context,
+                  ),
+                  appInfo(
+                   context.l10n.howtodeleteyourAIthroughMetaAIStudio,
+                    context,
+                  ),
+                  appInfo(context.l10n.aboutAIstickers, context),
+                  appInfo(context.l10n.howtocreateandshareAIstickers, context),
+                  appInfo(
+                    context.l10n.abouttheavailbilityofAIexperiencesavailablethroughWhatsApp,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),
@@ -168,7 +169,7 @@ class AiExperiencesScreen extends StatelessWidget {
   Widget appInfo(String title, BuildContext context) {
     return InkWell(
       onTap: () {
-       Get.toNamed(LearnMoreScreen.id);
+        Get.toNamed(LearnMoreScreen.id);
       },
       child: Padding(
         padding: EdgeInsets.only(bottom: AppSize.getSize(30)),

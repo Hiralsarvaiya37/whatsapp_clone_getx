@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class EndToEndScreen extends StatelessWidget {
@@ -35,23 +36,23 @@ class EndToEndScreen extends StatelessWidget {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
-                    "Add an extra layer of protection",
+                    context.l10n.addanextralayerofprotection,
                     style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(25)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(35)),
                   appInfo(
-                    "Your backup will be safe, even if you lose your phone.",
+                    context.l10n.yourbackupwillbesafeevenifyouloseyourphone,
                     Icons.lock_outline,
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appInfo(
-                    "Secure your backup with a passkey, password or an encryption key.",
+                    context.l10n.secureyourbackupwithapasskeypasswordoranencryptionkey,
                     Icons.key,
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appInfo(
-                    "No one else will be able to access your backup. Not even WhatsApp or Google.",
+                    context.l10n.nooneelsewillbeabletoaccessyourbackupNotevenWhatsApporGoogle,
                     Icons.remove_red_eye_outlined,
                   ),
                 ],
@@ -70,7 +71,7 @@ class EndToEndScreen extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    "Use passkey",
+                    context.l10n.usepasskey,
                     style: TextStyle(
                       color: AppTheme.blackColor,
                       fontWeight: FontWeight.w600,
@@ -87,7 +88,7 @@ class EndToEndScreen extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    "More options",
+                    context.l10n.moreoptions,
                     style: TextStyle(
                       color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.w600,

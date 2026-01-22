@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpPrivacyScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class HelpPrivacyScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Privacy, Safety, and Security",
+          context.l10n.privacySafetyandSecurity,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class HelpPrivacyScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,22 +78,22 @@ class HelpPrivacyScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Privacy, Safety, and Security",
+                  context.l10n.privacySafetyandSecurity,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to keep your groups and community safe", context),
+                appInfo(context.l10n.howtokeepyourgroupsandcommunitysafe, context),
                 SizedBox(height: AppSize.getSize(30)),
                 appInfo(
-                  "About building private, safe, and secure communities on WhatsApp",
+                  context.l10n.aboutbuildingprivatesafeandsecurecommunitiesonWhatsApp,
                   context,
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 appInfo(
-                  "What does 'This community is no longer available' mean?",
+                  context.l10n.whatdoesThiscommunityisnolongeravailablemean,
                   context,
                 ),
               ],

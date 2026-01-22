@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class MemberScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class MemberScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Member",
+          context.l10n.member,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class MemberScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,7 +79,7 @@ class MemberScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Member",
+                  context.l10n.member,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
@@ -86,16 +87,16 @@ class MemberScreen extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 appInfo(
-                  "How to add or suggest a group to a community",
+                  context.l10n.howtoaddorsuggestagrouptoacommunity,
                   context,
                 ),
                 appInfo(
-                  "How to find and join events in a community group",
+                  context.l10n.howtofindandjoineventsinacommunitygroup,
                   context,
                 ),
-                appInfo("How to join a group in a community", context),
-                appInfo("How to exit a community", context),
-                appInfo("How to rejoin a community", context),
+                appInfo(context.l10n.howtojoinagroupinacommunity, context),
+                appInfo(context.l10n.howtoexitacommunity, context),
+                appInfo(context.l10n.howtorejoinacommunity, context),
               ],
             ),
           ),

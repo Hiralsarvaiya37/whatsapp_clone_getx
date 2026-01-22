@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChangeNumberScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class ChangeNumberScreen extends StatelessWidget {
         ),
         backgroundColor: AppTheme.blackColor,
         title: Text(
-          "Change number",
+          context.l10n.changenumber,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -53,17 +54,17 @@ class ChangeNumberScreen extends StatelessWidget {
             ),
             SizedBox(height: AppSize.getSize(40)),
             Text(
-              "Changing your phone number will migrate your account info, groups & settings.",
+              context.l10n.changingyourphonenumberwillmigrateyouraccountinfogroupssettings,
               style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
-              "Before proceeding, please confirm that you are able to receive SMS calls at your new number.",
+              context.l10n.beforeproceedingpleaseconfirmthatyouareabletoreceiveSMScallsatyournewnumber,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
-              "If you have both a new phone & a new number, first change your number on your old phone.",
+              context.l10n.ifyouhavebothanewphoneanewnumberfirstchangeyournumberonyouroldphone,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
           ],
@@ -80,7 +81,7 @@ class ChangeNumberScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSize.getSize(25)),
             ),
             alignment: Alignment.center,
-            child: Text("Next", style: TextStyle(color: AppTheme.blackColor,fontWeight: FontWeight.w500)),
+            child: Text(context.l10n.next, style: TextStyle(color: AppTheme.blackColor,fontWeight: FontWeight.w500)),
           ),
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibility_view_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AnimationScreen extends GetView<AccessibilityViewController> {
@@ -21,7 +22,7 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Animation",
+          context.l10n.animation,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -35,15 +36,15 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "When turned on, emoji, stickers or GIFs will move automatically.",
+              context.l10n.whenturnedonemojistickersorGIFswillmoveautomatically,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(30)),
-            appTile("Emoji", Icons.emoji_emotions_outlined, 1),
+            appTile(context.l10n.emoji, Icons.emoji_emotions_outlined, 1),
             SizedBox(height: AppSize.getSize(20)),
-            appTile("Stickers", Icons.sticky_note_2_outlined, 2),
+            appTile(context.l10n.stickers, Icons.sticky_note_2_outlined, 2),
             SizedBox(height: AppSize.getSize(20)),
-            appTile("Gifs", Icons.gif, 3),
+            appTile(context.l10n.gifs, Icons.gif, 3),
           ],
         ),
       ),

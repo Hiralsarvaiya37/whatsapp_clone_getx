@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class RequestAccountInfoScreen extends GetView<AccountViewController> {
@@ -25,7 +26,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
           ),
         ),
         title: Text(
-          "Request account info",
+          context.l10n.requestaccountinfo,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -41,13 +42,13 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
         child: Column(
           children: [
             requestTile(
-              title: "Account information",
+              title: context.l10n.accountinformation,
               rxValue: controller.isOn,
               context: context,
             ),
             SizedBox(height: AppSize.getSize(30)),
             requestTile(
-              title: "Channels activity",
+              title: context.l10n.channelsactivity,
               rxValue: controller.isYes,
               context: context,
             ),
@@ -89,14 +90,14 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Request sent",
+                  context.l10n.requestsent,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
                 Text(
-                  "Ready by December 7, 2025",
+                  context.l10n.readybyDecember7_2025,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
@@ -110,7 +111,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
         SizedBox(height: AppSize.getSize(20)),
 
         Text(
-          "Your report will be ready in about 3 days. You'll have a few weeks to download your report after it's available.",
+          context.l10n.yourreportwillbereadyinabout3daysYoullhaveafewweekstodownloadyourreportafteritsavailable,
           style: TextStyle(
             color: AppTheme.greyShade400,
             fontSize: AppSize.getSize(16),
@@ -131,7 +132,7 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
               SizedBox(width: AppSize.getSize(8)),
               Expanded(
                 child: Text(
-                  "Create reports automatically",
+                  context.l10n.createreportsautomatically,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(17),
@@ -159,14 +160,14 @@ class RequestAccountInfoScreen extends GetView<AccountViewController> {
           TextSpan(
             children: [
               TextSpan(
-                text: "A new report will be created every month. ",
+                text: context.l10n.anewreportwillbecreatedeverymonth,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               TextSpan(
-                text: "Learn more.",
+                text: context.l10n.leaenmore,
                 style: TextStyle(
                   color: AppTheme.blueshade500,
                   fontSize: AppSize.getSize(16),

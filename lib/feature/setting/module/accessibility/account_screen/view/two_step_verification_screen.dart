@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class TwoStepVerificationScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Two-step verification",
+          context.l10n.twostepverification,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -43,12 +44,12 @@ class TwoStepVerificationScreen extends StatelessWidget {
                 children: [
                   TextSpan(
                     text:
-                        "For extra security, turn on two-step verification, which will require a PIN when registering your phone number with WhatsApp again.",
+                        context.l10n.forextrasecurityturnontwostepverificationwhichwillrequireaPINwhenregisteringyourphonenumberwithWhatsAppagain,
 
                     style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
-                    text: "Learn more",
+                    text: context.l10n.leaenmore,
                     style: TextStyle(
                       color: AppTheme.blueshade500,
                       fontSize: AppSize.getSize(16),
@@ -79,7 +80,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
             ),
             alignment: Alignment.center,
             child: Text(
-              "Turn on",
+              context.l10n.turnon,
               style: TextStyle(color: AppTheme.blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
             ),
           ),

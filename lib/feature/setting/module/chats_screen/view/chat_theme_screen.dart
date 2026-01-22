@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatThemeScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class ChatThemeScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Chat theme",
+          context.l10n.chattheme,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -37,7 +38,7 @@ class ChatThemeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Themes",
+              context.l10n.themes,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
@@ -86,12 +87,12 @@ class ChatThemeScreen extends StatelessWidget {
 
             SizedBox(height: AppSize.getSize(30)),
             Text(
-              "The chat color and wallpaper will both change.",
+              context.l10n.thechatcolorandwallpaperwillbothchange,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
-              "Customize",
+              context.l10n.customize,
               style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
@@ -104,7 +105,7 @@ class ChatThemeScreen extends StatelessWidget {
                       Icon(Icons.chat, size: AppSize.getSize(30), color: AppTheme.greyShade400),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
-                        "Chat color",
+                        context.l10n.chatcolor,
                         style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
@@ -119,7 +120,7 @@ class ChatThemeScreen extends StatelessWidget {
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
-                        "Wallpaper",
+                        context.l10n.wallpaper,
                         style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],

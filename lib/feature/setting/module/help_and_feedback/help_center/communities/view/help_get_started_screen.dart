@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpGetStartedScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class HelpGetStartedScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Get Started",
+          context.l10n.getStarted,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class HelpGetStartedScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -77,20 +78,20 @@ class HelpGetStartedScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Get Started",
+                 context.l10n.getStarted,
                   style: TextStyle(
                     color: AppTheme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About communities", context),
+                appInfo(context.l10n.aboutcommunities, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("How to create a community", context),
+                appInfo(context.l10n.howtocreateacommunity, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About community announcements", context),
+                appInfo(context.l10n.aboutcommunityannouncements, context),
                 SizedBox(height: AppSize.getSize(30)),
-                appInfo("About general chat for communities", context),
+                appInfo(context.l10n.aboutgeneralchatforcommunities, context),
               ],
             ),
           ),

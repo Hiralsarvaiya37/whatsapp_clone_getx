@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class TransferChatScreen extends StatelessWidget {
@@ -33,13 +34,13 @@ class TransferChatScreen extends StatelessWidget {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
-                    "Transfer chat history to new phone",
+                    context.l10n.transferchathistorytonewphone,
                     style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(23)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(20)),
                   Text(
-                    "Transfer your chat history privately to another Android phone. Have your most up-to-date messages without using Google storage. Certain device permissions are needed to Connect to your new device.",
+                    context.l10n.transferyourchathistoryprivatelytoanotherAndroidphoneHaveyourmostuptodatemessageswithoutusingGooglestorageCertaindevicepermissionsareneededtoConnecttoyournewdevice,
                     style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                     textAlign: TextAlign.center,
                   ),
@@ -60,7 +61,7 @@ class TransferChatScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),alignment: Alignment.center,
                   child: Text(
-                    "Start",
+                    context.l10n.starred,
                     style: TextStyle(fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -70,7 +71,7 @@ class TransferChatScreen extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Cancel",
+                    context.l10n.cancel,
                     style: TextStyle(color: AppTheme.greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
                   ),
                 ),

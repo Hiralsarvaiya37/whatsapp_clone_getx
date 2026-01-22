@@ -4,6 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class EmailAddressScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class EmailAddressScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Add your email",
+          context.l10n.addyouremail,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class EmailAddressScreen extends StatelessWidget {
                 children: [
                   TextSpan(
                     text:
-                        "Email helps us verify your account or reach you in case of security or support issues. your email address Won't be visible to others.",
+                        context.l10n.emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
@@ -63,7 +64,7 @@ class EmailAddressScreen extends StatelessWidget {
                   ),
 
                   TextSpan(
-                    text: "Leaen more",
+                    text: context.l10n.leaenmore,
                     style: TextStyle(
                       color: AppTheme.greenAccentShade700,
                       fontSize: AppSize.getSize(16),
@@ -91,7 +92,7 @@ class EmailAddressScreen extends StatelessWidget {
                 fontSize: AppSize.getSize(18),
               ),
               decoration: InputDecoration(
-                hintText: "Enter your email",
+                hintText: context.l10n.enteryouremail,
                 hintStyle: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(18),
@@ -125,7 +126,7 @@ class EmailAddressScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: AppSize.getSize(15)),
             child: Text(
-              "Next",
+              context.l10n.next,
               style: TextStyle(
                 color: AppTheme.blackColor,
                 fontSize: AppSize.getSize(18),
