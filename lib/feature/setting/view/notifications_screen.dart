@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class NotificationsScreen extends GetView<SettingController> {
@@ -21,7 +22,7 @@ class NotificationsScreen extends GetView<SettingController> {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Notifications",
+          context.l10n.notifications,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -37,29 +38,29 @@ class NotificationsScreen extends GetView<SettingController> {
             children: [
               radioTile(
                 context,
-                "Conversation tones",
-                "Play sounds for incoming and outgoing messages.",
+               context.l10n.conversationtones,
+                context.l10n.playsoundsforincomingandoutgoingmessages,
                 index: 0,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
                 index: 1,
-                "Reminders",
-                "Get occasional reminders about messages, calls or status updates you haven't seen",
+                context.l10n.reminders,
+                context.l10n.getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen,
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Messages",
+                context.l10n.message,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
+              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
               SizedBox(height: AppSize.getSize(30)),
               Obx(
                 ()=> radioTile(
                    context,
-                  "Vibrate",
+                  context.l10n.vibrate,
                   controller.selectedoption.value,
                   showSwitch: false,
                   isShow: true,
@@ -68,8 +69,8 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Popup notification",
-                "Not available",
+                context.l10n.popupnotification,
+                context.l10n.notavailable,
                 showSwitch: false,
                 titlecolor: AppTheme.greyShade700,
                 subtitlecolor: AppTheme.greyShade700,
@@ -96,7 +97,7 @@ class NotificationsScreen extends GetView<SettingController> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  "Popup notifications are no longer available in your version of Android",
+                                  context.l10n.popupnotificationsarenolongeravailableinyourversionofAndroid,
                                   style: TextStyle(
                                     color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
@@ -111,8 +112,7 @@ class NotificationsScreen extends GetView<SettingController> {
                                       onTap: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text(
-                                        "Learn more",
+                                      child: Text(context.l10n.learnmore,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -126,7 +126,7 @@ class NotificationsScreen extends GetView<SettingController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        "Ok",
+                                        context.l10n.ok,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -152,29 +152,29 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Use high priority notifications",
-                "Show previews of notifications at the top of the screen",
+                context.l10n.usehighprioritynotifications,
+               context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 2,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Reactions notification",
-                "Show notifications for reactions to messages you send",
+                context.l10n.reactionsnotification,
+                context.l10n.shownotificationsforreactionstomessagesyousend,
                 index: 3,
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Groups",
+                context.l10n.groups,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
+              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
               SizedBox(height: AppSize.getSize(30)),
               Obx(
                 ()=> radioTile(
                    context,
-                  "Vibrate",
+                  context.l10n.vibrate,
                   controller.selectedoption.value,
                   showSwitch: false,
                   isShow: false,
@@ -184,7 +184,7 @@ class NotificationsScreen extends GetView<SettingController> {
               Obx(
                 ()=> radioTile(
                    context,
-                  "Light",
+                  context.l10n.light,
                   controller.selectedoption1.value,
                   showSwitch: false,
                   isShow: false,
@@ -193,30 +193,30 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Use high priority notifications",
-                "Show Previews of notifications at the top of the screen",
+                context.l10n.usehighprioritynotifications,
+                context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 4,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Reactions notifications",
-                "Show notifications for reactions to messages you send",
+                context.l10n.reactionsnotification,
+                context.l10n.shownotificationsforreactionstomessagesyousend,
                 index: 5,
               ),
 
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Calls",
+               context.l10n.calls,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile( context,"Ringtone", "Default", showSwitch: false),
+              radioTile( context,context.l10n.ringtone, "Default", showSwitch: false),
               SizedBox(height: AppSize.getSize(30)),
               Obx(
                ()=> radioTile(
                  context,
-                  "Vibrate",
+                  context.l10n.vibrate,
                   controller.selectedoption.value,
                   showSwitch: false,
                   isShow: false,
@@ -224,16 +224,16 @@ class NotificationsScreen extends GetView<SettingController> {
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Status",
+                context.l10n.status,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,"Notification tone", controller.selectedoption.value, showSwitch: false)),
+              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
               SizedBox(height: AppSize.getSize(30)),
               Obx(
                 ()=> radioTile(
                    context,
-                  "Vibrate",
+                  context.l10n.vibrate,
                   controller.selectedoption.value,
                   showSwitch: false,
                   isShow: false,
@@ -242,27 +242,27 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Use high priority notifications",
-                "Show Previews of notifications at the top of the screen",
+               context.l10n.usehighprioritynotifications,
+                context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 6,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
                  context,
-                "Reactions",
-                "Show notifications when you get likes on a status",
+                context.l10n.reactions,
+                context.l10n.shownotificationswhenyougetlikesonastatus,
                 index: 7,
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Home screen notifications",
+               context.l10n.homescreennotifications,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile(
                  context,
-                "Clear count",
-                "Your home screen badge clears completely after every time you open the app.",
+                context.l10n.clearcount,
+                context.l10n.yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp,
                 index: 8,
               ),
             ],

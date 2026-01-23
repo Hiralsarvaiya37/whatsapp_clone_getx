@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class InviteFriendScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class InviteFriendScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Invite a friend",
+          context.l10n.inviteafriend,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -68,7 +69,7 @@ class InviteFriendScreen extends StatelessWidget {
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Text(
-                    "Share link",
+                    context.l10n.sharelink,
                     style: TextStyle(
                       color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(18),
@@ -79,7 +80,7 @@ class InviteFriendScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(30)),
               Text(
-                "From contacts",
+                context.l10n.fromcontacts,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -128,7 +129,7 @@ class InviteFriendScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: AppSize.getSize(30)),
                                 Text(
-                                  "Send SMS invite?",
+                                  context.l10n.sendSMSinvite,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(20),
@@ -137,7 +138,7 @@ class InviteFriendScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: AppSize.getSize(20)),
                                 Text(
-                                  "User isn't on WhatsApp. Do you want to invite them to join?",
+                                  context.l10n.userisntonWhatsAppDoyouwanttoinvitethemtojoin,
                                   style: TextStyle(
                                     color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
@@ -184,7 +185,7 @@ class InviteFriendScreen extends StatelessWidget {
                                   minLines: 3,
                                   maxLines: 5,
                                   decoration: InputDecoration(
-                                    labelText: "Message",
+                                    labelText: context.l10n.message,
                                     labelStyle: TextStyle(
                                       color: AppTheme.greyShade400,
                                       fontSize: AppSize.getSize(16),
@@ -223,7 +224,7 @@ class InviteFriendScreen extends StatelessWidget {
                                   ),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    "Invite vis SMS",
+                                    context.l10n.invitevisSMS,
                                     style: TextStyle(
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w400,
@@ -239,7 +240,7 @@ class InviteFriendScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "Not now",
+                                        context.l10n.notnow,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -295,7 +296,7 @@ class InviteFriendScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Invite",
+                          context.l10n.invite,
                           style: TextStyle(
                             color: AppTheme.greenAccentShade700,
                             fontWeight: FontWeight.bold,

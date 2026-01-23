@@ -5,7 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
+import 'app_localizations_fr.dart';
 import 'app_localizations_gu.dart';
 import 'app_localizations_hi.dart';
 
@@ -92,7 +95,10 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
     Locale('en'),
+    Locale('es'),
+    Locale('fr'),
     Locale('gu'),
     Locale('hi')
   ];
@@ -174,12 +180,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Recent'**
   String get recent;
-
-  /// No description provided for @demo.
-  ///
-  /// In en, this message translates to:
-  /// **'Demo'**
-  String get demo;
 
   /// No description provided for @yesterday10_07PM.
   ///
@@ -360,12 +360,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Recent updates'**
   String get recentupdates;
-
-  /// No description provided for @users.
-  ///
-  /// In en, this message translates to:
-  /// **'Users'**
-  String get users;
 
   /// No description provided for @viewedupdates.
   ///
@@ -649,11 +643,11 @@ abstract class AppLocalizations {
   /// **'Email helps us verify your account or reach you in case of security or support issues. your email address Won\'t be visible to others'**
   String get emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers;
 
-  /// No description provided for @leaenmore.
+  /// No description provided for @learnmore.
   ///
   /// In en, this message translates to:
-  /// **'Leaen more'**
-  String get leaenmore;
+  /// **'Learn more'**
+  String get learnmore;
 
   /// No description provided for @enteryouremail.
   ///
@@ -2736,6 +2730,1872 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About buying goods or services from businesses'**
   String get aboutbuyinggoodsorservicesfrombusinesses;
+
+  /// No description provided for @downloadandinstallation.
+  ///
+  /// In en, this message translates to:
+  /// **'Download and installation'**
+  String get downloadandinstallation;
+
+  /// No description provided for @howtodownloadoruninstallWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to download or uninstall WhatsApp'**
+  String get howtodownloadoruninstallWhatsApp;
+
+  /// No description provided for @aboutsupportedoperatingsystems.
+  ///
+  /// In en, this message translates to:
+  /// **'About supported operating systems'**
+  String get aboutsupportedoperatingsystems;
+
+  /// No description provided for @aboutsupporteddevices.
+  ///
+  /// In en, this message translates to:
+  /// **'About supported devices'**
+  String get aboutsupporteddevices;
+
+  /// No description provided for @aboutrootedphonesandcustomROMs.
+  ///
+  /// In en, this message translates to:
+  /// **'About rooted phones and custom ROMs'**
+  String get aboutrootedphonesandcustomROMs;
+
+  /// No description provided for @endingsupportforWhatsApponKaiOS.
+  ///
+  /// In en, this message translates to:
+  /// **'Ending support for WhatsApp on KaiOS'**
+  String get endingsupportforWhatsApponKaiOS;
+
+  /// No description provided for @contacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts'**
+  String get contacts;
+
+  /// No description provided for @howtoaddeditordeleteacontact.
+  ///
+  /// In en, this message translates to:
+  /// **'How to add, edit, or delete a contact'**
+  String get howtoaddeditordeleteacontact;
+
+  /// No description provided for @howtofindandinvitecontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'How to find and invite contacts'**
+  String get howtofindandinvitecontacts;
+
+  /// No description provided for @aboutWhatsAppcontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp contacts'**
+  String get aboutWhatsAppcontacts;
+
+  /// No description provided for @aboutcontactupload.
+  ///
+  /// In en, this message translates to:
+  /// **'About contact upload'**
+  String get aboutcontactupload;
+
+  /// No description provided for @aboutWhatsAppQRcodes.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp QR codes'**
+  String get aboutWhatsAppQRcodes;
+
+  /// No description provided for @howtoscanaWhatsAppQRcode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to scan a WhatsApp QR code'**
+  String get howtoscanaWhatsAppQRcode;
+
+  /// No description provided for @howtoviewyourWhatsAppQRcode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view your WhatsApp QR code'**
+  String get howtoviewyourWhatsAppQRcode;
+
+  /// No description provided for @howtoresetyourWhatsAppQRcode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to reset your WhatsApp QR code'**
+  String get howtoresetyourWhatsAppQRcode;
+
+  /// No description provided for @howtoshareyourWhatsAppQRcode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to share your WhatsApp QR code'**
+  String get howtoshareyourWhatsAppQRcode;
+
+  /// No description provided for @howtoeditfavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'How to edit favorites'**
+  String get howtoeditfavorites;
+
+  /// No description provided for @aboutlinkeddevices.
+  ///
+  /// In en, this message translates to:
+  /// **'About linked devices'**
+  String get aboutlinkeddevices;
+
+  /// No description provided for @howtolinkedadevice.
+  ///
+  /// In en, this message translates to:
+  /// **'How to linked a device'**
+  String get howtolinkedadevice;
+
+  /// No description provided for @aboutmessagehistoryonlinkeddevices.
+  ///
+  /// In en, this message translates to:
+  /// **'About message history on linked devices'**
+  String get aboutmessagehistoryonlinkeddevices;
+
+  /// No description provided for @aboutlinkingWhatsApptoasecondphone.
+  ///
+  /// In en, this message translates to:
+  /// **'About linking WhatsApp to a second phone'**
+  String get aboutlinkingWhatsApptoasecondphone;
+
+  /// No description provided for @aboutWhatsAppweb.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp web'**
+  String get aboutWhatsAppweb;
+
+  /// No description provided for @aboutWhatsAppforiPad.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp for iPad'**
+  String get aboutWhatsAppforiPad;
+
+  /// No description provided for @aboutWhatsAppforAndroidtablets.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp for Android tablets'**
+  String get aboutWhatsAppforAndroidtablets;
+
+  /// No description provided for @aboutWhatsAppforWearOS.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp for Wear OS'**
+  String get aboutWhatsAppforWearOS;
+
+  /// No description provided for @aboutWhatsApponMetaQuest.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp on Meta Quest'**
+  String get aboutWhatsApponMetaQuest;
+
+  /// No description provided for @aboutWhatsApponMetaAIglasses.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp on Meta AI glasses'**
+  String get aboutWhatsApponMetaAIglasses;
+
+  /// No description provided for @howtounlinkadevice.
+  ///
+  /// In en, this message translates to:
+  /// **'How to unlink a device'**
+  String get howtounlinkadevice;
+
+  /// No description provided for @howtoswitchaccountsonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to switch accounts on WhatsApp'**
+  String get howtoswitchaccountsonWhatsApp;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @howtoregisteryourphonenumber.
+  ///
+  /// In en, this message translates to:
+  /// **'How to register your phone number'**
+  String get howtoregisteryourphonenumber;
+
+  /// No description provided for @aboutregistrationandtwostepverification.
+  ///
+  /// In en, this message translates to:
+  /// **'About registration and two-step verification'**
+  String get aboutregistrationandtwostepverification;
+
+  /// No description provided for @howtoregisteryouraccountwithaphonecall.
+  ///
+  /// In en, this message translates to:
+  /// **'How to register your account with a phone call'**
+  String get howtoregisteryouraccountwithaphonecall;
+
+  /// No description provided for @aboutautomaticphonenumberverification.
+  ///
+  /// In en, this message translates to:
+  /// **'About automatic phone number verification'**
+  String get aboutautomaticphonenumberverification;
+
+  /// No description provided for @cantcompleteregistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t complete registration'**
+  String get cantcompleteregistration;
+
+  /// No description provided for @howtomanagetwostepverificatiosettings.
+  ///
+  /// In en, this message translates to:
+  /// **'How to manage two-step verification settings'**
+  String get howtomanagetwostepverificatiosettings;
+
+  /// No description provided for @howtoresetyourtwostepverificationPIN.
+  ///
+  /// In en, this message translates to:
+  /// **'How to reset your two-step verification PIN'**
+  String get howtoresetyourtwostepverificationPIN;
+
+  /// No description provided for @cantrequestanotherverificationcodewithoutwaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t request another verification code without waiting'**
+  String get cantrequestanotherverificationcodewithoutwaiting;
+
+  /// No description provided for @imtravellingandIcantgetmyWhatsAppcode.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m travelling and I can\'t get my WhatsApp code'**
+  String get imtravellingandIcantgetmyWhatsAppcode;
+
+  /// No description provided for @receivedverificationcodewithoutrequestingit.
+  ///
+  /// In en, this message translates to:
+  /// **'Received verification code without requesting it.'**
+  String get receivedverificationcodewithoutrequestingit;
+
+  /// No description provided for @aboutstatus.
+  ///
+  /// In en, this message translates to:
+  /// **'About status'**
+  String get aboutstatus;
+
+  /// No description provided for @howtocreateandshareastatus.
+  ///
+  /// In en, this message translates to:
+  /// **'How to createand share a status'**
+  String get howtocreateandshareastatus;
+
+  /// No description provided for @howtoseewhoviewedorlikedyourstatus.
+  ///
+  /// In en, this message translates to:
+  /// **'How to see who viewed or liked your status'**
+  String get howtoseewhoviewedorlikedyourstatus;
+
+  /// No description provided for @howtoviewlikeandreplyostatusupdates.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view, like, and reply o status updates'**
+  String get howtoviewlikeandreplyostatusupdates;
+
+  /// No description provided for @howtomanagestatusprivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'How to manage status privacy'**
+  String get howtomanagestatusprivacy;
+
+  /// No description provided for @howtoshareyourWhatsAppstatustootherapps.
+  ///
+  /// In en, this message translates to:
+  /// **'How to share your WhatsApp status to other apps'**
+  String get howtoshareyourWhatsAppstatustootherapps;
+
+  /// No description provided for @howtohideandunhidestatusupdates.
+  ///
+  /// In en, this message translates to:
+  /// **'How to hide and unhide status updates'**
+  String get howtohideandunhidestatusupdates;
+
+  /// No description provided for @howtosaveanddeleteyourstatusupdates.
+  ///
+  /// In en, this message translates to:
+  /// **'How to save and delete your status updates'**
+  String get howtosaveanddeleteyourstatusupdates;
+
+  /// No description provided for @aboutstatusmentions.
+  ///
+  /// In en, this message translates to:
+  /// **'About status mentions'**
+  String get aboutstatusmentions;
+
+  /// No description provided for @cantcreateorsharestatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t create or share status'**
+  String get cantcreateorsharestatus;
+
+  /// No description provided for @cantseesomeonesstatusupdatesorreplies.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t see someone\'s status updates or replies'**
+  String get cantseesomeonesstatusupdatesorreplies;
+
+  /// No description provided for @howtointegratestatuswiththirdpartyapps.
+  ///
+  /// In en, this message translates to:
+  /// **'How to integrate status with third-party apps'**
+  String get howtointegratestatuswiththirdpartyapps;
+
+  /// No description provided for @aboutseeingadsonWhatsAppstatus.
+  ///
+  /// In en, this message translates to:
+  /// **'About seeing ads on WhatsApp status'**
+  String get aboutseeingadsonWhatsAppstatus;
+
+  /// No description provided for @notseeingafeatureonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Not seeing a feature on WhatsApp'**
+  String get notseeingafeatureonWhatsApp;
+
+  /// No description provided for @fixingissuesonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Fixing issues on WhatsApp'**
+  String get fixingissuesonWhatsApp;
+
+  /// No description provided for @howtofixconnectionissues.
+  ///
+  /// In en, this message translates to:
+  /// **'How to fix connection issues'**
+  String get howtofixconnectionissues;
+
+  /// No description provided for @cantdownloadorupdateWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t download or update WhatsApp'**
+  String get cantdownloadorupdateWhatsApp;
+
+  /// No description provided for @howtomanuallyupdateWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to manually update WhatsApp'**
+  String get howtomanuallyupdateWhatsApp;
+
+  /// No description provided for @cantlogoutofWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t log out of WhatsApp'**
+  String get cantlogoutofWhatsApp;
+
+  /// No description provided for @contactnamesmissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact names missing'**
+  String get contactnamesmissing;
+
+  /// No description provided for @cantseeacontactsprofileinformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t see a contact\'s profile information'**
+  String get cantseeacontactsprofileinformation;
+
+  /// No description provided for @howtorecoverlostcontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'How to recover lost contacts'**
+  String get howtorecoverlostcontacts;
+
+  /// No description provided for @dontrecognizecontactsaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t recognize contact\'s account'**
+  String get dontrecognizecontactsaccount;
+
+  /// No description provided for @seeingYourdeviceswereloggedout.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeing \'Your devices were logged out\' '**
+  String get seeingYourdeviceswereloggedout;
+
+  /// No description provided for @seeingYouhavebeenloggedout.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeing \'You have been logged out\' '**
+  String get seeingYouhavebeenloggedout;
+
+  /// No description provided for @seeingYouhavebeenloggedoutforyouraccountsecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeing \'You have been logged out for your account security '**
+  String get seeingYouhavebeenloggedoutforyouraccountsecurity;
+
+  /// No description provided for @aboutusingWhatsAppabroad.
+  ///
+  /// In en, this message translates to:
+  /// **'About using WhatsApp abroad'**
+  String get aboutusingWhatsAppabroad;
+
+  /// No description provided for @aboutWhatsAppsupportlanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp support languages '**
+  String get aboutWhatsAppsupportlanguages;
+
+  /// No description provided for @aboutthelanguagesWhatsAppisavailablein.
+  ///
+  /// In en, this message translates to:
+  /// **'About the languages WhatsApp is available in'**
+  String get aboutthelanguagesWhatsAppisavailablein;
+
+  /// No description provided for @cantusekeyboardinWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t use keyboard in WhatsApp'**
+  String get cantusekeyboardinWhatsApp;
+
+  /// No description provided for @aboutaccessibilityfeaturesonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About accessibility features on WhatsApp'**
+  String get aboutaccessibilityfeaturesonWhatsApp;
+
+  /// No description provided for @abouttaskmanagererrors.
+  ///
+  /// In en, this message translates to:
+  /// **'About task manager errors'**
+  String get abouttaskmanagererrors;
+
+  /// No description provided for @cantmoveWhatsApptoanSDcard.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t move WhatsApp to an SD card'**
+  String get cantmoveWhatsApptoanSDcard;
+
+  /// No description provided for @whatinformationdoesWhatsAppcollectwhenreportinganissue.
+  ///
+  /// In en, this message translates to:
+  /// **'What information does WhatsApp collect when reporting an issue'**
+  String get whatinformationdoesWhatsAppcollectwhenreportinganissue;
+
+  /// No description provided for @howtoreportanissutoWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to report an issu to WhatsApp'**
+  String get howtoreportanissutoWhatsApp;
+
+  /// No description provided for @aboutsupportforWhatsAppandotherMetaCompanyproducts.
+  ///
+  /// In en, this message translates to:
+  /// **'About support for WhatsApp and other Meta Company products'**
+  String get aboutsupportforWhatsAppandotherMetaCompanyproducts;
+
+  /// No description provided for @paymentsandRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Payments and Requests'**
+  String get paymentsandRequests;
+
+  /// No description provided for @howtosendmoneyusingUPIID.
+  ///
+  /// In en, this message translates to:
+  /// **'How to send money using UPI ID'**
+  String get howtosendmoneyusingUPIID;
+
+  /// No description provided for @howtocheckyourbankaccountbalance.
+  ///
+  /// In en, this message translates to:
+  /// **'How to check your bank account balance'**
+  String get howtocheckyourbankaccountbalance;
+
+  /// No description provided for @howtoreceivemoney.
+  ///
+  /// In en, this message translates to:
+  /// **'How to receive money'**
+  String get howtoreceivemoney;
+
+  /// No description provided for @howtosendmoneyusingORcode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to send money using OR code'**
+  String get howtosendmoneyusingORcode;
+
+  /// No description provided for @howtopayforanorderonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to pay for an order on WhatsApp'**
+  String get howtopayforanorderonWhatsApp;
+
+  /// No description provided for @howtoviewpaymentshistoryonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view payments history on WhatsApp'**
+  String get howtoviewpaymentshistoryonWhatsApp;
+
+  /// No description provided for @aboutsuccessfultransactionsonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About successful transactions on WhatsApp'**
+  String get aboutsuccessfultransactionsonWhatsApp;
+
+  /// No description provided for @howtoaddstickerstopayments.
+  ///
+  /// In en, this message translates to:
+  /// **'How to add stickers to payments'**
+  String get howtoaddstickerstopayments;
+
+  /// No description provided for @securityandPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Security and Privacy'**
+  String get securityandPrivacy;
+
+  /// No description provided for @aboutauthenticationmessages.
+  ///
+  /// In en, this message translates to:
+  /// **'About authentication messages'**
+  String get aboutauthenticationmessages;
+
+  /// No description provided for @howtoverifyyouridentitywithbusinessesonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to verify your identity with businesses on WhatsApp'**
+  String get howtoverifyyouridentitywithbusinessesonWhatsApp;
+
+  /// No description provided for @aboutpaymentsdata.
+  ///
+  /// In en, this message translates to:
+  /// **'About payments data'**
+  String get aboutpaymentsdata;
+
+  /// No description provided for @aboutpaymentssecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'About payments security'**
+  String get aboutpaymentssecurity;
+
+  /// No description provided for @learnmoreaboutthevisibilityofthenameonyourbankaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more about the visibility of the name on your bank account'**
+  String get learnmoreaboutthevisibilityofthenameonyourbankaccount;
+
+  /// No description provided for @unitedpaymentsinterfaceUPIMembersrolesandresponsibilities.
+  ///
+  /// In en, this message translates to:
+  /// **'United payments interface (UPI) Members roles and responsibilities'**
+  String get unitedpaymentsinterfaceUPIMembersrolesandresponsibilities;
+
+  /// No description provided for @abouttwostepverificationandpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'About two-step verification and payments'**
+  String get abouttwostepverificationandpayments;
+
+  /// No description provided for @tipstoavoidfraudwhenusingpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips to avoid fraud when using payments'**
+  String get tipstoavoidfraudwhenusingpayments;
+
+  /// No description provided for @tipstoavoidscamswhenusingpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips to avoid scams when using payments'**
+  String get tipstoavoidscamswhenusingpayments;
+
+  /// No description provided for @disputeRedressalMechanism.
+  ///
+  /// In en, this message translates to:
+  /// **'Dispute Redressal Mechanism'**
+  String get disputeRedressalMechanism;
+
+  /// No description provided for @aboutthesecurityofyourpaymentsdescriptions.
+  ///
+  /// In en, this message translates to:
+  /// **'About the security of your payments descriptions'**
+  String get aboutthesecurityofyourpaymentsdescriptions;
+
+  /// No description provided for @settingUpPayments.
+  ///
+  /// In en, this message translates to:
+  /// **'Setting Up Payments'**
+  String get settingUpPayments;
+
+  /// No description provided for @learnmoreaboutparticipatingcountries.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more about participating countries'**
+  String get learnmoreaboutparticipatingcountries;
+
+  /// No description provided for @aboutacceptingpaymentsontheWhatsAppBusinessapp.
+  ///
+  /// In en, this message translates to:
+  /// **'About accepting payments on the WhatsApp Business app'**
+  String get aboutacceptingpaymentsontheWhatsAppBusinessapp;
+
+  /// No description provided for @howtopayabusinessforpurchasesonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to pay a business for purchases on WhatsApp'**
+  String get howtopayabusinessforpurchasesonWhatsApp;
+
+  /// No description provided for @aboutrefundsforapurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'About refunds for a purchase'**
+  String get aboutrefundsforapurchase;
+
+  /// No description provided for @aboutUPI.
+  ///
+  /// In en, this message translates to:
+  /// **'About UPI'**
+  String get aboutUPI;
+
+  /// No description provided for @howtoaddabankaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'How to add a bank account'**
+  String get howtoaddabankaccount;
+
+  /// No description provided for @howtochangeorsetupnewUPIPIN.
+  ///
+  /// In en, this message translates to:
+  /// **'How to change or set up new UPI PIN'**
+  String get howtochangeorsetupnewUPIPIN;
+
+  /// No description provided for @cantaddbankaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t add bank account'**
+  String get cantaddbankaccount;
+
+  /// No description provided for @howtochangeorremoveabankaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'How to change or remove a bank account'**
+  String get howtochangeorremoveabankaccount;
+
+  /// No description provided for @aboutrefundsandcustomersupport.
+  ///
+  /// In en, this message translates to:
+  /// **'About refunds and customer support'**
+  String get aboutrefundsandcustomersupport;
+
+  /// No description provided for @issueswithpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'Issues with payments'**
+  String get issueswithpayments;
+
+  /// No description provided for @aboutUPIPIN.
+  ///
+  /// In en, this message translates to:
+  /// **'About UPI PIN'**
+  String get aboutUPIPIN;
+
+  /// No description provided for @howtoaddorremoveacustomUPInumber.
+  ///
+  /// In en, this message translates to:
+  /// **'How to add or remove a custom UPI number'**
+  String get howtoaddorremoveacustomUPInumber;
+
+  /// No description provided for @aboutUPIIDandUPInumber.
+  ///
+  /// In en, this message translates to:
+  /// **'About UPI ID and UPI number'**
+  String get aboutUPIIDandUPInumber;
+
+  /// No description provided for @aboutdateofbirthverification.
+  ///
+  /// In en, this message translates to:
+  /// **'About date of birth verification'**
+  String get aboutdateofbirthverification;
+
+  /// No description provided for @howtogethelpwithpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'How to get help with payments'**
+  String get howtogethelpwithpayments;
+
+  /// No description provided for @howtochangethebackgroundofapaymentsmessage.
+  ///
+  /// In en, this message translates to:
+  /// **'How to change the background of a payments message'**
+  String get howtochangethebackgroundofapaymentsmessage;
+
+  /// No description provided for @aboutfeesonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About fees on WhatsApp'**
+  String get aboutfeesonWhatsApp;
+
+  /// No description provided for @aboutchangingphoneswhenusingpayments.
+  ///
+  /// In en, this message translates to:
+  /// **'About changing phones when using payments'**
+  String get aboutchangingphoneswhenusingpayments;
+
+  /// No description provided for @aboutusingyourmobilenumberasyourUPInumber.
+  ///
+  /// In en, this message translates to:
+  /// **'About using your mobile number as your UPI number'**
+  String get aboutusingyourmobilenumberasyourUPInumber;
+
+  /// No description provided for @privacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacy;
+
+  /// No description provided for @aboutendtoendencryption.
+  ///
+  /// In en, this message translates to:
+  /// **'About end-to-end encryption'**
+  String get aboutendtoendencryption;
+
+  /// No description provided for @aboutprivacycheckup.
+  ///
+  /// In en, this message translates to:
+  /// **'About privacy checkup'**
+  String get aboutprivacycheckup;
+
+  /// No description provided for @howtochangeyourprivacysettings.
+  ///
+  /// In en, this message translates to:
+  /// **'How to change your privacy settings'**
+  String get howtochangeyourprivacysettings;
+
+  /// No description provided for @howtochangegroupprivacysettings.
+  ///
+  /// In en, this message translates to:
+  /// **'How to change group privacy settings'**
+  String get howtochangegroupprivacysettings;
+
+  /// No description provided for @howtoprotectyourIPaddressonWhatsAppcalls.
+  ///
+  /// In en, this message translates to:
+  /// **'How to protect your IP address on WhatsApp calls'**
+  String get howtoprotectyourIPaddressonWhatsAppcalls;
+
+  /// No description provided for @doesWhatsAppcollectorsellyourdata.
+  ///
+  /// In en, this message translates to:
+  /// **'Does WhatsApp collect or sell your data?'**
+  String get doesWhatsAppcollectorsellyourdata;
+
+  /// No description provided for @aboutadvancedchatprivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'About advanced chat privacy'**
+  String get aboutadvancedchatprivacy;
+
+  /// No description provided for @privacyataGlanceAdditionalinformationabouttheupdatesTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy at a Glance: Additional information about the updates Tab'**
+  String get privacyataGlanceAdditionalinformationabouttheupdatesTab;
+
+  /// No description provided for @howtosilenceunknowncallers.
+  ///
+  /// In en, this message translates to:
+  /// **'How to silence unknown callers'**
+  String get howtosilenceunknowncallers;
+
+  /// No description provided for @aboutlastseenandonline.
+  ///
+  /// In en, this message translates to:
+  /// **'About last seen and online'**
+  String get aboutlastseenandonline;
+
+  /// No description provided for @aboutWhatsApppermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsApp permissions'**
+  String get aboutWhatsApppermissions;
+
+  /// No description provided for @howtouseapplock.
+  ///
+  /// In en, this message translates to:
+  /// **'How to use app lock'**
+  String get howtouseapplock;
+
+  /// No description provided for @aboutsharingyourdeviceslocation.
+  ///
+  /// In en, this message translates to:
+  /// **'About sharing your device\'s location'**
+  String get aboutsharingyourdeviceslocation;
+
+  /// No description provided for @whatistraceabilityandwhydoesWhatsAppopposeit.
+  ///
+  /// In en, this message translates to:
+  /// **'What is traceability and why does WhatsApp oppose it?'**
+  String get whatistraceabilityandwhydoesWhatsAppopposeit;
+
+  /// No description provided for @aboutDITWhatsAPpNet.
+  ///
+  /// In en, this message translates to:
+  /// **'About DIT.WhatsAPp.Net?'**
+  String get aboutDITWhatsAPpNet;
+
+  /// No description provided for @aboutusingoptionalMetaCompanyProductsifyouoptedoutofsharingWhatsAppaccountinformationwithMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'About using optional Meta Company Products if you opted out of sharing WhatsApp account information with Meta'**
+  String get aboutusingoptionalMetaCompanyProductsifyouoptedoutofsharingWhatsAppaccountinformationwithMeta;
+
+  /// No description provided for @whyamiseeinganewsystemmessageinmyWhatsAppchats.
+  ///
+  /// In en, this message translates to:
+  /// **'Why am i seeing a new system message in my WhatsApp chats?'**
+  String get whyamiseeinganewsystemmessageinmyWhatsAppchats;
+
+  /// No description provided for @explainingAppleandAndroidAppPrivacyReports.
+  ///
+  /// In en, this message translates to:
+  /// **'Explaining Apple and Android App Privacy Reports'**
+  String get explainingAppleandAndroidAppPrivacyReports;
+
+  /// No description provided for @unpackingWhatsAppsprivacylabelintheAppleAppStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpacking WhatsApp\'s privacy label in the Apple App Store'**
+  String get unpackingWhatsAppsprivacylabelintheAppleAppStore;
+
+  /// No description provided for @aboutgovermentrequestsforuserdata.
+  ///
+  /// In en, this message translates to:
+  /// **'About goverment requests for user data'**
+  String get aboutgovermentrequestsforuserdata;
+
+  /// No description provided for @yearlyreminderforusersinindia.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly reminder for users in india'**
+  String get yearlyreminderforusersinindia;
+
+  /// No description provided for @aboutmandatorydisclosurestobemadebyBusinessesinindia.
+  ///
+  /// In en, this message translates to:
+  /// **'About mandatory disclosures to be made by Businesses in india'**
+  String get aboutmandatorydisclosurestobemadebyBusinessesinindia;
+
+  /// No description provided for @learnaboutwhatcategoriesofdataareavailableinyourRequestAccountinforeport.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn about what categories of data are available in your \'Request Account info\' report'**
+  String get learnaboutwhatcategoriesofdataareavailableinyourRequestAccountinforeport;
+
+  /// No description provided for @whatinformationdoesWhatsAppcollectwhenyoucontactsupport.
+  ///
+  /// In en, this message translates to:
+  /// **'What information does WhatsApp collect when you contact support?'**
+  String get whatinformationdoesWhatsAppcollectwhenyoucontactsupport;
+
+  /// No description provided for @safety.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety'**
+  String get safety;
+
+  /// No description provided for @howtoblockandreportsomeone.
+  ///
+  /// In en, this message translates to:
+  /// **'How to block and report someone'**
+  String get howtoblockandreportsomeone;
+
+  /// No description provided for @aboutreportingandblockingonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About reporting and blocking on WhatsApp'**
+  String get aboutreportingandblockingonWhatsApp;
+
+  /// No description provided for @howtoblockagroupadmin.
+  ///
+  /// In en, this message translates to:
+  /// **'How to block a group admin'**
+  String get howtoblockagroupadmin;
+
+  /// No description provided for @beingblockedbysomeone.
+  ///
+  /// In en, this message translates to:
+  /// **'Being blocked by someone'**
+  String get beingblockedbysomeone;
+
+  /// No description provided for @howtoreportsomeonesstatusupdate.
+  ///
+  /// In en, this message translates to:
+  /// **'How to report someone\'s status update'**
+  String get howtoreportsomeonesstatusupdate;
+
+  /// No description provided for @aboutsuspiciousmessagesandscams.
+  ///
+  /// In en, this message translates to:
+  /// **'About suspicious messages and scams'**
+  String get aboutsuspiciousmessagesandscams;
+
+  /// No description provided for @howtoprotectyourselffromsuspiciousmessagesandscams.
+  ///
+  /// In en, this message translates to:
+  /// **'How to protect yourself from suspicious messages and scams'**
+  String get howtoprotectyourselffromsuspiciousmessagesandscams;
+
+  /// No description provided for @howtouseWhatsAppresponsibly.
+  ///
+  /// In en, this message translates to:
+  /// **'How to use WhatsApp responsibly'**
+  String get howtouseWhatsAppresponsibly;
+
+  /// No description provided for @tipstokeepyourWhatsAppaccountsafeandsecure.
+  ///
+  /// In en, this message translates to:
+  /// **'5 Tips to keep your WhatsApp account safe and secure'**
+  String get tipstokeepyourWhatsAppaccountsafeandsecure;
+
+  /// No description provided for @howsafesecureisWhatsAppPrivacyexplained.
+  ///
+  /// In en, this message translates to:
+  /// **'How safe & secure is WhatsApp? Privacy explained'**
+  String get howsafesecureisWhatsAppPrivacyexplained;
+
+  /// No description provided for @howtostaysafeonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to stay safe on WhatsApp'**
+  String get howtostaysafeonWhatsApp;
+
+  /// No description provided for @howtostaysafeingroupsonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'How to stay safe in groups on WhatsApp'**
+  String get howtostaysafeingroupsonWhatsApp;
+
+  /// No description provided for @howtoblockhighvolumesofunknownmessages.
+  ///
+  /// In en, this message translates to:
+  /// **'How to block high volumes of unknown messages'**
+  String get howtoblockhighvolumesofunknownmessages;
+
+  /// No description provided for @aboutunofficialapps.
+  ///
+  /// In en, this message translates to:
+  /// **'About unofficial apps'**
+  String get aboutunofficialapps;
+
+  /// No description provided for @aboutsuspiciouslinks.
+  ///
+  /// In en, this message translates to:
+  /// **'About suspicious links'**
+  String get aboutsuspiciouslinks;
+
+  /// No description provided for @aboutsuspiciousfiles.
+  ///
+  /// In en, this message translates to:
+  /// **'About suspicious files'**
+  String get aboutsuspiciousfiles;
+
+  /// No description provided for @abouttheofficialWhatsAppchataccount.
+  ///
+  /// In en, this message translates to:
+  /// **'About the official WhatsApp chat account'**
+  String get abouttheofficialWhatsAppchataccount;
+
+  /// No description provided for @abouttheofficialWhatsAppBusinessaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'About the official WhatsApp Business account'**
+  String get abouttheofficialWhatsAppBusinessaccount;
+
+  /// No description provided for @aboutsafelycommunicatingwithWhatsAppSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'About safely communicating with WhatsApp Support'**
+  String get aboutsafelycommunicatingwithWhatsAppSupport;
+
+  /// No description provided for @aboutharvestingpersonalinformation.
+  ///
+  /// In en, this message translates to:
+  /// **'About harvesting personal information'**
+  String get aboutharvestingpersonalinformation;
+
+  /// No description provided for @iFCNfactcheckingorganizationsonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'IFCN fact-checking organizations on WhatsApp'**
+  String get iFCNfactcheckingorganizationsonWhatsApp;
+
+  /// No description provided for @howtopreventthespreadofmisinformation.
+  ///
+  /// In en, this message translates to:
+  /// **'How to prevent the spread of misinformation'**
+  String get howtopreventthespreadofmisinformation;
+
+  /// No description provided for @aboutminimumagetouseWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About minimum age to use WhatsApp'**
+  String get aboutminimumagetouseWhatsApp;
+
+  /// No description provided for @howtoprotectyouraccountfrommalware.
+  ///
+  /// In en, this message translates to:
+  /// **'How to protect your account from malware'**
+  String get howtoprotectyouraccountfrommalware;
+
+  /// No description provided for @aboutWhatsAPpandelections.
+  ///
+  /// In en, this message translates to:
+  /// **'About WhatsAPp and elections'**
+  String get aboutWhatsAPpandelections;
+
+  /// No description provided for @unauthorizeduseofautomatedorbulkmessagingonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Unauthorized use of automated or bulk messaging on WhatsApp'**
+  String get unauthorizeduseofautomatedorbulkmessagingonWhatsApp;
+
+  /// No description provided for @howWhatsAppHelpsFightChildExploitation.
+  ///
+  /// In en, this message translates to:
+  /// **'How WhatsApp Helps Fight Child Exploitation'**
+  String get howWhatsAppHelpsFightChildExploitation;
+
+  /// No description provided for @ensuringusersafetyinindiaonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Ensuring user safety in india on WhatsApp'**
+  String get ensuringusersafetyinindiaonWhatsApp;
+
+  /// No description provided for @keepingWhatsAppUserssafeinindonesia.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeping WhatsApp Users safe in indonesia'**
+  String get keepingWhatsAppUserssafeinindonesia;
+
+  /// No description provided for @aboutdetectingviolations.
+  ///
+  /// In en, this message translates to:
+  /// **'About detecting violations'**
+  String get aboutdetectingviolations;
+
+  /// No description provided for @globalSuicidehotlineResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Suicide hotline Resources'**
+  String get globalSuicidehotlineResources;
+
+  /// No description provided for @informationforLawEnforcementAuthorities.
+  ///
+  /// In en, this message translates to:
+  /// **'Information for Law Enforcement Authorities'**
+  String get informationforLawEnforcementAuthorities;
+
+  /// No description provided for @newcalllink.
+  ///
+  /// In en, this message translates to:
+  /// **'New call link'**
+  String get newcalllink;
+
+  /// No description provided for @newcontact.
+  ///
+  /// In en, this message translates to:
+  /// **'New contact'**
+  String get newcontact;
+
+  /// No description provided for @inviteafriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite a friend'**
+  String get inviteafriend;
+
+  /// No description provided for @sharelink.
+  ///
+  /// In en, this message translates to:
+  /// **'Share link'**
+  String get sharelink;
+
+  /// No description provided for @fromcontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'From contacts'**
+  String get fromcontacts;
+
+  /// No description provided for @invite.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite'**
+  String get invite;
+
+  /// No description provided for @sendSMSinvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Send SMS invite?'**
+  String get sendSMSinvite;
+
+  /// No description provided for @userisntonWhatsAppDoyouwanttoinvitethemtojoin.
+  ///
+  /// In en, this message translates to:
+  /// **'User isn\'t on WhatsApp. Do you want to invite them to join?'**
+  String get userisntonWhatsAppDoyouwanttoinvitethemtojoin;
+
+  /// No description provided for @invitevisSMS.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite vis SMS'**
+  String get invitevisSMS;
+
+  /// No description provided for @notnow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get notnow;
+
+  /// No description provided for @help.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get help;
+
+  /// No description provided for @helpcenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Help center'**
+  String get helpcenter;
+
+  /// No description provided for @gethelpcontactus.
+  ///
+  /// In en, this message translates to:
+  /// **'Get help, contact us'**
+  String get gethelpcontactus;
+
+  /// No description provided for @sendfeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Send feedback'**
+  String get sendfeedback;
+
+  /// No description provided for @reporttechnicalissues.
+  ///
+  /// In en, this message translates to:
+  /// **'Report technical issues'**
+  String get reporttechnicalissues;
+
+  /// No description provided for @termsandprivacypolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms and privacy policy'**
+  String get termsandprivacypolicy;
+
+  /// No description provided for @channelreports.
+  ///
+  /// In en, this message translates to:
+  /// **'Channel reports'**
+  String get channelreports;
+
+  /// No description provided for @appinfo.
+  ///
+  /// In en, this message translates to:
+  /// **'App info'**
+  String get appinfo;
+
+  /// No description provided for @accessibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessibility'**
+  String get accessibility;
+
+  /// No description provided for @increasecontrast.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase contrast'**
+  String get increasecontrast;
+
+  /// No description provided for @darkenkeycolorstomakethingseasiertoseewhileinlightmode.
+  ///
+  /// In en, this message translates to:
+  /// **'Darken key colors to make things easier to see while in light mode.'**
+  String get darkenkeycolorstomakethingseasiertoseewhileinlightmode;
+
+  /// No description provided for @choosewhetherstickersandGIFsmoveautomatically.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose whether stickers and GIFs move automatically.'**
+  String get choosewhetherstickersandGIFsmoveautomatically;
+
+  /// No description provided for @storageanddata.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage and data'**
+  String get storageanddata;
+
+  /// No description provided for @managestorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage storage'**
+  String get managestorage;
+
+  /// No description provided for @networkusage.
+  ///
+  /// In en, this message translates to:
+  /// **'Network usage'**
+  String get networkusage;
+
+  /// No description provided for @uselessdataforcalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Use less data for calls'**
+  String get uselessdataforcalls;
+
+  /// No description provided for @proxy.
+  ///
+  /// In en, this message translates to:
+  /// **'Proxy'**
+  String get proxy;
+
+  /// No description provided for @mediauploadquality.
+  ///
+  /// In en, this message translates to:
+  /// **'Media upload quality'**
+  String get mediauploadquality;
+
+  /// No description provided for @standardquality.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard quality'**
+  String get standardquality;
+
+  /// No description provided for @selectthequalityforphotosandvideostobesentatinchats.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the quality for photos and videos to be sent at in chats.'**
+  String get selectthequalityforphotosandvideostobesentatinchats;
+
+  /// No description provided for @hDquality.
+  ///
+  /// In en, this message translates to:
+  /// **'HD quality'**
+  String get hDquality;
+
+  /// No description provided for @autodownloadquality.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-download quality'**
+  String get autodownloadquality;
+
+  /// No description provided for @choose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose...'**
+  String get choose;
+
+  /// No description provided for @selectthequalityforphotosandvideostobeautomaticallydownloadedin.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the quality for photos and videos to be automatically downloaded in.'**
+  String get selectthequalityforphotosandvideostobeautomaticallydownloadedin;
+
+  /// No description provided for @mediaautodownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Media auto-download'**
+  String get mediaautodownload;
+
+  /// No description provided for @voicemessagesarealwaysautomaticallydownloaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice messages are always automatically downloaded'**
+  String get voicemessagesarealwaysautomaticallydownloaded;
+
+  /// No description provided for @whenusingmobiledata.
+  ///
+  /// In en, this message translates to:
+  /// **'When using mobile data'**
+  String get whenusingmobiledata;
+
+  /// No description provided for @photos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get photos;
+
+  /// No description provided for @whenconnectedonWiFi.
+  ///
+  /// In en, this message translates to:
+  /// **'When connected on Wi-Fi'**
+  String get whenconnectedonWiFi;
+
+  /// No description provided for @allmedia.
+  ///
+  /// In en, this message translates to:
+  /// **'All media'**
+  String get allmedia;
+
+  /// No description provided for @whenroaming.
+  ///
+  /// In en, this message translates to:
+  /// **'When roaming'**
+  String get whenroaming;
+
+  /// No description provided for @nomedia.
+  ///
+  /// In en, this message translates to:
+  /// **'No media'**
+  String get nomedia;
+
+  /// No description provided for @audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio'**
+  String get audio;
+
+  /// No description provided for @documents.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get documents;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @whocanseemypersonalinfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Who can see my personal info'**
+  String get whocanseemypersonalinfo;
+
+  /// No description provided for @lastseenandonline.
+  ///
+  /// In en, this message translates to:
+  /// **'last seen and online'**
+  String get lastseenandonline;
+
+  /// No description provided for @nobody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody'**
+  String get nobody;
+
+  /// No description provided for @profilepicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile picture'**
+  String get profilepicture;
+
+  /// No description provided for @mycontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'My contacts'**
+  String get mycontacts;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @everyone.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone'**
+  String get everyone;
+
+  /// No description provided for @links.
+  ///
+  /// In en, this message translates to:
+  /// **'Links'**
+  String get links;
+
+  /// No description provided for @readreceipts.
+  ///
+  /// In en, this message translates to:
+  /// **'Read receipts'**
+  String get readreceipts;
+
+  /// No description provided for @ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats.
+  ///
+  /// In en, this message translates to:
+  /// **'If turned off, you won\'t send or receive Read receipts. Read receipts are always sent for group chats.'**
+  String get ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats;
+
+  /// No description provided for @disappearingmessages.
+  ///
+  /// In en, this message translates to:
+  /// **'Disappearing messages'**
+  String get disappearingmessages;
+
+  /// No description provided for @defaultmessagetimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Default message timer'**
+  String get defaultmessagetimer;
+
+  /// No description provided for @startnewchatswithdisappearingmessagessettoyourtimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Start new chats with disappearing messages set to your timer'**
+  String get startnewchatswithdisappearingmessagessettoyourtimer;
+
+  /// No description provided for @groups.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups'**
+  String get groups;
+
+  /// No description provided for @avatarstickers.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar stickers'**
+  String get avatarstickers;
+
+  /// No description provided for @livelocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Live location'**
+  String get livelocation;
+
+  /// No description provided for @silenceunknowncallers.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence unknown callers'**
+  String get silenceunknowncallers;
+
+  /// No description provided for @blockcontactsWhatsAppcontacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Block contacts, WhatsApp contacts'**
+  String get blockcontactsWhatsAppcontacts;
+
+  /// No description provided for @applock.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock'**
+  String get applock;
+
+  /// No description provided for @disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Disabled'**
+  String get disabled;
+
+  /// No description provided for @chatlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat lock'**
+  String get chatlock;
+
+  /// No description provided for @allowcameraeffects.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow camera effects'**
+  String get allowcameraeffects;
+
+  /// No description provided for @useeffectsinthecameraandvideocalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Use effects in the camera and video calls.'**
+  String get useeffectsinthecameraandvideocalls;
+
+  /// No description provided for @advanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get advanced;
+
+  /// No description provided for @protectIPaddressincallsDisablelinkpreviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect IP address in calls, Disable link previews'**
+  String get protectIPaddressincallsDisablelinkpreviews;
+
+  /// No description provided for @privacycheckup.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy checkup'**
+  String get privacycheckup;
+
+  /// No description provided for @controlyourprivacyandchoosetherightsettingsforyou.
+  ///
+  /// In en, this message translates to:
+  /// **'Control your privacy and choose the right settings for you.'**
+  String get controlyourprivacyandchoosetherightsettingsforyou;
+
+  /// No description provided for @avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar'**
+  String get avatar;
+
+  /// No description provided for @saymorewithAvatarsnowonWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Say more with Avatars now on WhatsApp'**
+  String get saymorewithAvatarsnowonWhatsApp;
+
+  /// No description provided for @createyourAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your Avatar'**
+  String get createyourAvatar;
+
+  /// No description provided for @lists.
+  ///
+  /// In en, this message translates to:
+  /// **'Lists'**
+  String get lists;
+
+  /// No description provided for @editLists.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Lists'**
+  String get editLists;
+
+  /// No description provided for @youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab.
+  ///
+  /// In en, this message translates to:
+  /// **'You can edit lists and filters here or reorder how they appear on the Chats tab.'**
+  String get youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab;
+
+  /// No description provided for @yourlists.
+  ///
+  /// In en, this message translates to:
+  /// **'Your lists'**
+  String get yourlists;
+
+  /// No description provided for @unread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get unread;
+
+  /// No description provided for @preset.
+  ///
+  /// In en, this message translates to:
+  /// **'Preset'**
+  String get preset;
+
+  /// No description provided for @availablepresets.
+  ///
+  /// In en, this message translates to:
+  /// **'Available presets'**
+  String get availablepresets;
+
+  /// No description provided for @ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere.
+  ///
+  /// In en, this message translates to:
+  /// **'If you remove a preset list like Unread or Groups, it will become available here.'**
+  String get ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere;
+
+  /// No description provided for @anylistcreatebecomesafilteratthetopofyourChatstab.
+  ///
+  /// In en, this message translates to:
+  /// **'Any list create becomes a filter at the top of your Chats tab.'**
+  String get anylistcreatebecomesafilteratthetopofyourChatstab;
+
+  /// No description provided for @addpeopleorgroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Add people or groups'**
+  String get addpeopleorgroups;
+
+  /// No description provided for @display.
+  ///
+  /// In en, this message translates to:
+  /// **'Display'**
+  String get display;
+
+  /// No description provided for @choosetheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose theme'**
+  String get choosetheme;
+
+  /// No description provided for @systemdefault.
+  ///
+  /// In en, this message translates to:
+  /// **'System default'**
+  String get systemdefault;
+
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
+
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @defaultchattheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Default chat theme'**
+  String get defaultchattheme;
+
+  /// No description provided for @chatsettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat settings'**
+  String get chatsettings;
+
+  /// No description provided for @enterissend.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter is send'**
+  String get enterissend;
+
+  /// No description provided for @enterkeywillsendyourmessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter key will send your message'**
+  String get enterkeywillsendyourmessage;
+
+  /// No description provided for @mediavisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Media visibility'**
+  String get mediavisibility;
+
+  /// No description provided for @shownewlydownloadedmediainyourdevicesgallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Show newly downloaded media in your device\'s gallery'**
+  String get shownewlydownloadedmediainyourdevicesgallery;
+
+  /// No description provided for @fontsize.
+  ///
+  /// In en, this message translates to:
+  /// **'Font size'**
+  String get fontsize;
+
+  /// No description provided for @voicemessagetranscripts.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice message transcripts'**
+  String get voicemessagetranscripts;
+
+  /// No description provided for @readnewvoicemessages.
+  ///
+  /// In en, this message translates to:
+  /// **'Read new voice messages.'**
+  String get readnewvoicemessages;
+
+  /// No description provided for @archivedchats.
+  ///
+  /// In en, this message translates to:
+  /// **'Archived chats'**
+  String get archivedchats;
+
+  /// No description provided for @keepchatsarchived.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep chats archived'**
+  String get keepchatsarchived;
+
+  /// No description provided for @archivedchatswillremainarchivedwhenyoureceiveanewmessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Archived chats will remain archived when you receive a new message'**
+  String get archivedchatswillremainarchivedwhenyoureceiveanewmessage;
+
+  /// No description provided for @transferchats.
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer chats'**
+  String get transferchats;
+
+  /// No description provided for @broadcasts.
+  ///
+  /// In en, this message translates to:
+  /// **'Broadcasts'**
+  String get broadcasts;
+
+  /// No description provided for @thismonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This month'**
+  String get thismonth;
+
+  /// No description provided for @sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent'**
+  String get sent;
+
+  /// No description provided for @remaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Remaining'**
+  String get remaining;
+
+  /// No description provided for @sendupto35broadcastsmonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Send up to 35 broadcasts month. '**
+  String get sendupto35broadcastsmonth;
+
+  /// No description provided for @nobroadcasts.
+  ///
+  /// In en, this message translates to:
+  /// **'No broadcasts'**
+  String get nobroadcasts;
+
+  /// No description provided for @conversationtones.
+  ///
+  /// In en, this message translates to:
+  /// **'Conversation tones'**
+  String get conversationtones;
+
+  /// No description provided for @playsoundsforincomingandoutgoingmessages.
+  ///
+  /// In en, this message translates to:
+  /// **'Play sounds for incoming and outgoing messages.'**
+  String get playsoundsforincomingandoutgoingmessages;
+
+  /// No description provided for @reminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminders;
+
+  /// No description provided for @getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen.
+  ///
+  /// In en, this message translates to:
+  /// **'Get occasional reminders about messages, calls or status updates you haven\'t seen'**
+  String get getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen;
+
+  /// No description provided for @notificationtone.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification tone'**
+  String get notificationtone;
+
+  /// No description provided for @vibrate.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibrate'**
+  String get vibrate;
+
+  /// No description provided for @popupnotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Popup notification'**
+  String get popupnotification;
+
+  /// No description provided for @notavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available'**
+  String get notavailable;
+
+  /// No description provided for @popupnotificationsarenolongeravailableinyourversionofAndroid.
+  ///
+  /// In en, this message translates to:
+  /// **'Popup notifications are no longer available in your version of Android'**
+  String get popupnotificationsarenolongeravailableinyourversionofAndroid;
+
+  /// No description provided for @usehighprioritynotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Use high priority notifications'**
+  String get usehighprioritynotifications;
+
+  /// No description provided for @showpreviewsofnotificationsatthetopofthescreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Show previews of notifications at the top of the screen'**
+  String get showpreviewsofnotificationsatthetopofthescreen;
+
+  /// No description provided for @reactionsnotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Reactions notification'**
+  String get reactionsnotification;
+
+  /// No description provided for @shownotificationsforreactionstomessagesyousend.
+  ///
+  /// In en, this message translates to:
+  /// **'Show notifications for reactions to messages you send'**
+  String get shownotificationsforreactionstomessagesyousend;
+
+  /// No description provided for @ringtone.
+  ///
+  /// In en, this message translates to:
+  /// **'Ringtone'**
+  String get ringtone;
+
+  /// No description provided for @reactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Reactions'**
+  String get reactions;
+
+  /// No description provided for @shownotificationswhenyougetlikesonastatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Show notifications when you get likes on a status'**
+  String get shownotificationswhenyougetlikesonastatus;
+
+  /// No description provided for @homescreennotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Home screen notifications'**
+  String get homescreennotifications;
+
+  /// No description provided for @clearcount.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear count'**
+  String get clearcount;
+
+  /// No description provided for @yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp.
+  ///
+  /// In en, this message translates to:
+  /// **'Your home screen badge clears completely after every time you open the app.'**
+  String get yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp;
+
+  /// No description provided for @emailaddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get emailaddress;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// No description provided for @applanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get applanguage;
+
+  /// No description provided for @helpandfeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Help and feedback'**
+  String get helpandfeedback;
+
+  /// No description provided for @appupdates.
+  ///
+  /// In en, this message translates to:
+  /// **'App updates'**
+  String get appupdates;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -2747,7 +4607,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'gu', 'hi'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en', 'es', 'fr', 'gu', 'hi'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2758,7 +4618,10 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar': return AppLocalizationsAr();
     case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
+    case 'fr': return AppLocalizationsFr();
     case 'gu': return AppLocalizationsGu();
     case 'hi': return AppLocalizationsHi();
   }

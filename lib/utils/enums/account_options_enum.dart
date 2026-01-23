@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 enum AccountOptionsEnum {
   securityNotifications,
@@ -12,24 +13,24 @@ enum AccountOptionsEnum {
 }
 
 extension AccountOptionsEnumExtension on AccountOptionsEnum{
-  String get titles{
+ String labels(BuildContext context) {
     switch(this){
       case AccountOptionsEnum.securityNotifications:
-        return "Security notifications";
+        return context.l10n.securitynotifications;
       case AccountOptionsEnum.passkeys:
-         return "Passkeys";
+         return context.l10n.passkeys;
       case AccountOptionsEnum.emailAddress:
-        return "Email address";
+        return context.l10n.emailaddress;
       case AccountOptionsEnum.twoStepVerification:
-        return "Two-step verification";
+        return context.l10n.twostepverification;
       case AccountOptionsEnum.changeNumber:
-        return "Change number";
+        return context.l10n.changenumber;
       case AccountOptionsEnum.requestAccountInfo:
-        return "Request account info";
+        return context.l10n.requestaccountinfo;
       case AccountOptionsEnum.addAccount:
-        return "Add account";
+        return context.l10n.addaccount;
       case AccountOptionsEnum.deleteAccount:
-       return "Delete account";
+       return context.l10n.deleteAccount;
     }
   }
 

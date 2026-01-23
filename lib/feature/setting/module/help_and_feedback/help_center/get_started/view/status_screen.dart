@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class StatusScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class StatusScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Status",
+          context.l10n.status,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class StatusScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                 context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,44 +79,44 @@ class StatusScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Status",
+                    context.l10n.status,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("About status", context),
-                  appInfo("How to createand share a status", context),
+                  appInfo(context.l10n.aboutstatus, context),
+                  appInfo(context.l10n.howtocreateandshareastatus, context),
                   appInfo(
-                    "How to see who viewed or liked your status",
+                    context.l10n.howtoseewhoviewedorlikedyourstatus,
                     context,
                   ),
                   appInfo(
-                    "How to view, like, and reply o status updates",
+                    context.l10n.howtoviewlikeandreplyostatusupdates,
                     context,
                   ),
-                  appInfo("How to manage status privacy", context),
+                  appInfo(context.l10n.howtomanagestatusprivacy, context),
                   appInfo(
-                    "How to share your WhatsApp status to other apps",
+                    context.l10n.howtoshareyourWhatsAppstatustootherapps,
                     context,
                   ),
-                  appInfo("How to hide and unhide status updates", context),
+                  appInfo(context.l10n.howtohideandunhidestatusupdates, context),
                   appInfo(
-                    "How to save and delete your status updates",
+                    context.l10n.howtosaveanddeleteyourstatusupdates,
                     context,
                   ),
-                  appInfo("About status mentions", context),
-                  appInfo("Can't create or share status", context),
+                  appInfo(context.l10n.aboutstatusmentions, context),
+                  appInfo(context.l10n.cantcreateorsharestatus, context),
                   appInfo(
-                    "Can't see someone's status updates or replies",
+                    context.l10n.cantseesomeonesstatusupdatesorreplies,
                     context,
                   ),
                   appInfo(
-                    "How to integrate status with third-party apps",
+                    context.l10n.howtointegratestatuswiththirdpartyapps,
                     context,
                   ),
-                  appInfo("About seeing ads on WhatsApp status", context),
+                  appInfo(context.l10n.aboutseeingadsonWhatsAppstatus, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

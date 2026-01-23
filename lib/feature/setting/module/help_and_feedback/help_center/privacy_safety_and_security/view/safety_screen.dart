@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SafetyScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class SafetyScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Safety",
+          context.l10n.safety,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class SafetyScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,76 +79,76 @@ class SafetyScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Safety",
+                    context.l10n.safety,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to block and report someone", context),
-                  appInfo("About reporting and blocking on WhatsApp", context),
-                  appInfo("How to block a group admin", context),
-                  appInfo("Being blocked by someone", context),
-                  appInfo("How to report someone's status update", context),
-                  appInfo("About suspicious messages and scams", context),
+                  appInfo(context.l10n.howtoblockandreportsomeone, context),
+                  appInfo(context.l10n.aboutreportingandblockingonWhatsApp, context),
+                  appInfo(context.l10n.howtoblockagroupadmin, context),
+                  appInfo(context.l10n.beingblockedbysomeone, context),
+                  appInfo(context.l10n.howtoreportsomeonesstatusupdate, context),
+                  appInfo(context.l10n.aboutsuspiciousmessagesandscams, context),
                   appInfo(
-                    "How to protect yourself from suspicious messages and scams",
+                    context.l10n.howtoprotectyourselffromsuspiciousmessagesandscams,
                     context,
                   ),
-                  appInfo("How to use WhatsApp responsibly", context),
+                  appInfo(context.l10n.howtouseWhatsAppresponsibly, context),
                   appInfo(
-                    "5 Tips to keep your WhatsApp account safe and secure",
-                    context,
-                  ),
-                  appInfo(
-                    "How safe & secure is WhatsApp? Privacy explained",
-                    context,
-                  ),
-                  appInfo("How to stay safe on WhatsApp", context),
-                  appInfo("How to stay safe in groups on WhatsApp", context),
-                  appInfo(
-                    "How to block high volumes of unknown messages",
-                    context,
-                  ),
-                  appInfo("About unofficial apps", context),
-                  appInfo("About suspicious links", context),
-                  appInfo("About suspicious files", context),
-                  appInfo("About the official WhatsApp chat account", context),
-                  appInfo(
-                    "About the official WhatsApp Business account",
+                    context.l10n.tipstokeepyourWhatsAppaccountsafeandsecure,
                     context,
                   ),
                   appInfo(
-                    "About safely communicating with WhatsApp Support",
+                    context.l10n.howsafesecureisWhatsAppPrivacyexplained,
                     context,
                   ),
-                  appInfo("About harvesting personal information", context),
+                  appInfo(context.l10n.howtostaysafeonWhatsApp, context),
+                  appInfo(context.l10n.howtostaysafeingroupsonWhatsApp, context),
                   appInfo(
-                    "IFCN fact-checking organizations on WhatsApp",
+                    context.l10n.howtoblockhighvolumesofunknownmessages,
                     context,
                   ),
+                  appInfo(context.l10n.aboutunofficialapps, context),
+                  appInfo(context.l10n.aboutsuspiciouslinks, context),
+                  appInfo(context.l10n.aboutsuspiciousfiles, context),
+                  appInfo(context.l10n.abouttheofficialWhatsAppchataccount, context),
                   appInfo(
-                    "How to prevent the spread of misinformation",
-                    context,
-                  ),
-                  appInfo("About minimum age to use WhatsApp", context),
-                  appInfo("How to protect your account from malware", context),
-                  appInfo("About WhatsAPp and elections", context),
-                  appInfo(
-                    "Unauthorized use of automated or bulk messaging on WhatsApp",
+                    context.l10n.abouttheofficialWhatsAppBusinessaccount,
                     context,
                   ),
                   appInfo(
-                    "How WhatsApp Helps Fight Child Exploitation",
+                    context.l10n.aboutsafelycommunicatingwithWhatsAppSupport,
                     context,
                   ),
-                  appInfo("Ensuring user safety in india on WhatsApp", context),
-                  appInfo("Keeping WhatsApp Users safe in indonesia", context),
-                  appInfo("About detecting violations", context),
-                  appInfo("Global Suicide hotline Resources", context),
+                  appInfo(context.l10n.aboutharvestingpersonalinformation, context),
                   appInfo(
-                    "Information for Law Enforcement Authorities",
+                    context.l10n.iFCNfactcheckingorganizationsonWhatsApp,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.howtopreventthespreadofmisinformation,
+                    context,
+                  ),
+                  appInfo(context.l10n.aboutminimumagetouseWhatsApp, context),
+                  appInfo(context.l10n.howtoprotectyouraccountfrommalware, context),
+                  appInfo(context.l10n.aboutWhatsAPpandelections, context),
+                  appInfo(
+                    context.l10n.unauthorizeduseofautomatedorbulkmessagingonWhatsApp,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.howWhatsAppHelpsFightChildExploitation,
+                    context,
+                  ),
+                  appInfo(context.l10n.ensuringusersafetyinindiaonWhatsApp, context),
+                  appInfo(context.l10n.keepingWhatsAppUserssafeinindonesia, context),
+                  appInfo(context.l10n.aboutdetectingviolations, context),
+                  appInfo(context.l10n.globalSuicidehotlineResources, context),
+                  appInfo(
+                    context.l10n.informationforLawEnforcementAuthorities,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

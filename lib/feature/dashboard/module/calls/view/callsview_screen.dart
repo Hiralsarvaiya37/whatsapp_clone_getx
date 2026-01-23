@@ -173,7 +173,7 @@ class CallsviewScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            context.l10n.demo,
+                            "Demo",
                             style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
                           ),
                           Row(

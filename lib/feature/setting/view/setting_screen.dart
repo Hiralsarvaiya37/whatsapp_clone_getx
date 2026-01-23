@@ -221,7 +221,7 @@ class SettingScreen extends GetView<SettingController> {
                       size: AppSize.getSize(28),
                     ),
 
-                   title: Text(item.titleKey.tr,
+                   title: Text(item.label(context).tr,
 
                       style: TextStyle(
                         color: AppTheme.whiteColor,
@@ -238,57 +238,62 @@ class SettingScreen extends GetView<SettingController> {
                           )
                         : null,
 
-                    onTap: () {
-                      if (item.titleKey == "Account") {
-                        Get.toNamed(AccountSettingScreen.id);
-                      }
+                   onTap: () {
+  switch (item) {
+    case SettingOptionEnum.account:
+      Get.toNamed(AccountSettingScreen.id);
+      break;
 
-                      if (item.titleKey == "Privacy") {
-                        Get.toNamed(PrivacyScreen.id);
-                      }
+    case SettingOptionEnum.privacy:
+      Get.toNamed(PrivacyScreen.id);
+      break;
 
-                      if (item.titleKey == "Avatar") {
-                        Get.toNamed(AvatarScreen.id);
-                      }
+    case SettingOptionEnum.avatar:
+      Get.toNamed(AvatarScreen.id);
+      break;
 
-                      if (item.titleKey == "Lists") {
-                        Get.toNamed(ListsScreen.id);
-                      }
+    case SettingOptionEnum.lists:
+      Get.toNamed(ListsScreen.id);
+      break;
 
-                      if (item.titleKey == "Chat") {
-                        Get.toNamed(ChatsScreen.id);
-                      }
+    case SettingOptionEnum.chat:
+      Get.toNamed(ChatsScreen.id);
+      break;
 
-                      if (item.titleKey == "Broadcasts") {
-                        Get.toNamed(BroadcastsScreen.id);
-                      }
+    case SettingOptionEnum.broadcasts:
+      Get.toNamed(BroadcastsScreen.id);
+      break;
 
-                      if (item.titleKey == "Notifications") {
-                        Get.toNamed(NotificationsScreen.id);
-                      }
+    case SettingOptionEnum.notifications:
+      Get.toNamed(NotificationsScreen.id);
+      break;
 
-                      if (item.titleKey == "Storage and data") {
-                        Get.toNamed(StorageAndDataScreen.id);
-                      }
+    case SettingOptionEnum.storageanddata:
+      Get.toNamed(StorageAndDataScreen.id);
+      break;
 
-                      if (item.titleKey == "Accessibility") {
-                        Get.toNamed(AccessibilityScreen.id);
-                      }
+    case SettingOptionEnum.accesibility:
+      Get.toNamed(AccessibilityScreen.id);
+      break;
 
-                      if (item.titleKey == "App language") {
-                        openModalSheet(context);
-                      }
+    case SettingOptionEnum.applanguage:
+      openModalSheet(context);
+      break;
 
-                      if (item.titleKey == "Help and feedback") {
-                        Get.toNamed(HelpAndFeedbackScreen.id);
-                      }
-                      if (item.titleKey == "Invite a friend") {
-                        Get.toNamed(InviteFriendScreen.id);
-                      }
-                      if (item.titleKey == "App updates") {
-                        Get.toNamed(AppUpdatesScreen.id);
-                      }
-                    },
+    case SettingOptionEnum.helpandfeedback:
+      Get.toNamed(HelpAndFeedbackScreen.id);
+      break;
+
+    case SettingOptionEnum.inviteafriend:
+      Get.toNamed(InviteFriendScreen.id);
+      break;
+
+    case SettingOptionEnum.appupdate:
+      Get.toNamed(AppUpdatesScreen.id);
+      break;
+  }
+}
+
                   );
                 },
                 separatorBuilder: (context, index) =>

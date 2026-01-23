@@ -48,9 +48,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recent => 'Recent';
 
   @override
-  String get demo => 'Demo';
-
-  @override
   String get yesterday10_07PM => 'Yesterday 10:07 PM';
 
   @override
@@ -139,9 +136,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get recentupdates => 'Recent updates';
-
-  @override
-  String get users => 'Users';
 
   @override
   String get viewedupdates => 'Viewed updates';
@@ -285,7 +279,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers => 'Email helps us verify your account or reach you in case of security or support issues. your email address Won\'t be visible to others';
 
   @override
-  String get leaenmore => 'Leaen more';
+  String get learnmore => 'Learn more';
 
   @override
   String get enteryouremail => 'Enter your email';
@@ -1327,4 +1321,937 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutbuyinggoodsorservicesfrombusinesses => 'About buying goods or services from businesses';
+
+  @override
+  String get downloadandinstallation => 'Download and installation';
+
+  @override
+  String get howtodownloadoruninstallWhatsApp => 'How to download or uninstall WhatsApp';
+
+  @override
+  String get aboutsupportedoperatingsystems => 'About supported operating systems';
+
+  @override
+  String get aboutsupporteddevices => 'About supported devices';
+
+  @override
+  String get aboutrootedphonesandcustomROMs => 'About rooted phones and custom ROMs';
+
+  @override
+  String get endingsupportforWhatsApponKaiOS => 'Ending support for WhatsApp on KaiOS';
+
+  @override
+  String get contacts => 'Contacts';
+
+  @override
+  String get howtoaddeditordeleteacontact => 'How to add, edit, or delete a contact';
+
+  @override
+  String get howtofindandinvitecontacts => 'How to find and invite contacts';
+
+  @override
+  String get aboutWhatsAppcontacts => 'About WhatsApp contacts';
+
+  @override
+  String get aboutcontactupload => 'About contact upload';
+
+  @override
+  String get aboutWhatsAppQRcodes => 'About WhatsApp QR codes';
+
+  @override
+  String get howtoscanaWhatsAppQRcode => 'How to scan a WhatsApp QR code';
+
+  @override
+  String get howtoviewyourWhatsAppQRcode => 'How to view your WhatsApp QR code';
+
+  @override
+  String get howtoresetyourWhatsAppQRcode => 'How to reset your WhatsApp QR code';
+
+  @override
+  String get howtoshareyourWhatsAppQRcode => 'How to share your WhatsApp QR code';
+
+  @override
+  String get howtoeditfavorites => 'How to edit favorites';
+
+  @override
+  String get aboutlinkeddevices => 'About linked devices';
+
+  @override
+  String get howtolinkedadevice => 'How to linked a device';
+
+  @override
+  String get aboutmessagehistoryonlinkeddevices => 'About message history on linked devices';
+
+  @override
+  String get aboutlinkingWhatsApptoasecondphone => 'About linking WhatsApp to a second phone';
+
+  @override
+  String get aboutWhatsAppweb => 'About WhatsApp web';
+
+  @override
+  String get aboutWhatsAppforiPad => 'About WhatsApp for iPad';
+
+  @override
+  String get aboutWhatsAppforAndroidtablets => 'About WhatsApp for Android tablets';
+
+  @override
+  String get aboutWhatsAppforWearOS => 'About WhatsApp for Wear OS';
+
+  @override
+  String get aboutWhatsApponMetaQuest => 'About WhatsApp on Meta Quest';
+
+  @override
+  String get aboutWhatsApponMetaAIglasses => 'About WhatsApp on Meta AI glasses';
+
+  @override
+  String get howtounlinkadevice => 'How to unlink a device';
+
+  @override
+  String get howtoswitchaccountsonWhatsApp => 'How to switch accounts on WhatsApp';
+
+  @override
+  String get registration => 'Registration';
+
+  @override
+  String get howtoregisteryourphonenumber => 'How to register your phone number';
+
+  @override
+  String get aboutregistrationandtwostepverification => 'About registration and two-step verification';
+
+  @override
+  String get howtoregisteryouraccountwithaphonecall => 'How to register your account with a phone call';
+
+  @override
+  String get aboutautomaticphonenumberverification => 'About automatic phone number verification';
+
+  @override
+  String get cantcompleteregistration => 'Can\'t complete registration';
+
+  @override
+  String get howtomanagetwostepverificatiosettings => 'How to manage two-step verification settings';
+
+  @override
+  String get howtoresetyourtwostepverificationPIN => 'How to reset your two-step verification PIN';
+
+  @override
+  String get cantrequestanotherverificationcodewithoutwaiting => 'Can\'t request another verification code without waiting';
+
+  @override
+  String get imtravellingandIcantgetmyWhatsAppcode => 'I\'m travelling and I can\'t get my WhatsApp code';
+
+  @override
+  String get receivedverificationcodewithoutrequestingit => 'Received verification code without requesting it.';
+
+  @override
+  String get aboutstatus => 'About status';
+
+  @override
+  String get howtocreateandshareastatus => 'How to createand share a status';
+
+  @override
+  String get howtoseewhoviewedorlikedyourstatus => 'How to see who viewed or liked your status';
+
+  @override
+  String get howtoviewlikeandreplyostatusupdates => 'How to view, like, and reply o status updates';
+
+  @override
+  String get howtomanagestatusprivacy => 'How to manage status privacy';
+
+  @override
+  String get howtoshareyourWhatsAppstatustootherapps => 'How to share your WhatsApp status to other apps';
+
+  @override
+  String get howtohideandunhidestatusupdates => 'How to hide and unhide status updates';
+
+  @override
+  String get howtosaveanddeleteyourstatusupdates => 'How to save and delete your status updates';
+
+  @override
+  String get aboutstatusmentions => 'About status mentions';
+
+  @override
+  String get cantcreateorsharestatus => 'Can\'t create or share status';
+
+  @override
+  String get cantseesomeonesstatusupdatesorreplies => 'Can\'t see someone\'s status updates or replies';
+
+  @override
+  String get howtointegratestatuswiththirdpartyapps => 'How to integrate status with third-party apps';
+
+  @override
+  String get aboutseeingadsonWhatsAppstatus => 'About seeing ads on WhatsApp status';
+
+  @override
+  String get notseeingafeatureonWhatsApp => 'Not seeing a feature on WhatsApp';
+
+  @override
+  String get fixingissuesonWhatsApp => 'Fixing issues on WhatsApp';
+
+  @override
+  String get howtofixconnectionissues => 'How to fix connection issues';
+
+  @override
+  String get cantdownloadorupdateWhatsApp => 'Can\'t download or update WhatsApp';
+
+  @override
+  String get howtomanuallyupdateWhatsApp => 'How to manually update WhatsApp';
+
+  @override
+  String get cantlogoutofWhatsApp => 'Can\'t log out of WhatsApp';
+
+  @override
+  String get contactnamesmissing => 'Contact names missing';
+
+  @override
+  String get cantseeacontactsprofileinformation => 'Can\'t see a contact\'s profile information';
+
+  @override
+  String get howtorecoverlostcontacts => 'How to recover lost contacts';
+
+  @override
+  String get dontrecognizecontactsaccount => 'Don\'t recognize contact\'s account';
+
+  @override
+  String get seeingYourdeviceswereloggedout => 'Seeing \'Your devices were logged out\' ';
+
+  @override
+  String get seeingYouhavebeenloggedout => 'Seeing \'You have been logged out\' ';
+
+  @override
+  String get seeingYouhavebeenloggedoutforyouraccountsecurity => 'Seeing \'You have been logged out for your account security ';
+
+  @override
+  String get aboutusingWhatsAppabroad => 'About using WhatsApp abroad';
+
+  @override
+  String get aboutWhatsAppsupportlanguages => 'About WhatsApp support languages ';
+
+  @override
+  String get aboutthelanguagesWhatsAppisavailablein => 'About the languages WhatsApp is available in';
+
+  @override
+  String get cantusekeyboardinWhatsApp => 'Can\'t use keyboard in WhatsApp';
+
+  @override
+  String get aboutaccessibilityfeaturesonWhatsApp => 'About accessibility features on WhatsApp';
+
+  @override
+  String get abouttaskmanagererrors => 'About task manager errors';
+
+  @override
+  String get cantmoveWhatsApptoanSDcard => 'Can\'t move WhatsApp to an SD card';
+
+  @override
+  String get whatinformationdoesWhatsAppcollectwhenreportinganissue => 'What information does WhatsApp collect when reporting an issue';
+
+  @override
+  String get howtoreportanissutoWhatsApp => 'How to report an issu to WhatsApp';
+
+  @override
+  String get aboutsupportforWhatsAppandotherMetaCompanyproducts => 'About support for WhatsApp and other Meta Company products';
+
+  @override
+  String get paymentsandRequests => 'Payments and Requests';
+
+  @override
+  String get howtosendmoneyusingUPIID => 'How to send money using UPI ID';
+
+  @override
+  String get howtocheckyourbankaccountbalance => 'How to check your bank account balance';
+
+  @override
+  String get howtoreceivemoney => 'How to receive money';
+
+  @override
+  String get howtosendmoneyusingORcode => 'How to send money using OR code';
+
+  @override
+  String get howtopayforanorderonWhatsApp => 'How to pay for an order on WhatsApp';
+
+  @override
+  String get howtoviewpaymentshistoryonWhatsApp => 'How to view payments history on WhatsApp';
+
+  @override
+  String get aboutsuccessfultransactionsonWhatsApp => 'About successful transactions on WhatsApp';
+
+  @override
+  String get howtoaddstickerstopayments => 'How to add stickers to payments';
+
+  @override
+  String get securityandPrivacy => 'Security and Privacy';
+
+  @override
+  String get aboutauthenticationmessages => 'About authentication messages';
+
+  @override
+  String get howtoverifyyouridentitywithbusinessesonWhatsApp => 'How to verify your identity with businesses on WhatsApp';
+
+  @override
+  String get aboutpaymentsdata => 'About payments data';
+
+  @override
+  String get aboutpaymentssecurity => 'About payments security';
+
+  @override
+  String get learnmoreaboutthevisibilityofthenameonyourbankaccount => 'Learn more about the visibility of the name on your bank account';
+
+  @override
+  String get unitedpaymentsinterfaceUPIMembersrolesandresponsibilities => 'United payments interface (UPI) Members roles and responsibilities';
+
+  @override
+  String get abouttwostepverificationandpayments => 'About two-step verification and payments';
+
+  @override
+  String get tipstoavoidfraudwhenusingpayments => 'Tips to avoid fraud when using payments';
+
+  @override
+  String get tipstoavoidscamswhenusingpayments => 'Tips to avoid scams when using payments';
+
+  @override
+  String get disputeRedressalMechanism => 'Dispute Redressal Mechanism';
+
+  @override
+  String get aboutthesecurityofyourpaymentsdescriptions => 'About the security of your payments descriptions';
+
+  @override
+  String get settingUpPayments => 'Setting Up Payments';
+
+  @override
+  String get learnmoreaboutparticipatingcountries => 'Learn more about participating countries';
+
+  @override
+  String get aboutacceptingpaymentsontheWhatsAppBusinessapp => 'About accepting payments on the WhatsApp Business app';
+
+  @override
+  String get howtopayabusinessforpurchasesonWhatsApp => 'How to pay a business for purchases on WhatsApp';
+
+  @override
+  String get aboutrefundsforapurchase => 'About refunds for a purchase';
+
+  @override
+  String get aboutUPI => 'About UPI';
+
+  @override
+  String get howtoaddabankaccount => 'How to add a bank account';
+
+  @override
+  String get howtochangeorsetupnewUPIPIN => 'How to change or set up new UPI PIN';
+
+  @override
+  String get cantaddbankaccount => 'Can\'t add bank account';
+
+  @override
+  String get howtochangeorremoveabankaccount => 'How to change or remove a bank account';
+
+  @override
+  String get aboutrefundsandcustomersupport => 'About refunds and customer support';
+
+  @override
+  String get issueswithpayments => 'Issues with payments';
+
+  @override
+  String get aboutUPIPIN => 'About UPI PIN';
+
+  @override
+  String get howtoaddorremoveacustomUPInumber => 'How to add or remove a custom UPI number';
+
+  @override
+  String get aboutUPIIDandUPInumber => 'About UPI ID and UPI number';
+
+  @override
+  String get aboutdateofbirthverification => 'About date of birth verification';
+
+  @override
+  String get howtogethelpwithpayments => 'How to get help with payments';
+
+  @override
+  String get howtochangethebackgroundofapaymentsmessage => 'How to change the background of a payments message';
+
+  @override
+  String get aboutfeesonWhatsApp => 'About fees on WhatsApp';
+
+  @override
+  String get aboutchangingphoneswhenusingpayments => 'About changing phones when using payments';
+
+  @override
+  String get aboutusingyourmobilenumberasyourUPInumber => 'About using your mobile number as your UPI number';
+
+  @override
+  String get privacy => 'Privacy';
+
+  @override
+  String get aboutendtoendencryption => 'About end-to-end encryption';
+
+  @override
+  String get aboutprivacycheckup => 'About privacy checkup';
+
+  @override
+  String get howtochangeyourprivacysettings => 'How to change your privacy settings';
+
+  @override
+  String get howtochangegroupprivacysettings => 'How to change group privacy settings';
+
+  @override
+  String get howtoprotectyourIPaddressonWhatsAppcalls => 'How to protect your IP address on WhatsApp calls';
+
+  @override
+  String get doesWhatsAppcollectorsellyourdata => 'Does WhatsApp collect or sell your data?';
+
+  @override
+  String get aboutadvancedchatprivacy => 'About advanced chat privacy';
+
+  @override
+  String get privacyataGlanceAdditionalinformationabouttheupdatesTab => 'Privacy at a Glance: Additional information about the updates Tab';
+
+  @override
+  String get howtosilenceunknowncallers => 'How to silence unknown callers';
+
+  @override
+  String get aboutlastseenandonline => 'About last seen and online';
+
+  @override
+  String get aboutWhatsApppermissions => 'About WhatsApp permissions';
+
+  @override
+  String get howtouseapplock => 'How to use app lock';
+
+  @override
+  String get aboutsharingyourdeviceslocation => 'About sharing your device\'s location';
+
+  @override
+  String get whatistraceabilityandwhydoesWhatsAppopposeit => 'What is traceability and why does WhatsApp oppose it?';
+
+  @override
+  String get aboutDITWhatsAPpNet => 'About DIT.WhatsAPp.Net?';
+
+  @override
+  String get aboutusingoptionalMetaCompanyProductsifyouoptedoutofsharingWhatsAppaccountinformationwithMeta => 'About using optional Meta Company Products if you opted out of sharing WhatsApp account information with Meta';
+
+  @override
+  String get whyamiseeinganewsystemmessageinmyWhatsAppchats => 'Why am i seeing a new system message in my WhatsApp chats?';
+
+  @override
+  String get explainingAppleandAndroidAppPrivacyReports => 'Explaining Apple and Android App Privacy Reports';
+
+  @override
+  String get unpackingWhatsAppsprivacylabelintheAppleAppStore => 'Unpacking WhatsApp\'s privacy label in the Apple App Store';
+
+  @override
+  String get aboutgovermentrequestsforuserdata => 'About goverment requests for user data';
+
+  @override
+  String get yearlyreminderforusersinindia => 'Yearly reminder for users in india';
+
+  @override
+  String get aboutmandatorydisclosurestobemadebyBusinessesinindia => 'About mandatory disclosures to be made by Businesses in india';
+
+  @override
+  String get learnaboutwhatcategoriesofdataareavailableinyourRequestAccountinforeport => 'Learn about what categories of data are available in your \'Request Account info\' report';
+
+  @override
+  String get whatinformationdoesWhatsAppcollectwhenyoucontactsupport => 'What information does WhatsApp collect when you contact support?';
+
+  @override
+  String get safety => 'Safety';
+
+  @override
+  String get howtoblockandreportsomeone => 'How to block and report someone';
+
+  @override
+  String get aboutreportingandblockingonWhatsApp => 'About reporting and blocking on WhatsApp';
+
+  @override
+  String get howtoblockagroupadmin => 'How to block a group admin';
+
+  @override
+  String get beingblockedbysomeone => 'Being blocked by someone';
+
+  @override
+  String get howtoreportsomeonesstatusupdate => 'How to report someone\'s status update';
+
+  @override
+  String get aboutsuspiciousmessagesandscams => 'About suspicious messages and scams';
+
+  @override
+  String get howtoprotectyourselffromsuspiciousmessagesandscams => 'How to protect yourself from suspicious messages and scams';
+
+  @override
+  String get howtouseWhatsAppresponsibly => 'How to use WhatsApp responsibly';
+
+  @override
+  String get tipstokeepyourWhatsAppaccountsafeandsecure => '5 Tips to keep your WhatsApp account safe and secure';
+
+  @override
+  String get howsafesecureisWhatsAppPrivacyexplained => 'How safe & secure is WhatsApp? Privacy explained';
+
+  @override
+  String get howtostaysafeonWhatsApp => 'How to stay safe on WhatsApp';
+
+  @override
+  String get howtostaysafeingroupsonWhatsApp => 'How to stay safe in groups on WhatsApp';
+
+  @override
+  String get howtoblockhighvolumesofunknownmessages => 'How to block high volumes of unknown messages';
+
+  @override
+  String get aboutunofficialapps => 'About unofficial apps';
+
+  @override
+  String get aboutsuspiciouslinks => 'About suspicious links';
+
+  @override
+  String get aboutsuspiciousfiles => 'About suspicious files';
+
+  @override
+  String get abouttheofficialWhatsAppchataccount => 'About the official WhatsApp chat account';
+
+  @override
+  String get abouttheofficialWhatsAppBusinessaccount => 'About the official WhatsApp Business account';
+
+  @override
+  String get aboutsafelycommunicatingwithWhatsAppSupport => 'About safely communicating with WhatsApp Support';
+
+  @override
+  String get aboutharvestingpersonalinformation => 'About harvesting personal information';
+
+  @override
+  String get iFCNfactcheckingorganizationsonWhatsApp => 'IFCN fact-checking organizations on WhatsApp';
+
+  @override
+  String get howtopreventthespreadofmisinformation => 'How to prevent the spread of misinformation';
+
+  @override
+  String get aboutminimumagetouseWhatsApp => 'About minimum age to use WhatsApp';
+
+  @override
+  String get howtoprotectyouraccountfrommalware => 'How to protect your account from malware';
+
+  @override
+  String get aboutWhatsAPpandelections => 'About WhatsAPp and elections';
+
+  @override
+  String get unauthorizeduseofautomatedorbulkmessagingonWhatsApp => 'Unauthorized use of automated or bulk messaging on WhatsApp';
+
+  @override
+  String get howWhatsAppHelpsFightChildExploitation => 'How WhatsApp Helps Fight Child Exploitation';
+
+  @override
+  String get ensuringusersafetyinindiaonWhatsApp => 'Ensuring user safety in india on WhatsApp';
+
+  @override
+  String get keepingWhatsAppUserssafeinindonesia => 'Keeping WhatsApp Users safe in indonesia';
+
+  @override
+  String get aboutdetectingviolations => 'About detecting violations';
+
+  @override
+  String get globalSuicidehotlineResources => 'Global Suicide hotline Resources';
+
+  @override
+  String get informationforLawEnforcementAuthorities => 'Information for Law Enforcement Authorities';
+
+  @override
+  String get newcalllink => 'New call link';
+
+  @override
+  String get newcontact => 'New contact';
+
+  @override
+  String get inviteafriend => 'Invite a friend';
+
+  @override
+  String get sharelink => 'Share link';
+
+  @override
+  String get fromcontacts => 'From contacts';
+
+  @override
+  String get invite => 'Invite';
+
+  @override
+  String get sendSMSinvite => 'Send SMS invite?';
+
+  @override
+  String get userisntonWhatsAppDoyouwanttoinvitethemtojoin => 'User isn\'t on WhatsApp. Do you want to invite them to join?';
+
+  @override
+  String get invitevisSMS => 'Invite vis SMS';
+
+  @override
+  String get notnow => 'Not now';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get helpcenter => 'Help center';
+
+  @override
+  String get gethelpcontactus => 'Get help, contact us';
+
+  @override
+  String get sendfeedback => 'Send feedback';
+
+  @override
+  String get reporttechnicalissues => 'Report technical issues';
+
+  @override
+  String get termsandprivacypolicy => 'Terms and privacy policy';
+
+  @override
+  String get channelreports => 'Channel reports';
+
+  @override
+  String get appinfo => 'App info';
+
+  @override
+  String get accessibility => 'Accessibility';
+
+  @override
+  String get increasecontrast => 'Increase contrast';
+
+  @override
+  String get darkenkeycolorstomakethingseasiertoseewhileinlightmode => 'Darken key colors to make things easier to see while in light mode.';
+
+  @override
+  String get choosewhetherstickersandGIFsmoveautomatically => 'Choose whether stickers and GIFs move automatically.';
+
+  @override
+  String get storageanddata => 'Storage and data';
+
+  @override
+  String get managestorage => 'Manage storage';
+
+  @override
+  String get networkusage => 'Network usage';
+
+  @override
+  String get uselessdataforcalls => 'Use less data for calls';
+
+  @override
+  String get proxy => 'Proxy';
+
+  @override
+  String get mediauploadquality => 'Media upload quality';
+
+  @override
+  String get standardquality => 'Standard quality';
+
+  @override
+  String get selectthequalityforphotosandvideostobesentatinchats => 'Select the quality for photos and videos to be sent at in chats.';
+
+  @override
+  String get hDquality => 'HD quality';
+
+  @override
+  String get autodownloadquality => 'Auto-download quality';
+
+  @override
+  String get choose => 'Choose...';
+
+  @override
+  String get selectthequalityforphotosandvideostobeautomaticallydownloadedin => 'Select the quality for photos and videos to be automatically downloaded in.';
+
+  @override
+  String get mediaautodownload => 'Media auto-download';
+
+  @override
+  String get voicemessagesarealwaysautomaticallydownloaded => 'Voice messages are always automatically downloaded';
+
+  @override
+  String get whenusingmobiledata => 'When using mobile data';
+
+  @override
+  String get photos => 'Photos';
+
+  @override
+  String get whenconnectedonWiFi => 'When connected on Wi-Fi';
+
+  @override
+  String get allmedia => 'All media';
+
+  @override
+  String get whenroaming => 'When roaming';
+
+  @override
+  String get nomedia => 'No media';
+
+  @override
+  String get audio => 'Audio';
+
+  @override
+  String get documents => 'Documents';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get whocanseemypersonalinfo => 'Who can see my personal info';
+
+  @override
+  String get lastseenandonline => 'last seen and online';
+
+  @override
+  String get nobody => 'Nobody';
+
+  @override
+  String get profilepicture => 'Profile picture';
+
+  @override
+  String get mycontacts => 'My contacts';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get everyone => 'Everyone';
+
+  @override
+  String get links => 'Links';
+
+  @override
+  String get readreceipts => 'Read receipts';
+
+  @override
+  String get ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats => 'If turned off, you won\'t send or receive Read receipts. Read receipts are always sent for group chats.';
+
+  @override
+  String get disappearingmessages => 'Disappearing messages';
+
+  @override
+  String get defaultmessagetimer => 'Default message timer';
+
+  @override
+  String get startnewchatswithdisappearingmessagessettoyourtimer => 'Start new chats with disappearing messages set to your timer';
+
+  @override
+  String get groups => 'Groups';
+
+  @override
+  String get avatarstickers => 'Avatar stickers';
+
+  @override
+  String get livelocation => 'Live location';
+
+  @override
+  String get silenceunknowncallers => 'Silence unknown callers';
+
+  @override
+  String get blockcontactsWhatsAppcontacts => 'Block contacts, WhatsApp contacts';
+
+  @override
+  String get applock => 'App lock';
+
+  @override
+  String get disabled => 'Disabled';
+
+  @override
+  String get chatlock => 'Chat lock';
+
+  @override
+  String get allowcameraeffects => 'Allow camera effects';
+
+  @override
+  String get useeffectsinthecameraandvideocalls => 'Use effects in the camera and video calls.';
+
+  @override
+  String get advanced => 'Advanced';
+
+  @override
+  String get protectIPaddressincallsDisablelinkpreviews => 'Protect IP address in calls, Disable link previews';
+
+  @override
+  String get privacycheckup => 'Privacy checkup';
+
+  @override
+  String get controlyourprivacyandchoosetherightsettingsforyou => 'Control your privacy and choose the right settings for you.';
+
+  @override
+  String get avatar => 'Avatar';
+
+  @override
+  String get saymorewithAvatarsnowonWhatsApp => 'Say more with Avatars now on WhatsApp';
+
+  @override
+  String get createyourAvatar => 'Create your Avatar';
+
+  @override
+  String get lists => 'Lists';
+
+  @override
+  String get editLists => 'Edit Lists';
+
+  @override
+  String get youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab => 'You can edit lists and filters here or reorder how they appear on the Chats tab.';
+
+  @override
+  String get yourlists => 'Your lists';
+
+  @override
+  String get unread => 'Unread';
+
+  @override
+  String get preset => 'Preset';
+
+  @override
+  String get availablepresets => 'Available presets';
+
+  @override
+  String get ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere => 'If you remove a preset list like Unread or Groups, it will become available here.';
+
+  @override
+  String get anylistcreatebecomesafilteratthetopofyourChatstab => 'Any list create becomes a filter at the top of your Chats tab.';
+
+  @override
+  String get addpeopleorgroups => 'Add people or groups';
+
+  @override
+  String get display => 'Display';
+
+  @override
+  String get choosetheme => 'Choose theme';
+
+  @override
+  String get systemdefault => 'System default';
+
+  @override
+  String get light => 'Light';
+
+  @override
+  String get dark => 'Dark';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get defaultchattheme => 'Default chat theme';
+
+  @override
+  String get chatsettings => 'Chat settings';
+
+  @override
+  String get enterissend => 'Enter is send';
+
+  @override
+  String get enterkeywillsendyourmessage => 'Enter key will send your message';
+
+  @override
+  String get mediavisibility => 'Media visibility';
+
+  @override
+  String get shownewlydownloadedmediainyourdevicesgallery => 'Show newly downloaded media in your device\'s gallery';
+
+  @override
+  String get fontsize => 'Font size';
+
+  @override
+  String get voicemessagetranscripts => 'Voice message transcripts';
+
+  @override
+  String get readnewvoicemessages => 'Read new voice messages.';
+
+  @override
+  String get archivedchats => 'Archived chats';
+
+  @override
+  String get keepchatsarchived => 'Keep chats archived';
+
+  @override
+  String get archivedchatswillremainarchivedwhenyoureceiveanewmessage => 'Archived chats will remain archived when you receive a new message';
+
+  @override
+  String get transferchats => 'Transfer chats';
+
+  @override
+  String get broadcasts => 'Broadcasts';
+
+  @override
+  String get thismonth => 'This month';
+
+  @override
+  String get sent => 'Sent';
+
+  @override
+  String get remaining => 'Remaining';
+
+  @override
+  String get sendupto35broadcastsmonth => 'Send up to 35 broadcasts month. ';
+
+  @override
+  String get nobroadcasts => 'No broadcasts';
+
+  @override
+  String get conversationtones => 'Conversation tones';
+
+  @override
+  String get playsoundsforincomingandoutgoingmessages => 'Play sounds for incoming and outgoing messages.';
+
+  @override
+  String get reminders => 'Reminders';
+
+  @override
+  String get getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen => 'Get occasional reminders about messages, calls or status updates you haven\'t seen';
+
+  @override
+  String get notificationtone => 'Notification tone';
+
+  @override
+  String get vibrate => 'Vibrate';
+
+  @override
+  String get popupnotification => 'Popup notification';
+
+  @override
+  String get notavailable => 'Not available';
+
+  @override
+  String get popupnotificationsarenolongeravailableinyourversionofAndroid => 'Popup notifications are no longer available in your version of Android';
+
+  @override
+  String get usehighprioritynotifications => 'Use high priority notifications';
+
+  @override
+  String get showpreviewsofnotificationsatthetopofthescreen => 'Show previews of notifications at the top of the screen';
+
+  @override
+  String get reactionsnotification => 'Reactions notification';
+
+  @override
+  String get shownotificationsforreactionstomessagesyousend => 'Show notifications for reactions to messages you send';
+
+  @override
+  String get ringtone => 'Ringtone';
+
+  @override
+  String get reactions => 'Reactions';
+
+  @override
+  String get shownotificationswhenyougetlikesonastatus => 'Show notifications when you get likes on a status';
+
+  @override
+  String get homescreennotifications => 'Home screen notifications';
+
+  @override
+  String get clearcount => 'Clear count';
+
+  @override
+  String get yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp => 'Your home screen badge clears completely after every time you open the app.';
+
+  @override
+  String get emailaddress => 'Email address';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get applanguage => 'App language';
+
+  @override
+  String get helpandfeedback => 'Help and feedback';
+
+  @override
+  String get appupdates => 'App updates';
 }

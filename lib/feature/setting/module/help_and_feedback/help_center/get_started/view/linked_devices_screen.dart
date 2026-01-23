@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class LinkedDevicesScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class LinkedDevicesScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Linked Devices",
+          context.l10n.linkeddevices,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class LinkedDevicesScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,25 +79,25 @@ class LinkedDevicesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Linked Devices",
+                    context.l10n.linkeddevices,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("About linked devices", context),
-                  appInfo("How to linked a device", context),
-                  appInfo("About message history on linked devices", context),
-                  appInfo("About linking WhatsApp to a second phone", context),
-                  appInfo("About WhatsApp web", context),
-                  appInfo("About WhatsApp for iPad", context),
-                  appInfo("About WhatsApp for Android tablets", context),
-                  appInfo("About WhatsApp for Wear OS", context),
-                  appInfo("About WhatsApp on Meta Quest", context),
-                  appInfo("About WhatsApp on Meta AI glasses", context),
-                  appInfo("How to unlink a device", context),
-                  appInfo("How to switch accounts on WhatsApp", context),
+                  appInfo(context.l10n.aboutlinkeddevices, context),
+                  appInfo(context.l10n.howtolinkedadevice, context),
+                  appInfo(context.l10n.aboutmessagehistoryonlinkeddevices, context),
+                  appInfo(context.l10n.aboutlinkingWhatsApptoasecondphone, context),
+                  appInfo(context.l10n.aboutWhatsAppweb, context),
+                  appInfo(context.l10n.aboutWhatsAppforiPad, context),
+                  appInfo(context.l10n.aboutWhatsAppforAndroidtablets, context),
+                  appInfo(context.l10n.aboutWhatsAppforWearOS, context),
+                  appInfo(context.l10n.aboutWhatsApponMetaQuest, context),
+                  appInfo(context.l10n.aboutWhatsApponMetaAIglasses, context),
+                  appInfo(context.l10n.howtounlinkadevice, context),
+                  appInfo(context.l10n.howtoswitchaccountsonWhatsApp, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

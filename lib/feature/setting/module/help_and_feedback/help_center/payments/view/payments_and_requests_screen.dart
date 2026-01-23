@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PaymentsAndRequestsScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class PaymentsAndRequestsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Payments and Requests",
+          context.l10n.paymentsandRequests,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class PaymentsAndRequestsScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -79,21 +80,21 @@ class PaymentsAndRequestsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Payments and Requests",
+                    context.l10n.paymentsandRequests,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to send money using UPI ID", context),
-                  appInfo("How to check your bank account balance", context),
-                  appInfo("How to receive money", context),
-                  appInfo("How to send money using OR code", context),
-                  appInfo("How to pay for an order on WhatsApp", context),
-                  appInfo("How to view payments history on WhatsApp", context),
-                  appInfo("About successful transactions on WhatsApp", context),
-                  appInfo("How to add stickers to payments", context),
+                  appInfo(context.l10n.howtosendmoneyusingUPIID, context),
+                  appInfo(context.l10n.howtocheckyourbankaccountbalance, context),
+                  appInfo(context.l10n.howtoreceivemoney, context),
+                  appInfo(context.l10n.howtosendmoneyusingORcode, context),
+                  appInfo(context.l10n.howtopayforanorderonWhatsApp, context),
+                  appInfo(context.l10n.howtoviewpaymentshistoryonWhatsApp, context),
+                  appInfo(context.l10n.aboutsuccessfultransactionsonWhatsApp, context),
+                  appInfo(context.l10n.howtoaddstickerstopayments, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

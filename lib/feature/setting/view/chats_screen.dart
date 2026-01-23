@@ -6,6 +6,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/cha
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
@@ -31,7 +32,7 @@ class ChatsScreen extends GetView<SettingController> {
           ),
         ),
         title: Text(
-          "Chats",
+          context.l10n.chats,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -49,7 +50,7 @@ class ChatsScreen extends GetView<SettingController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Display",
+                context.l10n.display,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -81,7 +82,7 @@ class ChatsScreen extends GetView<SettingController> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      "Choose theme",
+                                      context.l10n.choosetheme,
                                       style: TextStyle(
                                         color: AppTheme.whiteColor,
                                         fontSize: 22,
@@ -90,19 +91,19 @@ class ChatsScreen extends GetView<SettingController> {
                                     SizedBox(height: AppSize.getSize(20)),
 
                                     radioTile(
-                                      "System default",
+                                      context.l10n.systemdefault,
                                       dialogSetState,
                                       controller.selectedTheme.value,
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
-                                      "Light",
+                                      context.l10n.light,
                                       dialogSetState,
                                       controller.selectedTheme.value,
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
-                                      "Dark",
+                                      context.l10n.dark,
                                       dialogSetState,
                                       controller.selectedTheme.value,
                                     ),
@@ -116,7 +117,7 @@ class ChatsScreen extends GetView<SettingController> {
                                             Navigator.pop(context);
                                           },
                                           child: Text(
-                                            "Cancel",
+                                            context.l10n.cancel,
                                             style: TextStyle(
                                               color:
                                                   AppTheme.greenAccentShade700,
@@ -131,7 +132,7 @@ class ChatsScreen extends GetView<SettingController> {
                                             Navigator.pop(context);
                                           },
                                           child: Text(
-                                            "Ok",
+                                            context.l10n.ok,
                                             style: TextStyle(
                                               color:
                                                   AppTheme.greenAccentShade700,
@@ -164,7 +165,7 @@ class ChatsScreen extends GetView<SettingController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Theme",
+                          context.l10n.theme,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
@@ -199,7 +200,7 @@ class ChatsScreen extends GetView<SettingController> {
                     ),
                     SizedBox(width: AppSize.getSize(30)),
                     Text(
-                      "Default chat theme",
+                      context.l10n.defaultchattheme,
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
@@ -212,7 +213,7 @@ class ChatsScreen extends GetView<SettingController> {
 
               SizedBox(height: AppSize.getSize(40)),
               Text(
-                "Chat settings",
+                context.l10n.chatsettings,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -221,8 +222,8 @@ class ChatsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(20)),
               Obx(
                 () => appInfo(
-                  "Enter is send",
-                  "Enter key will send your message",
+                  context.l10n.enterissend,
+                  context.l10n.enterkeywillsendyourmessage,
                   switchValue: controller.ison1.value,
                   onChanged: (val) {
                     controller.ison1.value = val;
@@ -232,8 +233,8 @@ class ChatsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
               Obx(
                 () => appInfo(
-                  "Media visibility",
-                  "Show newly downloaded media in your device's gallery",
+                  context.l10n.mediavisibility,
+                  context.l10n.shownewlydownloadedmediainyourdevicesgallery,
                   switchValue: controller.ison2.value,
                   onChanged: (val) {
                     controller.ison2.value = val;
@@ -242,19 +243,19 @@ class ChatsScreen extends GetView<SettingController> {
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
-                "Font size",
+                context.l10n.fontsize,
                 controller.selectedFontSize.value,
                 showSwitch: false,
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
-                "Voice message transcripts",
-                "Read new voice messages.",
+                context.l10n.voicemessagetranscripts,
+                context.l10n.readnewvoicemessages,
                 showSwitch: false,
               ),
               SizedBox(height: AppSize.getSize(30)),
               Text(
-                "Archived chats",
+                context.l10n.archivedchats,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -263,8 +264,8 @@ class ChatsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(20)),
               Obx(
                 () => appInfo(
-                  "Keep chats archived",
-                  "Archived chats will remain archived when you receive a new message",
+                  context.l10n.keepchatsarchived,
+                  context.l10n.archivedchatswillremainarchivedwhenyoureceiveanewmessage,
                   switchValue: controller.ison3.value,
                   onChanged: (val) {
                     controller.ison3.value = val;
@@ -277,21 +278,21 @@ class ChatsScreen extends GetView<SettingController> {
                 onTap: () {
                   Get.toNamed(ChatBackupScreen.id);
                 },
-                child: chatInfo("Chat backup", Icons.backup_outlined),
+                child: chatInfo(context.l10n.chatbackup, Icons.backup_outlined),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
                   Get.toNamed(TransferChatScreen.id);
                 },
-                child: chatInfo("Transfer chats", Icons.send_to_mobile_rounded),
+                child: chatInfo(context.l10n.transferchats, Icons.send_to_mobile_rounded),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
                   Get.toNamed(ChatHistoryScreen.id);
                 },
-                child: chatInfo("Chat history", Icons.replay_outlined),
+                child: chatInfo(context.l10n.chathistory, Icons.replay_outlined),
               ),
             ],
           ),

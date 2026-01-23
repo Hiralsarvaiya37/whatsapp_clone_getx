@@ -215,7 +215,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            context.l10n.users,
+                            "Users",
                             style: TextStyle(
                               color: AppTheme.whiteColor,
                               fontSize: AppSize.getSize(19),
@@ -319,7 +319,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        context.l10n.users,
+                                        "Users",
                                         style: TextStyle(
                                           color: AppTheme.whiteColor,
                                           fontSize: AppSize.getSize(19),
@@ -427,7 +427,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                context.l10n.demo,
+                                "Demo",
                                 style: TextStyle(
                                   color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(18),

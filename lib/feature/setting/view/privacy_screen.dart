@@ -17,6 +17,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/p
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyScreen extends GetView<PrivacyViewController> {
@@ -37,7 +38,7 @@ const   PrivacyScreen({super.key});
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Privacy",
+          context.l10n.privacy,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -52,45 +53,45 @@ const   PrivacyScreen({super.key});
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Who can see my personal info",
+                  context.l10n.whocanseemypersonalinfo,
                   style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
                 SizedBox(height: AppSize.getSize(15)),
                 appTitle(
-                  "last seen and online",
-                  "Nobody",
+                  context.l10n.lastseenandonline,
+                  context.l10n.nobody,
                   onTap: () {
                    Get.toNamed(LastseenAndOnlineScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Profile picture",
-                  "My contacts",
+                  context.l10n.profilepicture,
+                  context.l10n.mycontacts,
                   onTap: () {
                     Get.toNamed(ProfilePhotoScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "About",
-                  "Everyone",
+                  context.l10n.about,
+                  context.l10n.everyone,
                   onTap: () {
                     Get.toNamed(AboutScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Links",
-                  "My contacts",
+                  context.l10n.links,
+                  context.l10n.mycontacts,
                   onTap: () {
                     Get.toNamed(LinksScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Status",
-                  "My contacts",
+                  context.l10n.status,
+                  context.l10n.mycontacts,
                   onTap: () {
                     Get.toNamed(StatusPrivacyScreen.id);
                   },
@@ -106,7 +107,7 @@ const   PrivacyScreen({super.key});
                     children: [
                       Expanded(
                         child: Text(
-                          "Read receipts",
+                          context.l10n.readreceipts,
                           style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                         ),
                       ),
@@ -125,13 +126,13 @@ const   PrivacyScreen({super.key});
                   ),
                 ),
                 Text(
-                  "If turned off, you won't send or receive Read receipts. Read receipts are always sent for group chats.",
+                  context.l10n.ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats,
                   style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
             
                 SizedBox(height: AppSize.getSize(30)),
                 Text(
-                  "Disappearing messages",
+                  context.l10n.disappearingmessages,
                   style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
             
@@ -147,11 +148,11 @@ const   PrivacyScreen({super.key});
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Default message timer",
+                              context.l10n.defaultmessagetimer,
                               style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                             ),
                             Text(
-                              "Start new chats with disappearing messages set to your timer",
+                              context.l10n.startnewchatswithdisappearingmessagessettoyourtimer,
                               style: TextStyle(
                                 color: AppTheme.greyShade400,
                                 fontSize: AppSize.getSize(16),
@@ -161,7 +162,7 @@ const   PrivacyScreen({super.key});
                         ),
                       ),
                       Text(
-                        "Off",
+                        context.l10n.off,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
@@ -174,16 +175,16 @@ const   PrivacyScreen({super.key});
                 SizedBox(height: AppSize.getSize(40)),
             
                 appTitle(
-                  "Groups",
-                  "My contacts",
+                  context.l10n.groups,
+                 context.l10n.mycontacts,
                   onTap: () {
                     Get.toNamed(GroupsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Avatar stickers",
-                  "My contacts",
+                  context.l10n.avatarstickers,
+                  context.l10n.mycontacts,
                   onTap: () {
                     Get.toNamed(AvatarStickersScreen.id);
                   },
@@ -194,30 +195,30 @@ const   PrivacyScreen({super.key});
                    Get.toNamed(LiveLocationScreen.id);
                   },
                   child: Text(
-                    "Live location",
+                    context.l10n.livelocation,
                     style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Calls",
-                  "Silence unknown callers",
+                  context.l10n.calls,
+                  context.l10n.silenceunknowncallers,
                   onTap: () {
                     Get.toNamed(CallsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "Contacts",
-                  "Block contacts, WhatsApp contacts",
+                 context.l10n.contacts,
+                  context.l10n.blockcontactsWhatsAppcontacts,
                   onTap: () {
                     Get.toNamed(PrivacyContactsScreen.id);
                   },
                 ),
                 SizedBox(height: AppSize.getSize(20)),
                 appTitle(
-                  "App lock",
-                  "Disabled",
+                  context.l10n.applock,
+                  context.l10n.disabled,
                   onTap: () {
                    Get.toNamed(AppLockScreen.id);
                   },
@@ -228,7 +229,7 @@ const   PrivacyScreen({super.key});
                     Get.toNamed(ChatLockScreen.id);
                   },
                   child: Text(
-                    "Chat lock",
+                    context.l10n.chatlock,
                     style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                 ),
@@ -246,7 +247,7 @@ const   PrivacyScreen({super.key});
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Allow camera effects",
+                              context.l10n.allowcameraeffects,
                               style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                             ),
                             Text.rich(
@@ -254,14 +255,14 @@ const   PrivacyScreen({super.key});
                                 children: [
                                   TextSpan(
                                     text:
-                                        "Use effects in the camera and video calls.",
+                                        context.l10n.useeffectsinthecameraandvideocalls,
                                     style: TextStyle(
                                       color: AppTheme.greyShade400,
                                       fontSize: AppSize.getSize(16),
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "Learn more",
+                                    text: context.l10n.learnmore,
                                     style: TextStyle(
                                       color: AppTheme.blueshade500,
                                       fontSize: AppSize.getSize(16),
@@ -298,11 +299,11 @@ const   PrivacyScreen({super.key});
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Advanced",
+                        context.l10n.advanced,
                         style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                       Text(
-                        "Protect IP address in calls, Disable link previews",
+                        context.l10n.protectIPaddressincallsDisablelinkpreviews,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),
@@ -320,11 +321,11 @@ const   PrivacyScreen({super.key});
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Privacy checkup",
+                        context.l10n.privacycheckup,
                         style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                       Text(
-                        "Control your privacy and choose the right settings for you.",
+                        context.l10n.controlyourprivacyandchoosetherightsettingsforyou,
                         style: TextStyle(
                           color: AppTheme.greyShade400,
                           fontSize: AppSize.getSize(16),

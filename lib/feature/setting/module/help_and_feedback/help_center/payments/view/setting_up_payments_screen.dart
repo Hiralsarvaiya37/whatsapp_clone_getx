@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SettingUpPaymentsScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class SettingUpPaymentsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Setting Up Payments",
+          context.l10n.settingUpPayments,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class SettingUpPaymentsScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,33 +79,33 @@ class SettingUpPaymentsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Setting Up Payments",
+                    context.l10n.settingUpPayments,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("Learn more about participating countries", context),
-                  appInfo("About accepting payments on the WhatsApp Business app", context),
-                  appInfo("How to pay a business for purchases on WhatsApp", context),
-                  appInfo("About refunds for a purchase", context),
-                  appInfo("About UPI", context),
-                  appInfo("How to add a bank account", context),
-                  appInfo("How to change or set up new UPI PIN", context),
-                  appInfo("Can't add bank account", context),
-                  appInfo("How to change or remove a bank account", context),
-                  appInfo("About refunds and customer support", context),
-                  appInfo("Issues with payments", context),
-                  appInfo("About UPI PIN", context),
-                  appInfo("How to add or remove a custom UPI number", context),
-                  appInfo("About UPI ID and UPI number", context),
-                  appInfo("About date of birth verification", context),
-                  appInfo("How to get help with payments", context),
-                  appInfo("How to change the background of a payments message", context),
-                  appInfo("About fees on WhatsApp", context),
-                  appInfo("About changing phones when using payments", context),
-                  appInfo("About using your mobile number as your UPI number", context),
+                  appInfo(context.l10n.learnmoreaboutparticipatingcountries, context),
+                  appInfo(context.l10n.aboutacceptingpaymentsontheWhatsAppBusinessapp, context),
+                  appInfo(context.l10n.howtopayabusinessforpurchasesonWhatsApp, context),
+                  appInfo(context.l10n.aboutrefundsforapurchase, context),
+                  appInfo(context.l10n.aboutUPI, context),
+                  appInfo(context.l10n.howtoaddabankaccount, context),
+                  appInfo(context.l10n.howtochangeorsetupnewUPIPIN, context),
+                  appInfo(context.l10n.cantaddbankaccount, context),
+                  appInfo(context.l10n.howtochangeorremoveabankaccount, context),
+                  appInfo(context.l10n.aboutrefundsandcustomersupport, context),
+                  appInfo(context.l10n.issueswithpayments, context),
+                  appInfo(context.l10n.aboutUPIPIN, context),
+                  appInfo(context.l10n.howtoaddorremoveacustomUPInumber, context),
+                  appInfo(context.l10n.aboutUPIIDandUPInumber, context),
+                  appInfo(context.l10n.aboutdateofbirthverification, context),
+                  appInfo(context.l10n.howtogethelpwithpayments, context),
+                  appInfo(context.l10n.howtochangethebackgroundofapaymentsmessage, context),
+                  appInfo(context.l10n.aboutfeesonWhatsApp, context),
+                  appInfo(context.l10n.aboutchangingphoneswhenusingpayments, context),
+                  appInfo(context.l10n.aboutusingyourmobilenumberasyourUPInumber, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

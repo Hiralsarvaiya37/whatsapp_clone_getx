@@ -60,7 +60,7 @@ class AccountSettingScreen extends GetView<AccountViewController> {
                         ),
                         SizedBox(width: AppSize.getSize(20)),
                         Text(
-                          AccountOptionsEnum.values[index].titles,
+                          AccountOptionsEnum.values[index].labels(context),
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),

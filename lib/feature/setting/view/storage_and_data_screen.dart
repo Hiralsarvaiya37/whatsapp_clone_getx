@@ -5,6 +5,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class StorageAndDataScreen extends GetView<SettingController> {
@@ -25,7 +26,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Storage and data",
+          context.l10n.storageanddata,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -44,7 +45,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                  Get.toNamed(ManageStorageScreen.id);
                 },
                 child: appTile(
-                  "Manage storage",
+                  context.l10n.managestorage,
                   "571.4 MB",
                   showIcon: true,
                   icon: Icons.folder_outlined,
@@ -56,7 +57,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                    Get.toNamed(NetworkUsageScreen.id);
                 },
                 child: appTile(
-                  "Network usage",
+                  context.l10n.networkusage,
                   "75.8 MB sent. 630.0 MB received",
                   showIcon: true,
                   icon: Icons.data_saver_off,
@@ -74,7 +75,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                       child: Padding(
                         padding: EdgeInsets.only(right: AppSize.getSize(30)),
                         child: Text(
-                          "Use less data for calls",
+                          context.l10n.uselessdataforcalls,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
@@ -103,20 +104,20 @@ class StorageAndDataScreen extends GetView<SettingController> {
                 onTap: () {
                  Get.toNamed(ProxyScreen.id);
                 },
-                child: appTile("Proxy", "Off"),
+                child: appTile(context.l10n.proxy, context.l10n.off),
               ),
               SizedBox(height: AppSize.getSize(35)),
               appTile(
-                "Media upload quality",
-                "Standard quality",
+                context.l10n.mediauploadquality,
+                context.l10n.standardquality,
                 showIcon: true,
                 icon: Icons.high_quality_outlined,
                 onTap: () {
                   showRadioDialog(
                     context,
-                    "Media upload quality",
-                    "Select the quality for photos and videos to be sent at in chats.",
-                    ["Standard quality", "HD quality"],
+                    context.l10n.mediauploadquality,
+                    context.l10n.selectthequalityforphotosandvideostobesentatinchats,
+                    [context.l10n.standardquality, context.l10n.hDquality],
                   );
                 },
               ),
@@ -124,50 +125,50 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(30)),
 
               appTile(
-                "Auto-download quality",
-                "Choose...",
+                context.l10n.autodownloadquality,
+                context.l10n.choose,
                 onTap: () {
                   showRadioDialog(
                     context,
-                    "Auto-download quality",
-                    "Select the quality for photos and videos to be automatically downloaded in.",
-                    ["Standard quality", "HD quality"],
+                    context.l10n.autodownloadquality,
+                    context.l10n.selectthequalityforphotosandvideostobeautomaticallydownloadedin,
+                    [context.l10n.standardquality, context.l10n.hDquality],
                   );
                 },
               ),
 
               SizedBox(height: AppSize.getSize(35)),
               Text(
-                "Media auto-download",
+                context.l10n.mediaautodownload,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               Text(
-                "Voice messages are always automatically downloaded",
+                context.l10n.voicemessagesarealwaysautomaticallydownloaded,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               appTile(
-                "When using mobile data",
-                "Photos",
+                context.l10n.whenusingmobiledata,
+                context.l10n.photos,
                 onTap: () {
-                  showdialog(context, "When Using mobile data");
+                  showdialog(context, context.l10n.whenusingmobiledata);
                 },
               ),
 
               SizedBox(height: AppSize.getSize(30)),
               appTile(
-                "When connected on Wi-Fi",
-                "All media",
+                context.l10n.whenconnectedonWiFi,
+                context.l10n.allmedia,
                 onTap: () {
-                  showdialog(context, "When connected on Wi-Fi");
+                  showdialog(context, context.l10n.whenconnectedonWiFi);
                 },
               ),
               SizedBox(height: AppSize.getSize(30)),
               appTile(
-                "When roaming",
-                "No media",
+                context.l10n.whenroaming,
+                context.l10n.nomedia,
                 onTap: () {
-                  showdialog(context, "When roaming");
+                  showdialog(context, context.l10n.whenroaming);
                 },
               ),
             ],
@@ -194,22 +195,22 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     dialogCheckItem(
-                      "Photos",
+                      context.l10n.photos,
                       controller.selectedItems,
                       setState,
                     ),
                     dialogCheckItem(
-                      "Audio",
+                      context.l10n.audio,
                       controller.selectedItems,
                       setState,
                     ),
                     dialogCheckItem(
-                      "Videos",
+                     context.l10n.video,
                       controller.selectedItems,
                       setState,
                     ),
                     dialogCheckItem(
-                      "Documents",
+                     context.l10n.documents,
                       controller.selectedItems,
                       setState,
                     ),
@@ -222,7 +223,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                         InkWell(
                           onTap: () => Navigator.pop(context),
                           child: Text(
-                            "Cancel",
+                            context.l10n.cancel,
                             style: TextStyle(
                               color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
@@ -236,7 +237,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                             Navigator.pop(context);
                           },
                           child: Text(
-                            "Ok",
+                            context.l10n.ok,
                             style: TextStyle(
                               color: AppTheme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
@@ -347,7 +348,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
-                    "Cancel",
+                    context.l10n.cancel,
                     style: TextStyle(
                       color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.bold,
@@ -360,7 +361,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Save",
+                    context.l10n.save,
                     style: TextStyle(
                       color: AppTheme.greenAccentShade700,
                       fontWeight: FontWeight.bold,

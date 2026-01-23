@@ -12,1319 +12,2246 @@ class AppLocalizationsGu extends AppLocalizations {
   String get settings => 'સેટિંગ્સ';
 
   @override
-  String get verificationfailed => 'Verification failed';
+  String get verificationfailed => 'ચકાસણી નિષ્ફળ';
 
   @override
-  String get phoneAuth => 'Phone Auth';
+  String get phoneAuth => 'ફોન ઓથેન્ટિકેશન';
 
   @override
-  String get enterphonenumber => 'Enter phone number';
+  String get enterphonenumber => 'ફોન નંબર દાખલ કરો';
 
   @override
-  String get verifyphoneNumber => 'Verify phone Number';
+  String get verifyphoneNumber => 'ફોન નંબર ચકાસો';
 
   @override
-  String get oTPScreen => 'OTP Screen';
+  String get oTPScreen => 'ઓટીપી સ્ક્રીન';
 
   @override
-  String get entertheOtp => 'Enter the Otp';
+  String get entertheOtp => 'ઓટીપી દાખલ કરો';
 
   @override
-  String get oTP => 'OTP';
+  String get oTP => 'ઓટીપી';
 
   @override
-  String get call => 'Call';
+  String get call => 'કૉલ';
 
   @override
-  String get schedule => 'Schedule';
+  String get schedule => 'શેડ્યૂલ';
 
   @override
-  String get keypad => 'Keypad';
+  String get keypad => 'કીપેડ';
 
   @override
-  String get favorites => 'Favorites';
+  String get favorites => 'ફેવરિટ્સ';
 
   @override
-  String get recent => 'Recent';
+  String get recent => 'તાજેતરના';
 
   @override
-  String get demo => 'Demo';
+  String get yesterday10_07PM => 'ગઈકાલે રાત્રે 10:07';
 
   @override
-  String get yesterday10_07PM => 'Yesterday 10:07 PM';
+  String get search => 'શોધો...';
 
   @override
-  String get search => 'Search...';
+  String get addupto31people => '31 સુધીના લોકો ઉમેરો';
 
   @override
-  String get addupto31people => 'Add up to 31 people';
+  String get frequentlyContacted => 'વારંવાર સંપર્ક કરાયેલા';
 
   @override
-  String get frequentlyContacted => 'Frequently Contacted';
+  String get allContacts => 'બધા સંપર્કો';
 
   @override
-  String get allContacts => 'All Contacts';
+  String get results => 'પરિણામો';
 
   @override
-  String get results => 'Results';
+  String get contactsonWhatsApp => 'વોટ્સએપ પરના સંપર્કો';
 
   @override
-  String get contactsonWhatsApp => 'Contacts on WhatsApp';
+  String get nomessages => 'કોઈ સંદેશ નથી';
 
   @override
-  String get nomessages => 'No messages';
+  String get message => 'સંદેશ';
 
   @override
-  String get message => 'Message';
+  String get askMetaAIorSearch => 'મેટા AIને પૂછો અથવા શોધો';
 
   @override
-  String get askMetaAIorSearch => 'Ask Meta AI or Search';
+  String get lastmessagepreview => 'છેલ્લા સંદેશનું પૂર્વાવલોકન';
 
   @override
-  String get lastmessagepreview => 'Last message preview';
+  String get hSSCGroup => 'HSSC ગ્રુપ';
 
   @override
-  String get hSSCGroup => 'HSSC Group';
+  String get requesttojoin => 'જોડાવા માટે વિનંતી';
 
   @override
-  String get requesttojoin => 'Request to join';
+  String get announcements => 'જાહેરાતો';
 
   @override
-  String get announcements => 'Announcements';
-
-  @override
-  String get yesterday => 'Yesterday';
+  String get yesterday => 'ગઈકાલે';
 
   @override
   String get hh15487851454hbcsdwdwdhbxhsbhsbsh => '+15487851454 hbcsdwdwdh bxhsbhsbsh';
 
   @override
-  String get groupsyoucanjoin => 'Groups you can join';
+  String get groupsyoucanjoin => 'જે ગ્રુપમાં તમે જોડાઈ શકો';
 
   @override
-  String get hSSCGroup2022 => 'HSSC Group 2022';
+  String get hSSCGroup2022 => 'HSSC ગ્રુપ 2022';
 
   @override
-  String get addgroup => 'Add group';
+  String get addgroup => 'ગ્રુપ ઉમેરો';
 
   @override
-  String get haryanaGovtJobs2025 => 'Haryana Govt Jobs 2025';
+  String get haryanaGovtJobs2025 => 'હરિયાણા સરકારી નોકરીઓ 2025';
 
   @override
-  String get community_5groups => 'Community • 5 groups';
+  String get community_5groups => 'કોમ્યુનિટી • 5 ગ્રુપ';
 
   @override
-  String get newcommunity => 'New community';
+  String get newcommunity => 'નવું કોમ્યુનિટી';
 
   @override
   String get hudhhuhewnssxhwu => 'hudh huhewns sxhwu';
 
   @override
-  String get viewall => 'View all';
+  String get viewall => 'બધું જુઓ';
 
   @override
   String get hudhhuheud => 'hudh huheud';
 
   @override
-  String get status => 'Status';
+  String get status => 'સ્ટેટસ';
 
   @override
-  String get mystatus => 'My status';
+  String get mystatus => 'મારું સ્ટેટસ';
 
   @override
-  String get taptoaddstatus => 'Tap to add status';
+  String get taptoaddstatus => 'સ્ટેટસ ઉમેરવા માટે ટૅપ કરો';
 
   @override
-  String get minutesago => '25 minutes ago';
+  String get minutesago => '25 મિનિટ પહેલાં';
 
   @override
-  String get recentupdates => 'Recent updates';
+  String get recentupdates => 'તાજેતરના અપડેટ્સ';
 
   @override
-  String get users => 'Users';
+  String get viewedupdates => 'જોયેલા અપડેટ્સ';
 
   @override
-  String get viewedupdates => 'Viewed updates';
+  String get channels => 'ચેનલ્સ';
 
   @override
-  String get channels => 'Channels';
+  String get stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow => 'તમને જે વિષયો મહત્વના છે તેના પર અપડેટ રહો. નીચે ફોલો કરવા માટે ચેનલ્સ શોધો.';
 
   @override
-  String get stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow => 'Stay updated on topics that matters to you. Find channels to follow below.';
+  String get findchannelstofollow => 'ફોલો કરવા માટે ચેનલ્સ શોધો';
 
   @override
-  String get findchannelstofollow => 'Find channels to follow';
+  String get followers => '574K ફોલોઅર્સ';
 
   @override
-  String get followers => '574K followers';
+  String get follow => 'ફોલો કરો';
 
   @override
-  String get follow => 'Follow';
+  String get exploremore => 'વધુ શોધો';
 
   @override
-  String get exploremore => 'Explore more';
+  String get createchannel => 'ચેનલ બનાવો';
 
   @override
-  String get createchannel => 'Create channel';
+  String get camera => 'કૅમેરા';
 
   @override
-  String get camera => 'Camera';
+  String get gallery => 'ગેલેરી';
 
   @override
-  String get gallery => 'Gallery';
+  String get video => 'વીડિયો';
 
   @override
-  String get video => 'Video';
+  String get newgroup => 'નવું ગ્રુપ';
 
   @override
-  String get newgroup => 'New group';
+  String get broadcastlists => 'બ્રોડકાસ્ટ લિસ્ટ';
 
   @override
-  String get broadcastlists => 'Broadcast lists';
+  String get linkeddevices => 'લિંક કરેલા ડિવાઇસ';
 
   @override
-  String get linkeddevices => 'Linked devices';
+  String get starred => 'સ્ટાર કરેલા';
 
   @override
-  String get starred => 'Starred';
+  String get payments => 'ચુકવણી';
 
   @override
-  String get payments => 'Payments';
+  String get readall => 'બધું વાંચો';
 
   @override
-  String get readall => 'Read all';
+  String get statusprivacy => 'સ્ટેટસ પ્રાઇવસી';
 
   @override
-  String get statusprivacy => 'Status privacy';
+  String get clearcalllog => 'કૉલ લોગ સાફ કરો';
 
   @override
-  String get clearcalllog => 'Clear call log';
+  String get scheduledcalls => 'શેડ્યૂલ કરેલી કૉલ્સ';
 
   @override
-  String get scheduledcalls => 'Scheduled calls';
+  String get chats => 'ચેટ્સ';
 
   @override
-  String get chats => 'Chats';
+  String get updates => 'અપડેટ્સ';
 
   @override
-  String get updates => 'Updates';
+  String get communities => 'કોમ્યુનિટીઝ';
 
   @override
-  String get communities => 'Communities';
+  String get calls => 'કૉલ્સ';
 
   @override
-  String get calls => 'Calls';
+  String get addnewaccount => 'નવું એકાઉન્ટ ઉમેરો';
 
   @override
-  String get addnewaccount => 'Add new account';
+  String get addWhatsAppaccount => 'વોટ્સએપ એકાઉન્ટ ઉમેરો';
 
   @override
-  String get addWhatsAppaccount => 'Add WhatsApp account';
+  String get changenumber => 'નંબર બદલો';
 
   @override
-  String get changenumber => 'Change number';
+  String get next => 'આગળ';
 
   @override
-  String get next => 'Next';
+  String get changingyourphonenumberwillmigrateyouraccountinfogroupssettings => 'તમારો ફોન નંબર બદલવાથી તમારી એકાઉન્ટ માહિતી, ગ્રુપ અને સેટિંગ્સ સ્થાનાંતરિત થશે.';
 
   @override
-  String get changingyourphonenumberwillmigrateyouraccountinfogroupssettings => 'Changing your phone number will migrate your account info, groups & settings.';
+  String get beforeproceedingpleaseconfirmthatyouareabletoreceiveSMScallsatyournewnumber => 'આગળ વધતા પહેલાં કૃપા કરીને ખાતરી કરો કે તમે તમારા નવા નંબર પર SMS અને કૉલ મેળવી શકો છો.';
 
   @override
-  String get beforeproceedingpleaseconfirmthatyouareabletoreceiveSMScallsatyournewnumber => 'Before proceeding, please confirm that you are able to receive SMS calls at your new number.';
+  String get ifyouhavebothanewphoneanewnumberfirstchangeyournumberonyouroldphone => 'જો તમારી પાસે નવો ફોન અને નવો નંબર બંને હોય, તો પહેલા જૂના ફોન પર નંબર બદલો.';
 
   @override
-  String get ifyouhavebothanewphoneanewnumberfirstchangeyournumberonyouroldphone => 'If you have both a new phone & a new number, first change your number on your old phone.';
+  String get deletethisaccount => 'આ એકાઉન્ટ કાઢી નાખો';
 
   @override
-  String get deletethisaccount => 'Delete this account';
+  String get ifyoudeletethisaccount => 'જો તમે આ એકાઉન્ટ કાઢી નાખશો તો';
 
   @override
-  String get ifyoudeletethisaccount => 'If you delete this account';
+  String get theaccountwillbedeletedfromWhatsAppandallyourdevices => 'એકાઉન્ટ વોટ્સએપ અને તમારા બધા ડિવાઇસમાંથી કાઢી નાખવામાં આવશે';
 
   @override
-  String get theaccountwillbedeletedfromWhatsAppandallyourdevices => 'The account will be deleted from WhatsApp and all your devices';
+  String get yourmessagehistorywillbeerased => 'તમારો સંદેશ ઇતિહાસ ભૂંસી નાખવામાં આવશે';
 
   @override
-  String get yourmessagehistorywillbeerased => 'Your message history will be erased';
+  String get youwillberemovedfromallyourWhatsAppgroups => 'તમને તમારા બધા વોટ્સએપ ગ્રુપમાંથી દૂર કરવામાં આવશે';
 
   @override
-  String get youwillberemovedfromallyourWhatsAppgroups => 'You will be removed from all your WhatsApp groups';
+  String get deleteyourpaymentshistoryandcancelanypendingpayments => 'તમારી ચુકવણીનો ઇતિહાસ કાઢી નાખો અને બાકીની ચુકવણી રદ કરો';
 
   @override
-  String get deleteyourpaymentshistoryandcancelanypendingpayments => 'Delete your payments history and cancel any pending payments';
+  String get anychannelsyoucreatedwillbedeleted => 'તમે બનાવેલી કોઈપણ ચેનલ કાઢી નાખવામાં આવશે';
 
   @override
-  String get anychannelsyoucreatedwillbedeleted => 'Any channels you created will be deleted';
+  String get anyactivechannelsubscriptionsassociatedwiththisaccountwillbecanceled => 'આ એકાઉન્ટ સાથે સંકળાયેલી કોઈપણ સક્રિય ચેનલ સબ્સ્ક્રિપ્શન રદ થઈ જશે';
 
   @override
-  String get anyactivechannelsubscriptionsassociatedwiththisaccountwillbecanceled => 'Any active channel subscriptions associated with this account will be canceled';
+  String get changenumberinsted => 'તેના બદલે નંબર બદલવો છે?';
 
   @override
-  String get changenumberinsted => 'Change number insted?';
+  String get todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber => 'એકાઉન્ટ કાઢી નાખવા માટે તમારો દેશ કોડ કન્ફર્મ કરો અને ફોન નંબર દાખલ કરો';
 
   @override
-  String get todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber => 'To delete your account, confirm your country code and enter your phone number';
+  String get country => 'દેશ';
 
   @override
-  String get country => 'Country';
+  String get india => 'ભારત';
 
   @override
-  String get india => 'India';
+  String get phonenumber => 'ફોન નંબર';
 
   @override
-  String get phonenumber => 'Phone number';
+  String get deleteAccount => 'એકાઉન્ટ કાઢી નાખો';
 
   @override
-  String get deleteAccount => 'Delete Account';
+  String get addyouremail => 'તમારું ઇમેઇલ ઉમેરો';
 
   @override
-  String get addyouremail => 'Add your email';
+  String get emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers => 'ઇમેઇલ અમને તમારું એકાઉન્ટ ચકાસવામાં અથવા સુરક્ષા/સપોર્ટ સમસ્યામાં તમારો સંપર્ક કરવામાં મદદ કરે છે. તમારું ઇમેઇલ સરનામું બીજા કોઈને દેખાશે નહીં.';
 
   @override
-  String get emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers => 'Email helps us verify your account or reach you in case of security or support issues. your email address Won\'t be visible to others';
+  String get learnmore => 'વધુ જાણો';
 
   @override
-  String get leaenmore => 'Leaen more';
+  String get enteryouremail => 'તમારું ઇમેઇલ દાખલ કરો';
 
   @override
-  String get enteryouremail => 'Enter your email';
+  String get helparticle => 'મદદ લેખ';
 
   @override
-  String get helparticle => 'Help article';
+  String get openinbrowser => 'બ્રાઉઝરમાં ખોલો';
 
   @override
-  String get openinbrowser => 'Open in browser';
+  String get send => 'મોકલો';
 
   @override
-  String get send => 'Send';
+  String get copylink => 'લિંક કૉપી કરો';
 
   @override
-  String get copylink => 'Copy link';
+  String get aboutsecuritycodechangenotifications => 'સુરક્ષા કોડ બદલાવની સૂચનાઓ વિશે';
 
   @override
-  String get aboutsecuritycodechangenotifications => 'About security code change notifications';
+  String get endtoendencryptedchatsbetweenyouandoneotherpersonhavetheirownsecuritycodethiscodeisusedtoverifythatthecallsandthemessagesyousendtothatchatareendtoendencrypted => 'તમે અને બીજી વ્યક્તિ વચ્ચેની એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ ચેટનો પોતાનો સુરક્ષા કોડ હોય છે. આ કોડનો ઉપયોગ એ ચકાસવા માટે થાય છે કે તમે મોકલેલા કૉલ અને સંદેશ એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ છે.';
 
   @override
-  String get endtoendencryptedchatsbetweenyouandoneotherpersonhavetheirownsecuritycodethiscodeisusedtoverifythatthecallsandthemessagesyousendtothatchatareendtoendencrypted => 'End-to-end encrypted chats between you and one other person have their own security code. this code is used to verify that the calls and the messages you send to that chat are end-to-end encrypted';
+  String get thesecuritycodecanbefoundinthecontactinfoscreenbothasaQRcodeanda60digitnumberthesecodesareuniquetoeachindividualchattheycanbecomparedbetweenpeopleineachchattoverifythatthemessagesyousendtothechatareendtoendencyptedsecuritycodesarejustvisibleversionsofthespecialkeyssharedbetweenyouDontworryitsnottheactualkeysthemselveswhicharealwayskeptsecret => 'સુરક્ષા કોડ કોન્ટેક્ટ ઇન્ફો સ્ક્રીનમાં QR કોડ અને 60 અંકના નંબર તરીકે મળી શકે છે. આ કોડ દરેક ચેટ માટે અનન્ય હોય છે. તેની તુલના કરીને ચકાસી શકાય છે કે સંદેશ એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ છે.';
 
   @override
-  String get thesecuritycodecanbefoundinthecontactinfoscreenbothasaQRcodeanda60digitnumberthesecodesareuniquetoeachindividualchattheycanbecomparedbetweenpeopleineachchattoverifythatthemessagesyousendtothechatareendtoendencyptedsecuritycodesarejustvisibleversionsofthespecialkeyssharedbetweenyouDontworryitsnottheactualkeysthemselveswhicharealwayskeptsecret => 'The security code can be found in the contact info screen, both as a QR code and a 60-digit number. these codes are unique to each individual chat. they can be compared between people in each chat to verify that the messages you send to the chat are end-to-end encypted.security codes are just visible versions of the special keys shared between you. Don\'t worry,it\'s not the actual keys themselves, which are always kept secret';
+  String get attimesthesecuritycodesusedinendtoendencryptedchatsbetweenyouandoneotherpersonmightchangeThisislikelybecauseyouoryourcontactreinstalledWhatsAppchangedphonesoraddedorremovedapaireddeviceYoucanalwaysverifythatacontactssecuritycodeislegitimte => 'કેટલીક વખત સુરક્ષા કોડ બદલાઈ શકે છે – જેમ કે WhatsApp ફરીથી ઇન્સ્ટોલ કરવું, ફોન બદલવો, ડિવાઇસ ઉમેરવું/દૂર કરવું વગેરે.';
 
   @override
-  String get attimesthesecuritycodesusedinendtoendencryptedchatsbetweenyouandoneotherpersonmightchangeThisislikelybecauseyouoryourcontactreinstalledWhatsAppchangedphonesoraddedorremovedapaireddeviceYoucanalwaysverifythatacontactssecuritycodeislegitimte => 'At times, the security codes used in end-to-end encrypted chats between you and one other person might change. This is likely because you or your contact reinstalled WhatsApp, changed phones, or added or removed a paired device. You can always verify that a contact\'s security code is legitimte.';
+  String get learnhowin => 'કેવી રીતે તે જાણો';
 
   @override
-  String get learnhowin => 'Learn how in';
+  String get thisarticle => 'આ લેખમાં';
 
   @override
-  String get thisarticle => 'this article';
+  String get onendtoendencryption => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન વિશે';
 
   @override
-  String get onendtoendencryption => 'on end-to-end encryption';
+  String get receivenotificationwhensecuritycodeschange => 'સુરક્ષા કોડ બદલાય ત્યારે સૂચના મેળવો';
 
   @override
-  String get receivenotificationwhensecuritycodeschange => 'Receive notification when security codes change';
+  String get youcanreceivenotificationswhenyoursecuritycodechangesforacontactsphoneinanendtoendencryptedchattodosoyoullneedtoenablethesettingoneachdevicewhereyouwanttogetnotifications => 'દરેક ડિવાઇસ પર જ્યાં સૂચના જોઈએ છે ત્યાં આ સેટિંગ ચાલુ કરવી પડશે.';
 
   @override
-  String get youcanreceivenotificationswhenyoursecuritycodechangesforacontactsphoneinanendtoendencryptedchattodosoyoullneedtoenablethesettingoneachdevicewhereyouwanttogetnotifications => 'You can receive notifications when your security code changes for a contact\'s phone in an end-to-end encrypted chat. to do so, you\'ll need to enable the setting on each device where you want to get notifications';
+  String get enablesecuritycodenotifications => 'સુરક્ષા કોડ સૂચનાઓ ચાલુ કરો';
 
   @override
-  String get enablesecuritycodenotifications => 'Enable security code notifications';
+  String get tellusalittlemore => 'થોડું વધુ જણાવો';
 
   @override
-  String get tellusalittlemore => 'Tell us a little more';
+  String get submitfeedback => 'ફીડબેક મોકલો';
 
   @override
-  String get submitfeedback => 'Submit feedback';
+  String get doesthisansweryourquestion => 'શું આનાથી તમારો પ્રશ્નનો જવાબ મળ્યો?';
 
   @override
-  String get doesthisansweryourquestion => 'Does this answer your question?';
+  String get yourresponseisanonymoushelpsusimproveourhelpresources => 'તમારો જવાબ અનામી રહેશે અને અમને સુધારા માટે મદદ કરશે.';
 
   @override
-  String get yourresponseisanonymoushelpsusimproveourhelpresources => 'Your response is anonymous helps us improve our help resources';
+  String get yes => 'હા';
 
   @override
-  String get yes => 'Yes';
+  String get no => 'ના';
 
   @override
-  String get no => 'No';
+  String get turnoffShowsecuritynotificationsonthisdevice => 'આ ડિવાઇસ પર સુરક્ષા સૂચનાઓ બંધ કરો';
 
   @override
-  String get turnoffShowsecuritynotificationsonthisdevice => 'Turn off Show security notifications on this device.';
+  String get thanksforlettingusknow => 'અમને જણાવ્યા બદલ આભાર!';
 
   @override
-  String get thanksforlettingusknow => 'Thanks for letting us know!';
+  String get welluseyourfeedbacktohelpimproveWhatsAppsupport => 'અમે તમારા ફીડબેકનો ઉપયોગ WhatsApp સપોર્ટ સુધારવા માટે કરીશું.';
 
   @override
-  String get welluseyourfeedbacktohelpimproveWhatsAppsupport => 'We\'ll use your feedback to help improve WhatsApp support';
+  String get passkeys => 'પાસકી';
 
   @override
-  String get passkeys => 'Passkeys';
+  String get manageyourpasskey => 'તમારી પાસકી મેનેજ કરો';
 
   @override
-  String get manageyourpasskey => 'Manage your passkey';
+  String get accessWhatsAppthesamewayyouunloackyourphonewithyourfingerprintfaceorscreenlockyourpasskeygivesyouasecureandeasywaytologbackintoyouraccount => 'તમારા ફોનને અનલૉક કરો તે જ રીતે (ફિંગરપ્રિન્ટ, ફેસ, સ્ક્રીન લૉક) WhatsApp ઍક્સેસ કરો.';
 
   @override
-  String get accessWhatsAppthesamewayyouunloackyourphonewithyourfingerprintfaceorscreenlockyourpasskeygivesyouasecureandeasywaytologbackintoyouraccount => 'Access WhatsApp the same way you unloack your phone. with your fingerprint, face or screen lock. your passkey gives you a secure and easy way to log back into your account';
+  String get thiswillbeusedtoverifyYouraccount => 'આનો ઉપયોગ તમારું એકાઉન્ટ ચકાસવા માટે થશે';
 
   @override
-  String get thiswillbeusedtoverifyYouraccount => 'This will be used to verify your account';
+  String get deletepasskey => 'પાસકી કાઢી નાખવી છે?';
 
   @override
-  String get deletepasskey => 'Delete passkey?';
+  String get ifyoudeletethispasskeyyouwontbeabletouseittologintoyouraccount => 'જો તમે પાસકી કાઢી નાખશો તો તેનો ઉપયોગ લોગિન માટે નહીં થઈ શકે.';
 
   @override
-  String get ifyoudeletethispasskeyyouwontbeabletouseittologintoyouraccount => 'If you delete this passkey, you won\'t be able to use it to log into your account';
+  String get ifyoudevicetodeletebesuretoalsodeletethepasskeyfromyourdevicepasswordmanager => 'કાઢી નાખવાનું નક્કી કરો તો ડિવાઇસના પાસવર્ડ મેનેજરમાંથી પણ કાઢી નાખજો.';
 
   @override
-  String get ifyoudevicetodeletebesuretoalsodeletethepasskeyfromyourdevicepasswordmanager => 'If you device to delete, be sure to also delete the passkey from your device password manager.';
+  String get cancel => 'રદ કરો';
 
   @override
-  String get cancel => 'Cancel';
+  String get delete => 'કાઢી નાખો';
 
   @override
-  String get delete => 'Delete';
+  String get requestaccountinfo => 'એકાઉન્ટ માહિતી માગો';
 
   @override
-  String get requestaccountinfo => 'Request account info';
+  String get accountinformation => 'એકાઉન્ટ માહિતી';
 
   @override
-  String get accountinformation => 'Account information';
+  String get channelsactivity => 'ચેનલ્સ પ્રવૃત્તિ';
 
   @override
-  String get channelsactivity => 'Channels activity';
+  String get requestsent => 'વિનંતી મોકલી';
 
   @override
-  String get requestsent => 'Request sent';
+  String get readybyDecember7_2025 => '7 ડિસેમ્બર, 2025 સુધીમાં તૈયાર';
 
   @override
-  String get readybyDecember7_2025 => 'Ready by December 7, 2025';
+  String get yourreportwillbereadyinabout3daysYoullhaveafewweekstodownloadyourreportafteritsavailable => 'તમારો રિપોર્ટ આશરે 3 દિવસમાં તૈયાર થશે. તે ઉપલબ્ધ થયા પછી થોડા અઠવાડિયા સુધી ડાઉનલોડ કરી શકશો.';
 
   @override
-  String get yourreportwillbereadyinabout3daysYoullhaveafewweekstodownloadyourreportafteritsavailable => 'Your report will be ready in about 3 days. You\'ll have a few weeks to download your report after it\'s available';
+  String get createreportsautomatically => 'આપમેળે રિપોર્ટ બનાવો';
 
   @override
-  String get createreportsautomatically => 'Create reports automatically';
+  String get anewreportwillbecreatedeverymonth => 'દર મહિને નવો રિપોર્ટ બનશે';
 
   @override
-  String get anewreportwillbecreatedeverymonth => 'A new report will be created every month';
+  String get securitynotifications => 'સુરક્ષા સૂચનાઓ';
 
   @override
-  String get securitynotifications => 'Security notifications';
+  String get yourchatsandcallsareprivate => 'તમારી ચેટ અને કૉલ્સ ખાનગી છે';
 
   @override
-  String get yourchatsandcallsareprivate => 'Your chats and calls are private';
+  String get endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન તમારા વ્યક્તિગત સંદેશ અને કૉલ્સને સુરક્ષિત રાખે છે. WhatsApp પણ વાંચી શકતું નથી.';
 
   @override
-  String get endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour => 'End-to-end encryption keeps your personal messaged and calls between you and the people you choose. no one outside of the chat, not even WhatsApp, can read, listen to, or share them. this includes your';
+  String get textandvoicemessages => 'ટેક્સ્ટ અને વૉઇસ સંદેશ';
 
   @override
-  String get textandvoicemessages => 'Text and voice messages';
+  String get audioandvideocalls => 'ઑડિયો અને વીડિયો કૉલ્સ';
 
   @override
-  String get audioandvideocalls => 'Audio and video calls';
+  String get photosvideosanddocuments => 'ફોટો, વીડિયો અને ડૉક્યુમેન્ટ્સ';
 
   @override
-  String get photosvideosanddocuments => 'Photos, videos and documents';
+  String get locationsharing => 'લોકેશન શેરિંગ';
 
   @override
-  String get locationsharing => 'Location sharing';
+  String get statusupdates => 'સ્ટેટસ અપડેટ્સ';
 
   @override
-  String get statusupdates => 'Status updates';
+  String get showsecuritynotificationsonthisdevice => 'આ ડિવાઇસ પર સુરક્ષા સૂચનાઓ બતાવો';
 
   @override
-  String get showsecuritynotificationsonthisdevice => 'Show security notifications on this device';
+  String get twostepverification => 'બે-પગલાં ચકાસણી';
 
   @override
-  String get twostepverification => 'Two-step verification';
+  String get forextrasecurityturnontwostepverificationwhichwillrequireaPINwhenregisteringyourphonenumberwithWhatsAppagain => 'વધારાની સુરક્ષા માટે બે-પગલાં ચકાસણી ચાલુ કરો – નવેસરથી રજિસ્ટર કરતી વખતે PIN જરૂરી રહેશે.';
 
   @override
-  String get forextrasecurityturnontwostepverificationwhichwillrequireaPINwhenregisteringyourphonenumberwithWhatsAppagain => 'For extra security, turn on two-step verification, which will require a PIN when registering your phone number with WhatsApp again.';
+  String get turnon => 'ચાલુ કરો';
 
   @override
-  String get turnon => 'Turn on';
+  String get animation => 'એનિમેશન';
 
   @override
-  String get animation => 'Animation';
+  String get whenturnedonemojistickersorGIFswillmoveautomatically => 'ચાલુ હોય ત્યારે ઇમોજી, સ્ટિકર્સ, GIF આપમેળે એનિમેટ થશે.';
 
   @override
-  String get whenturnedonemojistickersorGIFswillmoveautomatically => 'When turned on, emoji, stickers or GIFs will move automatically.';
+  String get emoji => 'ઇમોજી';
 
   @override
-  String get emoji => 'Emoji';
+  String get stickers => 'સ્ટિકર્સ';
 
   @override
-  String get stickers => 'Stickers';
+  String get gifs => 'GIFs';
 
   @override
-  String get gifs => 'Gifs';
+  String get chatbackup => 'ચેટ બેકઅપ';
 
   @override
-  String get chatbackup => 'Chat backup';
+  String get backupsettings => 'બેકઅપ સેટિંગ્સ';
 
   @override
-  String get backupsettings => 'Backup settings';
+  String get backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit => 'તમારી ચેટ અને મીડિયાનું Google એકાઉન્ટમાં બેકઅપ લો. નવા ફોન પર પુનઃસ્થાપિત કરી શકો છો.';
 
   @override
-  String get backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit => 'Back up your chats and media to your Google Account\'s storage. You can restore them on a new phone after you download WhatsApp on it';
+  String get local2_09AM => 'લોકલ: 2:09 AM';
 
   @override
-  String get local2_09AM => 'Local: 2:09 AM';
+  String get lastBackupNever => 'છેલ્લું બેકઅપ: ક્યારેય નહીં';
 
   @override
-  String get lastBackupNever => 'Last Backup: Never';
+  String get backup => 'બેકઅપ લો';
 
   @override
-  String get backup => 'Back up';
+  String get manageGogglestorage => 'Google સ્ટોરેજ મેનેજ કરો';
 
   @override
-  String get manageGogglestorage => 'Manage Goggle storage';
-
-  @override
-  String get chooseanaccount => 'Choose an account';
+  String get chooseanaccount => 'એકાઉન્ટ પસંદ કરો';
 
   @override
   String get abcced123gmail_com => 'abcced123@gmail.com';
 
   @override
-  String get addaccount => 'Add account';
+  String get addaccount => 'એકાઉન્ટ ઉમેરો';
 
   @override
-  String get goggleAccount => 'Goggle Account';
+  String get goggleAccount => 'Google એકાઉન્ટ';
 
   @override
-  String get automaticbackups => 'Automatic backups';
+  String get automaticbackups => 'આપમેળે બેકઅપ';
 
   @override
-  String get daily => 'Daily';
+  String get daily => 'દૈનિક';
 
   @override
-  String get weekly => 'Weekly';
+  String get weekly => 'સાપ્તાહિક';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'માસિક';
 
   @override
-  String get onlywhenItapBackup => 'Only when I tap \'Back up';
+  String get onlywhenItapBackup => 'માત્ર \'બેકઅપ\' ટૅપ કરું ત્યારે';
 
   @override
-  String get off => 'Off';
+  String get off => 'બંધ';
 
   @override
-  String get includevideos => 'Include videos';
+  String get includevideos => 'વીડિયો સામેલ કરો';
 
   @override
-  String get backupusingcellular => 'Back up using cellular';
+  String get backupusingcellular => 'મોબાઇલ ડેટાથી બેકઅપ';
 
   @override
-  String get endtoendencryption => 'End-to-end encryption';
+  String get endtoendencryption => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન';
 
   @override
-  String get foraddedsecurityyoucanprotectyourbackupwithendtoendencryption => 'For added security, you can protect your backup with end-to-end encryption.';
+  String get foraddedsecurityyoucanprotectyourbackupwithendtoendencryption => 'વધુ સુરક્ષા માટે બેકઅપને એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટ કરી શકો છો.';
 
   @override
-  String get endtoendencryptedbackup => 'End-to-end encrypted backup';
+  String get endtoendencryptedbackup => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ બેકઅપ';
 
   @override
-  String get chathistory => 'Chat history';
+  String get chathistory => 'ચેટ ઇતિહાસ';
 
   @override
-  String get exportchat => 'Export chat';
+  String get exportchat => 'ચેટ એક્સપોર્ટ કરો';
 
   @override
-  String get areyousurewanttoarchiveALLchats => 'Are you sure want to archive ALL chats?';
+  String get areyousurewanttoarchiveALLchats => 'શું તમે ખરેખર બધી ચેટ આર્કાઇવ કરવા માંગો છો?';
 
   @override
-  String get ok => 'Ok';
+  String get ok => 'ઓકે';
 
   @override
-  String get unarchiveallchats => 'Unarchive all chats';
+  String get unarchiveallchats => 'બધી ચેટ અનઆર્કાઇવ કરો';
 
   @override
-  String get archiveallchats => 'Archive all chats';
+  String get archiveallchats => 'બધી ચેટ આર્કાઇવ કરો';
 
   @override
-  String get clearallchats => 'Clear all chats';
+  String get clearallchats => 'બધી ચેટ સાફ કરો';
 
   @override
-  String get alsodeletemediareceivedinchatsfromthedevicegallery => 'Also delete media received in chats from the device gallery';
+  String get alsodeletemediareceivedinchatsfromthedevicegallery => 'ચેટમાં મળેલા મીડિયાને ડિવાઇસ ગેલેરીમાંથી પણ કાઢી નાખો';
 
   @override
-  String get deletestarredmessages => 'Delete starred messages';
+  String get deletestarredmessages => 'સ્ટાર કરેલા સંદેશ કાઢી નાખો';
 
   @override
-  String get clearchats => 'Clear chats';
+  String get clearchats => 'ચેટ સાફ કરો';
 
   @override
-  String get deleteallchats => 'Delete all chats?';
+  String get deleteallchats => 'બધી ચેટ કાઢી નાખવી છે?';
 
   @override
-  String get deletechats => 'Delete chats';
+  String get deletechats => 'ચેટ કાઢી નાખો';
 
   @override
-  String get chattheme => 'Chat theme';
+  String get chattheme => 'ચેટ થીમ';
 
   @override
-  String get themes => 'Themes';
+  String get themes => 'થીમ્સ';
 
   @override
-  String get thechatcolorandwallpaperwillbothchange => 'The chat color and wallpaper will both change';
+  String get thechatcolorandwallpaperwillbothchange => 'ચેટનો રંગ અને વૉલપેપર બંને બદલાશે';
 
   @override
-  String get customize => 'Customize';
+  String get customize => 'કસ્ટમાઇઝ કરો';
 
   @override
-  String get chatcolor => 'Chat color';
+  String get chatcolor => 'ચેટ રંગ';
 
   @override
-  String get wallpaper => 'Wallpaper';
+  String get wallpaper => 'વૉલપેપર';
 
   @override
-  String get addanextralayerofprotection => 'Add an extra layer of protection';
+  String get addanextralayerofprotection => 'વધારાનું સુરક્ષા સ્તર ઉમેરો';
 
   @override
-  String get yourbackupwillbesafeevenifyouloseyourphone => 'Your backup will be safe, even if you lose your phone.';
+  String get yourbackupwillbesafeevenifyouloseyourphone => 'ફોન ગુમાવો તો પણ બેકઅપ સુરક્ષિત રહેશે.';
 
   @override
-  String get secureyourbackupwithapasskeypasswordoranencryptionkey => 'Secure your backup with a passkey, password or an encryption key.';
+  String get secureyourbackupwithapasskeypasswordoranencryptionkey => 'પાસકી, પાસવર્ડ કે એન્ક્રિપ્શન કીથી બેકઅપ સુરક્ષિત કરો.';
 
   @override
-  String get nooneelsewillbeabletoaccessyourbackupNotevenWhatsApporGoogle => 'No one else will be able to access your backup. Not even WhatsApp or Google.';
+  String get nooneelsewillbeabletoaccessyourbackupNotevenWhatsApporGoogle => 'WhatsApp કે Google પણ તમારો બેકઅપ ઍક્સેસ કરી શકશે નહીં.';
 
   @override
-  String get usepasskey => 'Use passkey';
+  String get usepasskey => 'પાસકીનો ઉપયોગ કરો';
 
   @override
-  String get moreoptions => 'More options';
+  String get moreoptions => 'વધુ વિકલ્પો';
 
   @override
-  String get transferchathistorytonewphone => 'Transfer chat history to new phone';
+  String get transferchathistorytonewphone => 'નવા ફોનમાં ચેટ ઇતિહાસ ટ્રાન્સફર કરો';
 
   @override
-  String get transferyourchathistoryprivatelytoanotherAndroidphoneHaveyourmostuptodatemessageswithoutusingGooglestorageCertaindevicepermissionsareneededtoConnecttoyournewdevice => 'Transfer your chat history privately to another Android phone. Have your most up-to-date messages without using Google storage. Certain device permissions are needed to Connect to your new device.';
+  String get transferyourchathistoryprivatelytoanotherAndroidphoneHaveyourmostuptodatemessageswithoutusingGooglestorageCertaindevicepermissionsareneededtoConnecttoyournewdevice => 'Google સ્ટોરેજ વગર બીજા એન્ડ્રોઇડ ફોનમાં ખાનગી રીતે ટ્રાન્સફર કરો.';
 
   @override
-  String get accountBans => 'Account Bans';
+  String get accountBans => 'એકાઉન્ટ પર પ્રતિબંધ';
 
   @override
-  String get aboutaccountbans => 'About account bans';
+  String get aboutaccountbans => 'એકાઉન્ટ પર પ્રતિબંધ વિશે';
 
   @override
-  String get aboutaccountbansontheWhatsAppBusinessapp => 'About account bans on the WhatsApp Business app';
+  String get aboutaccountbansontheWhatsAppBusinessapp => 'WhatsApp Business ઍપમાં એકાઉન્ટ પ્રતિબંધ વિશે';
 
   @override
-  String get abouttemporarilybannedaccounts => 'About temporarily banned accounts';
+  String get abouttemporarilybannedaccounts => 'કામચલાઉ પ્રતિબંધિત એકાઉન્ટ વિશે';
 
   @override
-  String get afteryouraccountisunbanned => 'After your account is unbanned';
+  String get afteryouraccountisunbanned => 'એકાઉન્ટ અનબેન થયા પછી';
 
   @override
-  String get aboutaccountbansforpreviouslyownedphonenumbers => 'About account bans for previously owned phone numbers';
+  String get aboutaccountbansforpreviouslyownedphonenumbers => 'પહેલાં વપરાયેલા નંબર માટે પ્રતિબંધ વિશે';
 
   @override
-  String get aboutaccountbansforunofficialapps => 'About account bans for unofficial apps';
+  String get aboutaccountbansforunofficialapps => 'અનધિકૃત ઍપ માટે પ્રતિબંધ વિશે';
 
   @override
-  String get howtocontacttheGrievanceOfficerandWhatsAppinindia => 'How to contact the Grievance Officer and WhatsApp in india';
+  String get howtocontacttheGrievanceOfficerandWhatsAppinindia => 'ભારતમાં ગ્રીવન્સ ઓફિસર અને WhatsAppનો સંપર્ક કેવી રીતે કરવો';
 
   @override
-  String get accounts => 'Accounts';
+  String get accounts => 'એકાઉન્ટ્સ';
 
   @override
-  String get howtorequestaccountinformation => 'How to request account information';
+  String get howtorequestaccountinformation => 'એકાઉન્ટ માહિતી કેવી રીતે મેળવવી';
 
   @override
-  String get howtorequestchannelsreport => 'How to request channels report';
+  String get howtorequestchannelsreport => 'ચેનલ રિપોર્ટ કેવી રીતે મેળવવો';
 
   @override
-  String get howtorequestadsreport => 'How to request ads report';
+  String get howtorequestadsreport => 'જાહેરાત રિપોર્ટ કેવી રીતે મેળવવો';
 
   @override
-  String get aboutchangingphones => 'About changing phones';
+  String get aboutchangingphones => 'ફોન બદલવા વિશે';
 
   @override
-  String get howtochangeyourphonenumber => 'How to change your phone number';
+  String get howtochangeyourphonenumber => 'ફોન નંબર કેવી રીતે બદલવો';
 
   @override
-  String get aboutchangingphonenumbers => 'About changing phone numbers';
+  String get aboutchangingphonenumbers => 'ફોન નંબર બદલવા વિશે';
 
   @override
-  String get cantchangephonenumber => 'Can\'t change phone number';
+  String get cantchangephonenumber => 'ફોન નંબર બદલી શકતા નથી';
 
   @override
-  String get aboutusingoneWhatsAppaccountonmultiplephonesorwithmultiplephonenumbers => 'About using one WhatsApp account on multiple phones, or with multiple phone numbers';
+  String get aboutusingoneWhatsAppaccountonmultiplephonesorwithmultiplephonenumbers => 'એક જ WhatsApp એકાઉન્ટ બહુવિધ ફોન/નંબર પર વાપરવા વિશે';
 
   @override
-  String get howtodeleteyouraccount => 'How to delete your account';
+  String get howtodeleteyouraccount => 'એકાઉન્ટ કેવી રીતે કાઢી નાખવું';
 
   @override
-  String get aboutinactiveaccountdeletion => 'About inactive account deletion';
+  String get aboutinactiveaccountdeletion => 'નિષ્ક્રિય એકાઉન્ટ કાઢી નાખવા વિશે';
 
   @override
-  String get aboutaccountdeactivation => 'About account deactivation';
+  String get aboutaccountdeactivation => 'એકાઉન્ટ નિષ્ક્રિય કરવા વિશે';
 
   @override
-  String get channelAdmins => 'Channel Admins';
+  String get channelAdmins => 'ચેનલ એડમિન';
 
   @override
-  String get howtoshareachannelupdate => 'How to share a channel update';
+  String get howtoshareachannelupdate => 'ચેનલ અપડેટ કેવી રીતે શેર કરવું';
 
   @override
-  String get howtoeditchannelupdates => 'How to edit channel updates';
+  String get howtoeditchannelupdates => 'ચેનલ અપડેટ કેવી રીતે એડિટ કરવા';
 
   @override
-  String get howtoforwardtoyourchannel => 'How to forward to your channel';
+  String get howtoforwardtoyourchannel => 'તમારી ચેનલમાં કેવી રીતે ફોરવર્ડ કરવું';
 
   @override
-  String get howtoforwardchannelinfoandsettings => 'How to forward channel info and settings';
+  String get howtoforwardchannelinfoandsettings => 'ચેનલ માહિતી અને સેટિંગ્સ કેવી રીતે ફોરવર્ડ કરવા';
 
   @override
-  String get howtoshareyourchannel => 'How to share your channel';
+  String get howtoshareyourchannel => 'તમારી ચેનલ કેવી રીતે શેર કરવી';
 
   @override
-  String get aboutchanneladmincontrols => 'About channel admin controls';
+  String get aboutchanneladmincontrols => 'ચેનલ એડમિન કંટ્રોલ વિશે';
 
   @override
-  String get howtocreatechannelpolls => 'How to create channel polls';
+  String get howtocreatechannelpolls => 'ચેનલમાં પોલ કેવી રીતે બનાવવું';
 
   @override
-  String get howtoinviteanddismisschanneladmins => 'How to invite and dismiss channel admins';
+  String get howtoinviteanddismisschanneladmins => 'ચેનલ એડમિનને આમંત્રણ આપવું અને દૂર કરવું';
 
   @override
-  String get howtodeletechannelupdates => 'How to delete channel updates';
+  String get howtodeletechannelupdates => 'ચેનલ અપડેટ કેવી રીતે કાઢી નાખવા';
 
   @override
-  String get howtoseechannelmetricsandinsights => 'How to see channel metrics and insights';
+  String get howtoseechannelmetricsandinsights => 'ચેનલ મેટ્રિક્સ અને ઇન્સાઇટ્સ કેવી રીતે જોવા';
 
   @override
-  String get howtopinchannelsandstarupdates => 'How to pin channels and star updates';
+  String get howtopinchannelsandstarupdates => 'ચેનલ પિન કરવી અને અપડેટ સ્ટાર કરવા';
 
   @override
-  String get aboutbecomingapromotedchannelinthedirectory => 'About becoming a promoted channel in the directory';
+  String get aboutbecomingapromotedchannelinthedirectory => 'ડિરેક્ટરીમાં પ્રમોટેડ ચેનલ બનવા વિશે';
 
   @override
-  String get aboutaddingsubscriptionstoyourchannel => 'About adding subscriptions to your channel';
+  String get aboutaddingsubscriptionstoyourchannel => 'ચેનલમાં સબ્સ્ક્રિપ્શન ઉમેરવા વિશે';
 
   @override
-  String get channelFollowersandViewers => 'Channel Followers and Viewers';
+  String get channelFollowersandViewers => 'ચેનલ ફોલોઅર્સ અને વ્યૂઅર્સ';
 
   @override
-  String get howtoreacttochannelupdates => 'How to react to channel updates';
+  String get howtoreacttochannelupdates => 'ચેનલ અપડેટ પર પ્રતિક્રિયા કેવી રીતે આપવી';
 
   @override
-  String get howtovoteonchannelpolls => 'How to vote on channel polls';
+  String get howtovoteonchannelpolls => 'ચેનલ પોલમાં મત આપવો';
 
   @override
-  String get howtomanagechannelnotifications => 'How to manage channel notifications';
+  String get howtomanagechannelnotifications => 'ચેનલ સૂચનાઓ કેવી રીતે મેનેજ કરવી';
 
   @override
-  String get howtolistentovoiceupdatesonWhatsAppChannels => 'How to listen to voice updates on WhatsApp Channels';
+  String get howtolistentovoiceupdatesonWhatsAppChannels => 'WhatsApp ચેનલ પર વૉઇસ અપડેટ સાંભળવા';
 
   @override
-  String get howtounfollowachannel => 'How to unfollow a channel';
+  String get howtounfollowachannel => 'ચેનલ અનફોલો કેવી રીતે કરવી';
 
   @override
-  String get howtomanageyourchannelsubscription => 'How to manage your channel subscription';
+  String get howtomanageyourchannelsubscription => 'ચેનલ સબ્સ્ક્રિપ્શન કેવી રીતે મેનેજ કરવું';
 
   @override
-  String get getStarted => 'Get Started';
+  String get getStarted => 'શરૂ કરો';
 
   @override
-  String get aboutWhatsAppChannels => 'About WhatsApp Channels';
+  String get aboutWhatsAppChannels => 'WhatsApp ચેનલ્સ વિશે';
 
   @override
-  String get aboutcreatingaWhatsAppChannel => 'About creating a WhatsApp Channel';
+  String get aboutcreatingaWhatsAppChannel => 'WhatsApp ચેનલ બનાવવા વિશે';
 
   @override
-  String get howtofindandfollowWhatsAppChannels => 'How to find and follow WhatsApp Channels';
+  String get howtofindandfollowWhatsAppChannels => 'WhatsApp ચેનલ્સ શોધવી અને ફોલો કરવી';
 
   @override
-  String get howtocreateaWhatsAppChannel => 'How to create a WhatsApp Channel';
+  String get howtocreateaWhatsAppChannel => 'WhatsApp ચેનલ કેવી રીતે બનાવવી';
 
   @override
-  String get howtoforwardfromchannelstochatorstatus => 'How to forward from channels to chat or status';
+  String get howtoforwardfromchannelstochatorstatus => 'ચેનલમાંથી ચેટ અથવા સ્ટેટસમાં ફોરવર્ડ કરવું';
 
   @override
-  String get abouthowWhatsApprecommendschannels => 'About how WhatsApp recommends channels';
+  String get abouthowWhatsApprecommendschannels => 'WhatsApp ચેનલની ભલામણ કેવી રીતે કરે છે';
 
   @override
-  String get aboutchannelsubscriptions => 'About channel subscriptions';
+  String get aboutchannelsubscriptions => 'ચેનલ સબ્સ્ક્રિપ્શન વિશે';
 
   @override
-  String get privacySafetyandSecurity => 'Privacy, Safety and Security';
+  String get privacySafetyandSecurity => 'ગોપનીયતા, સુરક્ષા અને ખાનગીપણું';
 
   @override
-  String get aboutsafetyandprivacyonchannels => 'About safety and privacy on channels';
+  String get aboutsafetyandprivacyonchannels => 'ચેનલ પર સુરક્ષા અને ગોપનીયતા વિશે';
 
   @override
-  String get howtoreportachannel => 'How to report a channel';
+  String get howtoreportachannel => 'ચેનલ રિપોર્ટ કેવી રીતે કરવી';
 
   @override
-  String get buildingPrivateSafeandSecureWhatsAppchannels => 'Building Private, Safe, and Secure WhatsApp channels';
+  String get buildingPrivateSafeandSecureWhatsAppchannels => 'ખાનગી, સુરક્ષિત WhatsApp ચેનલ્સ બનાવવા';
 
   @override
-  String get whatsAppChannelsGuidelines => 'WhatsApp Channels Guidelines';
+  String get whatsAppChannelsGuidelines => 'WhatsApp ચેનલ્સ માર્ગદર્શિકા';
 
   @override
-  String get aboutsafetyandprivacyonchannelsforadmins => 'About safety and privacy on channels for admins';
+  String get aboutsafetyandprivacyonchannelsforadmins => 'એડમિન માટે ચેનલ પર સુરક્ષા અને ગોપનીયતા';
 
   @override
-  String get aIExperiences => 'AI Experiences';
+  String get aIExperiences => 'AI અનુભવો';
 
   @override
-  String get aboutAIexperiencesavailablethroughWhatsApp => 'About AI experiences available through WhatsApp';
+  String get aboutAIexperiencesavailablethroughWhatsApp => 'WhatsApp દ્વારા ઉપલબ્ધ AI અનુભવો વિશે';
 
   @override
-  String get aboutusingAIexperiencesavailablethroughWhatsApp => 'About using AI experiences available through WhatsApp';
+  String get aboutusingAIexperiencesavailablethroughWhatsApp => 'WhatsApp દ્વારા AI અનુભવોનો ઉપયોગ કેવી રીતે કરવો';
 
   @override
-  String get aboutMetaAI => 'About Meta AI';
+  String get aboutMetaAI => 'મેટા AI વિશે';
 
   @override
-  String get howtochatwithMetaAI => 'How to chat with Meta AI';
+  String get howtochatwithMetaAI => 'મેટા AI સાથે ચેટ કેવી રીતે કરવી';
 
   @override
-  String get howtochatwithMetaAIinanindividualorgroupchat => 'How to chat with Meta AI in an individual or group chat';
+  String get howtochatwithMetaAIinanindividualorgroupchat => 'વ્યક્તિગત અથવા ગ્રુપ ચેટમાં મેટા AI સાથે વાત કરવી';
 
   @override
-  String get aboutsearchingWhatsAppandaskingMetaAI => 'About searching WhatsApp and asking Meta AI';
+  String get aboutsearchingWhatsAppandaskingMetaAI => 'WhatsApp શોધ અને મેટા AIને પૂછવા વિશે';
 
   @override
-  String get howtoaskMetaAIintheWhatsAppsearchbar => 'How to ask Meta AI in the WhatsApp search bar';
+  String get howtoaskMetaAIintheWhatsAppsearchbar => 'WhatsApp સર્ચ બારમાં મેટા AIને કેવી રીતે પૂછવું';
 
   @override
-  String get howtocreateananimatedAIimageinachat => 'How to create an animated AI image in a chat';
+  String get howtocreateananimatedAIimageinachat => 'ચેટમાં એનિમેટેડ AI ઇમેજ કેવી રીતે બનાવવી';
 
   @override
-  String get howtogenerateanAIimageforyourprofilephotoorgroupicon => 'How to generate an AI image for your profile photo or group icon';
+  String get howtogenerateanAIimageforyourprofilephotoorgroupicon => 'પ્રોફાઇલ ફોટો અથવા ગ્રુપ આઇકોન માટે AI ઇમેજ બનાવવી';
 
   @override
-  String get howtoeditAIgeneratedimages => 'How to edit AI-generated images';
+  String get howtoeditAIgeneratedimages => 'AI દ્વારા બનેલી ઇમેજ એડિટ કરવી';
 
   @override
-  String get howtoedityourphotosorimageswithMetaAI => 'How to edit your photos or images with Meta AI';
+  String get howtoedityourphotosorimageswithMetaAI => 'મેટા AI દ્વારા ફોટો/ઇમેજ એડિટ કરવા';
 
   @override
-  String get howtopromptMetaAIwithanimage => 'How to prompt Meta AI with an image';
+  String get howtopromptMetaAIwithanimage => 'ઇમેજ સાથે મેટા AIને પ્રોમ્પ્ટ કરવું';
 
   @override
-  String get howtocreateanduseAIgeneratedcallbackgrounds => 'How to create and use AI-generated call backgrounds';
+  String get howtocreateanduseAIgeneratedcallbackgrounds => 'AI દ્વારા બનેલા કૉલ બેકગ્રાઉન્ડ બનાવવા અને વાપરવા';
 
   @override
-  String get howtoshareanAIgeneratedimagetoyourstatus => 'How to share an AI-generated image to your status';
+  String get howtoshareanAIgeneratedimagetoyourstatus => 'AI ઇમેજને સ્ટેટસમાં શેર કરવી';
 
   @override
-  String get aboutAIs => 'About AIs';
+  String get aboutAIs => 'AI વિશે';
 
   @override
-  String get howtochatwithAIs => 'How to chat with AIs';
+  String get howtochatwithAIs => 'AI સાથે ચેટ કેવી રીતે કરવી';
 
   @override
-  String get howtoreportanAI => 'How to report an AI';
+  String get howtoreportanAI => 'AI રિપોર્ટ કેવી રીતે કરવું';
 
   @override
-  String get aboutcreatinganAIthroughMetaAIStudio => 'About creating an AI through Meta AI Studio';
+  String get aboutcreatinganAIthroughMetaAIStudio => 'Meta AI Studio દ્વારા AI બનાવવા વિશે';
 
   @override
-  String get howtocreateanAIthroughMetaAIstudio => 'How to create an AI through Meta AI studio';
+  String get howtocreateanAIthroughMetaAIstudio => 'Meta AI Studioમાં AI કેવી રીતે બનાવવું';
 
   @override
-  String get howtoedityourAIthroughMetaAIStudio => 'How to edit your AI through Meta AI Studio';
+  String get howtoedityourAIthroughMetaAIStudio => 'Meta AI Studioમાં તમારું AI એડિટ કરવું';
 
   @override
-  String get howtodeleteyourAIthroughMetaAIStudio => 'How to delete your AI through Meta AI Studio';
+  String get howtodeleteyourAIthroughMetaAIStudio => 'Meta AI Studioમાં AI કાઢી નાખવું';
 
   @override
-  String get aboutAIstickers => 'About AI stickers';
+  String get aboutAIstickers => 'AI સ્ટિકર્સ વિશે';
 
   @override
-  String get howtocreateandshareAIstickers => 'How to create and share AI stickers';
+  String get howtocreateandshareAIstickers => 'AI સ્ટિકર્સ બનાવીને શેર કરવા';
 
   @override
-  String get abouttheavailbilityofAIexperiencesavailablethroughWhatsApp => 'About the availbility of AI experiences available through WhatsApp';
+  String get abouttheavailbilityofAIexperiencesavailablethroughWhatsApp => 'WhatsApp દ્વારા ઉપલબ્ધ AI અનુભવોની ઉપલબ્ધતા વિશે';
 
   @override
-  String get backupandRestore => 'Back up and Restore';
+  String get backupandRestore => 'બેકઅપ અને રિસ્ટોર';
 
   @override
-  String get howtobackupyourchathistory => 'How to back up your chat history';
+  String get howtobackupyourchathistory => 'ચેટ ઇતિહાસનું બેકઅપ કેવી રીતે લેવું';
 
   @override
-  String get howtorestoreyourchathistory => 'How to restore your chat history';
+  String get howtorestoreyourchathistory => 'ચેટ ઇતિહાસ કેવી રીતે પુનઃસ્થાપિત કરવો';
 
   @override
-  String get howtotransferyourchathistory => 'How to transfer your chat history';
+  String get howtotransferyourchathistory => 'ચેટ ઇતિહાસ કેવી રીતે ટ્રાન્સફર કરવો';
 
   @override
-  String get howtomovechatsfromanAndroiddevicetoaniPhone => 'How to move chats from an Android device to an iPhone';
+  String get howtomovechatsfromanAndroiddevicetoaniPhone => 'એન્ડ્રોઇડથી iPhoneમાં ચેટ ટ્રાન્સફર કરવી';
 
   @override
-  String get howtomovechatsfromaniPhonetoanAndroiddevice => 'How to move chats from an iPhone to an Android device';
+  String get howtomovechatsfromaniPhonetoanAndroiddevice => 'iPhoneથી એન્ડ્રોઇડમાં ચેટ ટ્રાન્સફર કરવી';
 
   @override
-  String get aboutendtoendencryptedbackup => 'About end-to-end encrypted backup';
+  String get aboutendtoendencryptedbackup => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ બેકઅપ વિશે';
 
   @override
-  String get aboutGoogleAccountbackups => 'About Google Account backups';
+  String get aboutGoogleAccountbackups => 'Google એકાઉન્ટ બેકઅપ વિશે';
 
   @override
-  String get howtoturnoffWhatsAppinyourdevicebackup => 'How to turn off WhatsApp in your device backup';
+  String get howtoturnoffWhatsAppinyourdevicebackup => 'ડિવાઇસ બેકઅપમાં WhatsApp બંધ કરવું';
 
   @override
-  String get troubleshooting => 'Troubleshooting';
+  String get troubleshooting => 'સમસ્યા નિવારણ';
 
   @override
-  String get cantsendorreceivemessages => 'Can\'t send or receive messages';
+  String get cantsendorreceivemessages => 'સંદેશ મોકલી/મેળવી શકતા નથી';
 
   @override
-  String get aboutWaitingforthismessageThismaytakeawhile => 'About \'Waiting for this message. This may take a while.\'';
+  String get aboutWaitingforthismessageThismaytakeawhile => '\'આ સંદેશની રાહ જોઈ રહ્યા છીએ. થોડો સમય લાગી શકે છે.\' વિશે';
 
   @override
-  String get seeingWaitingforthismessageCheckyourphone => 'Seeing \'Waiting for this message. Check your phone\'';
+  String get seeingWaitingforthismessageCheckyourphone => '\'આ સંદેશની રાહ જોઈ રહ્યા છીએ. ફોન તપાસો\' દેખાય છે';
 
   @override
-  String get fixincorrecttimestampsonmessages => 'Fix incorrect timestamps on messages';
+  String get fixincorrecttimestampsonmessages => 'સંદેશ પર ખોટો સમય બતાવતો હોય તો સુધારવો';
 
   @override
-  String get cantrememberpasswordforencryptedbackup => 'Can\'t remember password for encrypted backup';
+  String get cantrememberpasswordforencryptedbackup => 'એન્ક્રિપ્ટેડ બેકઅપનો પાસવર્ડ યાદ નથી';
 
   @override
-  String get cantbackuporrestoreyourchathistory => 'Can\'t back up or restore your chat history';
+  String get cantbackuporrestoreyourchathistory => 'ચેટ ઇતિહાસનું બેકઅપ/રિસ્ટોર નથી થતું';
 
   @override
-  String get cantmovechatsfromanAndroiddevicetoaniPhone => 'Can\'t move chats from an Android device to an iPhone';
+  String get cantmovechatsfromanAndroiddevicetoaniPhone => 'એન્ડ્રોઇડથી iPhoneમાં ચેટ ટ્રાન્સફર નથી થતી';
 
   @override
-  String get cantmovechatsfromaniPhonetoanAndroiddevice => 'Can\'t move chats from an iPhone to an Android device';
+  String get cantmovechatsfromaniPhonetoanAndroiddevice => 'iPhoneથી એન્ડ્રોઇડમાં ચેટ ટ્રાન્સફર નથી થતી';
 
   @override
-  String get canttransferchathistory => 'Can\'t  transfer chat history';
+  String get canttransferchathistory => 'ચેટ ઇતિહાસ ટ્રાન્સફર નથી થતો';
 
   @override
-  String get cantchangeorassignagroupadmin => 'Can\'t change or assign a group admin';
+  String get cantchangeorassignagroupadmin => 'ગ્રુપ એડમિન બદલી/નિયુક્ત કરી શકતા નથી';
 
   @override
-  String get cantdownloadopenorsendmediafiles => 'Can\'t download, open, or send media files';
+  String get cantdownloadopenorsendmediafiles => 'મીડિયા ફાઇલ ડાઉનલોડ/ખોલી/મોકલી શકતા નથી';
 
   @override
-  String get canthearvoicemessagesstatusaudioorvideos => 'Can\'t hear voice messages, status audio, or videos';
+  String get canthearvoicemessagesstatusaudioorvideos => 'વૉઇસ મેસેજ, સ્ટેટસ ઑડિયો કે વીડિયો સાંભળી શકતા નથી';
 
   @override
-  String get cantrecordvoicemessages => 'Can\'t record voice messages';
+  String get cantrecordvoicemessages => 'વૉઇસ મેસેજ રેકોર્ડ કરી શકતા નથી';
 
   @override
-  String get seeingblurryphotos => 'Seeing blurry photos';
+  String get seeingblurryphotos => 'અસ્પષ્ટ ફોટા દેખાય છે';
 
   @override
-  String get cantsendlongervideos => 'Can\'t send longer videos';
+  String get cantsendlongervideos => 'લાંબા વીડિયો મોકલી શકતા નથી';
 
   @override
-  String get whatdoesInviteviaLinkunavailablemean => 'What does \'Invite via Link unavailable\' mean?';
+  String get whatdoesInviteviaLinkunavailablemean => '\'Invite via Link unavailable\' નો અર્થ શું?';
 
   @override
-  String get cantjoingroupwithinvitelink => 'Can\'t join group with invite link';
+  String get cantjoingroupwithinvitelink => 'ઇન્વાઇટ લિંકથી ગ્રુપમાં જોડાઈ શકતા નથી';
 
   @override
-  String get howtoedityourprofile => 'How to edit your profile';
+  String get howtoedityourprofile => 'પ્રોફાઇલ કેવી રીતે એડિટ કરવી';
 
   @override
-  String get howtofreeupstorageonWhatsApp => 'How to free up storage on WhatsApp';
+  String get howtofreeupstorageonWhatsApp => 'WhatsAppમાં સ્ટોરેજ કેવી રીતે મુક્ત કરવું';
 
   @override
-  String get howtochnageyourringtoneforWhatsApp => 'How to chnage your ringtone for WhatsApp';
+  String get howtochnageyourringtoneforWhatsApp => 'WhatsAppની રિંગટોન કેવી રીતે બદલવી';
 
   @override
-  String get howtousedarkmode => 'How to use dark mode';
+  String get howtousedarkmode => 'ડાર્ક મોડ કેવી રીતે વાપરવો';
 
   @override
-  String get howtochangefontsize => 'How to change font size';
+  String get howtochangefontsize => 'ફોન્ટ સાઇઝ કેવી રીતે બદલવી';
 
   @override
-  String get individualandGroupChats => 'Individual and Group Chats';
+  String get individualandGroupChats => 'વ્યક્તિગત અને ગ્રુપ ચેટ';
 
   @override
-  String get howtoreplytoamessage => 'How to reply to a message';
+  String get howtoreplytoamessage => 'સંદેશનો જવાબ કેવી રીતે આપવો';
 
   @override
-  String get howtodeletechats => 'How to delete chats';
+  String get howtodeletechats => 'ચેટ કેવી રીતે કાઢી નાખવી';
 
   @override
-  String get howtoclearchats => 'How to clear chats';
+  String get howtoclearchats => 'ચેટ કેવી રીતે સાફ કરવી';
 
   @override
-  String get howtopinorunpinachat => 'How to pin or unpin a chat';
+  String get howtopinorunpinachat => 'ચેટ પિન/અનપિન કેવી રીતે કરવી';
 
   @override
-  String get howtoeditfavoritesfromtheChatstab => 'How to edit favorites from the Chats tab';
+  String get howtoeditfavoritesfromtheChatstab => 'ચેટ ટેબમાંથી ફેવરિટ એડિટ કરવા';
 
   @override
-  String get aboutlists => 'About lists';
+  String get aboutlists => 'લિસ્ટ વિશે';
 
   @override
-  String get howtouselists => 'How to use lists';
+  String get howtouselists => 'લિસ્ટ કેવી રીતે વાપરવી';
 
   @override
-  String get howtouseclicktochat => 'How to use click to chat';
+  String get howtouseclicktochat => 'ક્લિક ટુ ચેટ કેવી રીતે વાપરવું';
 
   @override
-  String get howtodeletemessages => 'How to delete messages';
+  String get howtodeletemessages => 'સંદેશ કેવી રીતે કાઢી નાખવા';
 
   @override
-  String get howtoforwardmessages => 'How to forward messages';
+  String get howtoforwardmessages => 'સંદેશ કેવી રીતે ફોરવર્ડ કરવા';
 
   @override
-  String get aboutforwardinglimits => 'About forwarding limits';
+  String get aboutforwardinglimits => 'ફોરવર્ડિંગ મર્યાદા વિશે';
 
   @override
-  String get howtopinamessages => 'How to pin a messages';
+  String get howtopinamessages => 'સંદેશ પિન કરવા';
 
   @override
-  String get howtomessageyourself => 'How to message yourself';
+  String get howtomessageyourself => 'પોતાને સંદેશ મોકલવો';
 
   @override
-  String get howtoformatyourmessages => 'How to format your messages';
+  String get howtoformatyourmessages => 'સંદેશ ફોર્મેટ કેવી રીતે કરવા';
 
   @override
-  String get howtochangeyourapporchattheme => 'How to change your app or chat theme';
+  String get howtochangeyourapporchattheme => 'ઍપ અથવા ચેટ થીમ કેવી રીતે બદલવી';
 
   @override
-  String get aboutdisappearingmessages => 'About disappearing messages';
+  String get aboutdisappearingmessages => 'ગાયબ થતા સંદેશ વિશે';
 
   @override
-  String get howtoturndisappearingmessagesonoroff => 'How to turn disappearing messages on or off';
+  String get howtoturndisappearingmessagesonoroff => 'ગાયબ થતા સંદેશ ચાલુ/બંધ કરવા';
 
   @override
-  String get howtoturndisappearingmessagesonoroffinagroup => 'How to turn disappearing messages on or off in a group';
+  String get howtoturndisappearingmessagesonoroffinagroup => 'ગ્રુપમાં ગાયબ થતા સંદેશ ચાલુ/બંધ કરવા';
 
   @override
-  String get aboutviewonce => 'About view once';
+  String get aboutviewonce => 'વન ટાઇમ વ્યૂ વિશે';
 
   @override
-  String get howtosendandopenviewoncemediaandvoicemessages => 'How to send and open view once media and voice messages';
+  String get howtosendandopenviewoncemediaandvoicemessages => 'વન ટાઇમ મીડિયા અને વૉઇસ મેસેજ મોકલવા/જોવા';
 
   @override
-  String get howtocreateandinviteintoagroup => 'How to create and invite into a group';
+  String get howtocreateandinviteintoagroup => 'ગ્રુપ બનાવીને આમંત્રણ આપવું';
 
   @override
-  String get howtoarchiveorunarchiveachatorgroup => 'How to archive or unarchive a chat or group';
+  String get howtoarchiveorunarchiveachatorgroup => 'ચેટ/ગ્રુપ આર્કાઇવ/અનઆર્કાઇવ કરવું';
 
   @override
-  String get howtochangegroupadminsettings => 'How to change group admin settings';
+  String get howtochangegroupadminsettings => 'ગ્રુપ એડમિન સેટિંગ્સ બદલવી';
 
   @override
-  String get turnchatlockonoroff => 'Turn chat lock on or off';
+  String get turnchatlockonoroff => 'ચેટ લૉક ચાલુ/બંધ કરો';
 
   @override
-  String get howtoexitanddeletegroupsasanadmin => 'How to exit and delete groups as an admin';
+  String get howtoexitanddeletegroupsasanadmin => 'એડમિન તરીકે ગ્રુપ છોડવું અને કાઢી નાખવું';
 
   @override
-  String get howtoexitagroupasamember => 'How to exit a group as a member';
+  String get howtoexitagroupasamember => 'સભ્ય તરીકે ગ્રુપ છોડવું';
 
   @override
-  String get howtoaddandremovegroupmembers => 'How to add and remove group members';
+  String get howtoaddandremovegroupmembers => 'ગ્રુપ સભ્ય ઉમેરવા/દૂર કરવા';
 
   @override
-  String get howtomakechangestogroupsr => 'How to make changes to groupsr';
+  String get howtomakechangestogroupsr => 'ગ્રુપમાં ફેરફાર કેવી રીતે કરવા';
 
   @override
-  String get howtomentioninagroup => 'How to mention in a group';
+  String get howtomentioninagroup => 'ગ્રુપમાં મેન્શન કરવું';
 
   @override
-  String get howtomanagegroupadmins => 'How to manage group admins';
+  String get howtomanagegroupadmins => 'ગ્રુપ એડમિન મેનેજ કરવા';
 
   @override
-  String get howtorejoinagroupchat => 'How to rejoin a group chat';
+  String get howtorejoinagroupchat => 'ગ્રુપ ચેટમાં ફરી જોડાવું';
 
   @override
-  String get aboutgroupjoinrequests => 'About group join requests';
+  String get aboutgroupjoinrequests => 'ગ્રુપ જોડાવા માટેની વિનંતી વિશે';
 
   @override
-  String get howtocreateandediteventsingroups => 'How to create and edit events in groups';
+  String get howtocreateandediteventsingroups => 'ગ્રુપમાં ઇવેન્ટ બનાવવા અને એડિટ કરવા';
 
   @override
-  String get howtorespondtoevents => 'How to respond to events';
+  String get howtorespondtoevents => 'ઇવેન્ટનો જવાબ આપવો';
 
   @override
-  String get howtousepolls => 'How to use polls';
+  String get howtousepolls => 'પોલ કેવી રીતે વાપરવા';
 
   @override
-  String get howtouselivelocation => 'How to use live location';
+  String get howtouselivelocation => 'લાઇવ લોકેશન કેવી રીતે વાપરવું';
 
   @override
-  String get howtosearchWhatsApp => 'How to search WhatsApp';
+  String get howtosearchWhatsApp => 'WhatsAppમાં શોધ કેવી રીતે કરવી';
 
   @override
-  String get howtocheckreadreceipts => 'How to check read receipts';
+  String get howtocheckreadreceipts => 'રીડ રસીપ્ટ કેવી રીતે જોવા';
 
   @override
-  String get howtousebroadcastlists => 'How to use broadcast lists';
+  String get howtousebroadcastlists => 'બ્રોડકાસ્ટ લિસ્ટ કેવી રીતે વાપરવી';
 
   @override
-  String get media => 'Media';
+  String get media => 'મીડિયા';
 
   @override
-  String get howtosendmediacontactsorlocation => 'How to send media, contacts, or location';
+  String get howtosendmediacontactsorlocation => 'મીડિયા, કોન્ટેક્ટ કે લોકેશન મોકલવું';
 
   @override
-  String get findingmediafiles => 'Finding media files';
+  String get findingmediafiles => 'મીડિયા ફાઇલ શોધવી';
 
   @override
-  String get howtoforwardmedia => 'How to forward media';
+  String get howtoforwardmedia => 'મીડિયા ફોરવર્ડ કરવું';
 
   @override
-  String get howtoeditphotosandvideos => 'How to edit photos and videos';
+  String get howtoeditphotosandvideos => 'ફોટો અને વીડિયો એડિટ કરવા';
 
   @override
-  String get howtostopWhatsAppfromsavingmediatoyourphone => 'How to stop WhatsApp from saving media to your phone';
+  String get howtostopWhatsAppfromsavingmediatoyourphone => 'WhatsAppને ફોનમાં મીડિયા સેવ થતું અટકાવવું';
 
   @override
-  String get howtousestickers => 'How to use stickers';
+  String get howtousestickers => 'સ્ટિકર્સ કેવી રીતે વાપરવા';
 
   @override
-  String get howtocreateandsharecustomstickersandstickerpacks => 'How to create and share custom stickers and sticker packs';
+  String get howtocreateandsharecustomstickersandstickerpacks => 'કસ્ટમ સ્ટિકર અને પેક બનાવીને શેર કરવા';
 
   @override
-  String get howtocreateavatars => 'How to create avatars';
+  String get howtocreateavatars => 'એવાટાર કેવી રીતે બનાવવા';
 
   @override
-  String get howtouseavatars => 'How to use avatars';
+  String get howtouseavatars => 'એવાટાર કેવી રીતે વાપરવા';
 
   @override
-  String get howtocreateGIFs => 'How to create GIFs';
+  String get howtocreateGIFs => 'GIF બનાવવા';
 
   @override
-  String get howtosendGIFs => 'How to send GIFs';
+  String get howtosendGIFs => 'GIF મોકલવા';
 
   @override
-  String get howtouseemoji => 'How to use emoji';
+  String get howtouseemoji => 'ઇમોજી કેવી રીતે વાપરવા';
 
   @override
-  String get howtoconfigureautodownload => 'How to configure auto-download';
+  String get howtoconfigureautodownload => 'ઑટો-ડાઉનલોડ કેવી રીતે સેટ કરવું';
 
   @override
-  String get notifications => 'Notifications';
+  String get notifications => 'સૂચનાઓ';
 
   @override
-  String get howtomanageyournotifications => 'How to manage your notifications';
+  String get howtomanageyournotifications => 'સૂચનાઓ કેવી રીતે મેનેજ કરવી';
 
   @override
-  String get howtomanageconversationtones => 'How to manage conversation tones';
+  String get howtomanageconversationtones => 'વાતચીત ટોન મેનેજ કરવા';
 
   @override
-  String get howtochangeyourringtoneforWhatsApp => 'How to change your ringtone for WhatsApp';
+  String get howtochangeyourringtoneforWhatsApp => 'WhatsAppની રિંગટોન બદલવી';
 
   @override
-  String get howtomuteorunmuteindividualorgroupchatnotifications => 'How to mute or unmute individual or group chat notifications';
+  String get howtomuteorunmuteindividualorgroupchatnotifications => 'વ્યક્તિગત/ગ્રુપ ચેટ સૂચનાઓ મ્યૂટ/અનમ્યૂટ કરવી';
 
   @override
-  String get cantseeorhearnotifications => 'Can\'t see or hear notifications';
+  String get cantseeorhearnotifications => 'સૂચનાઓ દેખાતી/સંભળાતી નથી';
 
   @override
-  String get troubleshootproblemswithnotificationbadges => 'Troubleshoot problems with notification badges';
+  String get troubleshootproblemswithnotificationbadges => 'નોટિફિકેશન બેજ સમસ્યા ઉકેલવી';
 
   @override
-  String get cantseenotificationcount => 'Can\'t see notification count';
+  String get cantseenotificationcount => 'નોટિફિકેશન કાઉન્ટ દેખાતું નથી';
 
   @override
-  String get videoNotes => 'Video Notes';
+  String get videoNotes => 'વીડિયો નોટ્સ';
 
   @override
-  String get aboutvideonotes => 'About video notes';
+  String get aboutvideonotes => 'વીડિયો નોટ્સ વિશે';
 
   @override
-  String get howtosendvideonotes => 'How to send video notes';
+  String get howtosendvideonotes => 'વીડિયો નોટ મોકલવા';
 
   @override
-  String get howtoplayvideonotes => 'How to play video notes';
+  String get howtoplayvideonotes => 'વીડિયો નોટ વગાડવા';
 
   @override
-  String get howtopreviewvideonotes => 'How to preview video notes';
+  String get howtopreviewvideonotes => 'વીડિયો નોટનું પૂર્વાવલોકન કરવું';
 
   @override
-  String get howtodeleteavideonote => 'How to delete a video note';
+  String get howtodeleteavideonote => 'વીડિયો નોટ કાઢી નાખવું';
 
   @override
-  String get voiceMessagesandChats => 'Voice Messages and Chats';
+  String get voiceMessagesandChats => 'વૉઇસ મેસેજ અને ચેટ';
 
   @override
-  String get howtosendvoicemessages => 'How to send voice messages';
+  String get howtosendvoicemessages => 'વૉઇસ મેસેજ મોકલવા';
 
   @override
-  String get howtoplayvoicemessages => 'How to play voice messages';
+  String get howtoplayvoicemessages => 'વૉઇસ મેસેજ વગાડવા';
 
   @override
-  String get howtoturnvoicemessagetranscriptsonoroff => 'How to turn voice message transcripts on or off';
+  String get howtoturnvoicemessagetranscriptsonoroff => 'વૉઇસ મેસેજ ટ્રાન્સક્રિપ્ટ ચાલુ/બંધ કરવા';
 
   @override
-  String get howtopreviewavoicemessage => 'How to preview a voice message';
+  String get howtopreviewavoicemessage => 'વૉઇસ મેસેજનું પૂર્વાવલોકન કરવું';
 
   @override
-  String get howtodeletevoicemessages => 'How to delete voice messages';
+  String get howtodeletevoicemessages => 'વૉઇસ મેસેજ કાઢી નાખવા';
 
   @override
-  String get aboutvoicechats => 'About voice chats';
+  String get aboutvoicechats => 'વૉઇસ ચેટ વિશે';
 
   @override
-  String get howtostartavoicechat => 'How to start a voice chat';
+  String get howtostartavoicechat => 'વૉઇસ ચેટ શરૂ કરવી';
 
   @override
-  String get admin => 'Admin';
+  String get admin => 'એડમિન';
 
   @override
-  String get howtoaddorsuggestagrouptoacommunity => 'How to add or suggest a group to a community';
+  String get howtoaddorsuggestagrouptoacommunity => 'કોમ્યુનિટીમાં ગ્રુપ ઉમેરવું કે સૂચવવું';
 
   @override
-  String get howtomanagecommunityadmins => 'How to manage community admins';
+  String get howtomanagecommunityadmins => 'કોમ્યુનિટી એડમિન મેનેજ કરવા';
 
   @override
-  String get howtoinvitemembersintoacommunity => 'How to invite members into a community';
+  String get howtoinvitemembersintoacommunity => 'કોમ્યુનિટીમાં સભ્યોને આમંત્રણ આપવું';
 
   @override
-  String get howtomakechangestoacommunity => 'How to make changes to a community';
+  String get howtomakechangestoacommunity => 'કોમ્યુનિટીમાં ફેરફાર કરવા';
 
   @override
-  String get howtocreateandcustomizeeventsincommunitygroups => 'How to create and customize events in community groups';
+  String get howtocreateandcustomizeeventsincommunitygroups => 'કોમ્યુનિટી ગ્રુપમાં ઇવેન્ટ બનાવવા અને કસ્ટમાઇઝ કરવા';
 
   @override
-  String get howtoremoveamemberfromacommunity => 'How to remove a member from a community';
+  String get howtoremoveamemberfromacommunity => 'કોમ્યુનિટીમાંથી સભ્ય દૂર કરવો';
 
   @override
-  String get howtodeactivateacommunity => 'How to deactivate a community';
+  String get howtodeactivateacommunity => 'કોમ્યુનિટી નિષ્ક્રિય કરવું';
 
   @override
-  String get aboutcommunities => 'About communities';
+  String get aboutcommunities => 'કોમ્યુનિટી વિશે';
 
   @override
-  String get howtocreateacommunity => 'How to create a community';
+  String get howtocreateacommunity => 'કોમ્યુનિટી કેવી રીતે બનાવવી';
 
   @override
-  String get aboutcommunityannouncements => 'About community announcements';
+  String get aboutcommunityannouncements => 'કોમ્યુનિટી જાહેરાત વિશે';
 
   @override
-  String get aboutgeneralchatforcommunities => 'About general chat for communities';
+  String get aboutgeneralchatforcommunities => 'કોમ્યુનિટી માટે જનરલ ચેટ વિશે';
 
   @override
-  String get howtokeepyourgroupsandcommunitysafe => 'How to keep your groups and community safe';
+  String get howtokeepyourgroupsandcommunitysafe => 'તમારા ગ્રુપ અને કોમ્યુનિટીને સુરક્ષિત કેવી રીતે રાખવા';
 
   @override
-  String get aboutbuildingprivatesafeandsecurecommunitiesonWhatsApp => 'About building private, safe, and secure communities on WhatsApp';
+  String get aboutbuildingprivatesafeandsecurecommunitiesonWhatsApp => 'WhatsApp પર ખાનગી, સુરક્ષિત કોમ્યુનિટી બનાવવા વિશે';
 
   @override
-  String get whatdoesThiscommunityisnolongeravailablemean => 'What does \'This community is no longer available\' mean?';
+  String get whatdoesThiscommunityisnolongeravailablemean => '\'આ કોમ્યુનિટી હવે ઉપલબ્ધ નથી\' નો અર્થ શું?';
 
   @override
-  String get member => 'Member';
+  String get member => 'સભ્ય';
 
   @override
-  String get howtofindandjoineventsinacommunitygroup => 'How to find and join events in a community group';
+  String get howtofindandjoineventsinacommunitygroup => 'કોમ્યુનિટી ગ્રુપમાં ઇવેન્ટ શોધીને જોડાવું';
 
   @override
-  String get howtojoinagroupinacommunity => 'How to join a group in a community';
+  String get howtojoinagroupinacommunity => 'કોમ્યુનિટીમાં ગ્રુપમાં જોડાવું';
 
   @override
-  String get howtoexitacommunity => 'How to exit a community';
+  String get howtoexitacommunity => 'કોમ્યુનિટી છોડવું';
 
   @override
-  String get howtorejoinacommunity => 'How to rejoin a community';
+  String get howtorejoinacommunity => 'કોમ્યુનિટીમાં ફરી જોડાવું';
 
   @override
-  String get discover => 'Discover';
+  String get discover => 'શોધો';
 
   @override
-  String get aboutadsinWhatsAppStatusandChannels => 'About ads in WhatsApp Status and Channels';
+  String get aboutadsinWhatsAppStatusandChannels => 'WhatsApp સ્ટેટસ અને ચેનલમાં જાહેરાત વિશે';
 
   @override
-  String get howtoviewandadjustyouradpreferencesinWhatsAppStatusorChannles => 'How to view and adjust your ad preferences in WhatsApp Status or Channles';
+  String get howtoviewandadjustyouradpreferencesinWhatsAppStatusorChannles => 'સ્ટેટસ/ચેનલમાં જાહેરાત પસંદગી જોવી અને બદલવી';
 
   @override
-  String get howtohideorreportanadinWhatsAppStatusorChannels => 'How to hide or report an ad in WhatsApp Status or Channels';
+  String get howtohideorreportanadinWhatsAppStatusorChannels => 'સ્ટેટસ/ચેનલમાં જાહેરાત છુપાવવી કે રિપોર્ટ કરવી';
 
   @override
-  String get howtosearchforbusinessesinsideWhatsApp => 'How to search for businesses inside WhatsApp';
+  String get howtosearchforbusinessesinsideWhatsApp => 'WhatsAppમાં બિઝનેસ શોધવા';
 
   @override
-  String get howtoselectalocationwhenlookingforbusinesses => 'How to select a location when looking for businesses';
+  String get howtoselectalocationwhenlookingforbusinesses => 'બિઝનેસ શોધતી વખતે લોકેશન પસંદ કરવું';
 
   @override
-  String get howtoscanabusinessWhatsAppQRcode => 'How to scan a business\' WhatsApp QR code';
+  String get howtoscanabusinessWhatsAppQRcode => 'બિઝનેસનો WhatsApp QR કોડ સ્કેન કરવો';
 
   @override
-  String get howyoursearchhistoryishandledintheDiscoverbusinessesfeature => 'How your search history is handled in the Discover businesses feature';
+  String get howyoursearchhistoryishandledintheDiscoverbusinessesfeature => 'Discover બિઝનેસ ફીચરમાં સર્ચ હિસ્ટ્રી કેવી રીતે હેન્ડલ થાય છે';
 
   @override
-  String get aboutconnectingwithbusinesses => 'About connecting with businesses';
+  String get aboutconnectingwithbusinesses => 'બિઝનેસ સાથે કનેક્ટ થવા વિશે';
 
   @override
-  String get controlswhencommunicatingwithbusinesses => 'Controls when communicating with businesses';
+  String get controlswhencommunicatingwithbusinesses => 'બિઝનેસ સાથે વાતચીતના નિયંત્રણ';
 
   @override
-  String get aboutverifiedbusinessaccounts => 'About verified business accounts';
+  String get aboutverifiedbusinessaccounts => 'વેરિફાઇડ બિઝનેસ એકાઉન્ટ વિશે';
 
   @override
-  String get businessaccountbecomesastandardaccount => 'Business account becomes a standard account';
+  String get businessaccountbecomesastandardaccount => 'બિઝનેસ એકાઉન્ટ સામાન્ય એકાઉન્ટ બને છે';
 
   @override
-  String get aboutsupportforcustomerissues => 'About support for customer issues';
+  String get aboutsupportforcustomerissues => 'ગ્રાહક સમસ્યાઓ માટે સપોર્ટ વિશે';
 
   @override
-  String get aboutrespondingtosurveysaboutbusinessmessages => 'About responding to surveys about business messages';
+  String get aboutrespondingtosurveysaboutbusinessmessages => 'બિઝનેસ મેસેજ વિશે સર્વેનો જવાબ આપવો';
 
   @override
-  String get aboutgroupchatswithmultiplerepresntativesofabusiness => 'About group chats with multiple represntatives of a business';
+  String get aboutgroupchatswithmultiplerepresntativesofabusiness => 'એક જ બિઝનેસના બહુવિધ પ્રતિનિધિઓ સાથે ગ્રુપ ચેટ વિશે';
 
   @override
-  String get howtoblockorunblockabusiness => 'How to block or unblock a business';
+  String get howtoblockorunblockabusiness => 'બિઝનેસ બ્લૉક/અનબ્લૉક કરવું';
 
   @override
-  String get howtoreportacatalogorbusiness => 'How to report a catalog or business';
+  String get howtoreportacatalogorbusiness => 'કેટલોગ કે બિઝનેસ રિપોર્ટ કરવું';
 
   @override
-  String get privacyandsecurityforbusinessmessages => 'Privacy and security for business messages';
+  String get privacyandsecurityforbusinessmessages => 'બિઝનેસ મેસેજ માટે ગોપનીયતા અને સુરક્ષા';
 
   @override
-  String get aboutsharingyourinformationwithbusinessesonWhatsApp => 'About sharing your information with businesses on WhatsApp';
+  String get aboutsharingyourinformationwithbusinessesonWhatsApp => 'WhatsApp પર બિઝનેસ સાથે માહિતી શેર કરવા વિશે';
 
   @override
-  String get aboutsecuritycodesthatautomaticallyfillonWhatsApp => 'About security codes that automatically fill on WhatsApp';
+  String get aboutsecuritycodesthatautomaticallyfillonWhatsApp => 'WhatsApp પર આપમેળે ભરાતા સુરક્ષા કોડ વિશે';
 
   @override
-  String get aboutreceivingsecuritycodesonlinkeddevices => 'About receiving security codes on linked devices';
+  String get aboutreceivingsecuritycodesonlinkeddevices => 'લિંક્ડ ડિવાઇસ પર સુરક્ષા કોડ મેળવવા વિશે';
 
   @override
-  String get cantreceivesecuritycodesfromotherappsonWhatsApp => 'Can\'t receive security codes from other apps on WhatsApp';
+  String get cantreceivesecuritycodesfromotherappsonWhatsApp => 'બીજી ઍપમાંથી WhatsApp પર સુરક્ષા કોડ નથી મળતા';
 
   @override
-  String get aboutinteractionswithbusinesschatsthatincludeoffersandannouncements => 'About interactions with business chats that include offers and announcements';
+  String get aboutinteractionswithbusinesschatsthatincludeoffersandannouncements => 'ઑફર અને જાહેરાત સાથેની બિઝનેસ ચેટ વિશે';
 
   @override
-  String get aboutcomplaintsraisedbyWhatsAppusersinrelationtothegoodsorservicessoldbyBusinessesinindia => 'About complaints raised by WhatsApp users in relation to the goods or services sold by Businesses in india';
+  String get aboutcomplaintsraisedbyWhatsAppusersinrelationtothegoodsorservicessoldbyBusinessesinindia => 'ભારતમાં બિઝનેસ દ્વારા વેચાતા માલ/સેવા અંગે WhatsApp યુઝરની ફરિયાદ વિશે';
 
   @override
-  String get shop => 'Shop';
+  String get shop => 'ખરીદી';
 
   @override
-  String get aboutshoppingonWhatsApp => 'About shopping on WhatsApp';
+  String get aboutshoppingonWhatsApp => 'WhatsApp પર ખરીદી વિશે';
 
   @override
-  String get howtoshopwhilechattingwithbusinesses => 'How to shop while chatting with businesses';
+  String get howtoshopwhilechattingwithbusinesses => 'બિઝનેસ સાથે ચેટ કરતી વખતે ખરીદી કેવી રીતે કરવી';
 
   @override
-  String get aboutusingtheshoppingbutton => 'About using the shopping button';
+  String get aboutusingtheshoppingbutton => 'શોપિંગ બટન વાપરવા વિશે';
 
   @override
-  String get howtoviewacatalog => 'How to view a catalog';
+  String get howtoviewacatalog => 'કેટલોગ કેવી રીતે જોવું';
 
   @override
-  String get howtoshareproductsorservicesfromacatalog => 'How to share products or services from a catalog';
+  String get howtoshareproductsorservicesfromacatalog => 'કેટલોગમાંથી પ્રોડક્ટ/સેવા શેર કરવી';
 
   @override
-  String get aboutsharingyourcatalogtoyourWhatsAppbusinessstatus => 'About sharing your catalog to your WhatsApp business status';
+  String get aboutsharingyourcatalogtoyourWhatsAppbusinessstatus => 'WhatsApp Business સ્ટેટસમાં કેટલોગ શેર કરવા વિશે';
 
   @override
-  String get howtoplaceanorderusingcart => 'How to place an order using cart';
+  String get howtoplaceanorderusingcart => 'કાર્ટ વડે ઓર્ડર કેવી રીતે આપવો';
 
   @override
-  String get aboutbuyinggoodsorservicesfrombusinesses => 'About buying goods or services from businesses';
+  String get aboutbuyinggoodsorservicesfrombusinesses => 'બિઝનેસ પાસેથી માલ/સેવા ખરીદવા વિશે';
+
+  @override
+  String get downloadandinstallation => 'ડાઉનલોડ અને ઇન્સ્ટોલેશન';
+
+  @override
+  String get howtodownloadoruninstallWhatsApp => 'WhatsApp ડાઉનલોડ/અનઇન્સ્ટોલ કેવી રીતે કરવું';
+
+  @override
+  String get aboutsupportedoperatingsystems => 'સપોર્ટેડ ઑપરેટિંગ સિસ્ટમ વિશે';
+
+  @override
+  String get aboutsupporteddevices => 'સપોર્ટેડ ડિવાઇસ વિશે';
+
+  @override
+  String get aboutrootedphonesandcustomROMs => 'રૂટેડ ફોન અને કસ્ટમ ROM વિશે';
+
+  @override
+  String get endingsupportforWhatsApponKaiOS => 'KaiOS પર WhatsAppનો સપોર્ટ બંધ થવો';
+
+  @override
+  String get contacts => 'સંપર્કો';
+
+  @override
+  String get howtoaddeditordeleteacontact => 'સંપર્ક ઉમેરવો, એડિટ કરવો કે કાઢી નાખવો';
+
+  @override
+  String get howtofindandinvitecontacts => 'સંપર્ક શોધીને આમંત્રણ આપવું';
+
+  @override
+  String get aboutWhatsAppcontacts => 'WhatsApp સંપર્ક વિશે';
+
+  @override
+  String get aboutcontactupload => 'સંપર્ક અપલોડ વિશે';
+
+  @override
+  String get aboutWhatsAppQRcodes => 'WhatsApp QR કોડ વિશે';
+
+  @override
+  String get howtoscanaWhatsAppQRcode => 'WhatsApp QR કોડ સ્કેન કરવો';
+
+  @override
+  String get howtoviewyourWhatsAppQRcode => 'તમારો WhatsApp QR કોડ જોવો';
+
+  @override
+  String get howtoresetyourWhatsAppQRcode => 'WhatsApp QR કોડ રીસેટ કરવો';
+
+  @override
+  String get howtoshareyourWhatsAppQRcode => 'WhatsApp QR કોડ શેર કરવો';
+
+  @override
+  String get howtoeditfavorites => 'ફેવરિટ એડિટ કરવા';
+
+  @override
+  String get aboutlinkeddevices => 'લિંક કરેલા ડિવાઇસ વિશે';
+
+  @override
+  String get howtolinkedadevice => 'ડિવાઇસ લિંક કરવું';
+
+  @override
+  String get aboutmessagehistoryonlinkeddevices => 'લિંક્ડ ડિવાઇસ પર સંદેશ ઇતિહાસ વિશે';
+
+  @override
+  String get aboutlinkingWhatsApptoasecondphone => 'બીજા ફોન સાથે WhatsApp લિંક કરવા વિશે';
+
+  @override
+  String get aboutWhatsAppweb => 'WhatsApp Web વિશે';
+
+  @override
+  String get aboutWhatsAppforiPad => 'iPad માટે WhatsApp વિશે';
+
+  @override
+  String get aboutWhatsAppforAndroidtablets => 'એન્ડ્રોઇડ ટેબ્લેટ માટે WhatsApp વિશે';
+
+  @override
+  String get aboutWhatsAppforWearOS => 'Wear OS માટે WhatsApp વિશે';
+
+  @override
+  String get aboutWhatsApponMetaQuest => 'Meta Quest પર WhatsApp વિશે';
+
+  @override
+  String get aboutWhatsApponMetaAIglasses => 'Meta AI ગ્લાસ પર WhatsApp વિશે';
+
+  @override
+  String get howtounlinkadevice => 'ડિવાઇસ અનલિંક કરવું';
+
+  @override
+  String get howtoswitchaccountsonWhatsApp => 'WhatsApp પર એકાઉન્ટ સ્વિચ કરવા';
+
+  @override
+  String get registration => 'રજિસ્ટ્રેશન';
+
+  @override
+  String get howtoregisteryourphonenumber => 'ફોન નંબર કેવી રીતે રજિસ્ટર કરવું';
+
+  @override
+  String get aboutregistrationandtwostepverification => 'રજિસ્ટ્રેશન અને બે-પગલાં ચકાસણી વિશે';
+
+  @override
+  String get howtoregisteryouraccountwithaphonecall => 'ફોન કૉલ દ્વારા એકાઉન્ટ રજિસ્ટર કરવું';
+
+  @override
+  String get aboutautomaticphonenumberverification => 'આપમેળે ફોન નંબર ચકાસણી વિશે';
+
+  @override
+  String get cantcompleteregistration => 'રજિસ્ટ્રેશન પૂર્ણ કરી શકતા નથી';
+
+  @override
+  String get howtomanagetwostepverificatiosettings => 'બે-પગલાં ચકાસણી સેટિંગ્સ મેનેજ કરવા';
+
+  @override
+  String get howtoresetyourtwostepverificationPIN => 'બે-પગલાં ચકાસણી PIN રીસેટ કરવું';
+
+  @override
+  String get cantrequestanotherverificationcodewithoutwaiting => 'રાહ જોયા વગર બીજો વેરિફિકેશન કોડ માગી શકતા નથી';
+
+  @override
+  String get imtravellingandIcantgetmyWhatsAppcode => 'હું મુસાફરીમાં છું અને WhatsApp કોડ મળતો નથી';
+
+  @override
+  String get receivedverificationcodewithoutrequestingit => 'માગ્યા વગર વેરિફિકેશન કોડ મળ્યો';
+
+  @override
+  String get aboutstatus => 'સ્ટેટસ વિશે';
+
+  @override
+  String get howtocreateandshareastatus => 'સ્ટેટસ બનાવીને શેર કરવું';
+
+  @override
+  String get howtoseewhoviewedorlikedyourstatus => 'કોણે તમારું સ્ટેટસ જોયું/લાઇક કર્યું તે જોવું';
+
+  @override
+  String get howtoviewlikeandreplyostatusupdates => 'સ્ટેટસ અપડેટ જોવા, લાઇક કરવા અને જવાબ આપવો';
+
+  @override
+  String get howtomanagestatusprivacy => 'સ્ટેટસ પ્રાઇવસી મેનેજ કરવી';
+
+  @override
+  String get howtoshareyourWhatsAppstatustootherapps => 'WhatsApp સ્ટેટસને અન્ય ઍપમાં શેર કરવું';
+
+  @override
+  String get howtohideandunhidestatusupdates => 'સ્ટેટસ અપડેટ છુપાવવા/બતાવવા';
+
+  @override
+  String get howtosaveanddeleteyourstatusupdates => 'સ્ટેટસ અપડેટ સેવ કરવા અને કાઢી નાખવા';
+
+  @override
+  String get aboutstatusmentions => 'સ્ટેટસ મેન્શન વિશે';
+
+  @override
+  String get cantcreateorsharestatus => 'સ્ટેટસ બનાવી/શેર કરી શકતા નથી';
+
+  @override
+  String get cantseesomeonesstatusupdatesorreplies => 'કોઈના સ્ટેટસ અપડેટ/જવાબ દેખાતા નથી';
+
+  @override
+  String get howtointegratestatuswiththirdpartyapps => 'સ્ટેટસને ત્રીજી પાર્ટી ઍપ સાથે ઇન્ટિગ્રેટ કરવું';
+
+  @override
+  String get aboutseeingadsonWhatsAppstatus => 'WhatsApp સ્ટેટસમાં જાહેરાત જોવા વિશે';
+
+  @override
+  String get notseeingafeatureonWhatsApp => 'WhatsAppમાં કોઈ ફીચર દેખાતું નથી';
+
+  @override
+  String get fixingissuesonWhatsApp => 'WhatsAppની સમસ્યાઓ ઉકેલવી';
+
+  @override
+  String get howtofixconnectionissues => 'કનેક્શન સમસ્યા કેવી રીતે ઉકેલવી';
+
+  @override
+  String get cantdownloadorupdateWhatsApp => 'WhatsApp ડાઉનલોડ/અપડેટ નથી થતું';
+
+  @override
+  String get howtomanuallyupdateWhatsApp => 'WhatsAppને મેન્યુઅલી અપડેટ કરવું';
+
+  @override
+  String get cantlogoutofWhatsApp => 'WhatsAppમાંથી લૉગ આઉટ નથી થતું';
+
+  @override
+  String get contactnamesmissing => 'સંપર્કના નામ ગાયબ છે';
+
+  @override
+  String get cantseeacontactsprofileinformation => 'સંપર્કની પ્રોફાઇલ માહિતી દેખાતી નથી';
+
+  @override
+  String get howtorecoverlostcontacts => 'ગુમ થયેલા સંપર્ક પાછા મેળવવા';
+
+  @override
+  String get dontrecognizecontactsaccount => 'સંપર્કનું એકાઉન્ટ ઓળખાતું નથી';
+
+  @override
+  String get seeingYourdeviceswereloggedout => '\'તમારા ડિવાઇસ લૉગ આઉટ થયા\' દેખાય છે';
+
+  @override
+  String get seeingYouhavebeenloggedout => '\'તમે લૉગ આઉટ થયા છો\' દેખાય છે';
+
+  @override
+  String get seeingYouhavebeenloggedoutforyouraccountsecurity => '\'એકાઉન્ટ સુરક્ષા માટે તમે લૉગ આઉટ થયા છો\' દેખાય છે';
+
+  @override
+  String get aboutusingWhatsAppabroad => 'વિદેશમાં WhatsApp વાપરવા વિશે';
+
+  @override
+  String get aboutWhatsAppsupportlanguages => 'WhatsApp સપોર્ટ ભાષાઓ વિશે';
+
+  @override
+  String get aboutthelanguagesWhatsAppisavailablein => 'WhatsApp કઈ ભાષાઓમાં ઉપલબ્ધ છે';
+
+  @override
+  String get cantusekeyboardinWhatsApp => 'WhatsAppમાં કીબોર્ડ વાપરી શકતા નથી';
+
+  @override
+  String get aboutaccessibilityfeaturesonWhatsApp => 'WhatsApp પર ઍક્સેસિબિલિટી ફીચર વિશે';
+
+  @override
+  String get abouttaskmanagererrors => 'ટાસ્ક મેનેજર ભૂલ વિશે';
+
+  @override
+  String get cantmoveWhatsApptoanSDcard => 'WhatsAppને SD કાર્ડમાં ખસેડી શકતા નથી';
+
+  @override
+  String get whatinformationdoesWhatsAppcollectwhenreportinganissue => 'સમસ્યા રિપોર્ટ કરતી વખતે WhatsApp કઈ માહિતી એકત્ર કરે છે';
+
+  @override
+  String get howtoreportanissutoWhatsApp => 'WhatsAppને સમસ્યા કેવી રીતે રિપોર્ટ કરવી';
+
+  @override
+  String get aboutsupportforWhatsAppandotherMetaCompanyproducts => 'WhatsApp અને અન્ય Meta પ્રોડક્ટ માટે સપોર્ટ વિશે';
+
+  @override
+  String get paymentsandRequests => 'ચુકવણી અને વિનંતી';
+
+  @override
+  String get howtosendmoneyusingUPIID => 'UPI ID વડે પૈસા મોકલવા';
+
+  @override
+  String get howtocheckyourbankaccountbalance => 'બેંક એકાઉન્ટ બેલેન્સ કેવી રીતે જોવું';
+
+  @override
+  String get howtoreceivemoney => 'પૈસા કેવી રીતે મેળવવા';
+
+  @override
+  String get howtosendmoneyusingORcode => 'QR કોડ વડે પૈસા મોકલવા';
+
+  @override
+  String get howtopayforanorderonWhatsApp => 'WhatsApp પર ઓર્ડરની ચુકવણી કરવી';
+
+  @override
+  String get howtoviewpaymentshistoryonWhatsApp => 'WhatsApp પર ચુકવણી ઇતિહાસ જોવો';
+
+  @override
+  String get aboutsuccessfultransactionsonWhatsApp => 'WhatsApp પર સફળ ટ્રાન્ઝેક્શન વિશે';
+
+  @override
+  String get howtoaddstickerstopayments => 'ચુકવણીમાં સ્ટિકર ઉમેરવા';
+
+  @override
+  String get securityandPrivacy => 'સુરક્ષા અને ગોપનીયતા';
+
+  @override
+  String get aboutauthenticationmessages => 'ઑથેન્ટિકેશન સંદેશ વિશે';
+
+  @override
+  String get howtoverifyyouridentitywithbusinessesonWhatsApp => 'WhatsApp પર બિઝનેસ સાથે ઓળખ ચકાસવી';
+
+  @override
+  String get aboutpaymentsdata => 'ચુકવણી ડેટા વિશે';
+
+  @override
+  String get aboutpaymentssecurity => 'ચુકવણી સુરક્ષા વિશે';
+
+  @override
+  String get learnmoreaboutthevisibilityofthenameonyourbankaccount => 'બેંક એકાઉન્ટમાં નામની દૃશ્યતા વિશે વધુ જાણો';
+
+  @override
+  String get unitedpaymentsinterfaceUPIMembersrolesandresponsibilities => 'યુનાઇટેડ પેમેન્ટ્સ ઇન્ટરફેસ (UPI) સભ્યોની ભૂમિકા અને જવાબદારીઓ';
+
+  @override
+  String get abouttwostepverificationandpayments => 'બે-પગલાં ચકાસણી અને ચુકવણી વિશે';
+
+  @override
+  String get tipstoavoidfraudwhenusingpayments => 'ચુકવણી વખતે ફ્રોડ ટાળવાની ટિપ્સ';
+
+  @override
+  String get tipstoavoidscamswhenusingpayments => 'ચુકવણી વખતે સ્કેમ ટાળવાની ટિપ્સ';
+
+  @override
+  String get disputeRedressalMechanism => 'વિવાદ નિવારણ પદ્ધતિ';
+
+  @override
+  String get aboutthesecurityofyourpaymentsdescriptions => 'તમારી ચુકવણી વર્ણનની સુરક્ષા વિશે';
+
+  @override
+  String get settingUpPayments => 'ચુકવણી સેટઅપ';
+
+  @override
+  String get learnmoreaboutparticipatingcountries => 'ભાગ લેનારા દેશો વિશે વધુ જાણો';
+
+  @override
+  String get aboutacceptingpaymentsontheWhatsAppBusinessapp => 'WhatsApp Business ઍપ પર ચુકવણી સ્વીકારવા વિશે';
+
+  @override
+  String get howtopayabusinessforpurchasesonWhatsApp => 'WhatsApp પર ખરીદી માટે બિઝનેસને ચુકવણી કરવી';
+
+  @override
+  String get aboutrefundsforapurchase => 'ખરીદીના રિફંડ વિશે';
+
+  @override
+  String get aboutUPI => 'UPI વિશે';
+
+  @override
+  String get howtoaddabankaccount => 'બેંક એકાઉન્ટ કેવી રીતે ઉમેરવું';
+
+  @override
+  String get howtochangeorsetupnewUPIPIN => 'નવું UPI PIN સેટ/બદલવું';
+
+  @override
+  String get cantaddbankaccount => 'બેંક એકાઉન્ટ ઉમેરી શકતા નથી';
+
+  @override
+  String get howtochangeorremoveabankaccount => 'બેંક એકાઉન્ટ બદલવું/દૂર કરવું';
+
+  @override
+  String get aboutrefundsandcustomersupport => 'રિફંડ અને ગ્રાહક સપોર્ટ વિશે';
+
+  @override
+  String get issueswithpayments => 'ચુકવણીમાં સમસ્યા';
+
+  @override
+  String get aboutUPIPIN => 'UPI PIN વિશે';
+
+  @override
+  String get howtoaddorremoveacustomUPInumber => 'કસ્ટમ UPI નંબર ઉમેરવો/દૂર કરવો';
+
+  @override
+  String get aboutUPIIDandUPInumber => 'UPI ID અને UPI નંબર વિશે';
+
+  @override
+  String get aboutdateofbirthverification => 'જન્મ તારીખ ચકાસણી વિશે';
+
+  @override
+  String get howtogethelpwithpayments => 'ચુકવણી માટે મદદ કેવી રીતે મેળવવી';
+
+  @override
+  String get howtochangethebackgroundofapaymentsmessage => 'ચુકવણી સંદેશનું બેકગ્રાઉન્ડ બદલવું';
+
+  @override
+  String get aboutfeesonWhatsApp => 'WhatsApp પર ફી વિશે';
+
+  @override
+  String get aboutchangingphoneswhenusingpayments => 'ચુકવણી વખતે ફોન બદલવા વિશે';
+
+  @override
+  String get aboutusingyourmobilenumberasyourUPInumber => 'મોબાઇલ નંબરને UPI નંબર તરીકે વાપરવા વિશે';
+
+  @override
+  String get privacy => 'ગોપનીયતા';
+
+  @override
+  String get aboutendtoendencryption => 'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન વિશે';
+
+  @override
+  String get aboutprivacycheckup => 'ગોપનીયતા તપાસ વિશે';
+
+  @override
+  String get howtochangeyourprivacysettings => 'ગોપનીયતા સેટિંગ્સ કેવી રીતે બદલવી';
+
+  @override
+  String get howtochangegroupprivacysettings => 'ગ્રુપ ગોપનીયતા સેટિંગ્સ બદલવી';
+
+  @override
+  String get howtoprotectyourIPaddressonWhatsAppcalls => 'WhatsApp કૉલમાં IP એડ્રેસ સુરક્ષિત કરવું';
+
+  @override
+  String get doesWhatsAppcollectorsellyourdata => 'શું WhatsApp તમારો ડેટા એકત્ર કરે છે કે વેચે છે?';
+
+  @override
+  String get aboutadvancedchatprivacy => 'અદ્યતન ચેટ ગોપનીયતા વિશે';
+
+  @override
+  String get privacyataGlanceAdditionalinformationabouttheupdatesTab => 'એક નજરમાં ગોપનીયતા: અપડેટ્સ ટેબ વિશે વધુ માહિતી';
+
+  @override
+  String get howtosilenceunknowncallers => 'અજાણ્યા કૉલરને સાયલન્ટ કરવા';
+
+  @override
+  String get aboutlastseenandonline => 'લાસ્ટ સીન અને ઑનલાઇન વિશે';
+
+  @override
+  String get aboutWhatsApppermissions => 'WhatsApp પરમિશન વિશે';
+
+  @override
+  String get howtouseapplock => 'ઍપ લૉક કેવી રીતે વાપરવું';
+
+  @override
+  String get aboutsharingyourdeviceslocation => 'ડિવાઇસ લોકેશન શેર કરવા વિશે';
+
+  @override
+  String get whatistraceabilityandwhydoesWhatsAppopposeit => 'ટ્રેસેબિલિટી શું છે અને WhatsApp તેનો વિરોધ કેમ કરે છે?';
+
+  @override
+  String get aboutDITWhatsAPpNet => 'DIT.WhatsApp.Net વિશે?';
+
+  @override
+  String get aboutusingoptionalMetaCompanyProductsifyouoptedoutofsharingWhatsAppaccountinformationwithMeta => 'Meta સાથે WhatsApp એકાઉન્ટ શેરિંગ બંધ કર્યું હોય તો Metaના ઑપ્શનલ પ્રોડક્ટ વાપરવા વિશે';
+
+  @override
+  String get whyamiseeinganewsystemmessageinmyWhatsAppchats => 'મારી WhatsApp ચેટમાં નવો સિસ્ટમ મેસેજ કેમ દેખાય છે?';
+
+  @override
+  String get explainingAppleandAndroidAppPrivacyReports => 'Apple અને Android ઍપ પ્રાઇવસી રિપોર્ટ સમજાવવા';
+
+  @override
+  String get unpackingWhatsAppsprivacylabelintheAppleAppStore => 'Apple App Storeમાં WhatsAppના પ્રાઇવસી લેબલનું વિગતવાર વિશ્લેષણ';
+
+  @override
+  String get aboutgovermentrequestsforuserdata => 'સરકારી યુઝર ડેટા વિનંતી વિશે';
+
+  @override
+  String get yearlyreminderforusersinindia => 'ભારતના યુઝર માટે વાર્ષિક રિમાઇન્ડર';
+
+  @override
+  String get aboutmandatorydisclosurestobemadebyBusinessesinindia => 'ભારતમાં બિઝનેસ દ્વારા ફરજિયાત જાહેર કરવાની વાત વિશે';
+
+  @override
+  String get learnaboutwhatcategoriesofdataareavailableinyourRequestAccountinforeport => '\'Request Account info\' રિપોર્ટમાં કયા પ્રકારનો ડેટા ઉપલબ્ધ છે તે જાણો';
+
+  @override
+  String get whatinformationdoesWhatsAppcollectwhenyoucontactsupport => 'સપોર્ટનો સંપર્ક કરતા WhatsApp કઈ માહિતી એકત્ર કરે છે?';
+
+  @override
+  String get safety => 'સુરક્ષા';
+
+  @override
+  String get howtoblockandreportsomeone => 'કોઈને બ્લૉક અને રિપોર્ટ કરવું';
+
+  @override
+  String get aboutreportingandblockingonWhatsApp => 'WhatsApp પર રિપોર્ટ અને બ્લૉકિંગ વિશે';
+
+  @override
+  String get howtoblockagroupadmin => 'ગ્રુપ એડમિનને બ્લૉક કરવું';
+
+  @override
+  String get beingblockedbysomeone => 'કોઈએ તમને બ્લૉક કર્યા છે';
+
+  @override
+  String get howtoreportsomeonesstatusupdate => 'કોઈના સ્ટેટસ અપડેટ રિપોર્ટ કરવો';
+
+  @override
+  String get aboutsuspiciousmessagesandscams => 'શંકાસ્પદ સંદેશ અને સ્કેમ વિશે';
+
+  @override
+  String get howtoprotectyourselffromsuspiciousmessagesandscams => 'શંકાસ્પદ સંદેશ અને સ્કેમથી સુરક્ષિત રહેવું';
+
+  @override
+  String get howtouseWhatsAppresponsibly => 'WhatsApp જવાબદારીપૂર્વક કેવી રીતે વાપરવું';
+
+  @override
+  String get tipstokeepyourWhatsAppaccountsafeandsecure => 'WhatsApp એકાઉન્ટને સુરક્ષિત રાખવાની 5 ટિપ્સ';
+
+  @override
+  String get howsafesecureisWhatsAppPrivacyexplained => 'WhatsApp કેટલું સુરક્ષિત છે? ગોપનીયતા સમજૂતી';
+
+  @override
+  String get howtostaysafeonWhatsApp => 'WhatsApp પર સુરક્ષિત કેવી રીતે રહેવું';
+
+  @override
+  String get howtostaysafeingroupsonWhatsApp => 'WhatsApp ગ્રુપમાં સુરક્ષિત કેવી રીતે રહેવું';
+
+  @override
+  String get howtoblockhighvolumesofunknownmessages => 'અજાણ્યા સંદેશના મોટા પ્રમાણને બ્લૉક કરવું';
+
+  @override
+  String get aboutunofficialapps => 'અનધિકૃત ઍપ વિશે';
+
+  @override
+  String get aboutsuspiciouslinks => 'શંકાસ્પદ લિંક વિશે';
+
+  @override
+  String get aboutsuspiciousfiles => 'શંકાસ્પદ ફાઇલ વિશે';
+
+  @override
+  String get abouttheofficialWhatsAppchataccount => 'ઑફિશિયલ WhatsApp ચેટ એકાઉન્ટ વિશે';
+
+  @override
+  String get abouttheofficialWhatsAppBusinessaccount => 'ઑફિશિયલ WhatsApp Business એકાઉન્ટ વિશે';
+
+  @override
+  String get aboutsafelycommunicatingwithWhatsAppSupport => 'WhatsApp સપોર્ટ સાથે સુરક્ષિત વાતચીત વિશે';
+
+  @override
+  String get aboutharvestingpersonalinformation => 'વ્યક્તિગત માહિતીનું હાર્વેસ્ટિંગ વિશે';
+
+  @override
+  String get iFCNfactcheckingorganizationsonWhatsApp => 'WhatsApp પર IFCN ફેક્ટ-ચેકિંગ સંસ્થાઓ';
+
+  @override
+  String get howtopreventthespreadofmisinformation => 'ખોટી માહિતી ફેલાતી અટકાવવી';
+
+  @override
+  String get aboutminimumagetouseWhatsApp => 'WhatsApp વાપરવા માટે ન્યૂનતમ ઉંમર વિશે';
+
+  @override
+  String get howtoprotectyouraccountfrommalware => 'માલવેરથી એકાઉન્ટ સુરક્ષિત રાખવું';
+
+  @override
+  String get aboutWhatsAPpandelections => 'WhatsApp અને ચૂંટણી વિશે';
+
+  @override
+  String get unauthorizeduseofautomatedorbulkmessagingonWhatsApp => 'WhatsApp પર ઑટોમેટેડ/બલ્ક મેસેજિંગનો ગેરકાયદેસર ઉપયોગ';
+
+  @override
+  String get howWhatsAppHelpsFightChildExploitation => 'WhatsApp બાળ શોષણ સામે કેવી રીતે લડે છે';
+
+  @override
+  String get ensuringusersafetyinindiaonWhatsApp => 'ભારતમાં WhatsApp યુઝર સુરક્ષા સુનિશ્ચિત કરવી';
+
+  @override
+  String get keepingWhatsAppUserssafeinindonesia => 'ઇન્ડોનેશિયામાં WhatsApp યુઝરને સુરક્ષિત રાખવા';
+
+  @override
+  String get aboutdetectingviolations => 'ઉલ્લંઘન શોધવા વિશે';
+
+  @override
+  String get globalSuicidehotlineResources => 'વૈશ્વિક સુસાઇડ હેલ્પલાઇન સંસાધનો';
+
+  @override
+  String get informationforLawEnforcementAuthorities => 'લો એન્ફોર્સમેન્ટ ઓથોરિટી માટે માહિતી';
+
+  @override
+  String get newcalllink => 'નવું કૉલ લિંક';
+
+  @override
+  String get newcontact => 'નવો સંપર્ક';
+
+  @override
+  String get inviteafriend => 'મિત્રને આમંત્રણ આપો';
+
+  @override
+  String get sharelink => 'લિંક શેર કરો';
+
+  @override
+  String get fromcontacts => 'સંપર્કોમાંથી';
+
+  @override
+  String get invite => 'આમંત્રણ';
+
+  @override
+  String get sendSMSinvite => 'SMS દ્વારા આમંત્રણ મોકલવું છે?';
+
+  @override
+  String get userisntonWhatsAppDoyouwanttoinvitethemtojoin => 'યુઝર WhatsApp પર નથી. શું તેમને જોડાવા માટે આમંત્રણ આપવું છે?';
+
+  @override
+  String get invitevisSMS => 'SMS દ્વારા આમંત્રણ';
+
+  @override
+  String get notnow => 'હમણાં નહીં';
+
+  @override
+  String get help => 'મદદ';
+
+  @override
+  String get helpcenter => 'હેલ્પ સેન્ટર';
+
+  @override
+  String get gethelpcontactus => 'મદદ મેળવો, અમારો સંપર્ક કરો';
+
+  @override
+  String get sendfeedback => 'ફીડબેક મોકલો';
+
+  @override
+  String get reporttechnicalissues => 'ટેકનિકલ સમસ્યા રિપોર્ટ કરો';
+
+  @override
+  String get termsandprivacypolicy => 'શરતો અને ગોપનીયતા નીતિ';
+
+  @override
+  String get channelreports => 'ચેનલ રિપોર્ટ';
+
+  @override
+  String get appinfo => 'ઍપ માહિતી';
+
+  @override
+  String get accessibility => 'ઍક્સેસિબિલિટી';
+
+  @override
+  String get increasecontrast => 'કોન્ટ્રાસ્ટ વધારો';
+
+  @override
+  String get darkenkeycolorstomakethingseasiertoseewhileinlightmode => 'લાઇટ મોડમાં વસ્તુઓ સરળતાથી જોવા માટે મુખ્ય રંગો ઘેરા કરો.';
+
+  @override
+  String get choosewhetherstickersandGIFsmoveautomatically => 'સ્ટિકર્સ અને GIF આપમેળે એનિમેટ થાય કે નહીં તે પસંદ કરો.';
+
+  @override
+  String get storageanddata => 'સ્ટોરેજ અને ડેટા';
+
+  @override
+  String get managestorage => 'સ્ટોરેજ મેનેજ કરો';
+
+  @override
+  String get networkusage => 'નેટવર્ક વપરાશ';
+
+  @override
+  String get uselessdataforcalls => 'કૉલ માટે ઓછો ડેટા વાપરો';
+
+  @override
+  String get proxy => 'પ્રોક્સી';
+
+  @override
+  String get mediauploadquality => 'મીડિયા અપલોડ ગુણવત્તા';
+
+  @override
+  String get standardquality => 'સ્ટાન્ડર્ડ ગુણવત્તા';
+
+  @override
+  String get selectthequalityforphotosandvideostobesentatinchats => 'ચેટમાં મોકલવાના ફોટો અને વીડિયોની ગુણવત્તા પસંદ કરો.';
+
+  @override
+  String get hDquality => 'HD ગુણવત્તા';
+
+  @override
+  String get autodownloadquality => 'ઑટો-ડાઉનલોડ ગુણવત્તા';
+
+  @override
+  String get choose => 'પસંદ કરો...';
+
+  @override
+  String get selectthequalityforphotosandvideostobeautomaticallydownloadedin => 'આપમેળે ડાઉનલોડ થનાર ફોટો/વીડિયોની ગુણવત્તા પસંદ કરો.';
+
+  @override
+  String get mediaautodownload => 'મીડિયા ઑટો-ડાઉનલોડ';
+
+  @override
+  String get voicemessagesarealwaysautomaticallydownloaded => 'વૉઇસ મેસેજ હંમેશા આપમેળે ડાઉનલોડ થાય છે';
+
+  @override
+  String get whenusingmobiledata => 'મોબાઇલ ડેટા વાપરતા હોય ત્યારે';
+
+  @override
+  String get photos => 'ફોટો';
+
+  @override
+  String get whenconnectedonWiFi => 'Wi-Fi કનેક્ટેડ હોય ત્યારે';
+
+  @override
+  String get allmedia => 'બધું મીડિયા';
+
+  @override
+  String get whenroaming => 'રોમિંગમાં હોય ત્યારે';
+
+  @override
+  String get nomedia => 'કોઈ મીડિયા નહીં';
+
+  @override
+  String get audio => 'ઑડિયો';
+
+  @override
+  String get documents => 'ડૉક્યુમેન્ટ્સ';
+
+  @override
+  String get save => 'સેવ કરો';
+
+  @override
+  String get whocanseemypersonalinfo => 'મારી વ્યક્તિગત માહિતી કોણ જોઈ શકે છે';
+
+  @override
+  String get lastseenandonline => 'લાસ્ટ સીન અને ઑનલાઇન';
+
+  @override
+  String get nobody => 'કોઈ નહીં';
+
+  @override
+  String get profilepicture => 'પ્રોફાઇલ ચિત્ર';
+
+  @override
+  String get mycontacts => 'મારા સંપર્કો';
+
+  @override
+  String get about => 'વિશે';
+
+  @override
+  String get everyone => 'દરેક';
+
+  @override
+  String get links => 'લિંક';
+
+  @override
+  String get readreceipts => 'રીડ રસીપ્ટ';
+
+  @override
+  String get ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats => 'બંધ હોય તો રીડ રસીપ્ટ મોકલશો/મેળવશો નહીં. ગ્રુપ ચેટમાં હંમેશા રીડ રસીપ્ટ મોકલાય છે.';
+
+  @override
+  String get disappearingmessages => 'ગાયબ થતા સંદેશ';
+
+  @override
+  String get defaultmessagetimer => 'ડિફોલ્ટ સંદેશ ટાઇમર';
+
+  @override
+  String get startnewchatswithdisappearingmessagessettoyourtimer => 'નવી ચેટ તમારા ટાઇમર સાથે ગાયબ થતા સંદેશ સાથે';
+
+  @override
+  String get groups => 'ગ્રુપ્સ';
+
+  @override
+  String get avatarstickers => 'એવાટાર સ્ટિકર્સ';
+
+  @override
+  String get livelocation => 'લાઇવ લોકેશન';
+
+  @override
+  String get silenceunknowncallers => 'અજાણ્યા કોલર્સને મૌન કરો';
+
+  @override
+  String get blockcontactsWhatsAppcontacts => 'સંપર્કો બ્લૉક કરો, WhatsApp સંપર્કો';
+
+  @override
+  String get applock => 'એપ લૉક';
+
+  @override
+  String get disabled => 'નિષ્ક્રિય';
+
+  @override
+  String get chatlock => 'ચેટ લૉક';
+
+  @override
+  String get allowcameraeffects => 'કૅમેરા ઇફેક્ટ્સને મંજૂરી આપો';
+
+  @override
+  String get useeffectsinthecameraandvideocalls => 'કૅમેરા અને વીડિયો કૉલમાં ઇફેક્ટ્સનો ઉપયોગ કરો.';
+
+  @override
+  String get advanced => 'અદ્યતન';
+
+  @override
+  String get protectIPaddressincallsDisablelinkpreviews => 'કૉલમાં IP એડ્રેસનું રક્ષણ કરો, લિંક પૂર્વાવલોકન બંધ કરો';
+
+  @override
+  String get privacycheckup => 'ગોપનીયતા તપાસ';
+
+  @override
+  String get controlyourprivacyandchoosetherightsettingsforyou => 'તમારી ગોપનીયતા પર નિયંત્રણ રાખો અને તમારા માટે યોગ્ય સેટિંગ્સ પસંદ કરો.';
+
+  @override
+  String get avatar => 'એવાટાર';
+
+  @override
+  String get saymorewithAvatarsnowonWhatsApp => 'WhatsApp પર હવે એવાટાર સાથે વધુ વ્યક્ત કરો';
+
+  @override
+  String get createyourAvatar => 'તમારો એવાટાર બનાવો';
+
+  @override
+  String get lists => 'લિસ્ટ્સ';
+
+  @override
+  String get editLists => 'લિસ્ટ્સ એડિટ કરો';
+
+  @override
+  String get youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab => 'અહીં તમે લિસ્ટ અને ફિલ્ટર એડિટ કરી શકો છો અથવા તે ચેટ્સ ટેબ પર કેવી રીતે દેખાય તેનો ક્રમ બદલી શકો છો.';
+
+  @override
+  String get yourlists => 'તમારી લિસ્ટ્સ';
+
+  @override
+  String get unread => 'વાંચ્યા નથી';
+
+  @override
+  String get preset => 'પ્રીસેટ';
+
+  @override
+  String get availablepresets => 'ઉપલબ્ધ પ્રીસેટ્સ';
+
+  @override
+  String get ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere => 'જો તમે Unread કે Groups જેવી પ્રીસેટ લિસ્ટ દૂર કરશો તો તે અહીં ઉપલબ્ધ થશે.';
+
+  @override
+  String get anylistcreatebecomesafilteratthetopofyourChatstab => 'જે કોઈ લિસ્ટ તમે બનાવો છો તે તમારા ચેટ્સ ટેબની ટોચ પર ફિલ્ટર તરીકે દેખાશે.';
+
+  @override
+  String get addpeopleorgroups => 'લોકો અથવા ગ્રુપ ઉમેરો';
+
+  @override
+  String get display => 'ડિસ્પ્લે';
+
+  @override
+  String get choosetheme => 'થીમ પસંદ કરો';
+
+  @override
+  String get systemdefault => 'સિસ્ટમ ડિફોલ્ટ';
+
+  @override
+  String get light => 'લાઇટ';
+
+  @override
+  String get dark => 'ડાર્ક';
+
+  @override
+  String get theme => 'થીમ';
+
+  @override
+  String get defaultchattheme => 'ડિફોલ્ટ ચેટ થીમ';
+
+  @override
+  String get chatsettings => 'ચેટ સેટિંગ્સ';
+
+  @override
+  String get enterissend => 'Enter એ મોકલે છે';
+
+  @override
+  String get enterkeywillsendyourmessage => 'Enter કી તમારો સંદેશ મોકલશે';
+
+  @override
+  String get mediavisibility => 'મીડિયા દૃશ્યતા';
+
+  @override
+  String get shownewlydownloadedmediainyourdevicesgallery => 'નવા ડાઉનલોડ થયેલા મીડિયાને તમારા ડિવાઇસની ગેલેરીમાં બતાવો';
+
+  @override
+  String get fontsize => 'ફોન્ટ સાઇઝ';
+
+  @override
+  String get voicemessagetranscripts => 'વૉઇસ મેસેજ ટ્રાન્સક્રિપ્ટ્સ';
+
+  @override
+  String get readnewvoicemessages => 'નવા વૉઇસ મેસેજ વાંચો.';
+
+  @override
+  String get archivedchats => 'આર્કાઇવ કરેલી ચેટ્સ';
+
+  @override
+  String get keepchatsarchived => 'ચેટ્સને આર્કાઇવમાં રાખો';
+
+  @override
+  String get archivedchatswillremainarchivedwhenyoureceiveanewmessage => 'નવો સંદેશ મળે તો પણ આર્કાઇવ કરેલી ચેટ્સ આર્કાઇવમાં જ રહેશે';
+
+  @override
+  String get transferchats => 'ચેટ્સ ટ્રાન્સફર કરો';
+
+  @override
+  String get broadcasts => 'બ્રોડકાસ્ટ્સ';
+
+  @override
+  String get thismonth => 'આ મહિને';
+
+  @override
+  String get sent => 'મોકલાયેલ';
+
+  @override
+  String get remaining => 'બાકી';
+
+  @override
+  String get sendupto35broadcastsmonth => 'દર મહિને 35 સુધી બ્રોડકાસ્ટ મોકલો.';
+
+  @override
+  String get nobroadcasts => 'કોઈ બ્રોડકાસ્ટ નથી';
+
+  @override
+  String get conversationtones => 'વાતચીત ટોન';
+
+  @override
+  String get playsoundsforincomingandoutgoingmessages => 'આવતા અને જતા સંદેશ માટે અવાજ વગાડો.';
+
+  @override
+  String get reminders => 'રિમાઇન્ડર્સ';
+
+  @override
+  String get getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen => 'તમે જોયા ન હોય તેવા સંદેશ, કૉલ કે સ્ટેટસ અપડેટ વિશે થોડા રિમાઇન્ડર મેળવો';
+
+  @override
+  String get notificationtone => 'નોટિફિકેશન ટોન';
+
+  @override
+  String get vibrate => 'વાઇબ્રેટ';
+
+  @override
+  String get popupnotification => 'પોપ-અપ નોટિફિકેશન';
+
+  @override
+  String get notavailable => 'ઉપલબ્ધ નથી';
+
+  @override
+  String get popupnotificationsarenolongeravailableinyourversionofAndroid => 'તમારા Android વર્ઝનમાં પોપ-અપ નોટિફિકેશન હવે ઉપલબ્ધ નથી';
+
+  @override
+  String get usehighprioritynotifications => 'હાઇ પ્રાયોરિટી નોટિફિકેશનનો ઉપયોગ કરો';
+
+  @override
+  String get showpreviewsofnotificationsatthetopofthescreen => 'સ્ક્રીનની ટોચ પર નોટિફિકેશનનું પૂર્વાવલોકન બતાવો';
+
+  @override
+  String get reactionsnotification => 'રિએક્શન નોટિફિકેશન';
+
+  @override
+  String get shownotificationsforreactionstomessagesyousend => 'તમે મોકલેલા સંદેશ પરના રિએક્શનની નોટિફિકેશન બતાવો';
+
+  @override
+  String get ringtone => 'રિંગટોન';
+
+  @override
+  String get reactions => 'રિએક્શન્સ';
+
+  @override
+  String get shownotificationswhenyougetlikesonastatus => 'સ્ટેટસ પર લાઇક મળે ત્યારે નોટિફિકેશન બતાવો';
+
+  @override
+  String get homescreennotifications => 'હોમ સ્ક્રીન નોટિફિકેશન';
+
+  @override
+  String get clearcount => 'કાઉન્ટ સાફ કરો';
+
+  @override
+  String get yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp => 'દર વખતે એપ ખોલો ત્યારે તમારું હોમ સ્ક્રીન બેજ સંપૂર્ણપણે સાફ થઈ જાય છે.';
+
+  @override
+  String get emailaddress => 'ઇમેઇલ સરનામું';
+
+  @override
+  String get account => 'એકાઉન્ટ';
+
+  @override
+  String get chat => 'ચેટ';
+
+  @override
+  String get applanguage => 'એપ ભાષા';
+
+  @override
+  String get helpandfeedback => 'મદદ અને ફીડબેક';
+
+  @override
+  String get appupdates => 'એપ અપડેટ્સ';
 }

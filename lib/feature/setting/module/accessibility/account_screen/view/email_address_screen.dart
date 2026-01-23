@@ -64,7 +64,7 @@ class EmailAddressScreen extends StatelessWidget {
                   ),
 
                   TextSpan(
-                    text: context.l10n.leaenmore,
+                    text: context.l10n.learnmore,
                     style: TextStyle(
                       color: AppTheme.greenAccentShade700,
                       fontSize: AppSize.getSize(16),

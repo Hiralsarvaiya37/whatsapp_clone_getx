@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AccessibilityScreen extends GetView<SettingController> {
@@ -23,7 +24,7 @@ class AccessibilityScreen extends GetView<SettingController> {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Accessibility",
+         context.l10n.accessibility,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -48,7 +49,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Increase contrast",
+                          context.l10n.increasecontrast,
                           style: TextStyle(
                             color: AppTheme.whiteColor,
                             fontSize: AppSize.getSize(18),
@@ -56,7 +57,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                           ),
                         ),
                         Text(
-                          "Darken key colors to make things easier to see while in light mode.",
+                          context.l10n.darkenkeycolorstomakethingseasiertoseewhileinlightmode,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -89,7 +90,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Animation",
+                    context.l10n.animation,
                     style: TextStyle(
                       color: AppTheme.whiteColor,
                       fontSize: AppSize.getSize(18),
@@ -97,7 +98,7 @@ class AccessibilityScreen extends GetView<SettingController> {
                     ),
                   ),
                   Text(
-                    "Choose whether stickers and GIFs move automatically.",
+                    context.l10n.choosewhetherstickersandGIFsmoveautomatically,
                     style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],

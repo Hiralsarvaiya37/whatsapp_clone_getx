@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class SecurityAndPrivacyScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class SecurityAndPrivacyScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Security and Privacy",
+          context.l10n.securityandPrivacy,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class SecurityAndPrivacyScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,24 +79,24 @@ class SecurityAndPrivacyScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Security and Privacy",
+                    context.l10n.securityandPrivacy,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("About authentication messages", context),
-                  appInfo("How to verify your identity with businesses on WhatsApp", context),
-                  appInfo("About payments data", context),
-                  appInfo("About payments security", context),
-                  appInfo("Learn more about the visibility of the name on your bank account", context),
-                  appInfo("United payments interface (UPI) Members roles and responsibilities", context),
-                  appInfo("About two-step verification and payments", context),
-                  appInfo("Tips to avoid fraud when using payments", context),
-                  appInfo("Tips to avoid scams when using payments", context),
-                  appInfo("Dispute Redressal Mechanism", context),
-                  appInfo("About the security of your payments descriptions", context),
+                  appInfo(context.l10n.aboutauthenticationmessages, context),
+                  appInfo(context.l10n.howtoverifyyouridentitywithbusinessesonWhatsApp, context),
+                  appInfo(context.l10n.aboutpaymentsdata, context),
+                  appInfo(context.l10n.aboutpaymentssecurity, context),
+                  appInfo(context.l10n.learnmoreaboutthevisibilityofthenameonyourbankaccount, context),
+                  appInfo(context.l10n.unitedpaymentsinterfaceUPIMembersrolesandresponsibilities, context),
+                  appInfo(context.l10n.abouttwostepverificationandpayments, context),
+                  appInfo(context.l10n.tipstoavoidfraudwhenusingpayments, context),
+                  appInfo(context.l10n.tipstoavoidscamswhenusingpayments, context),
+                  appInfo(context.l10n.disputeRedressalMechanism, context),
+                  appInfo(context.l10n.aboutthesecurityofyourpaymentsdescriptions, context),
                   SizedBox(height: AppSize.getSize(40)),
                 ],
               ),

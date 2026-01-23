@@ -49,7 +49,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
                     style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
-                    text: context.l10n.leaenmore,
+                    text: context.l10n.learnmore,
                     style: TextStyle(
                       color: AppTheme.blueshade500,
                       fontSize: AppSize.getSize(16),

@@ -4,6 +4,7 @@ import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class RegistrationScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Registration",
+          context.l10n.registration,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class RegistrationScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -79,42 +80,42 @@ class RegistrationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Registration",
+                    context.l10n.registration,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to register your phone number", context),
+                  appInfo(context.l10n.howtoregisteryourphonenumber, context),
                   appInfo(
-                    "About registration and two-step verification",
+                    context.l10n.aboutregistrationandtwostepverification,
                     context,
                   ),
                   appInfo(
-                    "How to register your account with a phone call",
+                    context.l10n.howtoregisteryouraccountwithaphonecall,
                     context,
                   ),
-                  appInfo("About automatic phone number verification", context),
-                  appInfo("Can't complete registration", context),
+                  appInfo(context.l10n.aboutautomaticphonenumberverification, context),
+                  appInfo(context.l10n.cantcompleteregistration, context),
                   appInfo(
-                    "How to manage two-step verification settings",
-                    context,
-                  ),
-                  appInfo(
-                    "How to reset your two-step verification PIN",
+                    context.l10n.howtomanagetwostepverificatiosettings,
                     context,
                   ),
                   appInfo(
-                    "Can't request another verification code without waiting",
+                    context.l10n.howtoresetyourtwostepverificationPIN,
                     context,
                   ),
                   appInfo(
-                    "I'm travelling and I can't get my WhatsApp code",
+                    context.l10n.cantrequestanotherverificationcodewithoutwaiting,
                     context,
                   ),
                   appInfo(
-                    "Received verification code without requesting it.",
+                    context.l10n.imtravellingandIcantgetmyWhatsAppcode,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.receivedverificationcodewithoutrequestingit,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class PrivacyScreen1 extends StatelessWidget {
@@ -26,7 +27,7 @@ class PrivacyScreen1 extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Privacy",
+          context.l10n.privacy,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class PrivacyScreen1 extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,65 +79,65 @@ class PrivacyScreen1 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Privacy",
+                    context.l10n.privacy,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("About end-to-end encryption", context),
-                  appInfo("About privacy checkup", context),
-                  appInfo("How to change your privacy settings", context),
-                  appInfo("How to change group privacy settings", context),
+                  appInfo(context.l10n.aboutendtoendencryption, context),
+                  appInfo(context.l10n.aboutprivacycheckup, context),
+                  appInfo(context.l10n.howtochangeyourprivacysettings, context),
+                  appInfo(context.l10n.howtochangegroupprivacysettings, context),
                   appInfo(
-                    "How to protect your IP address on WhatsApp calls",
+                    context.l10n.howtoprotectyourIPaddressonWhatsAppcalls,
                     context,
                   ),
-                  appInfo("Does WhatsApp collect or sell your data?", context),
-                  appInfo("About advanced chat privacy", context),
+                  appInfo(context.l10n.doesWhatsAppcollectorsellyourdata, context),
+                  appInfo(context.l10n.aboutadvancedchatprivacy, context),
                   appInfo(
-                    "Privacy at a Glance: Additional information about the updates Tab",
+                    context.l10n.privacyataGlanceAdditionalinformationabouttheupdatesTab,
                     context,
                   ),
-                  appInfo("How to silence unknown callers", context),
-                  appInfo("About last seen and online", context),
-                  appInfo("About WhatsApp permissions", context),
-                  appInfo("How to use app lock", context),
-                  appInfo("About sharing your device's location", context),
+                  appInfo(context.l10n.howtosilenceunknowncallers, context),
+                  appInfo(context.l10n.aboutlastseenandonline, context),
+                  appInfo(context.l10n.aboutWhatsApppermissions, context),
+                  appInfo(context.l10n.howtouseapplock, context),
+                  appInfo(context.l10n.aboutsharingyourdeviceslocation, context),
                   appInfo(
-                    "What is traceability and why does WhatsApp oppose it?",
+                    context.l10n.whatistraceabilityandwhydoesWhatsAppopposeit,
                     context,
                   ),
-                  appInfo("About DIT.WhatsAPp.Net?", context),
+                  appInfo(context.l10n.aboutDITWhatsAPpNet, context),
                   appInfo(
-                    "About using optional Meta Company Products if you opted out of sharing WhatsApp account information with Meta",
-                    context,
-                  ),
-                  appInfo(
-                    "Why am i seeing a new system message in my WhatsApp chats?",
+                    context.l10n.aboutusingoptionalMetaCompanyProductsifyouoptedoutofsharingWhatsAppaccountinformationwithMeta,
                     context,
                   ),
                   appInfo(
-                    "Explaining Apple and Android App Privacy Reports",
+                    context.l10n.whyamiseeinganewsystemmessageinmyWhatsAppchats,
                     context,
                   ),
                   appInfo(
-                    "Unpacking WhatsApp's privacy label in the Apple App Store",
-                    context,
-                  ),
-                  appInfo("About goverment requests for user data", context),
-                  appInfo("Yearly reminder for users in india", context),
-                  appInfo(
-                    "About mandatory disclosures to be made by Businesses in india",
+                    context.l10n.explainingAppleandAndroidAppPrivacyReports,
                     context,
                   ),
                   appInfo(
-                    "Learn about what categories of data are available in your 'Request Account info' report",
+                    context.l10n.unpackingWhatsAppsprivacylabelintheAppleAppStore,
+                    context,
+                  ),
+                  appInfo(context.l10n.aboutgovermentrequestsforuserdata, context),
+                  appInfo(context.l10n.yearlyreminderforusersinindia, context),
+                  appInfo(
+                    context.l10n.aboutmandatorydisclosurestobemadebyBusinessesinindia,
                     context,
                   ),
                   appInfo(
-                    "What information does WhatsApp collect when you contact support?",
+                    context.l10n.learnaboutwhatcategoriesofdataareavailableinyourRequestAccountinforeport,
+                    context,
+                  ),
+                  appInfo(
+                    context.l10n.whatinformationdoesWhatsAppcollectwhenyoucontactsupport,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),

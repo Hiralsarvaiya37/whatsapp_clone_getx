@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class AvatarScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class AvatarScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Avatar",
+          context.l10n.avatar,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -39,7 +40,7 @@ class AvatarScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Say more with Avatars now on WhatsApp",
+                  context.l10n.saymorewithAvatarsnowonWhatsApp,
                   style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(17)),
                   textAlign: TextAlign.center,
                 ),
@@ -54,7 +55,7 @@ class AvatarScreen extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: Text(
-                "Create your Avatar",
+                context.l10n.createyourAvatar,
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: AppSize.getSize(16)),
               ),
             ),
@@ -63,7 +64,7 @@ class AvatarScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "Learn more",
+                  context.l10n.learnmore,
                   style: TextStyle(
                     color: AppTheme.blueshade500,
                     fontSize: AppSize.getSize(18),

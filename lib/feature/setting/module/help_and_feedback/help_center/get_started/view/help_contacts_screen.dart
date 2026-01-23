@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpContactsScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class HelpContactsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Contacts",
+          context.l10n.contacts,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -54,7 +55,7 @@ class HelpContactsScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -78,23 +79,23 @@ class HelpContactsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Contacts",
+                    context.l10n.contacts,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("How to add, edit, or delete a contact", context),
-                  appInfo("How to find and invite contacts", context),
-                  appInfo("About WhatsApp contacts", context),
-                  appInfo("About contact upload", context),
-                  appInfo("About WhatsApp QR codes", context),
-                  appInfo("How to scan a WhatsApp QR code", context),
-                  appInfo("How to view your WhatsApp QR code", context),
-                  appInfo("How to reset your WhatsApp QR code", context),
-                  appInfo("How to share your WhatsApp QR code", context),
-                  appInfo("How to edit favorites", context),
+                  appInfo(context.l10n.howtoaddeditordeleteacontact, context),
+                  appInfo(context.l10n.howtofindandinvitecontacts, context),
+                  appInfo(context.l10n.aboutWhatsAppcontacts, context),
+                  appInfo(context.l10n.aboutcontactupload, context),
+                  appInfo(context.l10n.aboutWhatsAppQRcodes, context),
+                  appInfo(context.l10n.howtoscanaWhatsAppQRcode, context),
+                  appInfo(context.l10n.howtoviewyourWhatsAppQRcode, context),
+                  appInfo(context.l10n.howtoresetyourWhatsAppQRcode, context),
+                  appInfo(context.l10n.howtoshareyourWhatsAppQRcode, context),
+                  appInfo(context.l10n.howtoeditfavorites, context),
                   SizedBox(height: AppSize.getSize(50)),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 enum SettingOptionEnum {
   account,
@@ -17,34 +18,34 @@ enum SettingOptionEnum {
 }
 
 extension SettingOptionEnumExtension on SettingOptionEnum {
-  String get titleKey {
+   String label(BuildContext context) {
     switch (this) {
       case SettingOptionEnum.account:
-        return "Account";
+        return context.l10n.account;
       case SettingOptionEnum.privacy:
-        return "Privacy";
+        return context.l10n.privacy;
       case SettingOptionEnum.avatar:
-        return "Avatar";
+        return context.l10n.avatar;
       case SettingOptionEnum.lists:
-        return "Lists";
+        return context.l10n.lists;
       case SettingOptionEnum.chat:
-        return "Chat";
+        return context.l10n.chat;
       case SettingOptionEnum.broadcasts:
-        return "Broadcasts";
+        return context.l10n.broadcasts;
       case SettingOptionEnum.notifications:
-        return "Notifications";
+        return context.l10n.notifications;
       case SettingOptionEnum.storageanddata:
-        return "Storage and data";
+        return context.l10n.storageanddata;
       case SettingOptionEnum.accesibility:
-        return "Accessibility";
+        return context.l10n.accessibility;
       case SettingOptionEnum.applanguage:
-        return "App language";
+        return context.l10n.applanguage;
       case SettingOptionEnum.helpandfeedback:
-        return "Help and feedback";
+        return context.l10n.helpandfeedback;
       case SettingOptionEnum.inviteafriend:
-        return "Invite a friend";
+        return context.l10n.inviteafriend;
       case SettingOptionEnum.appupdate:
-        return "App updates";
+        return context.l10n.appupdates;
     }
   }
 

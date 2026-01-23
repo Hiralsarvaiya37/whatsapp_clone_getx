@@ -5,6 +5,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/vie
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/send_feedback_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class HelpAndFeedbackScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Help",
+          context.l10n.help,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -42,8 +43,8 @@ class HelpAndFeedbackScreen extends StatelessWidget {
                Get.toNamed(HelpCenterScreen.id);
               },
               child: appInfo(
-                "Help center",
-                "Get help, contact us",
+                context.l10n.helpcenter,
+                context.l10n.gethelpcontactus,
                 Icons.help_outline_outlined,
                 isShow: true,
               ),
@@ -54,15 +55,15 @@ class HelpAndFeedbackScreen extends StatelessWidget {
                Get.toNamed(SendFeedbackScreen.id);
               },
               child: appInfo(
-                "Send feedback",
-                "Report technical issues",
+                context.l10n.sendfeedback,
+                context.l10n.reporttechnicalissues,
                 Icons.bug_report_outlined,
                 isShow: true,
               ),
             ),
             SizedBox(height: AppSize.getSize(30)),
             appInfo(
-              "Terms and privacy policy",
+              context.l10n.termsandprivacypolicy,
               "",
               Icons.description_outlined,
               isShow: false,
@@ -73,7 +74,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
                 Get.toNamed(ChannelReportsScreen.id);
               },
               child: appInfo(
-                "Channel reports",
+                context.l10n.channelreports,
                 "",
                 Icons.feedback_outlined,
                 isShow: false,
@@ -84,7 +85,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
               onTap: () {
                  Get.toNamed(AppInfoScreen.id);
               },
-              child: appInfo("App info", "", Icons.info_outline, isShow: false),
+              child: appInfo(context.l10n.appinfo, "", Icons.info_outline, isShow: false),
             ),
           ],
         ),

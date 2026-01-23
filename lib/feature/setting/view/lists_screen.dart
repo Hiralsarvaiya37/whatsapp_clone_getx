@@ -5,6 +5,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/lis
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/unread_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ListsScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class ListsScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Lists",
+          context.l10n.lists,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -78,7 +79,7 @@ class ListsScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "Edit Lists",
+                                context.l10n.editLists,
                                 style: TextStyle(
                                   color: AppTheme.whiteColor,
                                   fontSize: AppSize.getSize(22),
@@ -99,7 +100,7 @@ class ListsScreen extends StatelessWidget {
 
                           SizedBox(height: AppSize.getSize(30)),
                           Text(
-                            "You can edit lists and filters here or reorder how they appear on the Chats tab.",
+                            context.l10n.youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -108,7 +109,7 @@ class ListsScreen extends StatelessWidget {
                           ),
                           SizedBox(height: AppSize.getSize(40)),
                           Text(
-                            "Your lists",
+                            context.l10n.yourlists,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -119,7 +120,7 @@ class ListsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  "Favorites",
+                                  context.l10n.favorites,
                                   style: TextStyle(
                                     color: AppTheme.whiteColor,
                                     fontSize: AppSize.getSize(18),
@@ -134,14 +135,14 @@ class ListsScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: AppSize.getSize(30)),
-                          appTitle(context, "Unread", "Preset"),
+                          appTitle(context, context.l10n.unread, context.l10n.preset),
                           SizedBox(height: AppSize.getSize(30)),
-                          appTitle(context, "Groups", "Preset"),
+                          appTitle(context, context.l10n.groups, context.l10n.preset),
                           SizedBox(height: AppSize.getSize(30)),
-                          appTitle(context, "Communities", "Preset"),
+                          appTitle(context, context.l10n.communities, context.l10n.preset),
                           SizedBox(height: AppSize.getSize(40)),
                           Text(
-                            "Available presets",
+                            context.l10n.availablepresets,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -149,7 +150,7 @@ class ListsScreen extends StatelessWidget {
                           ),
                           SizedBox(height: AppSize.getSize(20)),
                           Text(
-                            "If you remove a preset list like Unread or Groups, it will become available here.",
+                            context.l10n.ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
@@ -179,7 +180,7 @@ class ListsScreen extends StatelessWidget {
               Icon(Icons.add, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
               SizedBox(height: AppSize.getSize(30)),
               Text(
-                "Any list create becomes a filter at the top of your Chats tab.",
+                context.l10n.anylistcreatebecomesafilteratthetopofyourChatstab,
                 style: TextStyle(color: Colors.grey.shade500, fontSize: AppSize.getSize(16)),
                 textAlign: TextAlign.center,
               ),
@@ -206,25 +207,25 @@ class ListsScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Your lists",
+                    context.l10n.yourlists,
                     style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
               SizedBox(height: AppSize.getSize(20)),
-              appInfo("Unread", "Preset", () {
+              appInfo(context.l10n.unread, context.l10n.preset, () {
                Get.toNamed(UnreadScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
-              appInfo("Favorites", "Add people or groups", () {
+              appInfo(context.l10n.favorites, context.l10n.addpeopleorgroups, () {
                 Get.toNamed(ListFavoritesScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
-              appInfo("Groups", "Preset", () {
+              appInfo(context.l10n.groups, context.l10n.preset, () {
                 Get.toNamed(ListGroupsScreen.id);
               }),
               SizedBox(height: AppSize.getSize(25)),
-              appInfo("Communities", "Preset", () {
+              appInfo(context.l10n.communities, context.l10n.preset, () {
                  Get.toNamed(ListCommunitiesScreen.id);
               }),
               SizedBox(height: AppSize.getSize(40)),
@@ -236,7 +237,7 @@ class ListsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Available presets",
+                          context.l10n.availablepresets,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -244,7 +245,7 @@ class ListsScreen extends StatelessWidget {
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
-                          "If you remove a preset list like Unread or Groups, it will become available here.",
+                          context.l10n.ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere,
                           style: TextStyle(
                             color: AppTheme.greyShade400,
                             fontSize: AppSize.getSize(16),
@@ -366,7 +367,7 @@ class ListsScreen extends StatelessWidget {
                               Navigator.pop(context);
                             },
                             child: Text(
-                              "Cancel",
+                              context.l10n.cancel,
                               style: TextStyle(
                                 color: AppTheme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),
@@ -380,7 +381,7 @@ class ListsScreen extends StatelessWidget {
                               Navigator.pop(context);
                             },
                             child: Text(
-                              "Delete",
+                              context.l10n.delete,
                               style: TextStyle(
                                 color: AppTheme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),

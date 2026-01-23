@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class DownloadAndInstallationScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class DownloadAndInstallationScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
         ),
         title: Text(
-          "Download and installation",
+          context.l10n.downloadandinstallation,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -42,7 +43,7 @@ class DownloadAndInstallationScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -61,15 +62,15 @@ class DownloadAndInstallationScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Download and installation",
+                context.l10n.downloadandinstallation,
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(30)),
-              appInfo("How to download or uninstall WhatsApp", context),
-              appInfo("About supported operating systems", context),
-              appInfo("About supported devices", context),
-              appInfo("About rooted phones and custom ROMs", context),
-              appInfo("Ending support for WhatsApp on KaiOS", context),
+              appInfo(context.l10n.howtodownloadoruninstallWhatsApp, context),
+              appInfo(context.l10n.aboutsupportedoperatingsystems, context),
+              appInfo(context.l10n.aboutsupporteddevices, context),
+              appInfo(context.l10n.aboutrootedphonesandcustomROMs, context),
+              appInfo(context.l10n.endingsupportforWhatsApponKaiOS, context),
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class TroubleshootingScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class TroubleshootingScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Troubleshooting",
+          context.l10n.troubleshooting,
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(23),
@@ -55,7 +56,7 @@ class TroubleshootingScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Text(
-                  "Open in browser",
+                  context.l10n.openinbrowser,
                   style: TextStyle(
                     color: AppTheme.whiteColor,
                     fontSize: AppSize.getSize(16),
@@ -79,47 +80,47 @@ class TroubleshootingScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Troubleshooting",
+                    context.l10n.troubleshooting,
                     style: TextStyle(
                       color: AppTheme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
-                  appInfo("Not seeing a feature on WhatsApp", context),
-                  appInfo("Fixing issues on WhatsApp", context),
-                  appInfo("How to fix connection issues", context),
-                  appInfo("Can't download or update WhatsApp", context),
-                  appInfo("How to manually update WhatsApp", context),
-                  appInfo("Can't change phone number", context),
-                  appInfo("Can't log out of WhatsApp", context),
-                  appInfo("Contact names missing", context),
-                  appInfo("Can't see a contact's profile information", context),
-                  appInfo("How to recover lost contacts", context),
-                  appInfo("Don't recognize contact's account", context),
-                  appInfo("Seeing 'Your devices were logged out' ", context),
-                  appInfo("Seeing 'You have been logged out' ", context),
+                  appInfo(context.l10n.notseeingafeatureonWhatsApp, context),
+                  appInfo(context.l10n.fixingissuesonWhatsApp, context),
+                  appInfo(context.l10n.howtofixconnectionissues, context),
+                  appInfo(context.l10n.cantdownloadorupdateWhatsApp, context),
+                  appInfo(context.l10n.howtomanuallyupdateWhatsApp, context),
+                  appInfo(context.l10n.cantchangephonenumber, context),
+                  appInfo(context.l10n.cantlogoutofWhatsApp, context),
+                  appInfo(context.l10n.contactnamesmissing, context),
+                  appInfo(context.l10n.cantseeacontactsprofileinformation, context),
+                  appInfo(context.l10n.howtorecoverlostcontacts, context),
+                  appInfo(context.l10n.dontrecognizecontactsaccount, context),
+                  appInfo(context.l10n.seeingYourdeviceswereloggedout, context),
+                  appInfo(context.l10n.seeingYouhavebeenloggedout, context),
                   appInfo(
-                    "Seeing 'You have been logged out for your account security ",
+                    context.l10n.seeingYouhavebeenloggedoutforyouraccountsecurity,
                     context,
                   ),
-                  appInfo("About using WhatsApp abroad", context),
-                  appInfo("About WhatsApp support languages ", context),
+                  appInfo(context.l10n.aboutusingWhatsAppabroad, context),
+                  appInfo(context.l10n.aboutWhatsAppsupportlanguages, context),
                   appInfo(
-                    "About the languages WhatsApp is available in",
+                    context.l10n.aboutthelanguagesWhatsAppisavailablein,
                     context,
                   ),
-                  appInfo("Can't use keyboard in WhatsApp", context),
-                  appInfo("About accessibility features on WhatsApp", context),
-                  appInfo("About task manager errors", context),
-                  appInfo("Can't move WhatsApp to an SD card", context),
+                  appInfo(context.l10n.cantusekeyboardinWhatsApp, context),
+                  appInfo(context.l10n.aboutaccessibilityfeaturesonWhatsApp, context),
+                  appInfo(context.l10n.abouttaskmanagererrors, context),
+                  appInfo(context.l10n.cantmoveWhatsApptoanSDcard, context),
                   appInfo(
-                    "What information does WhatsApp collect when reporting an issue",
+                    context.l10n.whatinformationdoesWhatsAppcollectwhenreportinganissue,
                     context,
                   ),
-                  appInfo("How to report an issu to WhatsApp", context),
+                  appInfo(context.l10n.howtoreportanissutoWhatsApp, context),
                   appInfo(
-                    "About support for WhatsApp and other Meta Company products",
+                    context.l10n.aboutsupportforWhatsAppandotherMetaCompanyproducts,
                     context,
                   ),
                   SizedBox(height: AppSize.getSize(40)),
