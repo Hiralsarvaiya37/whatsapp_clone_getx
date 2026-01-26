@@ -7,17 +7,23 @@ import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 class LoginController extends GetxController {
   TextEditingController phoneController = TextEditingController();
   String verificationId = "";
+  RxBool isLoading = false.obs;
 
   Future<void> onVerifyNum(BuildContext context) async {
+    isLoading.value = true;
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: "+91${phoneController.text.trim()}",
       verificationCompleted: (PhoneAuthCredential credential) async {},
       verificationFailed: (FirebaseAuthException ex) {
+        isLoading.value = false; 
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(ex.message ??context.l10n.verificationfailed)),
+          SnackBar(
+            content: Text(ex.message ?? context.l10n.verificationfailed),
+          ),
         );
       },
       codeSent: (String verifyId, int? resendToken) {
+        isLoading.value = false;
         verificationId = verifyId;
         Get.toNamed(OtpScreen.id);
       },

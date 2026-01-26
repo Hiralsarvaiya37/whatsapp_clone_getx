@@ -22,10 +22,13 @@ class OtpScreen extends GetView<OtpController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
+              controller: controller.otpController,
+              onChanged: (value) {
+                controller.isLoading.value = false;
+              },
               onTapOutside: (event) {
                 FocusScope.of(context).unfocus();
               },
-              controller: controller.otpController,
               decoration: InputDecoration(
                 hintText: context.l10n.entertheOtp,
                 prefixIcon: Icon(Icons.phone),
@@ -36,12 +39,16 @@ class OtpScreen extends GetView<OtpController> {
             ),
           ),
           SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () async {
-              controller.onOtpPress();
-            },
-            child: Text(context.l10n.oTP),
-          ),
+          Obx(() {
+            return controller.isLoading.value
+                ? CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: () async {
+                      controller.onOtpPress();
+                    },
+                    child: Text(context.l10n.oTP),
+                  );
+          }),
         ],
       ),
     );

@@ -153,7 +153,7 @@ class AppRouter {
       page: () => DashboardScreen(),
       binding: DashboardBinding(),
     ),
-     GetPage(
+    GetPage(
       name: UpdateviewScreen.id,
       page: () => UpdateviewScreen(),
       binding: UpdateBindings(),
@@ -204,7 +204,11 @@ class AppRouter {
     ),
     GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen()),
     GetPage(name: TransferChatScreen.id, page: () => TransferChatScreen()),
-    GetPage(name: ChatHistoryScreen.id, page: () => ChatHistoryScreen(), binding: ChatViewBinding()),
+    GetPage(
+      name: ChatHistoryScreen.id,
+      page: () => ChatHistoryScreen(),
+      binding: ChatViewBinding(),
+    ),
     GetPage(name: BroadcastsScreen.id, page: () => BroadcastsScreen()),
     GetPage(
       name: ContactScreen.id,
@@ -224,7 +228,11 @@ class AppRouter {
       page: () => HelpAndFeedbackScreen(),
       binding: HelpAndFeedbackBinding(),
     ),
-    GetPage(name: SendFeedbackScreen.id, page: () => SendFeedbackScreen()),
+    GetPage(
+      name: SendFeedbackScreen.id,
+      page: () => SendFeedbackScreen(),
+      binding: HelpAndFeedbackBinding(),
+    ),
     GetPage(name: InviteFriendScreen.id, page: () => InviteFriendScreen()),
     GetPage(name: AppUpdatesScreen.id, page: () => AppUpdatesScreen()),
     GetPage(name: QrScreen.id, page: () => QrScreen()),
@@ -427,7 +435,7 @@ class AppRouter {
       page: () => ChatMessagesScreen(),
       binding: ChatBinding(),
     ),
-     GetPage(
+    GetPage(
       name: ChatviewScreen.id,
       page: () => ChatviewScreen(),
       binding: ChatBinding(),

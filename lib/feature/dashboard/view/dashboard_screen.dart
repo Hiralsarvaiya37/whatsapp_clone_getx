@@ -233,39 +233,38 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  Widget bottomOption(String title, IconData iconData, int page) {
-    return GestureDetector(
-      onTap: () {
-        controller.changeIndex(page);
+  Widget bottomOption(String title, IconData icon, int index) {
+    return Obx(() {
+      final isActive = controller.currentIndex.value == index;
 
-        pageController.animateToPage(
-          page,
-          duration: Duration(milliseconds: 100),
-          curve: Curves.bounceOut,
-        );
-      },
-      child: Container(
-        color: AppTheme.blackColor,
+      return GestureDetector(
+        onTap: () {
+          controller.changeIndex(index);
+          pageController.jumpToPage(index);
+        },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              iconData,
-              size: AppSize.getSize(30),
-              color: AppTheme.whiteColor,
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+              decoration: BoxDecoration(
+                color: isActive ? AppTheme.greenshade900 : AppTheme.blackColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Icon(
+                icon,
+                color: isActive ? AppTheme.greyShade400 : AppTheme.whiteColor,
+                size: 30,
+              ),
             ),
             Text(
               title,
-              style: TextStyle(
-                color: AppTheme.whiteColor,
-                fontWeight: FontWeight.w600,
-                fontSize: AppSize.getSize(16),
-              ),
+              style: TextStyle(color: AppTheme.whiteColor, fontSize: 15),
             ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 
   PopupMenuItem popupTile(String title, int value) {

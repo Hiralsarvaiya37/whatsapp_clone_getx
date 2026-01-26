@@ -5,7 +5,7 @@ import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 class LoginScreen extends GetView<LoginController> {
   static const id = "/LoginScreen";
-   LoginScreen({super.key});
+  LoginScreen({super.key});
   final LoginController loginController = Get.put(LoginController());
 
   @override
@@ -23,10 +23,13 @@ class LoginScreen extends GetView<LoginController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
+              controller: controller.phoneController,
+              onChanged: (value) {
+                controller.isLoading.value = false;
+              },
               onTapOutside: (event) {
                 FocusScope.of(context).unfocus();
               },
-              controller: controller.phoneController,
               decoration: InputDecoration(
                 hintText: context.l10n.enterphonenumber,
                 prefixIcon: Icon(Icons.phone),
@@ -36,13 +39,18 @@ class LoginScreen extends GetView<LoginController> {
               ),
             ),
           ),
+
           SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () async {
-              controller.onVerifyNum(context);
-            },
-            child: Text(context.l10n.verifyphoneNumber),
-          ),
+          Obx(() {
+            return controller.isLoading.value
+                ? CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: () {
+                      controller.onVerifyNum(context);
+                    },
+                    child: Text(context.l10n.verifyphoneNumber),
+                  );
+          }),
         ],
       ),
     );
