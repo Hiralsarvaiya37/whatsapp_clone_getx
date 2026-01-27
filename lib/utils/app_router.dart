@@ -7,15 +7,19 @@ import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_bindi
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/update_bindings.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
@@ -138,6 +142,7 @@ import 'package:whatsapp_clone_getx/feature/setting/view/qr_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/setting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/storage_and_data_screen.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/starred/view/starred_screen.dart';
 
 class AppRouter {
   static List<GetPage<dynamic>> appRoute = [
@@ -243,7 +248,7 @@ class AppRouter {
     GetPage(name: ProfilePhotoScreen.id, page: () => ProfilePhotoScreen()),
     GetPage(name: AboutScreen.id, page: () => AboutScreen()),
     GetPage(name: LinksScreen.id, page: () => LinksScreen()),
-    GetPage(name: StatusPrivacyScreen.id, page: () => StatusPrivacyScreen()),
+    GetPage(name: StatusPrivacyScreen.id, page: () => StatusPrivacyScreen(),binding: PrivacyViewBinding()),
     GetPage(
       name: DefaultMessageTimerScreen.id,
       page: () => DefaultMessageTimerScreen(),
@@ -447,5 +452,10 @@ class AppRouter {
         return StatusViewScreen(statusList: statusList);
       },
     ),
+    GetPage(name: NewCommunityScreen.id, page: () => NewCommunityScreen()),
+    GetPage(name: LinkDevicesScreen.id, page: () => LinkDevicesScreen()),
+    GetPage(name: StarredScreen.id, page: () => StarredScreen()),
+    GetPage(name: ScheduledCallsScreen.id, page: () => ScheduledCallsScreen()),
+    GetPage(name: PaymentScreen.id, page: () => PaymentScreen()),
   ];
 }
