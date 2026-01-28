@@ -11,6 +11,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/schedule
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/help/view/help_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/update_bindings.dart';
@@ -457,5 +458,6 @@ class AppRouter {
     GetPage(name: StarredScreen.id, page: () => StarredScreen()),
     GetPage(name: ScheduledCallsScreen.id, page: () => ScheduledCallsScreen()),
     GetPage(name: PaymentScreen.id, page: () => PaymentScreen()),
+    GetPage(name: HelpScreen.id, page: () => HelpScreen()),
   ];
 }

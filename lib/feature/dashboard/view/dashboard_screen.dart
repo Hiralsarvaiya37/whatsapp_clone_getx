@@ -188,12 +188,12 @@ class DashboardScreen extends GetView<DashboardController> {
                               ),
                               onSelected: (value) {
                                 handleMenuClick(value);
-                                if (value == 14) {
+                                if (value == 17) {
                                   showClearCallLogDialog(context);
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile(context.l10n.clearcalllog, 14),
+                                popupTile(context.l10n.clearcalllog, 17),
                                 popupTile(context.l10n.scheduledcalls, 13),
                                 popupTile(context.l10n.settings, 8),
                               ],
