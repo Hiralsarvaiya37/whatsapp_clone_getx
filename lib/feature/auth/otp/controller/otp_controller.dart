@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
+import 'package:whatsapp_clone_getx/feature/auth/login/provider/login_provider.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class OtpController extends GetxController {
   RxBool isLoading = false.obs;
-  LoginController loginController = Get.find();
+  LoginProvider loginController = Get.find();
   TextEditingController otpController = TextEditingController();
   void onOtpPress() async {
     try {

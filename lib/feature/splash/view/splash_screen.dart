@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/splash/controller/splash_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/splash/provider/splash_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
@@ -14,12 +13,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final SplashController controller = Get.put(SplashController());
-
   @override
-  void dispose() {
-    Get.delete<SplashController>();
-    super.dispose();
+  void initState() {
+    super.initState();
+    Future.microtask(() {
+      if (mounted) {
+        Provider.of<SplashProvider>(context, listen: false).checkLogin(context);
+      }
+    });
   }
 
   @override

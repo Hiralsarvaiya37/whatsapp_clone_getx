@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_binding.dart';
+import 'package:whatsapp_clone_getx/feature/auth/login/provider/login_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/view/login_screen.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/view/otp_screen.dart';

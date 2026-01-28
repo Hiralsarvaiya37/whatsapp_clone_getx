@@ -1,22 +1,19 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/view/login_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 
-class SplashController extends GetxController {
-  @override
-  void onReady() {
-    super.onReady();
+class SplashProvider extends ChangeNotifier {
+  void checkLogin(BuildContext context) {
     Timer(const Duration(seconds: 2), () {
       final user = FirebaseAuth.instance.currentUser;
 
       if (user != null) {
-        Get.offAllNamed(DashboardScreen.id);
+        Navigator.pushReplacementNamed(context, DashboardScreen.id);
       } else {
-        Get.offAllNamed(LoginScreen.id);
+        Navigator.pushReplacementNamed(context, LoginScreen.id);
       }
     });
   }
 }
-

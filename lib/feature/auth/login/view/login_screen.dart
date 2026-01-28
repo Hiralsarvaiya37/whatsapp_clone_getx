@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/auth/login/provider/login_provider.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
-class LoginScreen extends GetView<LoginController> {
+class LoginScreen extends StatelessWidget {
   static const id = "/LoginScreen";
-  LoginScreen({super.key});
-  final LoginController loginController = Get.put(LoginController());
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<LoginProvider>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -23,9 +23,9 @@ class LoginScreen extends GetView<LoginController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              controller: controller.phoneController,
+              controller: provider.phoneController,
               onChanged: (value) {
-                controller.isLoading.value = false;
+                provider.setLoading(false);
               },
               onTapOutside: (event) {
                 FocusScope.of(context).unfocus();
@@ -41,16 +41,15 @@ class LoginScreen extends GetView<LoginController> {
           ),
 
           SizedBox(height: 30),
-          Obx(() {
-            return controller.isLoading.value
-                ? CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: () {
-                      controller.onVerifyNum(context);
-                    },
-                    child: Text(context.l10n.verifyphoneNumber),
-                  );
-          }),
+
+          provider.isLoading
+              ? CircularProgressIndicator()
+              : ElevatedButton(
+                  onPressed: () {
+                    provider.onVerifyNum(context);
+                  },
+                  child: Text(context.l10n.verifyphoneNumber),
+                ),
         ],
       ),
     );
