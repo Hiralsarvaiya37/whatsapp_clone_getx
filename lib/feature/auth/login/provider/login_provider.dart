@@ -28,7 +28,7 @@ class LoginProvider extends ChangeNotifier {
       codeSent: (String verifyId, int? resendToken) {
         setLoading(false);
         verificationId = verifyId;
-        Navigator.pushReplacementNamed(context,OtpScreen.id);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );

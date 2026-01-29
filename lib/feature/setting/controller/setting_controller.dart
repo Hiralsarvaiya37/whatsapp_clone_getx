@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 
 class SettingController extends GetxController {

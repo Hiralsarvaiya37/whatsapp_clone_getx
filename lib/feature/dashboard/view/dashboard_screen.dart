@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/callsview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communitiesview_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_controller.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/provider/dashboard_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
@@ -17,15 +17,14 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class DashboardScreen extends GetView<DashboardController> {
+class DashboardScreen extends StatelessWidget {
   static const id = "/DashboardScreen";
-  DashboardScreen({super.key});
-
-  final pageController = PageController();
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     AppSize.setupData(MediaQuery.of(context));
+    final dashboardProvider = context.watch<DashboardProvider>();
 
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
@@ -40,19 +39,17 @@ class DashboardScreen extends GetView<DashboardController> {
             Row(
               children: [
                 Expanded(
-                  child: Obx(
-                    () => Text(
-                      controller.getAppBarName(controller.currentIndex.value),
+                  child:  Text(
+                      dashboardProvider.getAppBarName(dashboardProvider.currentIndex),
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(25),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ),
+                  
                 ),
-                Obx(
-                  () => controller.currentIndex.value == 0
+                  dashboardProvider.currentIndex == 0
                       ? Row(
                           children: [
                             Icon(
@@ -81,7 +78,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
-                                handleMenuClick(value);
+                                handleMenuClick(value, context);
                               },
                               itemBuilder: (context) => [
                                 popupTile(context.l10n.newgroup, 1),
@@ -96,7 +93,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : controller.currentIndex.value == 1
+                      : dashboardProvider.currentIndex == 1
                       ? Row(
                           children: [
                             Icon(
@@ -119,7 +116,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
-                                handleMenuClick(value);
+                                handleMenuClick(value, context);
                                 if (value == 15) {
                                   bottomSheet(context);
                                 }
@@ -133,7 +130,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : controller.currentIndex.value == 2
+                      : dashboardProvider.currentIndex == 2
                       ? Row(
                           children: [
                             Icon(
@@ -156,7 +153,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
-                                handleMenuClick(value);
+                                handleMenuClick(value, context);
                               },
                               itemBuilder: (context) => [
                                 popupTile(context.l10n.settings, 8),
@@ -164,7 +161,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                           ],
                         )
-                      : controller.currentIndex.value == 3
+                      : dashboardProvider.currentIndex == 3
                       ? Row(
                           children: [
                             Icon(
@@ -187,7 +184,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
-                                handleMenuClick(value);
+                                handleMenuClick(value, context);
                                 if (value == 17) {
                                   showClearCallLogDialog(context);
                                 }
@@ -201,13 +198,13 @@ class DashboardScreen extends GetView<DashboardController> {
                           ],
                         )
                       : SizedBox(),
-                ),
+                
               ],
             ),
             Expanded(
               child: PageView(
                 scrollDirection: Axis.horizontal,
-                controller: pageController,
+                controller: dashboardProvider.pageController,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   ChatviewScreen(),
@@ -228,10 +225,10 @@ class DashboardScreen extends GetView<DashboardController> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
-            bottomOption(context.l10n.chats, Icons.chat, 0),
-            bottomOption(context.l10n.updates, Icons.update, 1),
-            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2),
-            bottomOption(context.l10n.calls, Icons.call, 3),
+            bottomOption(context.l10n.chats, Icons.chat, 0, dashboardProvider),
+            bottomOption(context.l10n.updates, Icons.update, 1, dashboardProvider),
+            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2, dashboardProvider),
+            bottomOption(context.l10n.calls, Icons.call, 3, dashboardProvider),
           ],
         ),
       ),
@@ -277,14 +274,14 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  Widget bottomOption(String title, IconData icon, int index) {
-    return Obx(() {
-      final isActive = controller.currentIndex.value == index;
+  Widget bottomOption(String title, IconData icon, int index, DashboardProvider dashboardProvider) {
+   
+      final isActive = dashboardProvider.currentIndex == index;
 
       return GestureDetector(
         onTap: () {
-          controller.changeIndex(index);
-          pageController.jumpToPage(index);
+          dashboardProvider.changeIndex(index);
+          dashboardProvider.pageController.jumpToPage(index);
         },
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -314,7 +311,7 @@ class DashboardScreen extends GetView<DashboardController> {
           ],
         ),
       );
-    });
+  
   }
 
   PopupMenuItem popupTile(String title, int value) {
@@ -471,31 +468,31 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  void handleMenuClick(int value) {
+  void handleMenuClick(int value, BuildContext context ){
     switch (value) {
       case 9:
-        Get.toNamed(NewCommunityScreen.id);
+        Navigator.pushReplacementNamed(context, NewCommunityScreen.id);
         break;
       case 8:
-        Get.toNamed(SettingScreen.id);
+         Navigator.pushReplacementNamed(context,SettingScreen.id);
         break;
       case 10:
-        Get.toNamed(BroadcastsScreen.id);
+        Navigator.pushReplacementNamed(context,BroadcastsScreen.id);
         break;
       case 11:
-        Get.toNamed(LinkDevicesScreen.id);
+         Navigator.pushReplacementNamed(context,LinkDevicesScreen.id);
         break;
       case 12:
-        Get.toNamed(StarredScreen.id);
+        Navigator.pushReplacementNamed(context,StarredScreen.id);
         break;
       case 13:
-        Get.toNamed(ScheduledCallsScreen.id);
+        Navigator.pushReplacementNamed(context,ScheduledCallsScreen.id);
         break;
       case 14:
-        Get.toNamed(StatusPrivacyScreen.id);
+        Navigator.pushReplacementNamed(context,StatusPrivacyScreen.id);
         break;
       case 16:
-        Get.toNamed(PaymentScreen.id);
+         Navigator.pushReplacementNamed(context,PaymentScreen.id);
         break;
     }
   }

@@ -10,9 +10,15 @@ class SplashProvider extends ChangeNotifier {
       final user = FirebaseAuth.instance.currentUser;
 
       if (user != null) {
-        Navigator.pushReplacementNamed(context, DashboardScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DashboardScreen()),
+        );
       } else {
-        Navigator.pushReplacementNamed(context, LoginScreen.id);
+       Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
       }
     });
   }

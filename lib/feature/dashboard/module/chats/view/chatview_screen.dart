@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatviewScreen extends GetView<ChatController> {
+class ChatviewScreen extends StatelessWidget {
   static const id = "/ChatviewScreen";
   ChatviewScreen({super.key});
   final List<String> filters = ["All", "Unread", "Favorites", "Groups", "+"];
@@ -15,6 +15,7 @@ class ChatviewScreen extends GetView<ChatController> {
   @override
   Widget build(BuildContext context) {
     String currentUser = "user1";
+    final chatProvider = context.read<ChatProvider>();
 
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
@@ -96,13 +97,18 @@ class ChatviewScreen extends GetView<ChatController> {
                         ),
                         child: InkWell(
                           onTap: () {
-                            controller.initChat(
+                            chatProvider.initChat(
                               myId: currentUser,
                               otherId: user,
                               otherName: user,
                             );
 
-                            Get.toNamed(ChatMessagesScreen.id);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChatMessagesScreen(),
+                              ),
+                            );
                           },
                           child: Row(
                             children: [

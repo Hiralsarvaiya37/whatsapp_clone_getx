@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/provider/call_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ContactScreen extends GetView<CallController> {
+class ContactScreen extends StatelessWidget {
   static const id = "/ContactScreen";
   const ContactScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final callProvider = context.watch<CallProvider>();
+
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -27,7 +29,7 @@ class ContactScreen extends GetView<CallController> {
           onTapOutside: (event) {
             FocusScope.of(context).unfocus();
           },
-          controller: controller.searchController,
+          controller: callProvider.searchController,
           cursorColor: AppTheme.greenAccentShade700,
           cursorWidth: 3,
           style: TextStyle(color: AppTheme.whiteColor),
@@ -37,7 +39,7 @@ class ContactScreen extends GetView<CallController> {
             border: InputBorder.none,
           ),
           onChanged: (value) {
-            controller.changeValue(value);
+            callProvider.changeValue(value);
           },
         ),
         actions: [
@@ -54,68 +56,59 @@ class ContactScreen extends GetView<CallController> {
           horizontal: AppSize.getSize(20),
           vertical: AppSize.getSize(20),
         ),
-        child: Obx(
-          () => Column(
-            children: [
-              if (controller.query.value.isEmpty)
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: AppTheme.greyColor,
-                        width: AppSize.getSize(0.7),
-                      ),
+        child: Column(
+          children: [
+            if (callProvider.query.isEmpty)
+              Container(
+                padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: AppTheme.greyColor,
+                      width: AppSize.getSize(0.7),
                     ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        context.l10n.addupto31people,
-                        style: TextStyle(
-                          color: AppTheme.greyShade400,
-                          fontSize: AppSize.getSize(16),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
-              SizedBox(height: AppSize.getSize(20)),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      if (controller.query.value.isEmpty) ...[
-                        menuTiles(),
-                        SizedBox(height: AppSize.getSize(25)),
-                      ],
-
-                      if (controller.filteredFrequently.isNotEmpty)
-                        Obx(
-                          () => contactListView(
-                            title: context.l10n.frequentlyContacted,
-                            list: controller.filteredFrequently,
-                          ),
-                        ),
-
-                      SizedBox(height: AppSize.getSize(25)),
-
-                      if (controller.filteredAll.isNotEmpty)
-                        Obx(
-                          () => contactListView(
-                            title: controller.query.value.isEmpty
-                                ? context.l10n.allContacts
-                                : context.l10n.results,
-                            list: controller.filteredAll,
-                          ),
-                        ),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      context.l10n.addupto31people,
+                      style: TextStyle(
+                        color: AppTheme.greyShade400,
+                        fontSize: AppSize.getSize(16),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            SizedBox(height: AppSize.getSize(20)),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    if (callProvider.query.isEmpty) ...[
+                      menuTiles(),
+                      SizedBox(height: AppSize.getSize(25)),
+                    ],
+                    if (callProvider.filteredFrequently.isNotEmpty)
+                      contactListView(
+                        title: context.l10n.frequentlyContacted,
+                        list: callProvider.filteredFrequently,
+                      ),
+                    SizedBox(height: AppSize.getSize(25)),
+                    if (callProvider.filteredAll.isNotEmpty)
+                      contactListView(
+                        title: callProvider.query.isEmpty
+                            ? context.l10n.allContacts
+                            : context.l10n.results,
+                        list: callProvider.filteredAll,
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -165,7 +158,10 @@ class ContactScreen extends GetView<CallController> {
     );
   }
 
-  Widget contactListView({required String title, required List list}) {
+  Widget contactListView({
+    required String title,
+    required List<Map<String, String>> list,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

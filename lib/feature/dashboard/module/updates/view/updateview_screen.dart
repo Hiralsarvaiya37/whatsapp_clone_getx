@@ -1,52 +1,52 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class UpdateviewScreen extends GetView<UpdateviewController> {
+class UpdateviewScreen extends StatelessWidget {
   static const id = "/UpdateviewScreen";
- const UpdateviewScreen({super.key});
+  const UpdateviewScreen({super.key});
 
-
-  Future pickFromCamera() async {
-    final ImagePicker picker = ImagePicker();
+  Future pickFromCamera(BuildContext context) async {
+    final provider = context.read<UpdateviewProvider>();
+    final picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
     if (photo != null) {
-      controller.statusList.add(
-        StatusItem(file: File(photo.path), type: StatusType.image),
-      );
+      provider.addImage(File(photo.path));
     }
   }
 
-  Future pickFromGallery() async {
-    final ImagePicker picker = ImagePicker();
+  Future pickFromGallery(BuildContext context) async {
+    final provider = context.read<UpdateviewProvider>();
+    final picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      controller.statusList.add(
-        StatusItem(file: File(image.path), type: StatusType.image),
-      );
+      provider.addImage(File(image.path));
     }
   }
 
-  Future pickFromVideo() async {
-    final ImagePicker picker = ImagePicker();
+  Future pickFromVideo(BuildContext context) async {
+    final provider = context.read<UpdateviewProvider>();
+    final picker = ImagePicker();
     final XFile? video = await picker.pickVideo(source: ImageSource.gallery);
 
     if (video != null) {
-      controller.addVideo(File(video.path));
+      provider.addVideo(File(video.path));
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final updateviewProvider = context.watch<UpdateviewProvider>();
+    final bool hasStatus = updateviewProvider.statusList.isNotEmpty;
     return Stack(
       children: [
         SingleChildScrollView(
@@ -69,13 +69,20 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
 
               GestureDetector(
                 onTap: () {
-                  if (controller.statusList.isNotEmpty) {
-                   
-                    Get.toNamed(StatusViewScreen.id,arguments: controller.statusList.toList());
+                  if (updateviewProvider.statusList.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StatusViewScreen(
+                          statuses: updateviewProvider.statusList,
+                        ),
+                      ),
+                    );
                   } else {
                     showImagePickerSheet(context);
                   }
                 },
+
                 child: Row(
                   children: [
                     Stack(
@@ -91,26 +98,25 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                               width: AppSize.getSize(3),
                             ),
                           ),
-                          child: ClipOval(
-                            child: Obx(() {
-                              bool hasStatus = controller.statusList.isNotEmpty;
 
-                              return Container(
-                                height: 50,
-                                width: 50,
-                                padding: EdgeInsets.all(3),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: hasStatus
-                                        ? AppTheme.greenColor
-                                        : Colors.transparent,
-                                    width: 1,
-                                  ),
+                          child: ClipOval(
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: hasStatus
+                                      ? AppTheme.greenColor
+                                      : Colors.transparent,
+                                  width: 1,
                                 ),
-                                child: ClipOval(child: buildLastStatus()),
-                              );
-                            }),
+                              ),
+                              child: ClipOval(
+                                child: buildLastStatus(updateviewProvider),
+                              ),
+                            ),
                           ),
                         ),
 
@@ -118,12 +124,10 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                           left: 1,
                           top: 1,
                           child: ClipOval(
-                            child: Obx(
-                              () => SizedBox(
-                                height: 48,
-                                width: 48,
-                                child: buildLastStatus(),
-                              ),
+                            child: SizedBox(
+                              height: 48,
+                              width: 48,
+                              child: buildLastStatus(updateviewProvider),
                             ),
                           ),
                         ),
@@ -166,15 +170,13 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Obx(
-                          () => Text(
-                            controller.statusList.isEmpty
-                                ? context.l10n.taptoaddstatus
-                                : context.l10n.minutesago,
-                            style: TextStyle(
-                              color: AppTheme.greyShade400,
-                              fontSize: AppSize.getSize(16),
-                            ),
+                        Text(
+                          updateviewProvider.statusList.isEmpty
+                              ? context.l10n.taptoaddstatus
+                              : context.l10n.minutesago,
+                          style: TextStyle(
+                            color: AppTheme.greyShade400,
+                            fontSize: AppSize.getSize(16),
                           ),
                         ),
                       ],
@@ -248,128 +250,128 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                   ),
                   Spacer(),
-                  Obx(
-                    () => GestureDetector(
-                      onTap: () {
-                        controller.isArrowDown.value =
-                            !controller.isArrowDown.value;
-                      },
-                      child: Container(
-                        color: AppTheme.blackColor,
+                  GestureDetector(
+                    onTap: () {
+                      updateviewProvider.isArrowDown =
+                          !updateviewProvider.isArrowDown;
+                    },
+                    child: Container(
+                      color: AppTheme.blackColor,
 
-                        child: Icon(
-                          controller.isArrowDown.value
-                              ? Icons.expand_more_sharp
-                              : Icons.expand_less,
-                          size: AppSize.getSize(30),
-                          color: AppTheme.greyShade400,
-                        ),
+                      child: Icon(
+                        updateviewProvider.isArrowDown
+                            ? Icons.expand_more_sharp
+                            : Icons.expand_less,
+                        size: AppSize.getSize(30),
+                        color: AppTheme.greyShade400,
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(height: AppSize.getSize(10)),
-              Obx(
-                () => controller.isArrowDown.value
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            context.l10n.channels,
-                            style: TextStyle(
-                              color: AppTheme.whiteColor,
-                              fontSize: AppSize.getSize(20),
-                              fontWeight: FontWeight.w500,
-                            ),
+              updateviewProvider.isArrowDown
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          context.l10n.channels,
+                          style: TextStyle(
+                            color: AppTheme.whiteColor,
+                            fontSize: AppSize.getSize(20),
+                            fontWeight: FontWeight.w500,
                           ),
+                        ),
 
-                          SizedBox(height: AppSize.getSize(5)),
+                        SizedBox(height: AppSize.getSize(5)),
 
-                          Text(
-                            context.l10n.stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
-                            style: TextStyle(
-                              color: AppTheme.greyShade400,
-                              fontSize: AppSize.getSize(16),
-                              fontWeight: FontWeight.w500,
-                            ),
+                        Text(
+                          context
+                              .l10n
+                              .stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
+                          style: TextStyle(
+                            color: AppTheme.greyShade400,
+                            fontSize: AppSize.getSize(16),
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          ListView.separated(
-                            itemCount: 5,
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) => Row(
-                              children: [
-                                ClipOval(
-                                  child: Image.network(
-                                    height: AppSize.getSize(45),
-                                    width: AppSize.getSize(45),
-                                    fit: BoxFit.cover,
-                                    "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
-                                  ),
-                                ),
-                                SizedBox(width: AppSize.getSize(25)),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Users",
-                                        style: TextStyle(
-                                          color: AppTheme.whiteColor,
-                                          fontSize: AppSize.getSize(19),
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Text(
-                                        context.l10n.minutesago,
-                                        style: TextStyle(
-                                          color: AppTheme.greyShade400,
-                                          fontSize: AppSize.getSize(15),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            separatorBuilder: (context, index) =>
-                                SizedBox(height: AppSize.getSize(20)),
-                          ),
-                          SizedBox(height: AppSize.getSize(20)),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        ListView.separated(
+                          itemCount: 5,
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) => Row(
                             children: [
-                              Text(
-                                context.l10n.channels,
-                                style: TextStyle(
-                                  color: AppTheme.whiteColor,
-                                  fontSize: AppSize.getSize(19),
-                                  fontWeight: FontWeight.w500,
+                              ClipOval(
+                                child: Image.network(
+                                  height: AppSize.getSize(45),
+                                  width: AppSize.getSize(45),
+                                  fit: BoxFit.cover,
+                                  "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
                                 ),
                               ),
-
-                              SizedBox(height: AppSize.getSize(5)),
-
-                              Text(
-                                context.l10n.stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
-                                style: TextStyle(
-                                  color: AppTheme.greyShade400,
-                                  fontSize: AppSize.getSize(16),
-                                  fontWeight: FontWeight.w500,
+                              SizedBox(width: AppSize.getSize(25)),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Users",
+                                      style: TextStyle(
+                                        color: AppTheme.whiteColor,
+                                        fontSize: AppSize.getSize(19),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Text(
+                                      context.l10n.minutesago,
+                                      style: TextStyle(
+                                        color: AppTheme.greyShade400,
+                                        fontSize: AppSize.getSize(15),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
-                        ],
-                      ),
-              ),
+
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: AppSize.getSize(20)),
+                        ),
+                        SizedBox(height: AppSize.getSize(20)),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              context.l10n.channels,
+                              style: TextStyle(
+                                color: AppTheme.whiteColor,
+                                fontSize: AppSize.getSize(19),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+
+                            SizedBox(height: AppSize.getSize(5)),
+
+                            Text(
+                              context
+                                  .l10n
+                                  .stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
+                              style: TextStyle(
+                                color: AppTheme.greyShade400,
+                                fontSize: AppSize.getSize(16),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+
               SizedBox(height: AppSize.getSize(30)),
               Row(
                 children: [
@@ -381,21 +383,19 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     ),
                   ),
                   Spacer(),
-                  Obx(
-                    () => GestureDetector(
-                      onTap: () {
-                        controller.isDown.value = !controller.isDown.value;
-                      },
-                      child: Container(
-                        color: AppTheme.blackColor,
+                  GestureDetector(
+                    onTap: () {
+                      updateviewProvider.isDown = !updateviewProvider.isDown;
+                    },
+                    child: Container(
+                      color: AppTheme.blackColor,
 
-                        child: Icon(
-                          controller.isDown.value
-                              ? Icons.expand_less
-                              : Icons.expand_more_sharp,
-                          size: AppSize.getSize(30),
-                          color: AppTheme.greyShade400,
-                        ),
+                      child: Icon(
+                        updateviewProvider.isDown
+                            ? Icons.expand_less
+                            : Icons.expand_more_sharp,
+                        size: AppSize.getSize(30),
+                        color: AppTheme.greyShade400,
                       ),
                     ),
                   ),
@@ -404,73 +404,71 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
 
               SizedBox(height: AppSize.getSize(20)),
 
-              Obx(
-                () => Visibility(
-                  visible: controller.isDown.value,
-                  child: ListView.separated(
-                    itemCount: 6,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) => Row(
-                      children: [
-                        ClipOval(
-                          child: Image.network(
-                            fit: BoxFit.cover,
-                            height: AppSize.getSize(45),
-                            width: AppSize.getSize(45),
-                            "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
-                          ),
+              Visibility(
+                visible: updateviewProvider.isDown,
+                child: ListView.separated(
+                  itemCount: 6,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => Row(
+                    children: [
+                      ClipOval(
+                        child: Image.network(
+                          fit: BoxFit.cover,
+                          height: AppSize.getSize(45),
+                          width: AppSize.getSize(45),
+                          "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
                         ),
-                        SizedBox(width: AppSize.getSize(20)),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Demo",
-                                style: TextStyle(
-                                  color: AppTheme.whiteColor,
-                                  fontSize: AppSize.getSize(18),
-                                  fontWeight: FontWeight.w500,
-                                ),
+                      ),
+                      SizedBox(width: AppSize.getSize(20)),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Demo",
+                              style: TextStyle(
+                                color: AppTheme.whiteColor,
+                                fontSize: AppSize.getSize(18),
+                                fontWeight: FontWeight.w500,
                               ),
-                              Text(
-                                context.l10n.followers,
-                                style: TextStyle(
-                                  color: AppTheme.greyShade400,
-                                  fontSize: AppSize.getSize(15),
-                                ),
+                            ),
+                            Text(
+                              context.l10n.followers,
+                              style: TextStyle(
+                                color: AppTheme.greyShade400,
+                                fontSize: AppSize.getSize(15),
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSize.getSize(20),
+                          vertical: AppSize.getSize(10),
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppTheme.greenAccentShade700,
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(25),
                           ),
                         ),
-
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: AppSize.getSize(20),
-                            vertical: AppSize.getSize(10),
-                          ),
-                          decoration: BoxDecoration(
-                            color: AppTheme.greenAccentShade700,
-                            borderRadius: BorderRadius.circular(
-                              AppSize.getSize(25),
-                            ),
-                          ),
-                          child: Text(
-                            context.l10n.follow,
-                            style: TextStyle(
-                              color: AppTheme.blackColor,
-                              fontSize: AppSize.getSize(16),
-                              fontWeight: FontWeight.bold,
-                            ),
+                        child: Text(
+                          context.l10n.follow,
+                          style: TextStyle(
+                            color: AppTheme.blackColor,
+                            fontSize: AppSize.getSize(16),
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ],
-                    ),
-
-                    separatorBuilder: (context, index) =>
-                        SizedBox(height: AppSize.getSize(18)),
+                      ),
+                    ],
                   ),
+
+                  separatorBuilder: (context, index) =>
+                      SizedBox(height: AppSize.getSize(18)),
                 ),
               ),
 
@@ -601,7 +599,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  pickFromCamera();
+                  pickFromCamera(context);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -630,7 +628,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  pickFromGallery();
+                  pickFromGallery(context);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -658,7 +656,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  pickFromVideo();
+                  pickFromVideo(context);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -690,8 +688,8 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
     );
   }
 
-  Widget buildLastStatus() {
-    if (controller.statusList.isEmpty) {
+  Widget buildLastStatus(UpdateviewProvider provider) {
+    if (provider.statusList.isEmpty) {
       return SizedBox.expand(
         child: Image.network(
           "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
@@ -700,7 +698,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
       );
     }
 
-    final lastStatus = controller.statusList.last;
+    final lastStatus = provider.statusList.last;
 
     if (lastStatus.type == StatusType.image) {
       return SizedBox.expand(

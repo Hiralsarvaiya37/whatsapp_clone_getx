@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/help/view/help_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -332,7 +330,7 @@ class PaymentScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(HelpScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpScreen()));
                 },
                 child: Row(
                   children: [

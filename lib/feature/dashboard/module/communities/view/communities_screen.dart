@@ -5,8 +5,6 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-// void main() => runApp(MaterialApp(home: CommunitiesScreen()));
-
 class CommunitiesScreen extends StatelessWidget {
   static const id  = "/CommunitiesScreen";
   const CommunitiesScreen({super.key});

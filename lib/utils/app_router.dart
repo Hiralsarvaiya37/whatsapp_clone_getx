@@ -1,26 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/provider/login_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/view/login_screen.dart';
-import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/view/otp_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_binding.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_binding.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/callsview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/help/view/help_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/update_bindings.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communitiesview_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
@@ -70,7 +65,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/hel
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/help_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/linked_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/registration_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/status_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/troubleshooting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/payments_and_requests_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/security_and_privacy_screen.dart';
@@ -117,7 +111,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/a
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/avatar_stickers_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/chat_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
@@ -147,23 +140,6 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/starred/
 
 class AppRouter {
   static List<GetPage<dynamic>> appRoute = [
-    GetPage(name: SplashScreen.id, page: () => SplashScreen()),
-    GetPage(
-      name: LoginScreen.id,
-      page: () => LoginScreen(),
-      binding: LoginBinding(),
-    ),
-    GetPage(name: OtpScreen.id, page: () => OtpScreen(), binding: OtpBinding()),
-    GetPage(
-      name: DashboardScreen.id,
-      page: () => DashboardScreen(),
-      binding: DashboardBinding(),
-    ),
-    GetPage(
-      name: UpdateviewScreen.id,
-      page: () => UpdateviewScreen(),
-      binding: UpdateBindings(),
-    ),
     GetPage(
       name: SettingScreen.id,
       page: () => SettingScreen(),
@@ -216,11 +192,7 @@ class AppRouter {
       binding: ChatViewBinding(),
     ),
     GetPage(name: BroadcastsScreen.id, page: () => BroadcastsScreen()),
-    GetPage(
-      name: ContactScreen.id,
-      page: () => ContactScreen(),
-      binding: CallBinding(),
-    ),
+
     GetPage(name: NotificationsScreen.id, page: () => NotificationsScreen()),
     GetPage(name: StorageAndDataScreen.id, page: () => StorageAndDataScreen()),
     GetPage(
@@ -249,7 +221,11 @@ class AppRouter {
     GetPage(name: ProfilePhotoScreen.id, page: () => ProfilePhotoScreen()),
     GetPage(name: AboutScreen.id, page: () => AboutScreen()),
     GetPage(name: LinksScreen.id, page: () => LinksScreen()),
-    GetPage(name: StatusPrivacyScreen.id, page: () => StatusPrivacyScreen(),binding: PrivacyViewBinding()),
+    GetPage(
+      name: StatusPrivacyScreen.id,
+      page: () => StatusPrivacyScreen(),
+      binding: PrivacyViewBinding(),
+    ),
     GetPage(
       name: DefaultMessageTimerScreen.id,
       page: () => DefaultMessageTimerScreen(),
@@ -257,7 +233,6 @@ class AppRouter {
     GetPage(name: GroupsScreen.id, page: () => GroupsScreen()),
     GetPage(name: AvatarScreen.id, page: () => AvatarScreen()),
     GetPage(name: LiveLocationScreen.id, page: () => LiveLocationScreen()),
-    GetPage(name: CallsScreen.id, page: () => CallsScreen()),
     GetPage(
       name: PrivacyContactsScreen.id,
       page: () => PrivacyContactsScreen(),
@@ -377,7 +352,6 @@ class AppRouter {
       page: () => TroubleshootingScreen(),
     ),
     GetPage(name: HelpContactsScreen.id, page: () => HelpContactsScreen()),
-    GetPage(name: StatusScreen.id, page: () => StatusScreen()),
     GetPage(
       name: IndividualAndGroupchatsScreen.id,
       page: () => IndividualAndGroupchatsScreen(),
@@ -424,35 +398,12 @@ class AppRouter {
       page: () => VoiceTroubleshootingScreen(),
     ),
     GetPage(
-      name: FavoritesScreen.id,
-      page: () => FavoritesScreen(),
-      binding: CallBinding(),
-    ),
-    GetPage(name: CommunitiesScreen.id, page: () => CommunitiesScreen()),
-    GetPage(
       name: DisappearingMessagesScreen.id,
       page: () => DisappearingMessagesScreen(),
     ),
     GetPage(name: EndToEndScreen.id, page: () => EndToEndScreen()),
     GetPage(name: NotificationScreen.id, page: () => NotificationScreen()),
-    GetPage(name: ChatviewScreen.id, page: () => ChatviewScreen()),
-    GetPage(
-      name: ChatMessagesScreen.id,
-      page: () => ChatMessagesScreen(),
-      binding: ChatBinding(),
-    ),
-    GetPage(
-      name: ChatviewScreen.id,
-      page: () => ChatviewScreen(),
-      binding: ChatBinding(),
-    ),
-    GetPage(
-      name: StatusViewScreen.id,
-      page: () {
-        List<StatusItem> statusList = Get.arguments;
-        return StatusViewScreen(statusList: statusList);
-      },
-    ),
+
     GetPage(name: NewCommunityScreen.id, page: () => NewCommunityScreen()),
     GetPage(name: LinkDevicesScreen.id, page: () => LinkDevicesScreen()),
     GetPage(name: StarredScreen.id, page: () => StarredScreen()),
@@ -460,4 +411,19 @@ class AppRouter {
     GetPage(name: PaymentScreen.id, page: () => PaymentScreen()),
     GetPage(name: HelpScreen.id, page: () => HelpScreen()),
   ];
+
+  static Map<String, WidgetBuilder> routes = {
+    SplashScreen.id: (context) => SplashScreen(),
+    LoginScreen.id: (context) => LoginScreen(),
+    OtpScreen.id: (context) => OtpScreen(),
+    DashboardScreen.id: (context) => DashboardScreen(),
+    ChatviewScreen.id: (context) => ChatviewScreen(),
+    ChatMessagesScreen.id: (context) => ChatMessagesScreen(),
+    UpdateviewScreen.id: (context) => UpdateviewScreen(),
+    CommunitiesviewScreen.id: (context) => CommunitiesviewScreen(),
+    CommunitiesScreen.id: (context) => CommunitiesScreen(),
+    CallsviewScreen.id: (context) => CallsviewScreen(),
+    FavoritesScreen.id: (context) => FavoritesScreen(),
+    ContactScreen.id: (context) => ContactScreen(),
+  };
 }

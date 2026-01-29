@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -7,6 +6,7 @@ import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class CallsviewScreen extends StatelessWidget {
+  static const id = "/CallsviewScreen";
   const CallsviewScreen({super.key});
 
   @override
@@ -22,7 +22,12 @@ class CallsviewScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(ContactScreen.id);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ContactScreen(),
+                        ),
+                      );
                     },
                     child: Column(
                       children: [
@@ -31,7 +36,9 @@ class CallsviewScreen extends StatelessWidget {
                           width: AppSize.getSize(60),
                           decoration: BoxDecoration(
                             color: AppTheme.greyShade900,
-                            borderRadius: BorderRadius.circular(AppSize.getSize(50)),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(50),
+                            ),
                           ),
                           child: Icon(
                             Icons.call,
@@ -58,7 +65,9 @@ class CallsviewScreen extends StatelessWidget {
                         width: AppSize.getSize(60),
                         decoration: BoxDecoration(
                           color: AppTheme.greyShade800,
-                          borderRadius: BorderRadius.circular(AppSize.getSize(50)),
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(50),
+                          ),
                         ),
                         child: Icon(
                           Icons.calendar_month,
@@ -84,7 +93,9 @@ class CallsviewScreen extends StatelessWidget {
                         width: AppSize.getSize(60),
                         decoration: BoxDecoration(
                           color: AppTheme.greyShade800,
-                          borderRadius: BorderRadius.circular(AppSize.getSize(50)),
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(50),
+                          ),
                         ),
                         child: Icon(
                           Icons.keyboard_alt_sharp,
@@ -105,7 +116,12 @@ class CallsviewScreen extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(FavoritesScreen.id);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FavoritesScreen(),
+                        ),
+                      );
                     },
                     child: Column(
                       children: [
@@ -114,7 +130,9 @@ class CallsviewScreen extends StatelessWidget {
                           width: AppSize.getSize(60),
                           decoration: BoxDecoration(
                             color: AppTheme.greyShade800,
-                            borderRadius: BorderRadius.circular(AppSize.getSize(50)),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(50),
+                            ),
                           ),
                           child: Icon(
                             Icons.favorite_border,
@@ -174,7 +192,10 @@ class CallsviewScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Demo",
-                            style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
+                            style: TextStyle(
+                              color: AppTheme.whiteColor,
+                              fontSize: AppSize.getSize(20),
+                            ),
                           ),
                           Row(
                             children: [
@@ -185,7 +206,7 @@ class CallsviewScreen extends StatelessWidget {
                               ),
                               SizedBox(width: AppSize.getSize(7)),
                               Text(
-                               context.l10n.yesterday10_07PM,
+                                context.l10n.yesterday10_07PM,
                                 style: TextStyle(
                                   color: AppTheme.greyShade400,
                                   fontSize: AppSize.getSize(16),
@@ -208,12 +229,13 @@ class CallsviewScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(25)),
+                separatorBuilder: (context, index) =>
+                    SizedBox(height: AppSize.getSize(25)),
               ),
             ],
           ),
         ),
-     
+
         Positioned(
           bottom: AppSize.getSize(20),
           right: AppSize.getSize(0),
@@ -224,7 +246,11 @@ class CallsviewScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSize.getSize(15)),
               color: AppTheme.greenAccentShade700,
             ),
-            child: Icon(Icons.add_call, size: AppSize.getSize(27), color: AppTheme.blackColor),
+            child: Icon(
+              Icons.add_call,
+              size: AppSize.getSize(27),
+              color: AppTheme.blackColor,
+            ),
           ),
         ),
       ],

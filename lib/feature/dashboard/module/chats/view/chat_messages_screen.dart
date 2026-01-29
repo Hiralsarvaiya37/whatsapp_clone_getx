@@ -1,17 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatMessagesScreen extends GetView<ChatController> {
+class ChatMessagesScreen extends StatelessWidget {
   static const id = "/ChatMessagesScreen";
   const ChatMessagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -38,7 +39,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
             ),
             SizedBox(width: AppSize.getSize(15)),
             Text(
-              controller.otherUserName,
+              chatProvider.otherUserName,
               style: TextStyle(
                 fontSize: AppSize.getSize(23),
                 color: AppTheme.whiteColor,
@@ -76,7 +77,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection('chats')
-                    .doc(controller.chatId)
+                    .doc(chatProvider.chatId)
                     .collection('messages')
                     .orderBy('time', descending: true)
                     .snapshots(),
@@ -96,7 +97,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                     itemBuilder: (context, index) {
                       final data = docs[index];
 
-                      bool isMe = data['senderId'] == controller.myUserId;
+                      bool isMe = data['senderId'] == chatProvider.myUserId;
 
                       return Align(
                         alignment: isMe
@@ -165,7 +166,7 @@ class ChatMessagesScreen extends GetView<ChatController> {
                             onTapOutside: (event) {
                               FocusScope.of(context).unfocus();
                             },
-                            controller: controller.messageController,
+                            controller: chatProvider.messageController,
                             minLines: 1,
                             maxLines: 4,
                             keyboardType: TextInputType.multiline,
@@ -174,7 +175,8 @@ class ChatMessagesScreen extends GetView<ChatController> {
                             style: TextStyle(color: AppTheme.whiteColor),
 
                             onChanged: (value) {
-                              controller.isShow.value = value.isNotEmpty;
+                              chatProvider.isShow = value.isNotEmpty;
+                              chatProvider.updateIsShow(value);
                             },
 
                             decoration: InputDecoration(
@@ -184,28 +186,26 @@ class ChatMessagesScreen extends GetView<ChatController> {
                               ),
                               border: InputBorder.none,
 
-                              suffixIcon: Obx(
-                                () => Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
+                              suffixIcon: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.attach_file,
+                                    color: AppTheme.greyShade400,
+                                  ),
+                                  if (!chatProvider.isShow) ...[
+                                    SizedBox(width: AppSize.getSize(8)),
                                     Icon(
-                                      Icons.attach_file,
+                                      Icons.currency_rupee_sharp,
                                       color: AppTheme.greyShade400,
                                     ),
-                                    if (!controller.isShow.value) ...[
-                                      SizedBox(width: AppSize.getSize(8)),
-                                      Icon(
-                                        Icons.currency_rupee_sharp,
-                                        color: AppTheme.greyShade400,
-                                      ),
-                                      SizedBox(width: AppSize.getSize(8)),
-                                      Icon(
-                                        Icons.camera_alt_outlined,
-                                        color: AppTheme.greyShade400,
-                                      ),
-                                    ],
+                                    SizedBox(width: AppSize.getSize(8)),
+                                    Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: AppTheme.greyShade400,
+                                    ),
                                   ],
-                                ),
+                                ],
                               ),
                             ),
                           ),
@@ -224,15 +224,11 @@ class ChatMessagesScreen extends GetView<ChatController> {
                   ),
                   child: InkWell(
                     onTap: () {
-                      if (controller.isShow.value) {
-                        sendMessage();
+                      if (chatProvider.isShow) {
+                        chatProvider.sendMessage();
                       } else {}
                     },
-                    child: Obx(
-                      (() => Icon(
-                        controller.isShow.value ? Icons.send : Icons.mic,
-                      )),
-                    ),
+                    child: Icon(chatProvider.isShow ? Icons.send : Icons.mic),
                   ),
                 ),
               ],
@@ -241,22 +237,5 @@ class ChatMessagesScreen extends GetView<ChatController> {
         ],
       ),
     );
-  }
-
-  void sendMessage() async {
-    if (controller.messageController.text.trim().isEmpty) return;
-
-    await FirebaseFirestore.instance
-        .collection('chats')
-        .doc(controller.chatId)
-        .collection('messages')
-        .add({
-          'message': controller.messageController.text.trim(),
-          'senderId': controller.myUserId,
-          'time': FieldValue.serverTimestamp(),
-        });
-
-    controller.messageController.clear();
-    controller.isShow.value = false;
   }
 }

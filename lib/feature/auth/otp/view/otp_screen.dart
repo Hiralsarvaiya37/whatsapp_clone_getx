@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/auth/otp/provider/otp_provider.dart';
+import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
-class OtpScreen extends GetView<OtpController> {
+class OtpScreen extends StatelessWidget {
   static const id = "/OtpScreen";
   const OtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final otpProvider = context.read<OtpProvider>();
+    final isLoading = context.watch<OtpProvider>().isLoading;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -22,9 +26,10 @@ class OtpScreen extends GetView<OtpController> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              controller: controller.otpController,
+              controller: otpProvider.otpController,
               onChanged: (value) {
-                controller.isLoading.value = false;
+                otpProvider.isLoading = false;
+                otpProvider.resetLoading();
               },
               onTapOutside: (event) {
                 FocusScope.of(context).unfocus();
@@ -39,16 +44,27 @@ class OtpScreen extends GetView<OtpController> {
             ),
           ),
           SizedBox(height: 30),
-          Obx(() {
-            return controller.isLoading.value
-                ? CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: () async {
-                      controller.onOtpPress();
-                    },
-                    child: Text(context.l10n.oTP),
-                  );
-          }),
+
+          isLoading
+              ? CircularProgressIndicator()
+              : ElevatedButton(
+                  onPressed: () async {
+                    final success = await otpProvider.verifyOtp();
+                    if (!context.mounted) return;
+
+                    if (success) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SplashScreen()),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text("Invalid OTP")));
+                    }
+                  },
+                  child: Text(context.l10n.oTP),
+                ),
         ],
       ),
     );
