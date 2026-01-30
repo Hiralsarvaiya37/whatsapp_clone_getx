@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class StatusPrivacyScreen extends GetView<PrivacyViewController> {
+class StatusPrivacyScreen extends StatelessWidget {
   static const id = "/StatusPrivacyScreen";
   const StatusPrivacyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -50,11 +51,11 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
             ),
             SizedBox(height: AppSize.getSize(20)),
 
-            radioTile("My contacts"),
+            radioTile("My contacts", context),
             SizedBox(height: AppSize.getSize(20)),
             Row(
               children: [
-                Expanded(child: radioTile("My contacts except...")),
+                Expanded(child: radioTile("My contacts except...",context)),
                 Text(
                   "0 excluded",
                   style: TextStyle(
@@ -67,7 +68,7 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
             SizedBox(height: AppSize.getSize(20)),
             Row(
               children: [
-                Expanded(child: radioTile("Only share with...")),
+                Expanded(child: radioTile("Only share with...",context)),
                 Text(
                   "25 included",
                   style: TextStyle(
@@ -79,10 +80,9 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
             ),
             SizedBox(height: AppSize.getSize(40)),
 
-            Obx(
-              () => InkWell(
+         InkWell(
                 onTap: () {
-                  controller.isOn.value = !controller.isOn.value;
+                  provider.isOn = !provider.isOn;
                 },
                 child: Padding(
                   padding: EdgeInsets.only(left: AppSize.getSize(40)),
@@ -120,19 +120,19 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
                       ),
 
                       Switch(
-                        value: controller.isOn.value,
+                        value: provider.isOn,
                         activeThumbColor: AppTheme.blackColor,
                         activeTrackColor: AppTheme.greenAccentShade700,
                         inactiveTrackColor: AppTheme.blackColor,
                         onChanged: (val) {
-                          controller.isOn.value = val;
+                          provider.isOn = val;
                         },
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
+            
             SizedBox(height: AppSize.getSize(30)),
 
             Column(
@@ -178,10 +178,9 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
             ),
 
             SizedBox(height: AppSize.getSize(20)),
-            Obx(
-              () => InkWell(
+           InkWell(
                 onTap: () {
-                  controller.isYes.value = !controller.isYes.value;
+                  provider.isYes = !provider.isYes;
                 },
                 child: Padding(
                   padding: EdgeInsets.only(left: AppSize.getSize(40)),
@@ -203,24 +202,23 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
                         ),
                       ),
                       Switch(
-                        value: controller.isYes.value,
+                        value: provider.isYes,
                         activeThumbColor: AppTheme.blackColor,
                         activeTrackColor: AppTheme.greenAccentShade700,
                         inactiveTrackColor: AppTheme.blackColor,
                         onChanged: (val) {
-                          controller.isYes.value = val;
+                          provider.isYes = val;
                         },
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
+            
             SizedBox(height: AppSize.getSize(30)),
-            Obx(
-              () => InkWell(
+            InkWell(
                 onTap: () {
-                  controller.isNo.value = !controller.isNo.value;
+                  provider.isNo = !provider.isNo;
                 },
                 child: Padding(
                   padding: EdgeInsets.only(left: AppSize.getSize(40)),
@@ -242,19 +240,19 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
                         ),
                       ),
                       Switch(
-                        value: controller.isNo.value,
+                        value: provider.isNo,
                         activeThumbColor: AppTheme.blackColor,
                         activeTrackColor: AppTheme.greenAccentShade700,
                         inactiveTrackColor: AppTheme.blackColor,
                         onChanged: (val) {
-                          controller.isNo.value = val;
+                          provider.isNo = val;
                         },
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
+            
 
             SizedBox(height: AppSize.getSize(20)),
             Text(
@@ -270,12 +268,13 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
     );
   }
 
-  Widget radioTile(String title) {
-    return Obx(() {
-      bool isSelected = controller.selectedOption.value == title;
+  Widget radioTile(String title, BuildContext context) {
+    final provider = context.read<PrivacyViewProvider>();
+   
+      bool isSelected = provider.selectedOption == title;
       return InkWell(
         onTap: () {
-          controller.selectedOption.value = title;
+          provider.selectedOption = title;
         },
         child: Padding(
           padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -319,6 +318,6 @@ class StatusPrivacyScreen extends GetView<PrivacyViewController> {
           ),
         ),
       );
-    });
+  
   }
 }

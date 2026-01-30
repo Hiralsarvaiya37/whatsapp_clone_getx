@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ProfilePhotoScreen extends GetView<PrivacyViewController> {
+class ProfilePhotoScreen extends StatelessWidget {
   static const id = "/ProfilePhotoScreen";
   const ProfilePhotoScreen({super.key});
 
@@ -40,13 +41,13 @@ class ProfilePhotoScreen extends GetView<PrivacyViewController> {
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Everyone"),
+              radioTile("Everyone",context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts"),
+              radioTile("My contacts", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts except..."),
+              radioTile("My contacts except...", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Nobody"),
+              radioTile("Nobody", context),
             ],
           ),
         ),
@@ -54,13 +55,14 @@ class ProfilePhotoScreen extends GetView<PrivacyViewController> {
     );
   }
 
-  Widget radioTile(String title) {
+  Widget radioTile(String title, BuildContext context) {
+    final provider = context.read<PrivacyViewProvider>();
    return Obx((){
-     bool isSelected = controller.selectedOption.value == title;
+     bool isSelected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
         
-          controller.selectedOption.value = title;
+          provider.selectedOption = title;
        
       },
       child: Padding(

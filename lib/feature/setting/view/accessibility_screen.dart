@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AccessibilityScreen extends GetView<SettingController> {
+class AccessibilityScreen extends StatelessWidget {
   static const id ="/AccessibilityScreen";
   const AccessibilityScreen({super.key});
 
 
   @override
   Widget build(BuildContext context) {
+     final provider = context.watch<SettingProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -39,7 +40,7 @@ class AccessibilityScreen extends GetView<SettingController> {
           children: [
             InkWell(
               onTap: () {
-                  controller.isOn.value = !controller.isOn.value;
+                  provider.isOn = !provider.isOn;
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,24 +68,23 @@ class AccessibilityScreen extends GetView<SettingController> {
                     ),
                   ),
                   SizedBox(width: AppSize.getSize(15)),
-                  Obx(
-                    ()=> Switch(
-                      value: controller.isOn.value,
+                 Switch(
+                      value: provider.isOn,
                       activeThumbColor: AppTheme.blackColor,
                       activeTrackColor: AppTheme.greenAccentShade700,
                       inactiveTrackColor: AppTheme.blackColor,
                       onChanged: (val) {
-                          controller.isOn.value = val;
+                          provider.isOn = val;
                       },
                     ),
-                  ),
+                  
                 ],
               ),
             ),
             SizedBox(height: AppSize.getSize(40)),
             InkWell(
               onTap: () {
-               Get.toNamed(AnimationScreen.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AnimationScreen()));
               },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -8,10 +8,13 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/provider/call
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/provider/dashboard_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
 import 'package:whatsapp_clone_getx/feature/splash/provider/splash_provider.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
+import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -39,6 +42,12 @@ void main() async {
         ChangeNotifierProvider(create: (_) => ChatProvider()),
         ChangeNotifierProvider(create: (_) => UpdateviewProvider()),
         ChangeNotifierProvider(create: (_) => CallProvider()),
+        ChangeNotifierProvider(create: (_) => SettingProvider()),
+        ChangeNotifierProvider(
+          create: (context) => PrivacyViewProvider(
+            settingController: context.read<SettingProvider>(),
+          ),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -50,12 +59,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingProvider = context.watch<SettingProvider>();
     return MaterialApp(
       // initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       initialRoute: SplashScreen.id,
-      locale: Locale("en"),
+      locale: Locale(settingProvider.selectedLanguage.code),
       routes: AppRouter.routes,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

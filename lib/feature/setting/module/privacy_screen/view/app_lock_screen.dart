@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AppLockScreen extends GetView<PrivacyViewController> {
+class AppLockScreen extends StatelessWidget {
   static const id = "/AppLockScreen";
   const AppLockScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -51,15 +52,14 @@ class AppLockScreen extends GetView<PrivacyViewController> {
                 ),
               ),
           
-              Obx(
-                ()=> Switch(value: controller.isOn.value,
+             Switch(value: provider.isOn,
                 activeThumbColor: AppTheme.blackColor,
                 activeTrackColor: AppTheme.greenAccentShade700,
                 inactiveTrackColor: AppTheme.blackColor,
                  onChanged: (val){
-                    controller.isOn.value = val;
+                    provider.isOn = val;
                 }),
-              )
+            
             ],
           ),
         ),

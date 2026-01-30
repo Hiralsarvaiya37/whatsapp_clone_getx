@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AvatarStickersScreen extends GetView<PrivacyViewController> {
+class AvatarStickersScreen extends StatelessWidget {
   static const id = "/AvatarStickersScreen";
   const AvatarStickersScreen({super.key});
 
@@ -41,11 +41,11 @@ class AvatarStickersScreen extends GetView<PrivacyViewController> {
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts"),
+              radioTile("My contacts", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Selected contacts..."),
+              radioTile("Selected contacts...", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Nobody"),
+              radioTile("Nobody", context),
               SizedBox(height: AppSize.getSize(20)),
               Text(
                 "If you and a contact allow this for each other, stickers featuring your avatar with their avatar will be available in your chat.",
@@ -58,12 +58,13 @@ class AvatarStickersScreen extends GetView<PrivacyViewController> {
     );
   }
 
-  Widget radioTile(String title) {
-   return Obx((){
-     bool isselected = controller.selectedOption.value == title;
+  Widget radioTile(String title, BuildContext context) {
+     final provider = context.read<PrivacyViewProvider>();
+  
+     bool isselected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
-          controller.selectedOption.value = title;
+          provider.selectedOption = title;
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -98,6 +99,6 @@ class AvatarStickersScreen extends GetView<PrivacyViewController> {
         ),
       ),
     );
-   });
+
   }
 }

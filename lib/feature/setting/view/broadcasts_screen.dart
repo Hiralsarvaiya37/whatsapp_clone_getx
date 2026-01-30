@@ -168,7 +168,7 @@ class BroadcastsScreen extends StatelessWidget {
             right: AppSize.getSize(20),
             child: InkWell(
               onTap: () {
-                Get.toNamed(ContactScreen.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactScreen()));
               },
               child: Container(
                 height: AppSize.getSize(55),

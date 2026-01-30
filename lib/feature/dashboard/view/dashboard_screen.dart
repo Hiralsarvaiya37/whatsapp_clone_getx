@@ -471,28 +471,28 @@ class DashboardScreen extends StatelessWidget {
   void handleMenuClick(int value, BuildContext context ){
     switch (value) {
       case 9:
-        Navigator.pushReplacementNamed(context, NewCommunityScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>NewCommunityScreen()));
         break;
       case 8:
-         Navigator.pushReplacementNamed(context,SettingScreen.id);
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingScreen()));
         break;
       case 10:
-        Navigator.pushReplacementNamed(context,BroadcastsScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> BroadcastsScreen()));
         break;
       case 11:
-         Navigator.pushReplacementNamed(context,LinkDevicesScreen.id);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>LinkDevicesScreen()));
         break;
       case 12:
-        Navigator.pushReplacementNamed(context,StarredScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>StarredScreen()));
         break;
       case 13:
-        Navigator.pushReplacementNamed(context,ScheduledCallsScreen.id);
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduledCallsScreen()));
         break;
       case 14:
-        Navigator.pushReplacementNamed(context,StatusPrivacyScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>StatusPrivacyScreen()));
         break;
       case 16:
-         Navigator.pushReplacementNamed(context,PaymentScreen.id);
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreen()));
         break;
     }
   }

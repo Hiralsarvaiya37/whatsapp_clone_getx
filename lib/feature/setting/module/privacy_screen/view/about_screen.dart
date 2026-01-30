@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AboutScreen extends GetView<PrivacyViewController> {
+class AboutScreen extends StatelessWidget {
   static const id = "/AboutScreen";
  const AboutScreen({super.key});
 
@@ -40,13 +40,13 @@ class AboutScreen extends GetView<PrivacyViewController> {
               ),
 
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Everyone"),
+              radioTile("Everyone",context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts"),
+              radioTile("My contacts",context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts except.."),
+              radioTile("My contacts except..",context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Nobody"),
+              radioTile("Nobody",context),
             ],
           ),
         ),
@@ -54,12 +54,13 @@ class AboutScreen extends GetView<PrivacyViewController> {
     );
   }
 
-  Widget radioTile(String title) {
-   return Obx((){
-       bool isSelected = controller.selectedOption.value == title;
+  Widget radioTile(String title, BuildContext context) {
+     final provider = context.read<PrivacyViewProvider>();
+  
+       bool isSelected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
-        controller.selectedOption.value = title;
+        provider.selectedOption = title;
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -95,6 +96,6 @@ class AboutScreen extends GetView<PrivacyViewController> {
         ),
       ),
     );
-   });
+  
   }
 }

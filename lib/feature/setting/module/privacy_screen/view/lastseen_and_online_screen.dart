@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
+class LastseenAndOnlineScreen extends StatelessWidget {
   static const id = "/LastseenAndOnlineScreen";
  const LastseenAndOnlineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -50,41 +51,37 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
               ),
               SizedBox(height: AppSize.getSize(15)),
 
-              Obx(
-               ()=> radioTile("Everyone", controller.selectedlastSeen.value, (
+             radioTile("Everyone", provider.selectedLastSeen, (
                   value,
                 ) {
-                  controller.selectedlastSeen.value = value;
+                  provider.selectedLastSeen = value;
                 }),
-              ),
+              
 
-              Obx(
-             ()=> radioTile(
+           radioTile(
                   "My contacts",
-                  controller.selectedlastSeen.value,
+                  provider.selectedLastSeen,
                   (value) {
-                    controller.selectedlastSeen.value = value;
+                    provider.selectedLastSeen = value;
                   },
                 ),
-              ),
+              
 
-              Obx(
-              ()=> radioTile(
+            radioTile(
                   "My contacts except...",
-                  controller.selectedlastSeen.value,
+                  provider.selectedLastSeen,
                   (value) {
-                    controller.selectedlastSeen.value = value;
+                    provider.selectedLastSeen = value;
                   },
                 ),
-              ),
+              
 
-              Obx(
-               ()=> radioTile("Nobody", controller.selectedlastSeen.value, (
+             radioTile("Nobody", provider.selectedLastSeen, (
                   value,
                 ) {
-                  controller.selectedlastSeen.value = value;
+                  provider.selectedLastSeen = value;
                 }),
-              ),
+              
 
               SizedBox(height: AppSize.getSize(40)),
               Text(
@@ -96,23 +93,21 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
               ),
               SizedBox(height: AppSize.getSize(15)),
 
-              Obx(
-                ()=>radioTile("Everyone", controller.selectedonline.value, (
+           radioTile("Everyone", provider.selectedOnline, (
                   value,
                 ) {
-                  controller.selectedonline.value = value;
+                  provider.selectedOnline = value;
                 }),
-              ),
+              
 
-              Obx(
-                ()=> radioTile(
+           radioTile(
                   "Same as last seen",
-                  controller.selectedonline.value,
+                  provider.selectedOnline,
                   (value) {
-                    controller.selectedonline.value = value;
+                    provider.selectedOnline = value;
                   },
                 ),
-              ),
+              
 
               SizedBox(height: AppSize.getSize(20)),
               Text(

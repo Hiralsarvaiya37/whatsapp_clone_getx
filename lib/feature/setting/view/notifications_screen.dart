@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class NotificationsScreen extends GetView<SettingController> {
+class NotificationsScreen extends StatelessWidget {
   static const id = "/NotificationsScreen";
   const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<SettingProvider>();
+
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -19,7 +21,11 @@ class NotificationsScreen extends GetView<SettingController> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppTheme.whiteColor,
+          ),
         ),
         title: Text(
           context.l10n.notifications,
@@ -32,43 +38,55 @@ class NotificationsScreen extends GetView<SettingController> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(20),
+            vertical: AppSize.getSize(20),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               radioTile(
                 context,
-               context.l10n.conversationtones,
+                context.l10n.conversationtones,
                 context.l10n.playsoundsforincomingandoutgoingmessages,
                 index: 0,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
                 index: 1,
                 context.l10n.reminders,
-                context.l10n.getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen,
+                context
+                    .l10n
+                    .getoccasionalremindersaboutmessagescallsorstatusupdatesyouhaventseen,
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 context.l10n.message,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(15),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
-              SizedBox(height: AppSize.getSize(30)),
-              Obx(
-                ()=> radioTile(
-                   context,
-                  context.l10n.vibrate,
-                  controller.selectedoption.value,
-                  showSwitch: false,
-                  isShow: true,
-                ),
+              radioTile(
+                context,
+                context.l10n.notificationtone,
+                provider.selectedTheme,
+                showSwitch: false,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
+                context.l10n.vibrate,
+                provider.selectedTheme,
+                showSwitch: false,
+                isShow: true,
+              ),
+
+              SizedBox(height: AppSize.getSize(30)),
+              radioTile(
+                context,
                 context.l10n.popupnotification,
                 context.l10n.notavailable,
                 showSwitch: false,
@@ -81,7 +99,9 @@ class NotificationsScreen extends GetView<SettingController> {
                       return Dialog(
                         backgroundColor: AppTheme.greyShade900,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.getSize(20)),
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(20),
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
@@ -90,14 +110,18 @@ class NotificationsScreen extends GetView<SettingController> {
                           ),
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(AppSize.getSize(20)),
+                              borderRadius: BorderRadius.circular(
+                                AppSize.getSize(20),
+                              ),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  context.l10n.popupnotificationsarenolongeravailableinyourversionofAndroid,
+                                  context
+                                      .l10n
+                                      .popupnotificationsarenolongeravailableinyourversionofAndroid,
                                   style: TextStyle(
                                     color: AppTheme.greyShade400,
                                     fontSize: AppSize.getSize(16),
@@ -112,7 +136,8 @@ class NotificationsScreen extends GetView<SettingController> {
                                       onTap: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text(context.l10n.learnmore,
+                                      child: Text(
+                                        context.l10n.learnmore,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -147,18 +172,23 @@ class NotificationsScreen extends GetView<SettingController> {
               ),
 
               SizedBox(height: AppSize.getSize(30)),
-              Obx(()=> radioTile( context,"Light", controller.selectedoption1.value, showSwitch: false)),
+              radioTile(
+                context,
+                "Light",
+                provider.selectedTheme,
+                showSwitch: false,
+              ),
 
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
                 context.l10n.usehighprioritynotifications,
-               context.l10n.showpreviewsofnotificationsatthetopofthescreen,
+                context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 2,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
                 context.l10n.reactionsnotification,
                 context.l10n.shownotificationsforreactionstomessagesyousend,
                 index: 3,
@@ -166,40 +196,47 @@ class NotificationsScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 context.l10n.groups,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(15),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
-              SizedBox(height: AppSize.getSize(30)),
-              Obx(
-                ()=> radioTile(
-                   context,
-                  context.l10n.vibrate,
-                  controller.selectedoption.value,
+             radioTile(
+                  context,
+                  context.l10n.notificationtone,
+                  provider.selectedTheme,
                   showSwitch: false,
-                  isShow: false,
                 ),
-              ),
-              SizedBox(height: AppSize.getSize(30)),
-              Obx(
-                ()=> radioTile(
-                   context,
-                  context.l10n.light,
-                  controller.selectedoption1.value,
-                  showSwitch: false,
-                  isShow: false,
-                ),
-              ),
+              
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                  context,
+                  context.l10n.vibrate,
+                  provider.selectedTheme,
+                  showSwitch: false,
+                  isShow: false,
+                ),
+              
+              SizedBox(height: AppSize.getSize(30)),
+             radioTile(
+                  context,
+                  context.l10n.light,
+                  provider.selectedTheme,
+                  showSwitch: false,
+                  isShow: false,
+                ),
+              
+              SizedBox(height: AppSize.getSize(30)),
+              radioTile(
+                context,
                 context.l10n.usehighprioritynotifications,
                 context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 4,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
                 context.l10n.reactionsnotification,
                 context.l10n.shownotificationsforreactionstomessagesyousend,
                 index: 5,
@@ -207,62 +244,82 @@ class NotificationsScreen extends GetView<SettingController> {
 
               SizedBox(height: AppSize.getSize(35)),
               Text(
-               context.l10n.calls,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
+                context.l10n.calls,
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(15),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile( context,context.l10n.ringtone, "Default", showSwitch: false),
+              radioTile(
+                context,
+                context.l10n.ringtone,
+                "Default",
+                showSwitch: false,
+              ),
               SizedBox(height: AppSize.getSize(30)),
-              Obx(
-               ()=> radioTile(
-                 context,
+             radioTile(
+                  context,
                   context.l10n.vibrate,
-                  controller.selectedoption.value,
+                  provider.selectedTheme,
                   showSwitch: false,
                   isShow: false,
                 ),
-              ),
+              
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 context.l10n.status,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(15),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(()=> radioTile( context,context.l10n.notificationtone, controller.selectedoption.value, showSwitch: false)),
+             radioTile(
+                  context,
+                  context.l10n.notificationtone,
+                  provider.selectedTheme,
+                  showSwitch: false,
+                ),
+              
               SizedBox(height: AppSize.getSize(30)),
-              Obx(
-                ()=> radioTile(
-                   context,
+             radioTile(
+                  context,
                   context.l10n.vibrate,
-                  controller.selectedoption.value,
+                  provider.selectedTheme,
                   showSwitch: false,
                   isShow: false,
                 ),
-              ),
+              
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
-               context.l10n.usehighprioritynotifications,
+                context,
+                context.l10n.usehighprioritynotifications,
                 context.l10n.showpreviewsofnotificationsatthetopofthescreen,
                 index: 6,
               ),
               SizedBox(height: AppSize.getSize(30)),
               radioTile(
-                 context,
+                context,
                 context.l10n.reactions,
                 context.l10n.shownotificationswhenyougetlikesonastatus,
                 index: 7,
               ),
               SizedBox(height: AppSize.getSize(35)),
               Text(
-               context.l10n.homescreennotifications,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(15)),
+                context.l10n.homescreennotifications,
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(15),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile(
-                 context,
+                context,
                 context.l10n.clearcount,
-                context.l10n.yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp,
+                context
+                    .l10n
+                    .yourhomescreenbadgeclearscompletelyaftereverytimeyouopentheapp,
                 index: 8,
               ),
             ],
@@ -374,7 +431,9 @@ class NotificationsScreen extends GetView<SettingController> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
+                  color: isSelected
+                      ? AppTheme.greenAccentShade700
+                      : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -392,102 +451,106 @@ class NotificationsScreen extends GetView<SettingController> {
                   : null,
             ),
             SizedBox(width: AppSize.getSize(15)),
-            Text(text, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16))),
+            Text(
+              text,
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: AppSize.getSize(16),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget radioTile(
-    BuildContext context,
-    String title,
-    String subtitle, {
-    int? index,
-    bool showSwitch = true,
-    bool isShow = true,
-    Color? titlecolor,
-    Color? subtitlecolor,
-    VoidCallback? onTap,
-    
-  }) {
-    return InkWell(
-      onTap:
-          onTap ??
-          () {
-            if (title == "Light") {
-              showDailogBox(
-                context,
-                title,
-                [
-                  "None",
-                  "White",
-                  "Red",
-                  "Yellow",
-                  "Green",
-                  "Cyan",
-                  "Blue",
-                  "Purple",
-                ],
-                controller.selectedoption1.value,
-                (val) {
-                    controller.selectedoption1.value = val;
-                },
-                isShow,
-              );
-            } else if (title == "Vibrate" || title == "Notification tone") {
-              showDailogBox(
-                context,
-                title,
-                ["Off", "Default", "Short", "Long"],
-                controller.selectedoption.value,
-                (val) {
-                    controller.selectedoption.value = val;
-                },
-                isShow,
-              );
-            }
-          },
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: titlecolor ?? AppTheme.whiteColor,
-                    fontSize: AppSize.getSize(17),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: subtitlecolor ?? AppTheme.greyShade400,
-                    fontSize: 15,
-                  ),
-                ),
+ Widget radioTile(
+  BuildContext context,
+  String title,
+  String subtitle, {
+  int? index,
+  bool showSwitch = true,
+  bool isShow = true,
+  Color? titlecolor,
+  Color? subtitlecolor,
+  VoidCallback? onTap,
+}) {
+  final provider = context.watch<SettingProvider>();
+
+  return InkWell(
+    onTap: onTap ??
+        () {
+          if (title == "Light") {
+            showDailogBox(
+              context,
+              title,
+              [
+                "None",
+                "White",
+                "Red",
+                "Yellow",
+                "Green",
+                "Cyan",
+                "Blue",
+                "Purple",
               ],
-            ),
-          ),
-          SizedBox(width: AppSize.getSize(10)),
-          if (showSwitch && index != null)
-            Obx(
-            ()=> Switch(
-                value: controller.isOn4[index],
-                activeTrackColor: AppTheme.greenAccentShade700,
-                activeThumbColor: AppTheme.blackColor,
-                inactiveTrackColor: AppTheme.blackColor,
-                onChanged: (val) {
-                    controller.isOn4[index] = val;
-                },
+              provider.selectedoption1,
+              (val) {
+                provider.selectedoption1 = val;
+              },
+              isShow,
+            );
+          } else if (title == "Vibrate" || title == "Notification tone") {
+            showDailogBox(
+              context,
+              title,
+              ["Off", "Default", "Short", "Long"],
+              provider.selectedoption,
+              (val) {
+                provider.selectedoption = val;
+              },
+              isShow,
+            );
+          }
+        },
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: titlecolor ?? AppTheme.whiteColor,
+                  fontSize: AppSize.getSize(17),
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-        ],
-      ),
-    );
-  }
+              Text(
+                subtitle,
+                style: TextStyle(
+                  color: subtitlecolor ?? AppTheme.greyShade400,
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(width: AppSize.getSize(10)),
+        if (showSwitch && index != null)
+          Switch(
+            value: provider.isOn4[index],
+            activeTrackColor: AppTheme.greenAccentShade700,
+            activeThumbColor: AppTheme.blackColor,
+            inactiveTrackColor: AppTheme.blackColor,
+            onChanged: (val) {
+            provider.toggleNotification(index, val);
+            },
+          ),
+      ],
+    ),
+  );
+}
 }

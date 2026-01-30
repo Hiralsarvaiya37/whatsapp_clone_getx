@@ -1,17 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class PrivacyContactsScreen extends GetView<PrivacyViewController> {
+class PrivacyContactsScreen extends StatelessWidget {
   static const id = "/PrivacyContactsScreen";
   const PrivacyContactsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -77,7 +78,7 @@ class PrivacyContactsScreen extends GetView<PrivacyViewController> {
                                   fontWeight: FontWeight.w600,
                                 ),recognizer: TapGestureRecognizer()
                                 ..onTap = (){
-                                  Get.toNamed(LearnMoreScreen.id);
+                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                                 }
                               ),
                             ],
@@ -86,16 +87,15 @@ class PrivacyContactsScreen extends GetView<PrivacyViewController> {
                       ],
                     ),
                   ),
-                  Obx(
-                    ()=> Switch(
-                      value: controller.isOn.value,
+                  Switch(
+                      value: provider.isOn,
                       activeThumbColor: AppTheme.blackColor,
                       activeTrackColor: AppTheme.greenAccentShade700,
                       inactiveTrackColor: AppTheme.blackColor,
                       onChanged: (val) {
-                          controller.isOn.value = val;
+                          provider.isOn = val;
                       },
-                    ),
+                    
                   ),
                 ],
               ),

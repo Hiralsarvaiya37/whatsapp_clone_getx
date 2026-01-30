@@ -1,13 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class DefaultMessageTimerScreen extends GetView<PrivacyViewController> {
+class DefaultMessageTimerScreen extends StatelessWidget {
    static const id = "/DefaultMessageTimerScreen";
   const DefaultMessageTimerScreen({super.key});
 
@@ -38,13 +37,13 @@ class DefaultMessageTimerScreen extends GetView<PrivacyViewController> {
               ),
               SizedBox(height: AppSize.getSize(20)),
           
-              radioTile("24 hours"),
+              radioTile("24 hours",context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("7 days"),
+              radioTile("7 days", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("90 days"),
+              radioTile("90 days", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Off"),
+              radioTile("Off", context),
               SizedBox(height: AppSize.getSize(20)),
           
               Text.rich(
@@ -64,7 +63,7 @@ class DefaultMessageTimerScreen extends GetView<PrivacyViewController> {
                       ),
                       recognizer: TapGestureRecognizer()
                       ..onTap = (){
-                       Get.toNamed(LearnMoreScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                       }
                     ),
                   
@@ -78,13 +77,14 @@ class DefaultMessageTimerScreen extends GetView<PrivacyViewController> {
     );
   }
 
-  Widget radioTile(String title) {
-   return Obx((){
-     bool isSelected = controller.selectedOption.value == title;
+  Widget radioTile(String title, BuildContext context) {
+     final provider = context.read<PrivacyViewProvider>();
+
+     bool isSelected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
      
-          controller.selectedOption.value = title;
+          provider.selectedOption = title;
        
       },
       child: Padding(
@@ -120,6 +120,6 @@ class DefaultMessageTimerScreen extends GetView<PrivacyViewController> {
         ),
       ),
     );
-   });
+ 
   }
 }

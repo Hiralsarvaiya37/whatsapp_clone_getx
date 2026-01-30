@@ -12,16 +12,18 @@ class StatusViewProvider extends ChangeNotifier {
 
   int currentIndex = 0;
 
-  void init(TickerProvider vsync, BuildContext context) {
+  void init(TickerProvider vsync) {
     pageController = PageController();
-    loadStatus(0, vsync, context);
+    loadStatus(0, vsync);
   }
+  double getProgress(int index) {
+  if (index < currentIndex) return 1;
+  if (index > currentIndex) return 0;
+  return progressController?.value ?? 0;  
+}
 
-  Future<void> loadStatus(
-    int index,
-    TickerProvider vsync,
-    BuildContext context,
-  ) async {
+
+  Future<void> loadStatus(int index, TickerProvider vsync) async {
     progressController?.stop();
     progressController?.dispose();
     progressController = null;
@@ -45,7 +47,7 @@ class StatusViewProvider extends ChangeNotifier {
 
       progressController!.addListener(() => notifyListeners());
       progressController!.addStatusListener((status) {
-        if (status == AnimationStatus.completed) nextStatus(vsync, context);
+        if (status == AnimationStatus.completed) nextStatus(vsync);
       });
 
       progressController!.forward();
@@ -61,49 +63,39 @@ class StatusViewProvider extends ChangeNotifier {
 
       progressController!.addListener(() => notifyListeners());
       progressController!.addStatusListener((status) {
-        if (status == AnimationStatus.completed) nextStatus(vsync, context);
+        if (status == AnimationStatus.completed) nextStatus(vsync);
       });
 
       progressController!.forward();
     }
   }
 
-  double getProgress(int index) {
-    if (index < currentIndex) return 1;
-    if (index > currentIndex) return 0;
-    return progressController?.value ?? 0;
-  }
-
-  void nextStatus(TickerProvider vsync, BuildContext context) {
+  void nextStatus(TickerProvider vsync) {
     if (currentIndex < statusList.length - 1) {
       final nextIndex = currentIndex + 1;
-
       pageController.animateToPage(
         nextIndex,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
       );
 
-      Future.delayed(Duration(milliseconds: 50), () {
-        loadStatus(nextIndex, vsync, context);
+      Future.delayed(const Duration(milliseconds: 50), () {
+        loadStatus(nextIndex, vsync);
       });
-    } else {
-      Navigator.pop(context);
     }
   }
 
-  void previousStatus(TickerProvider vsync, BuildContext context) {
+  void previousStatus(TickerProvider vsync) {
     if (currentIndex > 0) {
       final prevIndex = currentIndex - 1;
-
       pageController.animateToPage(
         prevIndex,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
       );
 
-      Future.delayed(Duration(milliseconds: 50), () {
-        loadStatus(prevIndex, vsync, context);
+      Future.delayed(const Duration(milliseconds: 50), () {
+        loadStatus(prevIndex, vsync);
       });
     }
   }

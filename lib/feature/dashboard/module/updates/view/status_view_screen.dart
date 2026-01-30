@@ -20,7 +20,7 @@ class _StatusViewScreenState extends State<StatusViewScreen>
   void initState() {
     super.initState();
     provider = StatusViewProvider(widget.statuses);
-    provider.init(this, context);
+    provider.init(this);
   }
 
   @override
@@ -41,9 +41,9 @@ class _StatusViewScreenState extends State<StatusViewScreen>
               onTapDown: (d) {
                 final w = MediaQuery.of(context).size.width;
                 if (d.localPosition.dx < w / 2) {
-                  p.previousStatus(this, context);
+                  p.previousStatus(this);
                 } else {
-                  p.nextStatus(this, context);
+                  p.nextStatus(this);
                 }
               },
               child: Stack(

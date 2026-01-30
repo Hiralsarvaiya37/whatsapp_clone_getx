@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_history_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
 
-class ChatsScreen extends GetView<SettingController> {
+class ChatsScreen extends StatelessWidget{
   static const id = "/ChatsScreen";
   const ChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+     final provider = context.watch<SettingProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -93,19 +95,22 @@ class ChatsScreen extends GetView<SettingController> {
                                     radioTile(
                                       context.l10n.systemdefault,
                                       dialogSetState,
-                                      controller.selectedTheme.value,
+                                      provider.selectedTheme,
+                                      context
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       context.l10n.light,
                                       dialogSetState,
-                                      controller.selectedTheme.value,
+                                      provider.selectedTheme,
+                                      context
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       context.l10n.dark,
                                       dialogSetState,
-                                      controller.selectedTheme.value,
+                                      provider.selectedTheme,
+                                      context
                                     ),
 
                                     SizedBox(height: AppSize.getSize(35)),
@@ -172,15 +177,14 @@ class ChatsScreen extends GetView<SettingController> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Obx(
-                          () => Text(
-                            controller.selectedTheme.value,
+                       Text(
+                            provider.selectedTheme,
                             style: TextStyle(
                               color: AppTheme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
-                        ),
+                        
                       ],
                     ),
                   ],
@@ -220,31 +224,29 @@ class ChatsScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(
-                () => appInfo(
+               appInfo(
                   context.l10n.enterissend,
                   context.l10n.enterkeywillsendyourmessage,
-                  switchValue: controller.ison1.value,
+                  switchValue: provider.isOn1,
                   onChanged: (val) {
-                    controller.ison1.value = val;
+                    provider.isOn1 = val;
                   },
-                ),
+                
               ),
               SizedBox(height: AppSize.getSize(30)),
-              Obx(
-                () => appInfo(
+             appInfo(
                   context.l10n.mediavisibility,
                   context.l10n.shownewlydownloadedmediainyourdevicesgallery,
-                  switchValue: controller.ison2.value,
+                  switchValue: provider.isOn2,
                   onChanged: (val) {
-                    controller.ison2.value = val;
+                    provider.isOn2 = val;
                   },
                 ),
-              ),
+              
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
                 context.l10n.fontsize,
-                controller.selectedFontSize.value,
+                provider.selectedFontSize,
                 showSwitch: false,
               ),
               SizedBox(height: AppSize.getSize(30)),
@@ -262,15 +264,14 @@ class ChatsScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              Obx(
-                () => appInfo(
+            appInfo(
                   context.l10n.keepchatsarchived,
                   context.l10n.archivedchatswillremainarchivedwhenyoureceiveanewmessage,
-                  switchValue: controller.ison3.value,
+                  switchValue: provider.isOn3,
                   onChanged: (val) {
-                    controller.ison3.value = val;
+                    provider.isOn3 = val;
                   },
-                ),
+                
               ),
 
               SizedBox(height: AppSize.getSize(40)),
@@ -376,12 +377,16 @@ class ChatsScreen extends GetView<SettingController> {
     String title,
     StateSetter dialogSetState,
     String currentSelected,
+    BuildContext context
   ) {
+    
+ final provider = context.read<SettingProvider>(); 
+
     bool isSelected = currentSelected == title;
     return InkWell(
       onTap: () {
         dialogSetState(() {
-          controller.selectedTheme.value = title;
+          provider.selectedTheme = title;
         });
 
         if (title == "Light") {

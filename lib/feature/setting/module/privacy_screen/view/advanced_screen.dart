@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AdvancedScreen extends GetView<PrivacyViewController> {
+class AdvancedScreen extends StatelessWidget{
   static const id = "/AdvancedScreen";
   const AdvancedScreen({super.key});
 
@@ -66,6 +66,7 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
   }
 
   Widget appTitle(String title, String subtitle, int index, BuildContext context) {
+     final provider = context.read<PrivacyViewProvider>();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -103,23 +104,22 @@ class AdvancedScreen extends GetView<PrivacyViewController> {
           ),
         ),
 
-        Obx(
-          ()=> Switch(
+        Switch(
             value: index == 1
-                ? controller.isOn1.value
+                ? provider.isOn1
                 : index == 2
-                ? controller.isOn2.value
-                : controller.isOn3.value,
+                ? provider.isOn2
+                : provider.isOn3,
             activeThumbColor: AppTheme.blackColor,
             activeTrackColor: AppTheme.greenAccentShade700,
             inactiveTrackColor: AppTheme.blackColor,
             onChanged: (val) {
-                if (index == 1) controller.isOn1.value = val;
-                if (index == 2) controller.isOn2.value = val;
-                if (index == 3) controller.isOn3.value = val;
+                if (index == 1) provider.isOn1 = val;
+                if (index == 2) provider.isOn2 = val;
+                if (index == 3) provider.isOn3 = val;
             },
           ),
-        ),
+        
       ],
     );
   }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class GroupsScreen extends GetView<PrivacyViewController> {
+class GroupsScreen extends StatelessWidget{
   static const id = "/GroupsScreen";
 const  GroupsScreen({super.key});
 
@@ -40,11 +40,11 @@ const  GroupsScreen({super.key});
                 style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("Everyone"),
+              radioTile("Everyone", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts"),
+              radioTile("My contacts", context),
               SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts except..."),
+              radioTile("My contacts except...", context),
               SizedBox(height: AppSize.getSize(20)),
 
               Text(
@@ -63,12 +63,13 @@ const  GroupsScreen({super.key});
     );
   }
 
-  Widget radioTile(String title) {
-   return Obx((){
-     bool isSelect = controller.selectedOption.value == title;
+  Widget radioTile(String title, BuildContext context){
+     final provider = context.read<PrivacyViewProvider>();
+  
+     bool isSelect = provider.selectedOption == title;
     return InkWell(
       onTap: () {
-        controller.selectedOption.value = title;
+        provider.selectedOption = title;
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -103,6 +104,6 @@ const  GroupsScreen({super.key});
         ),
       ),
     );
-   });
+ 
   }
 }
