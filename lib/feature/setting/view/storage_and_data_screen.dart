@@ -382,6 +382,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
     Map<String, bool> selectedItems,
     StateSetter setState,
   ) {
+    bool isChecked = selectedItems[title] ?? false;
     return InkWell(
       onTap: () {
         selectedItems[title] = !(selectedItems[title] ?? false);
@@ -389,7 +390,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
       child: Row(
         children: [
           Checkbox(
-            value: selectedItems[title],
+            value: isChecked,
             checkColor: AppTheme.blackColor,
             activeColor: AppTheme.greenAccentShade700,
             onChanged: (val) {

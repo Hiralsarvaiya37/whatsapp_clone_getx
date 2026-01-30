@@ -23,6 +23,9 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
         StatusItem(file: File(photo.path), type: StatusType.image),
       );
     }
+    else{
+      CircularNotchedRectangle();
+    }
   }
 
   Future pickFromGallery() async {
