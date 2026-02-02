@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/provider/chat_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/end_to_end_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatBackupScreen extends GetView<ChatViewController> {
+class ChatBackupScreen extends StatelessWidget {
   static const id = "/ChatBackupScreen";
   const ChatBackupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatViewProvider>();
+
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -52,7 +54,9 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                 ),
               ),
               Text(
-                context.l10n.backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit,
+                context
+                    .l10n
+                    .backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -131,20 +135,19 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                       ),
                                     ),
                                     SizedBox(height: AppSize.getSize(40)),
-                                    Obx(
-                                      () => radioTile(
-                                        contex.l10n.abcced123gmail_com,
-                                        dialogSetState,
-                                        controller.selectedGoogleAccount.value,
-                                      ),
+                                    radioTile(
+                                      contex.l10n.abcced123gmail_com,
+                                      dialogSetState,
+                                      chatProvider.selectedGoogleAccount,
+                                      contex,
                                     ),
+
                                     SizedBox(height: AppSize.getSize(30)),
-                                    Obx(
-                                      () => radioTile(
-                                        context.l10n.addaccount,
-                                        dialogSetState,
-                                        controller.selectedGoogleAccount.value,
-                                      ),
+                                    radioTile(
+                                      context.l10n.addaccount,
+                                      dialogSetState,
+                                      chatProvider.selectedGoogleAccount,
+                                      contex,
                                     ),
 
                                     SizedBox(height: AppSize.getSize(35)),
@@ -190,13 +193,11 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Obx(
-                      () => Text(
-                        controller.selectedGoogleAccount.value,
-                        style: TextStyle(
-                          color: AppTheme.greyShade400,
-                          fontSize: AppSize.getSize(16),
-                        ),
+                    Text(
+                      chatProvider.selectedGoogleAccount,
+                      style: TextStyle(
+                        color: AppTheme.greyShade400,
+                        fontSize: AppSize.getSize(16),
                       ),
                     ),
                   ],
@@ -237,44 +238,43 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                                       ),
                                     ),
                                     SizedBox(height: AppSize.getSize(40)),
-                                    Obx(
-                                      () => radioTile(
-                                        context.l10n.daily,
-                                        dialogSetState,
-                                        controller.backupFrequency.value,
-                                      ),
+                                    radioTile(
+                                      context.l10n.daily,
+                                      dialogSetState,
+                                      chatProvider.backupFrequency,
+                                      context,
                                     ),
+
                                     SizedBox(height: AppSize.getSize(30)),
-                                    Obx(
-                                      () => radioTile(
-                                        contex.l10n.weekly,
-                                        dialogSetState,
-                                        controller.backupFrequency.value,
-                                      ),
+                                    radioTile(
+                                      contex.l10n.weekly,
+                                      dialogSetState,
+                                      chatProvider.backupFrequency,
+                                      context,
                                     ),
+
                                     SizedBox(height: AppSize.getSize(30)),
-                                    Obx(
-                                      () => radioTile(
-                                        context.l10n.monthly,
-                                        dialogSetState,
-                                        controller.backupFrequency.value,
-                                      ),
+                                    radioTile(
+                                      context.l10n.monthly,
+                                      dialogSetState,
+                                      chatProvider.backupFrequency,
+                                      context,
                                     ),
+
                                     SizedBox(height: AppSize.getSize(30)),
-                                    Obx(
-                                      () => radioTile(
-                                        contex.l10n.onlywhenItapBackup,
-                                        dialogSetState,
-                                        controller.backupFrequency.value,
-                                      ),
+                                    radioTile(
+                                      contex.l10n.onlywhenItapBackup,
+                                      dialogSetState,
+                                      chatProvider.backupFrequency,
+                                      context,
                                     ),
+
                                     SizedBox(height: AppSize.getSize(30)),
-                                    Obx(
-                                      () => radioTile(
-                                        contex.l10n.off,
-                                        dialogSetState,
-                                        controller.backupFrequency.value,
-                                      ),
+                                    radioTile(
+                                      contex.l10n.off,
+                                      dialogSetState,
+                                      chatProvider.backupFrequency,
+                                      context,
                                     ),
 
                                     SizedBox(height: AppSize.getSize(35)),
@@ -319,13 +319,11 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Obx(
-                      () => Text(
-                        controller.backupFrequency.value,
-                        style: TextStyle(
-                          color: AppTheme.greyShade400,
-                          fontSize: AppSize.getSize(16),
-                        ),
+                    Text(
+                      chatProvider.backupFrequency,
+                      style: TextStyle(
+                        color: AppTheme.greyShade400,
+                        fontSize: AppSize.getSize(16),
                       ),
                     ),
                   ],
@@ -333,9 +331,9 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               ),
 
               SizedBox(height: AppSize.getSize(35)),
-              appTile(context.l10n.includevideos, 1),
+              appTile(context.l10n.includevideos, 1, context),
               SizedBox(height: AppSize.getSize(30)),
-              appTile(context.l10n.backupusingcellular, 2),
+              appTile(context.l10n.backupusingcellular, 2, context),
 
               SizedBox(height: AppSize.getSize(40)),
               Text(
@@ -346,7 +344,9 @@ class ChatBackupScreen extends GetView<ChatViewController> {
                 ),
               ),
               Text(
-                context.l10n.foraddedsecurityyoucanprotectyourbackupwithendtoendencryption,
+                context
+                    .l10n
+                    .foraddedsecurityyoucanprotectyourbackupwithendtoendencryption,
                 style: TextStyle(
                   color: AppTheme.greyShade400,
                   fontSize: AppSize.getSize(16),
@@ -355,7 +355,10 @@ class ChatBackupScreen extends GetView<ChatViewController> {
               SizedBox(height: AppSize.getSize(20)),
               InkWell(
                 onTap: () {
-                Get.toNamed(EndToEndScreen.id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EndToEndScreen()),
+                  );
                 },
                 child: Padding(
                   padding: EdgeInsets.only(left: AppSize.getSize(15)),
@@ -399,63 +402,65 @@ class ChatBackupScreen extends GetView<ChatViewController> {
     );
   }
 
-  Widget appTile(String title, int index) {
-    return Obx(() {
-      bool switchValue = index == 1
-          ? controller.isOn1.value
-          : controller.isOn2.value;
-      return InkWell(
-        onTap: () {
-          if (index == 1) {
-            controller.isOn1.value = !controller.isOn1.value;
-          } else if (index == 2) {
-            controller.isOn2.value = !controller.isOn2.value;
-          }
-        },
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: AppTheme.whiteColor,
-                  fontSize: AppSize.getSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+  Widget appTile(String title, int index, BuildContext context) {
+    final chatProvider = context.read<ChatViewProvider>();
+
+    bool switchValue = index == 1 ? chatProvider.isOn1 : chatProvider.isOn2;
+    return InkWell(
+      onTap: () {
+        if (index == 1) {
+          chatProvider.toggleSwitch1(!chatProvider.isOn1);
+        } else if (index == 2) {
+          chatProvider.toggleSwitch2(!chatProvider.isOn2);
+        }
+      },
+
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: AppSize.getSize(18),
+                fontWeight: FontWeight.w600,
               ),
             ),
-            Switch(
-              value: switchValue,
-              activeThumbColor: AppTheme.blackColor,
-              activeTrackColor: AppTheme.greenAccentShade700,
-              inactiveTrackColor: AppTheme.blackColor,
-              onChanged: (val) {
-                if (index == 1) {
-                  controller.isOn1.value = val;
-                } else if (index == 2) {
-                  controller.isOn2.value = val;
-                }
-              },
-            ),
-          ],
-        ),
-      );
-    });
+          ),
+          Switch(
+            value: switchValue,
+            activeThumbColor: AppTheme.blackColor,
+            activeTrackColor: AppTheme.greenAccentShade700,
+            inactiveTrackColor: AppTheme.blackColor,
+            onChanged: (val) {
+              if (index == 1) {
+                chatProvider.toggleSwitch1(val);
+              } else if (index == 2) {
+                chatProvider.toggleSwitch2(val);
+              }
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Widget radioTile(
     String title,
     StateSetter dialogSetState,
     String groupValue,
+    BuildContext context,
   ) {
+    final chatProvider = context.read<ChatViewProvider>();
+
     bool isSelected = groupValue == title;
     return InkWell(
       onTap: () {
         dialogSetState(() {
           if (title == "abcced123@gmail.com" || title == "Add account") {
-            controller.selectedGoogleAccount.value = title;
+            chatProvider.selectedGoogleAccount = title;
           } else {
-            controller.backupFrequency.value = title;
+            chatProvider.backupFrequency = title;
           }
         });
       },

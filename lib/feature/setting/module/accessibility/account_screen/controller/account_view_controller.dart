@@ -50,29 +50,30 @@ class AccountViewController extends GetxController {
     isInitialized.value = true;
   }
 
-  void onTapAccountOption(AccountOptionsEnum value) {
+  void onTapAccountOption(AccountOptionsEnum value, BuildContext context) {
     if (value == AccountOptionsEnum.securityNotifications) {
-      Get.toNamed(SecurityNotificationsScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SecurityNotificationsScreen()),
+      );
     }
-    if (value == AccountOptionsEnum.passkeys) {
+    if (value == AccountOptionsEnum.passKeys) {
       Get.toNamed(PassKeysScreen.id);
     }
 
     if (value == AccountOptionsEnum.emailAddress) {
-    Get.toNamed(EmailAddressScreen.id);
+      Get.toNamed(EmailAddressScreen.id);
     }
-    if (value ==
-        AccountOptionsEnum.twoStepVerification) {
+    if (value == AccountOptionsEnum.twoStepVerification) {
       Get.toNamed(TwoStepVerificationScreen.id);
     }
 
     if (value == AccountOptionsEnum.changeNumber) {
-     Get.toNamed(ChangeNumberScreen.id);
+      Get.toNamed(ChangeNumberScreen.id);
     }
 
-    if (value ==
-        AccountOptionsEnum.requestAccountInfo) {
-    Get.toNamed(RequestAccountInfoScreen.id);
+    if (value == AccountOptionsEnum.requestAccountInfo) {
+      Get.toNamed(RequestAccountInfoScreen.id);
     }
 
     if (value == AccountOptionsEnum.addAccount) {
@@ -194,7 +195,7 @@ class AccountViewController extends GetxController {
     }
 
     if (value == AccountOptionsEnum.deleteAccount) {
-     Get.toNamed(DeleteAccountScreen.id);
+      Get.toNamed(DeleteAccountScreen.id);
     }
   }
 

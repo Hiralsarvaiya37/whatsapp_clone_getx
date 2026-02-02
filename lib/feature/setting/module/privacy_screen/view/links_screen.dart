@@ -57,11 +57,11 @@ class LinksScreen extends StatelessWidget{
   Widget radioTile(String title, BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
   
-      bool isSelected = provider.selectedOption == title;
+      bool isSelected = provider.selectedLastSeen == title;
     return InkWell(
       onTap: () {
        
-        provider.selectedOption = title;
+        provider.updateLastSeen(title);
       
       },
       child: Padding(

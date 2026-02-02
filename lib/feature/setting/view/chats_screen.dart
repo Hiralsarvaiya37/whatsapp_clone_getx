@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_history_screen.dart';
@@ -193,7 +192,7 @@ class ChatsScreen extends StatelessWidget{
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(ChatThemeScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatThemeScreen()));
                 },
                 child: Row(
                   children: [
@@ -277,21 +276,21 @@ class ChatsScreen extends StatelessWidget{
               SizedBox(height: AppSize.getSize(40)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(ChatBackupScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatBackupScreen()));
                 },
                 child: chatInfo(context.l10n.chatbackup, Icons.backup_outlined),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(TransferChatScreen.id);
+                 Navigator.push(context, (MaterialPageRoute(builder: (context)=>TransferChatScreen())));
                 },
                 child: chatInfo(context.l10n.transferchats, Icons.send_to_mobile_rounded),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(ChatHistoryScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatHistoryScreen()));
                 },
                 child: chatInfo(context.l10n.chathistory, Icons.replay_outlined),
               ),

@@ -8,6 +8,8 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/provider/call
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/provider/dashboard_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/provider/chat_view_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/provider/list_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
 import 'package:whatsapp_clone_getx/feature/splash/provider/splash_provider.dart';
@@ -48,6 +50,8 @@ void main() async {
             settingController: context.read<SettingProvider>(),
           ),
         ),
+        ChangeNotifierProvider(create: (_)=>ListViewProvider()),
+        ChangeNotifierProvider(create: (_)=>ChatViewProvider()),
       ],
       child: const MyApp(),
     ),

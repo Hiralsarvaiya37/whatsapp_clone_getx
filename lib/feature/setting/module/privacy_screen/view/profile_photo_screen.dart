@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -19,7 +18,11 @@ class ProfilePhotoScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppTheme.whiteColor,
+          ),
         ),
         title: Text(
           "Profile photo",
@@ -32,38 +35,40 @@ class ProfilePhotoScreen extends StatelessWidget {
       ),
 
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
-        child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Who can see my profile photo",
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
-              ),
-              SizedBox(height: AppSize.getSize(20)),
-              radioTile("Everyone",context),
-              SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts", context),
-              SizedBox(height: AppSize.getSize(20)),
-              radioTile("My contacts except...", context),
-              SizedBox(height: AppSize.getSize(20)),
-              radioTile("Nobody", context),
-            ],
-          ),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(20),
+          vertical: AppSize.getSize(20),
         ),
-      
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Who can see my profile photo",
+              style: TextStyle(
+                color: AppTheme.greyShade400,
+                fontSize: AppSize.getSize(16),
+              ),
+            ),
+            SizedBox(height: AppSize.getSize(20)),
+            radioTile("Everyone", context),
+            SizedBox(height: AppSize.getSize(20)),
+            radioTile("My contacts", context),
+            SizedBox(height: AppSize.getSize(20)),
+            radioTile("My contacts except...", context),
+            SizedBox(height: AppSize.getSize(20)),
+            radioTile("Nobody", context),
+          ],
+        ),
+      ),
     );
   }
 
   Widget radioTile(String title, BuildContext context) {
-    final provider = context.read<PrivacyViewProvider>();
-   return Obx((){
-     bool isSelected = provider.selectedOption == title;
+    final provider = context.watch<PrivacyViewProvider>();
+    bool isSelected = provider.selectedLastSeen == title;
     return InkWell(
       onTap: () {
-        
-          provider.selectedOption = title;
-       
+        provider.updateLastSeen(title);
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -74,7 +79,9 @@ class ProfilePhotoScreen extends StatelessWidget {
               width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
+                  color: isSelected
+                      ? AppTheme.greenAccentShade700
+                      : AppTheme.greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -95,11 +102,16 @@ class ProfilePhotoScreen extends StatelessWidget {
 
             SizedBox(width: AppSize.getSize(15)),
 
-            Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18))),
+            Text(
+              title,
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: AppSize.getSize(18),
+              ),
+            ),
           ],
         ),
       ),
     );
-   });
   }
 }

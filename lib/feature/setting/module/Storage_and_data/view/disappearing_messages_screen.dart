@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -89,7 +88,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(20)),
             InkWell(
               onTap: () {
-                Get.toNamed(DefaultMessageTimerScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DefaultMessageTimerScreen()));
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

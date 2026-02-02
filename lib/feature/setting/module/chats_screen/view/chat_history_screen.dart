@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/provider/chat_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatHistoryScreen extends GetView<ChatViewController> {
+class ChatHistoryScreen extends StatelessWidget {
   static const id = "/ChatHistoryScreen";
   const ChatHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatViewProvider>();
+
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -19,7 +21,11 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppTheme.whiteColor,
+          ),
         ),
         title: Text(
           context.l10n.chathistory,
@@ -31,90 +37,95 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(25), vertical: AppSize.getSize(25)),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(25),
+          vertical: AppSize.getSize(25),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             appInfo(context.l10n.exportchat, Icons.file_upload_outlined),
             SizedBox(height: AppSize.getSize(30)),
-            Obx(
-              ()=> InkWell(
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return Dialog(
-                        child: Container(
-                         
-                          decoration: BoxDecoration(
-                            color: AppTheme.greyShade900,
-                            borderRadius: BorderRadius.circular(AppSize.getSize(20)),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: AppSize.getSize(25),
-                              vertical: AppSize.getSize(20),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  context.l10n.areyousurewanttoarchiveALLchats,
-                                  style: TextStyle(
-                                    color: AppTheme.greyShade400,
-                                    fontSize: AppSize.getSize(16),
-                                  ),
-                                ),
-                                SizedBox(height: AppSize.getSize(30)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        context.l10n.cancel,
-                                        style: TextStyle(
-                                          color: AppTheme.greenAccentShade700,
-                                          fontSize: AppSize.getSize(16),
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: AppSize.getSize(30)),
-                                    InkWell(
-                                        onTap: () {
-                                            controller.isArchived.value = !controller.isArchived.value;
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                         context.l10n.ok,
-                                          style: TextStyle(
-                                            color: AppTheme.greenAccentShade700,
-                                            fontSize: AppSize.getSize(16),
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
-                                    
-                                    SizedBox(width: AppSize.getSize(15)),
-                                  ],
-                                ),
-                              ],
-                            ),
+            InkWell(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppTheme.greyShade900,
+                          borderRadius: BorderRadius.circular(
+                            AppSize.getSize(20),
                           ),
                         ),
-                      );
-                    },
-                  );
-                },
-                child: appInfo(
-                  controller.isArchived.value ? context.l10n.unarchiveallchats : context.l10n.archiveallchats,
-                  Icons.archive_outlined,
-                ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: AppSize.getSize(25),
+                            vertical: AppSize.getSize(20),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                context.l10n.areyousurewanttoarchiveALLchats,
+                                style: TextStyle(
+                                  color: AppTheme.greyShade400,
+                                  fontSize: AppSize.getSize(16),
+                                ),
+                              ),
+                              SizedBox(height: AppSize.getSize(30)),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      context.l10n.cancel,
+                                      style: TextStyle(
+                                        color: AppTheme.greenAccentShade700,
+                                        fontSize: AppSize.getSize(16),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: AppSize.getSize(30)),
+                                  InkWell(
+                                    onTap: () {
+                                      chatProvider.toggleArchive();
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      context.l10n.ok,
+                                      style: TextStyle(
+                                        color: AppTheme.greenAccentShade700,
+                                        fontSize: AppSize.getSize(16),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+
+                                  SizedBox(width: AppSize.getSize(15)),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child: appInfo(
+                chatProvider.isArchived
+                    ? context.l10n.unarchiveallchats
+                    : context.l10n.archiveallchats,
+                Icons.archive_outlined,
               ),
             ),
+
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
@@ -125,7 +136,9 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                       builder: (context, dialogSetState) {
                         return Dialog(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.getSize(15)),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(15),
+                            ),
                           ),
                           backgroundColor: AppTheme.greyShade900,
                           child: Padding(
@@ -148,21 +161,26 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 InkWell(
                                   onTap: () {
                                     dialogSetState(() {
-                                      controller.deleteMedia.value = !controller.deleteMedia.value;
+                                      chatProvider.deleteMedia =
+                                          !chatProvider.deleteMedia;
                                     });
                                   },
                                   child: Column(
                                     children: [
                                       deleteOptionTile(
                                         1,
-                                        context.l10n.alsodeletemediareceivedinchatsfromthedevicegallery,
+                                        context
+                                            .l10n
+                                            .alsodeletemediareceivedinchatsfromthedevicegallery,
                                         dialogSetState,
+                                        context,
                                       ),
                                       SizedBox(height: AppSize.getSize(25)),
                                       deleteOptionTile(
                                         2,
                                         context.l10n.deletestarredmessages,
                                         dialogSetState,
+                                        context,
                                       ),
                                     ],
                                   ),
@@ -212,7 +230,10 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                   },
                 );
               },
-              child: appInfo(context.l10n.clearallchats, Icons.remove_circle_outline),
+              child: appInfo(
+                context.l10n.clearallchats,
+                Icons.remove_circle_outline,
+              ),
             ),
 
             SizedBox(height: AppSize.getSize(30)),
@@ -225,7 +246,9 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                       builder: (context, dialogSetState) {
                         return Dialog(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.getSize(15)),
+                            borderRadius: BorderRadius.circular(
+                              AppSize.getSize(15),
+                            ),
                           ),
                           backgroundColor: AppTheme.greyShade900,
                           child: Padding(
@@ -246,8 +269,11 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                 SizedBox(height: AppSize.getSize(25)),
                                 deleteOptionTile(
                                   1,
-                                  context.l10n.alsodeletemediareceivedinchatsfromthedevicegallery,
+                                  context
+                                      .l10n
+                                      .alsodeletemediareceivedinchatsfromthedevicegallery,
                                   dialogSetState,
+                                  context,
                                 ),
 
                                 SizedBox(height: AppSize.getSize(25)),
@@ -260,7 +286,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                       context.l10n.cancel,
+                                        context.l10n.cancel,
                                         style: TextStyle(
                                           color: AppTheme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
@@ -303,8 +329,7 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
   }
 
   Widget appInfo(String title, IconData icon) {
-   
-      return Row(
+    return Row(
       children: [
         Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
@@ -318,17 +343,22 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
         ),
       ],
     );
- 
   }
 
-  Widget deleteOptionTile(int index, String title, StateSetter dialogSetState) {
-   return Obx((){
-     bool isSelected = controller.selectedDeleteOption.value == index;
+  Widget deleteOptionTile(
+    int index,
+    String title,
+    StateSetter dialogSetState,
+    BuildContext context,
+  ) {
+    final chatProvider = context.read<ChatViewProvider>();
+
+    bool isSelected = chatProvider.selectedDeleteOption == index;
 
     return InkWell(
       onTap: () {
         dialogSetState(() {
-          controller.selectedDeleteOption.value = isSelected ? 0 : index;
+          chatProvider.selectedDeleteOption = isSelected ? 0 : index;
         });
       },
       child: Row(
@@ -341,12 +371,18 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
                   ? AppTheme.greenAccentShade700
                   : AppTheme.greyShade900,
               border: Border.all(
-                color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
+                color: isSelected
+                    ? AppTheme.greenAccentShade700
+                    : AppTheme.greyColor,
                 width: AppSize.getSize(2),
               ),
             ),
             child: isSelected
-                ? Icon(Icons.check, color: AppTheme.blackColor, size: AppSize.getSize(18))
+                ? Icon(
+                    Icons.check,
+                    color: AppTheme.blackColor,
+                    size: AppSize.getSize(18),
+                  )
                 : SizedBox(),
           ),
           SizedBox(width: AppSize.getSize(20)),
@@ -354,18 +390,20 @@ class ChatHistoryScreen extends GetView<ChatViewController> {
             child: InkWell(
               onTap: () {
                 dialogSetState(() {
-                  controller.selectedDeleteOption.value = isSelected ? 0 : index;
+                  chatProvider.selectedDeleteOption = isSelected ? 0 : index;
                 });
               },
               child: Text(
                 title,
-                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16)),
+                style: TextStyle(
+                  color: AppTheme.whiteColor,
+                  fontSize: AppSize.getSize(16),
+                ),
               ),
             ),
           ),
         ],
       ),
     );
-   });
   }
 }

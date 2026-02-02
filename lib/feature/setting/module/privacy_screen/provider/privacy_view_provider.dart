@@ -18,7 +18,14 @@ class PrivacyViewProvider extends ChangeNotifier {
   bool _isYes = false;
 
   bool get isYes => _isYes;
-
+   void updateLastSeen(String newValue) {
+    selectedLastSeen = newValue;
+    notifyListeners(); 
+  }
+ void updateOnline(String newValue) {
+    selectedOnline = newValue;
+    notifyListeners();
+  }
   set isYes(bool val) {
     _isYes = val;
     notifyListeners();

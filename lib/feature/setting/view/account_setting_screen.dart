@@ -48,7 +48,7 @@ class AccountSettingScreen extends GetView<AccountViewController> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                     controller.onTapAccountOption(AccountOptionsEnum.values[index]);
+                     controller.onTapAccountOption(AccountOptionsEnum.values[index], context);
                     },
 
                     child: Row(

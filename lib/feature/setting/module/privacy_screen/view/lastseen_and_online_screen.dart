@@ -6,11 +6,11 @@ import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class LastseenAndOnlineScreen extends StatelessWidget {
   static const id = "/LastseenAndOnlineScreen";
- const LastseenAndOnlineScreen({super.key});
+  const LastseenAndOnlineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final provider = context.watch<PrivacyViewProvider>();
+    final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -39,88 +39,65 @@ class LastseenAndOnlineScreen extends StatelessWidget {
           horizontal: AppSize.getSize(20),
           vertical: AppSize.getSize(20),
         ),
-        child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Who can see my last seen",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Who can see my last seen",
+              style: TextStyle(
+                color: AppTheme.greyShade400,
+                fontSize: AppSize.getSize(16),
               ),
-              SizedBox(height: AppSize.getSize(15)),
+            ),
+            SizedBox(height: AppSize.getSize(15)),
 
-             radioTile("Everyone", provider.selectedLastSeen, (
-                  value,
-                ) {
-                  provider.selectedLastSeen = value;
-                }),
-              
+            radioTile("Everyone", provider.selectedLastSeen, (value) {
+              provider.updateLastSeen("Everyone");
+            }),
 
-           radioTile(
-                  "My contacts",
-                  provider.selectedLastSeen,
-                  (value) {
-                    provider.selectedLastSeen = value;
-                  },
-                ),
-              
+            radioTile("My contacts", provider.selectedLastSeen, (value) {
+              provider.updateLastSeen("My contacts");
+            }),
 
-            radioTile(
-                  "My contacts except...",
-                  provider.selectedLastSeen,
-                  (value) {
-                    provider.selectedLastSeen = value;
-                  },
-                ),
-              
+            radioTile("My contacts except...", provider.selectedLastSeen, (
+              value,
+            ) {
+              provider.updateLastSeen("My contacts except...");
+            }),
 
-             radioTile("Nobody", provider.selectedLastSeen, (
-                  value,
-                ) {
-                  provider.selectedLastSeen = value;
-                }),
-              
+            radioTile("Nobody", provider.selectedLastSeen, (value) {
+              provider.updateLastSeen("Nobody");
+            }),
 
-              SizedBox(height: AppSize.getSize(40)),
-              Text(
-                "Who can see when I'm online",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
-                ),
+            SizedBox(height: AppSize.getSize(40)),
+            Text(
+              "Who can see when I'm online",
+              style: TextStyle(
+                color: AppTheme.greyShade400,
+                fontSize: AppSize.getSize(16),
               ),
-              SizedBox(height: AppSize.getSize(15)),
+            ),
+            SizedBox(height: AppSize.getSize(15)),
 
-           radioTile("Everyone", provider.selectedOnline, (
-                  value,
-                ) {
-                  provider.selectedOnline = value;
-                }),
-              
+            radioTile("Everyone", provider.selectedOnline, (value) {
+              provider.updateOnline("Everyone");
+            }),
 
-           radioTile(
-                  "Same as last seen",
-                  provider.selectedOnline,
-                  (value) {
-                    provider.selectedOnline = value;
-                  },
-                ),
-              
+            radioTile("Same as last seen", provider.selectedOnline, (value) {
+              provider.updateOnline("Same as last seen");
+            }),
 
-              SizedBox(height: AppSize.getSize(20)),
-              Text(
-                "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
-                ),
+            SizedBox(height: AppSize.getSize(20)),
+            Text(
+              "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
+              style: TextStyle(
+                color: AppTheme.greyShade400,
+                fontSize: AppSize.getSize(16),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      
+      ),
     );
   }
 

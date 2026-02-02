@@ -16,12 +16,12 @@ class StatusViewProvider extends ChangeNotifier {
     pageController = PageController();
     loadStatus(0, vsync);
   }
-  double getProgress(int index) {
-  if (index < currentIndex) return 1;
-  if (index > currentIndex) return 0;
-  return progressController?.value ?? 0;  
-}
 
+  double getProgress(int index) {
+    if (index < currentIndex) return 1;
+    if (index > currentIndex) return 0;
+    return progressController?.value ?? 0;
+  }
 
   Future<void> loadStatus(int index, TickerProvider vsync) async {
     progressController?.stop();
@@ -42,7 +42,7 @@ class StatusViewProvider extends ChangeNotifier {
     if (item.type == StatusType.image) {
       progressController = AnimationController(
         vsync: vsync,
-        duration: const Duration(seconds: 2),
+        duration: const Duration(seconds: 5),
       );
 
       progressController!.addListener(() => notifyListeners());

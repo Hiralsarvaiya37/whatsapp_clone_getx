@@ -3,7 +3,7 @@ import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 enum AccountOptionsEnum {
   securityNotifications,
-  passkeys,
+  passKeys,
   emailAddress,
   twoStepVerification,
   changeNumber,
@@ -17,7 +17,7 @@ extension AccountOptionsEnumExtension on AccountOptionsEnum{
     switch(this){
       case AccountOptionsEnum.securityNotifications:
         return context.l10n.securitynotifications;
-      case AccountOptionsEnum.passkeys:
+      case AccountOptionsEnum.passKeys:
          return context.l10n.passkeys;
       case AccountOptionsEnum.emailAddress:
         return context.l10n.emailaddress;
@@ -38,7 +38,7 @@ extension AccountOptionsEnumExtension on AccountOptionsEnum{
     switch(this){
       case AccountOptionsEnum.securityNotifications:
         return Icons.security;
-      case AccountOptionsEnum.passkeys:
+      case AccountOptionsEnum.passKeys:
          return Icons.person_add_alt_1;
       case AccountOptionsEnum.emailAddress:
         return Icons.email_outlined;

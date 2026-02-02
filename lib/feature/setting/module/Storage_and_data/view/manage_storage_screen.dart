@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -238,7 +237,7 @@ class ManageStorageScreen extends StatelessWidget {
               SizedBox(height: AppSize.getSize(20)),
               InkWell(
                 onTap: () {
-                  Get.toNamed(DisappearingMessagesScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DisappearingMessagesScreen()));
                 },
                 child: Row(
                   children: [

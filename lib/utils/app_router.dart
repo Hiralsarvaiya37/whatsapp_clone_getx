@@ -18,7 +18,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/delete_account_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/email_address_screen.dart';
@@ -29,7 +28,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibiity_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_history_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
@@ -93,7 +91,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/vie
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/channel_reports_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/send_feedback_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/controller/list_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
@@ -136,11 +133,6 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/starred/
 class AppRouter {
   static List<GetPage<dynamic>> appRoute = [
     GetPage(
-      name: AccountSettingScreen.id,
-      page: () => AccountSettingScreen(),
-      binding: AccountViewBinding(),
-    ),
-    GetPage(
       name: SecurityNotificationsScreen.id,
       page: () => SecurityNotificationsScreen(),
     ),
@@ -160,23 +152,11 @@ class AppRouter {
 
     GetPage(name: AvatarScreen.id, page: () => AvatarScreen()),
     GetPage(name: AvatarStickersScreen.id, page: () => AvatarStickersScreen()),
-    GetPage(
-      name: ListsScreen.id,
-      page: () => ListsScreen(),
-      binding: ListBinding(),
-    ),
-    GetPage(
-      name: ChatsScreen.id,
-      page: () => ChatsScreen(),
-      binding: ChatViewBinding(),
-    ),
+    
+   
     GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen()),
     GetPage(name: TransferChatScreen.id, page: () => TransferChatScreen()),
-    GetPage(
-      name: ChatHistoryScreen.id,
-      page: () => ChatHistoryScreen(),
-      binding: ChatViewBinding(),
-    ),
+   
     GetPage(
       name: AccessibilityScreen.id,
       page: () => AccessibilityScreen(),
@@ -414,5 +394,12 @@ class AppRouter {
     AppUpdatesScreen.id: (context) => AppUpdatesScreen(),
     ManageStorageScreen.id: (context) => ManageStorageScreen(),
     ProxyScreen.id: (context) => ProxyScreen(),
+    UnreadScreen.id: (context) => UnreadScreen(),
+    ListGroupsScreen.id: (context) => ListGroupsScreen(),
+    ListCommunitiesScreen.id: (context) => ListCommunitiesScreen(),
+    ChatBackupScreen.id: (context) => ChatBackupScreen(),
+    TransferChatScreen.id: (context) => TransferChatScreen(),
+    ChatHistoryScreen.id: (context) => ChatHistoryScreen(),
+    EndToEndScreen.id: (context) => EndToEndScreen(),
   };
 }
