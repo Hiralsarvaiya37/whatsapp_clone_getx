@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/provider/account_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class DeleteAccountScreen extends GetView<AccountViewController> {
+class DeleteAccountScreen extends StatelessWidget {
   static const id = "/DeleteAccountScreen";
   const DeleteAccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final accountProvider = context.watch<AccountViewProvider>();
+    final country = accountProvider.selectedCountry;
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +26,13 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           context.l10n.deletethisaccount,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -52,7 +54,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   Icon(
                     Icons.warning_amber,
                     size: AppSize.getSize(30),
-                    color: AppTheme.redShade600,
+                    color: context.watch<AppTheme>().redShade600,
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Expanded(
@@ -62,30 +64,40 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                         Text(
                           context.l10n.ifyoudeletethisaccount,
                           style: TextStyle(
-                            color: AppTheme.redShade600,
+                            color: context.watch<AppTheme>().redShade600,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         SizedBox(height: AppSize.getSize(15)),
                         appTitle(
-                          context.l10n.theaccountwillbedeletedfromWhatsAppandallyourdevices,
+                          context
+                              .l10n
+                              .theaccountwillbedeletedfromWhatsAppandallyourdevices,context
                         ),
                         SizedBox(height: AppSize.getSize(7)),
-                        appTitle(context.l10n.yourmessagehistorywillbeerased),
+                        appTitle(context.l10n.yourmessagehistorywillbeerased, context),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          context.l10n.youwillberemovedfromallyourWhatsAppgroups,
+                          context
+                              .l10n
+                              .youwillberemovedfromallyourWhatsAppgroups,context
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          context.l10n.deleteyourpaymentshistoryandcancelanypendingpayments,
+                          context
+                              .l10n
+                              .deleteyourpaymentshistoryandcancelanypendingpayments,context
                         ),
                         SizedBox(height: AppSize.getSize(7)),
-                        appTitle(context.l10n.anychannelsyoucreatedwillbedeleted),
+                        appTitle(
+                          context.l10n.anychannelsyoucreatedwillbedeleted,context
+                        ),
                         SizedBox(height: AppSize.getSize(7)),
                         appTitle(
-                          context.l10n.anyactivechannelsubscriptionsassociatedwiththisaccountwillbecanceled,
+                          context
+                              .l10n
+                              .anyactivechannelsubscriptionsassociatedwiththisaccountwillbecanceled,context
                         ),
                       ],
                     ),
@@ -100,7 +112,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   Icon(
                     Icons.system_security_update,
                     size: AppSize.getSize(30),
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                   ),
                   SizedBox(width: AppSize.getSize(30)),
                   Column(
@@ -109,7 +121,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       Text(
                         context.l10n.changenumberinsted,
                         style: TextStyle(
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -117,13 +129,18 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       SizedBox(height: AppSize.getSize(15)),
                       GestureDetector(
                         onTap: () {
-                          Get.toNamed(ChangeNumberScreen.id);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChangeNumberScreen(),
+                            ),
+                          );
                         },
                         child: Container(
                           height: AppSize.getSize(42),
                           width: AppSize.getSize(170),
                           decoration: BoxDecoration(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(25),
                             ),
@@ -150,9 +167,11 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      context.l10n.todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber,
+                      context
+                          .l10n
+                          .todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber,
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -160,7 +179,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                     Text(
                       context.l10n.country,
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                     ),
@@ -171,7 +190,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
-                            color: AppTheme.greyColor,
+                            color: context.watch<AppTheme>().greyColor,
                             width: 1,
                           ),
                         ),
@@ -185,12 +204,12 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                   context: context,
                                   showPhoneCode: false,
                                   countryListTheme: CountryListThemeData(
-                                    backgroundColor: AppTheme.blackColor,
+                                    backgroundColor: context.watch<AppTheme>().blackColor,
                                     searchTextStyle: TextStyle(
                                       color: Colors.white,
                                     ),
                                     textStyle: TextStyle(
-                                      color: AppTheme.whiteColor,
+                                      color: context.watch<AppTheme>().whiteColor,
                                       fontSize: 16,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -200,40 +219,47 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                     inputDecoration: InputDecoration(
                                       labelText: 'Search',
                                       labelStyle: TextStyle(
-                                        color: AppTheme.greyShade400,
+                                        color: context.watch<AppTheme>().greyShade400,
                                       ),
                                       prefixIcon: Icon(
                                         Icons.search,
-                                        color: AppTheme.greyShade400,
+                                        color: context.watch<AppTheme>().greyShade400,
                                       ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: AppTheme.greyShade400,
+                                          color: context.watch<AppTheme>().greyShade400,
                                         ),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: AppTheme.greenAccentShade700,
+                                          color: context.watch<AppTheme>().greenAccentShade700,
                                           width: 1.5,
                                         ),
                                       ),
                                     ),
                                   ),
                                   onSelect: (Country country) {
-                                    controller.selectedCountry.value = country;
+                                    accountProvider.selectedCountry = country;
                                   },
                                 );
                               },
-                              child: Obx(() {
-                                final country =
-                                    controller.selectedCountry.value;
-                                return Row(
+                              child: InkWell(
+                                onTap: () {
+                                  showCountryPicker(
+                                    context: context,
+                                    onSelect: (Country country) {
+                                      accountProvider.selectedCountry = country;
+                                    },
+                                  );
+                                },
+                                child: Row(
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        country?.name ?? context.l10n.india,
+                                        accountProvider.selectedCountry?.name ??
+                                            context.l10n.india,
                                         style: TextStyle(
-                                          color: AppTheme.whiteColor,
+                                          color: context.watch<AppTheme>().whiteColor,
                                           fontSize: AppSize.getSize(18),
                                         ),
                                       ),
@@ -241,11 +267,11 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                                     Icon(
                                       Icons.arrow_drop_down,
                                       size: AppSize.getSize(25),
-                                      color: AppTheme.greyShade400,
+                                      color: context.watch<AppTheme>().greyShade400,
                                     ),
                                   ],
-                                );
-                              }),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -258,64 +284,52 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       children: [
                         SizedBox(
                           width: AppSize.getSize(55),
-                          child: Obx(() {
-                            final country = controller.selectedCountry.value;
-
-                            return TextField(
-                              onTapOutside: (event) {
-                                FocusScope.of(context).unfocus();
-                              },
-                              readOnly: true,
-                              style: TextStyle(
-                                color: AppTheme.whiteColor,
-                                fontSize: AppSize.getSize(18),
-                              ),
-                              decoration: InputDecoration(
-                                hintText: country != null
-                                    ? "+${country.phoneCode}"
-                                    : "+91",
-                                hintStyle: TextStyle(
-                                  color: AppTheme.whiteColor,
-                                ),
-                                contentPadding: EdgeInsets.zero,
-                                isDense: true,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: AppTheme.greyColor,
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: AppTheme.greenAccentShade700,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                        SizedBox(width: 10),
-                        Expanded(
                           child: TextField(
-                            onTapOutside: (event) {
-                              FocusScope.of(context).unfocus();
-                            },
-                            keyboardType: TextInputType.phone,
-                            cursorColor: AppTheme.greenAccentShade700,
-                            style: TextStyle(color: AppTheme.whiteColor),
+                            readOnly: true,
+                            style: TextStyle(
+                              color: context.watch<AppTheme>().whiteColor,
+                              fontSize: AppSize.getSize(18),
+                            ),
                             decoration: InputDecoration(
-                              hintText: context.l10n.phonenumber,
-                              hintStyle: TextStyle(color: AppTheme.greyColor),
+                              hintText: country != null
+                                  ? "+${country.phoneCode}"
+                                  : "+91",
+                              hintStyle: TextStyle(color: context.watch<AppTheme>().whiteColor),
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: AppTheme.greyColor,
+                                  color: context.watch<AppTheme>().greyColor,
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: context.watch<AppTheme>().greenAccentShade700,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            keyboardType: TextInputType.phone,
+                            cursorColor: context.watch<AppTheme>().greenAccentShade700,
+                            style: TextStyle(color: context.watch<AppTheme>().whiteColor),
+                            decoration: InputDecoration(
+                              hintText: context.l10n.phonenumber,
+                              hintStyle: TextStyle(color: context.watch<AppTheme>().greyColor),
+                              contentPadding: EdgeInsets.zero,
+                              isDense: true,
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: context.watch<AppTheme>().greyColor,
                                   width: AppSize.getSize(1.3),
                                 ),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: AppTheme.greenAccentShade700,
+                                  color: context.watch<AppTheme>().greenAccentShade700,
                                   width: AppSize.getSize(2),
                                 ),
                               ),
@@ -330,7 +344,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
                       height: AppSize.getSize(40),
                       width: AppSize.getSize(140),
                       decoration: BoxDecoration(
-                        color: AppTheme.redShade600,
+                        color: context.watch<AppTheme>().redShade600,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(25),
                         ),
@@ -352,7 +366,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
     );
   }
 
-  Widget appTitle(String title) {
+  Widget appTitle(String title, BuildContext context) {
     return Column(
       children: [
         Row(
@@ -361,7 +375,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
             Text(
               "•",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(22),
                 height: AppSize.getSize(1.1),
               ),
@@ -371,7 +385,7 @@ class DeleteAccountScreen extends GetView<AccountViewController> {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                   height: AppSize.getSize(1.3),
                 ),

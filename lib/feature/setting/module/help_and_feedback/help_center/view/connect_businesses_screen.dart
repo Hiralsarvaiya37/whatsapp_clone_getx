@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/discover_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/message_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/privacy_safety_security_screen.dart';
@@ -16,9 +15,9 @@ class ConnectBusinessesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,13 +25,13 @@ class ConnectBusinessesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -41,16 +40,16 @@ class ConnectBusinessesScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -60,7 +59,7 @@ class ConnectBusinessesScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -83,37 +82,37 @@ class ConnectBusinessesScreen extends StatelessWidget {
                 Text(
                   "Connect with Businesses",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(MessageScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>MessageScreen()));
                   },
-                  child: appInfo("Message", Icons.chat_bubble),
+                  child: appInfo("Message", Icons.chat_bubble,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(DiscoverScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DiscoverScreen()));
                   },
-                  child: appInfo("Discover", Icons.store_mall_directory_sharp),
+                  child: appInfo("Discover", Icons.store_mall_directory_sharp,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(ShopScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopScreen()));
                   },
-                  child: appInfo("Shop", Icons.shopping_cart),
+                  child: appInfo("Shop", Icons.shopping_cart,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(PrivacySafetySecurityScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacySafetySecurityScreen()));
                   },
-                  child: appInfo("Privacy, Safety, and Security", Icons.lock),
+                  child: appInfo("Privacy, Safety, and Security", Icons.lock, context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
               ],
@@ -125,19 +124,19 @@ class ConnectBusinessesScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

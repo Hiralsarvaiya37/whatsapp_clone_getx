@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
@@ -13,19 +13,19 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -38,17 +38,17 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: AppSize.getSize(20)),
-              Icon(Icons.mail_lock, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
+              Icon(Icons.mail_lock, size: AppSize.getSize(70), color: context.watch<AppTheme>().greenAccentShade700),
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 "Add more privacy to your chats",
-                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(27)),
+                style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(27)),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: AppSize.getSize(15)),
               Text(
                 "For even more privacy, limit access to your messages and media with these privacy features.",
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                 textAlign: TextAlign.center,
               ),
         
@@ -58,8 +58,8 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Require a fingerprint or face to open WhatsApp on your device.",
                 Icons.fingerprint,
                 () {
-                Get.toNamed(AppLockScreen.id);
-                },
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AppLockScreen()));
+                },context
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
@@ -67,8 +67,8 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Start new chats with disappearing messages set to your timer",
                 Icons.rotate_right_outlined,
                 () {
-                  Get.toNamed(DefaultMessageTimerScreen.id);
-                },
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DefaultMessageTimerScreen()));
+                },context
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
@@ -76,8 +76,8 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Encrypt your backup so that nobody, not even Goggle or WhatsApp, will be able to access it.",
                 Icons.lock_outline,
                 () {
-                  Get.toNamed(AdvancedScreen.id);
-                },
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AdvancedScreen()));
+                },context
               ),
             ],
           ),
@@ -91,13 +91,14 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
     String subtitle,
     IconData icon,
     VoidCallback onTap,
+    BuildContext context
   ) {
     return InkWell(
       onTap: onTap,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Column(
@@ -105,17 +106,17 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
                 ),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                 ),
               ],
             ),
           ),
           SizedBox(width: AppSize.getSize(40)),
-          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: AppTheme.greyShade400),
+          Icon(Icons.arrow_forward, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
         ],
       ),
     );

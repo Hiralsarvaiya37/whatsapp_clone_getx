@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_admins_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_followers_and_viewers_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channels_get_started_screen.dart';
@@ -15,9 +15,9 @@ class ChannlesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,13 +25,13 @@ class ChannlesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -40,16 +40,16 @@ class ChannlesScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -59,7 +59,7 @@ class ChannlesScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -82,37 +82,37 @@ class ChannlesScreen extends StatelessWidget {
                 Text(
                   "Channels",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannelsGetStartedScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelsGetStartedScreen()));
                   },
-                  child: appInfo("Get Started", Icons.flag),
+                  child: appInfo("Get Started", Icons.flag,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(ChannelFollowersAndViewersScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelFollowersAndViewersScreen()));
                   },
-                  child: appInfo("Channel Followers and Viewers", Icons.person),
+                  child: appInfo("Channel Followers and Viewers", Icons.person,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannelAdminsScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelAdminsScreen()));
                   },
-                  child: appInfo("Channel Admins", Icons.admin_panel_settings),
+                  child: appInfo("Channel Admins", Icons.admin_panel_settings,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannlePrivacyScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannlePrivacyScreen()));
                   },
-                  child: appInfo("Privacy, Safety, and Security", Icons.lock),
+                  child: appInfo("Privacy, Safety, and Security", Icons.lock,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
               ],
@@ -124,19 +124,19 @@ class ChannlesScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

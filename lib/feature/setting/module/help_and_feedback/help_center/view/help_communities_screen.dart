@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/admin_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/help_get_started_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/help_privacy_screen.dart';
@@ -16,9 +15,9 @@ class HelpCommunitiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,13 +25,13 @@ class HelpCommunitiesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -41,16 +40,16 @@ class HelpCommunitiesScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -60,7 +59,7 @@ class HelpCommunitiesScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -83,37 +82,37 @@ class HelpCommunitiesScreen extends StatelessWidget {
                 Text(
                   "Communities",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(HelpGetStartedScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpGetStartedScreen()));
                   },
-                  child: appInfo("Get Started", Icons.flag),
+                  child: appInfo("Get Started", Icons.flag,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(AdminScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>AdminScreen()));
                   },
-                  child: appInfo("Admin", Icons.admin_panel_settings),
+                  child: appInfo("Admin", Icons.admin_panel_settings,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(MemberScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>MemberScreen()));
                   },
-                  child: appInfo("Member", Icons.group),
+                  child: appInfo("Member", Icons.group,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(HelpPrivacyScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpPrivacyScreen()));
                   },
-                  child: appInfo("Privacy, Safety, and Security", Icons.lock),
+                  child: appInfo("Privacy, Safety, and Security", Icons.lock,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
               ],
@@ -125,19 +124,19 @@ class HelpCommunitiesScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

@@ -15,19 +15,19 @@ class AccessibilityScreen extends StatelessWidget {
   Widget build(BuildContext context) {
      final provider = context.watch<SettingProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
          context.l10n.accessibility,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -52,7 +52,7 @@ class AccessibilityScreen extends StatelessWidget {
                         Text(
                           context.l10n.increasecontrast,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -60,7 +60,7 @@ class AccessibilityScreen extends StatelessWidget {
                         Text(
                           context.l10n.darkenkeycolorstomakethingseasiertoseewhileinlightmode,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -70,9 +70,9 @@ class AccessibilityScreen extends StatelessWidget {
                   SizedBox(width: AppSize.getSize(15)),
                  Switch(
                       value: provider.isOn,
-                      activeThumbColor: AppTheme.blackColor,
-                      activeTrackColor: AppTheme.greenAccentShade700,
-                      inactiveTrackColor: AppTheme.blackColor,
+                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
                       onChanged: (val) {
                           provider.isOn = val;
                       },
@@ -92,14 +92,14 @@ class AccessibilityScreen extends StatelessWidget {
                   Text(
                     context.l10n.animation,
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     context.l10n.choosewhetherstickersandGIFsmoveautomatically,
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),

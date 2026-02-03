@@ -15,9 +15,9 @@ class ChatBackupScreen extends StatelessWidget {
     final chatProvider = context.watch<ChatViewProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,13 +25,13 @@ class ChatBackupScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           context.l10n.chatbackup,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -49,7 +49,7 @@ class ChatBackupScreen extends StatelessWidget {
               Text(
                 context.l10n.backupsettings,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -58,7 +58,7 @@ class ChatBackupScreen extends StatelessWidget {
                     .l10n
                     .backupyourchatsandmediatoyourGoogleAccountsstorageYoucanrestorethemonanewphoneafteryoudownloadWhatsApponit,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -66,7 +66,7 @@ class ChatBackupScreen extends StatelessWidget {
               Text(
                 context.l10n.local2_09AM,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -74,7 +74,7 @@ class ChatBackupScreen extends StatelessWidget {
               Text(
                 context.l10n.lastBackupNever,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -83,7 +83,7 @@ class ChatBackupScreen extends StatelessWidget {
                 height: AppSize.getSize(42),
                 width: AppSize.getSize(110),
                 decoration: BoxDecoration(
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                 ),
                 alignment: Alignment.center,
@@ -96,7 +96,7 @@ class ChatBackupScreen extends StatelessWidget {
               Text(
                 context.l10n.manageGogglestorage,
                 style: TextStyle(
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                   fontSize: AppSize.getSize(16),
                   fontWeight: FontWeight.bold,
                 ),
@@ -112,7 +112,7 @@ class ChatBackupScreen extends StatelessWidget {
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppTheme.greyShade900,
+                                color: context.watch<AppTheme>().greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -129,7 +129,7 @@ class ChatBackupScreen extends StatelessWidget {
                                     Text(
                                       context.l10n.chooseanaccount,
                                       style: TextStyle(
-                                        color: AppTheme.whiteColor,
+                                        color: context.watch<AppTheme>().whiteColor,
                                         fontSize: AppSize.getSize(22),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -162,7 +162,7 @@ class ChatBackupScreen extends StatelessWidget {
                                             contex.l10n.cancel,
                                             style: TextStyle(
                                               color:
-                                                  AppTheme.greenAccentShade700,
+                                                  context.watch<AppTheme>().greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -188,7 +188,7 @@ class ChatBackupScreen extends StatelessWidget {
                     Text(
                       context.l10n.goggleAccount,
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
@@ -196,7 +196,7 @@ class ChatBackupScreen extends StatelessWidget {
                     Text(
                       chatProvider.selectedGoogleAccount,
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -215,7 +215,7 @@ class ChatBackupScreen extends StatelessWidget {
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppTheme.greyShade900,
+                                color: context.watch<AppTheme>().greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -232,7 +232,7 @@ class ChatBackupScreen extends StatelessWidget {
                                     Text(
                                       context.l10n.automaticbackups,
                                       style: TextStyle(
-                                        color: AppTheme.whiteColor,
+                                        color: context.watch<AppTheme>().whiteColor,
                                         fontSize: AppSize.getSize(22),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -289,7 +289,7 @@ class ChatBackupScreen extends StatelessWidget {
                                             contex.l10n.cancel,
                                             style: TextStyle(
                                               color:
-                                                  AppTheme.greenAccentShade700,
+                                                  context.watch<AppTheme>().greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -314,7 +314,7 @@ class ChatBackupScreen extends StatelessWidget {
                     Text(
                       context.l10n.automaticbackups,
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -322,7 +322,7 @@ class ChatBackupScreen extends StatelessWidget {
                     Text(
                       chatProvider.backupFrequency,
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -339,7 +339,7 @@ class ChatBackupScreen extends StatelessWidget {
               Text(
                 context.l10n.endtoendencryption,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -348,7 +348,7 @@ class ChatBackupScreen extends StatelessWidget {
                     .l10n
                     .foraddedsecurityyoucanprotectyourbackupwithendtoendencryption,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -367,7 +367,7 @@ class ChatBackupScreen extends StatelessWidget {
                       Icon(
                         Icons.lock_outline,
                         size: AppSize.getSize(30),
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Column(
@@ -376,7 +376,7 @@ class ChatBackupScreen extends StatelessWidget {
                           Text(
                             context.l10n.endtoendencryptedbackup,
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.w600,
                             ),
@@ -384,7 +384,7 @@ class ChatBackupScreen extends StatelessWidget {
                           Text(
                             context.l10n.off,
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -421,7 +421,7 @@ class ChatBackupScreen extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -429,9 +429,9 @@ class ChatBackupScreen extends StatelessWidget {
           ),
           Switch(
             value: switchValue,
-            activeThumbColor: AppTheme.blackColor,
-            activeTrackColor: AppTheme.greenAccentShade700,
-            inactiveTrackColor: AppTheme.blackColor,
+            activeThumbColor: context.watch<AppTheme>().blackColor,
+            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+            inactiveTrackColor: context.watch<AppTheme>().blackColor,
             onChanged: (val) {
               if (index == 1) {
                 chatProvider.toggleSwitch1(val);
@@ -473,8 +473,8 @@ class ChatBackupScreen extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: isSelected
-                    ? AppTheme.greenAccentShade700
-                    : AppTheme.greyColor,
+                    ? context.watch<AppTheme>().greenAccentShade700
+                    : context.watch<AppTheme>().greyColor,
                 width: AppSize.getSize(2),
               ),
             ),
@@ -484,7 +484,7 @@ class ChatBackupScreen extends StatelessWidget {
                       height: AppSize.getSize(12),
                       width: AppSize.getSize(12),
                       decoration: BoxDecoration(
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -495,7 +495,7 @@ class ChatBackupScreen extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
               fontSize: AppSize.getSize(16),
               fontWeight: FontWeight.w600,
             ),

@@ -11,19 +11,19 @@ class LinksScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Links",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,7 +37,7 @@ class LinksScreen extends StatelessWidget{
             children: [
               Text(
                 "Who can see links on my profile",
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile("Everyone", context),
@@ -73,7 +73,7 @@ class LinksScreen extends StatelessWidget{
               width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isSelected ? AppTheme.greenAccentShade700 : AppTheme.greyColor,
+                  color: isSelected ? context.watch<AppTheme>().greenAccentShade700 : context.watch<AppTheme>().greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -85,7 +85,7 @@ class LinksScreen extends StatelessWidget{
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppTheme.greenAccentShade700,
+                          color: context.watch<AppTheme>().greenAccentShade700,
                         ),
                       ),
                     )
@@ -94,7 +94,7 @@ class LinksScreen extends StatelessWidget{
         
             SizedBox(width: AppSize.getSize(15)),
         
-            Text(title, style: TextStyle(fontSize: AppSize.getSize(18), color: AppTheme.whiteColor)),
+            Text(title, style: TextStyle(fontSize: AppSize.getSize(18), color: context.watch<AppTheme>().whiteColor)),
           ],
         ),
       ),

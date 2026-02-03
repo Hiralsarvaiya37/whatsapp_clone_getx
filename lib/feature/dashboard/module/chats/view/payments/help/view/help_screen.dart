@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
@@ -9,9 +10,9 @@ class HelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -19,13 +20,13 @@ class HelpScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Search Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(22),
             fontWeight: FontWeight.w600,
           ),
@@ -43,33 +44,33 @@ class HelpScreen extends StatelessWidget {
               Text(
                 "Is this your question?",
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               SizedBox(height: AppSize.getSize(15)),
-              appTitle("About UPI"),
-              appTitle("How to add your bank account"),
-              appTitle("How to change or set up new UPI PIN on..."),
-              appTitle("Can't add bank account"),
-              appTitle("How to chnage or remove a bank account"),
-              appTitle("How to check your bank account balance"),
-              appTitle("How to receive money"),
-              appTitle("How to send money"),
-              appTitle("Issues with payments"),
-              appTitle("About refunds and customer support"),
-              appTitle("Payments data"),
-              appTitle("About payments security"),
+              appTitle("About UPI",context),
+              appTitle("How to add your bank account",context),
+              appTitle("How to change or set up new UPI PIN on...",context),
+              appTitle("Can't add bank account",context),
+              appTitle("How to chnage or remove a bank account",context),
+              appTitle("How to check your bank account balance",context),
+              appTitle("How to receive money",context),
+              appTitle("How to send money",context),
+              appTitle("Issues with payments",context),
+              appTitle("About refunds and customer support",context),
+              appTitle("Payments data",context),
+              appTitle("About payments security",context),
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: AppTheme.blackColor,
+        color: context.watch<AppTheme>().blackColor,
         height: AppSize.getSize(65),
         child: Container(
           decoration: BoxDecoration(
-            color: AppTheme.greenAccentShade700,
+            color: context.watch<AppTheme>().greenAccentShade700,
             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
           ),
           alignment: Alignment.center,
@@ -85,7 +86,7 @@ class HelpScreen extends StatelessWidget {
     );
   }
 
-  Widget appTitle(String title) {
+  Widget appTitle(String title,BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -94,7 +95,7 @@ class HelpScreen extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
               fontSize: AppSize.getSize(18),
               fontWeight: FontWeight.w600,
             ),
@@ -103,7 +104,7 @@ class HelpScreen extends StatelessWidget {
         SizedBox(height: AppSize.getSize(10)),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppTheme.greyShade900, width: 1),
+            border: Border.all(color: context.watch<AppTheme>().greyShade900, width: 1),
           ),
         ),
       ],

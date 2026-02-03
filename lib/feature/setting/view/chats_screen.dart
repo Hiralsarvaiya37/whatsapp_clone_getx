@@ -11,17 +11,18 @@ import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
 
-class ChatsScreen extends StatelessWidget{
+class ChatsScreen extends StatelessWidget {
   static const id = "/ChatsScreen";
   const ChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final provider = context.watch<SettingProvider>();
+    final provider = context.watch<SettingProvider>();
+    final theme = context.watch<AppTheme>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -29,13 +30,13 @@ class ChatsScreen extends StatelessWidget{
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.chats,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -53,7 +54,7 @@ class ChatsScreen extends StatelessWidget{
               Text(
                 context.l10n.display,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -68,7 +69,7 @@ class ChatsScreen extends StatelessWidget{
                           return Dialog(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: AppTheme.greyShade900,
+                                color: theme.greyShade900,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(20),
                                 ),
@@ -85,7 +86,7 @@ class ChatsScreen extends StatelessWidget{
                                     Text(
                                       context.l10n.choosetheme,
                                       style: TextStyle(
-                                        color: AppTheme.whiteColor,
+                                        color: theme.whiteColor,
                                         fontSize: 22,
                                       ),
                                     ),
@@ -95,21 +96,21 @@ class ChatsScreen extends StatelessWidget{
                                       context.l10n.systemdefault,
                                       dialogSetState,
                                       provider.selectedTheme,
-                                      context
+                                      context,
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       context.l10n.light,
                                       dialogSetState,
                                       provider.selectedTheme,
-                                      context
+                                      context,
                                     ),
                                     SizedBox(height: AppSize.getSize(30)),
                                     radioTile(
                                       context.l10n.dark,
                                       dialogSetState,
                                       provider.selectedTheme,
-                                      context
+                                      context,
                                     ),
 
                                     SizedBox(height: AppSize.getSize(35)),
@@ -123,8 +124,7 @@ class ChatsScreen extends StatelessWidget{
                                           child: Text(
                                             context.l10n.cancel,
                                             style: TextStyle(
-                                              color:
-                                                  AppTheme.greenAccentShade700,
+                                              color: theme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -138,8 +138,7 @@ class ChatsScreen extends StatelessWidget{
                                           child: Text(
                                             context.l10n.ok,
                                             style: TextStyle(
-                                              color:
-                                                  AppTheme.greenAccentShade700,
+                                              color: theme.greenAccentShade700,
                                               fontSize: AppSize.getSize(16),
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -162,7 +161,7 @@ class ChatsScreen extends StatelessWidget{
                     Icon(
                       Icons.settings,
                       size: AppSize.getSize(30),
-                      color: AppTheme.greyShade400,
+                      color: theme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(30)),
                     Column(
@@ -171,19 +170,18 @@ class ChatsScreen extends StatelessWidget{
                         Text(
                           context.l10n.theme,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                       Text(
-                            provider.selectedTheme,
-                            style: TextStyle(
-                              color: AppTheme.greyShade400,
-                              fontSize: AppSize.getSize(16),
-                            ),
+                        Text(
+                          provider.selectedTheme,
+                          style: TextStyle(
+                            color: theme.greyShade400,
+                            fontSize: AppSize.getSize(16),
                           ),
-                        
+                        ),
                       ],
                     ),
                   ],
@@ -192,20 +190,23 @@ class ChatsScreen extends StatelessWidget{
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatThemeScreen()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatThemeScreen()),
+                  );
                 },
                 child: Row(
                   children: [
                     Icon(
                       Icons.chat,
                       size: AppSize.getSize(30),
-                      color: AppTheme.greyShade400,
+                      color: theme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(30)),
                     Text(
                       context.l10n.defaultchattheme,
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(18),
                         fontWeight: FontWeight.w600,
                       ),
@@ -218,38 +219,41 @@ class ChatsScreen extends StatelessWidget{
               Text(
                 context.l10n.chatsettings,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-               appInfo(
-                  context.l10n.enterissend,
-                  context.l10n.enterkeywillsendyourmessage,
-                  switchValue: provider.isOn1,
-                  onChanged: (val) {
-                    provider.isOn1 = val;
-                  },
-                
+              appInfo(
+                context,
+                context.l10n.enterissend,
+                context.l10n.enterkeywillsendyourmessage,
+                switchValue: provider.isOn1,
+                onChanged: (val) {
+                  provider.isOn1 = val;
+                },
               ),
               SizedBox(height: AppSize.getSize(30)),
-             appInfo(
-                  context.l10n.mediavisibility,
-                  context.l10n.shownewlydownloadedmediainyourdevicesgallery,
-                  switchValue: provider.isOn2,
-                  onChanged: (val) {
-                    provider.isOn2 = val;
-                  },
-                ),
-              
+              appInfo(
+                context,
+                context.l10n.mediavisibility,
+                context.l10n.shownewlydownloadedmediainyourdevicesgallery,
+                switchValue: provider.isOn2,
+                onChanged: (val) {
+                  provider.isOn2 = val;
+                },
+              ),
+
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
+                context,
                 context.l10n.fontsize,
                 provider.selectedFontSize,
                 showSwitch: false,
               ),
               SizedBox(height: AppSize.getSize(30)),
               appInfo(
+                context,
                 context.l10n.voicemessagetranscripts,
                 context.l10n.readnewvoicemessages,
                 showSwitch: false,
@@ -258,41 +262,68 @@ class ChatsScreen extends StatelessWidget{
               Text(
                 context.l10n.archivedchats,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-            appInfo(
-                  context.l10n.keepchatsarchived,
-                  context.l10n.archivedchatswillremainarchivedwhenyoureceiveanewmessage,
-                  switchValue: provider.isOn3,
-                  onChanged: (val) {
-                    provider.isOn3 = val;
-                  },
-                
+              appInfo(
+                context,
+                context.l10n.keepchatsarchived,
+                context
+                    .l10n
+                    .archivedchatswillremainarchivedwhenyoureceiveanewmessage,
+                switchValue: provider.isOn3,
+                onChanged: (val) {
+                  provider.isOn3 = val;
+                },
               ),
 
               SizedBox(height: AppSize.getSize(40)),
               InkWell(
                 onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatBackupScreen()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatBackupScreen()),
+                  );
                 },
-                child: chatInfo(context.l10n.chatbackup, Icons.backup_outlined),
+                child: chatInfo(
+                  context.l10n.chatbackup,
+                  Icons.backup_outlined,
+                  context,
+                ),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                 Navigator.push(context, (MaterialPageRoute(builder: (context)=>TransferChatScreen())));
+                  Navigator.push(
+                    context,
+                    (MaterialPageRoute(
+                      builder: (context) => TransferChatScreen(),
+                    )),
+                  );
                 },
-                child: chatInfo(context.l10n.transferchats, Icons.send_to_mobile_rounded),
+                child: chatInfo(
+                  context.l10n.transferchats,
+                  Icons.send_to_mobile_rounded,
+                  context,
+                ),
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatHistoryScreen()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatHistoryScreen(),
+                    ),
+                  );
                 },
-                child: chatInfo(context.l10n.chathistory, Icons.replay_outlined),
+                child: chatInfo(
+                  context.l10n.chathistory,
+                  Icons.replay_outlined,
+                  context,
+                ),
               ),
             ],
           ),
@@ -301,15 +332,17 @@ class ChatsScreen extends StatelessWidget{
     );
   }
 
-  Widget chatInfo(String title, IconData icon) {
+  Widget chatInfo(String title, IconData icon, BuildContext context) {
+    final theme = context.watch<AppTheme>();
+
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: theme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),
@@ -319,12 +352,15 @@ class ChatsScreen extends StatelessWidget{
   }
 
   Widget appInfo(
+    BuildContext context,
     String title,
     String subtitle, {
     bool showSwitch = true,
     bool? switchValue,
     Function(bool)? onChanged,
   }) {
+    final theme = context.watch<AppTheme>();
+
     return InkWell(
       onTap: () {
         if (showSwitch && onChanged != null) {
@@ -343,7 +379,7 @@ class ChatsScreen extends StatelessWidget{
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: theme.whiteColor,
                       fontSize: AppSize.getSize(18),
                       fontWeight: FontWeight.w600,
                     ),
@@ -351,7 +387,7 @@ class ChatsScreen extends StatelessWidget{
                   Text(
                     subtitle,
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -362,9 +398,9 @@ class ChatsScreen extends StatelessWidget{
           if (showSwitch)
             Switch(
               value: switchValue ?? false,
-              activeThumbColor: AppTheme.blackColor,
-              activeTrackColor: AppTheme.greenAccentShade700,
-              inactiveTrackColor: AppTheme.blackColor,
+              activeThumbColor: theme.blackColor,
+              activeTrackColor: theme.greenAccentShade700,
+              inactiveTrackColor: theme.blackColor,
               onChanged: onChanged,
             ),
         ],
@@ -376,10 +412,10 @@ class ChatsScreen extends StatelessWidget{
     String title,
     StateSetter dialogSetState,
     String currentSelected,
-    BuildContext context
+    BuildContext context,
   ) {
-    
- final provider = context.read<SettingProvider>(); 
+    final provider = context.read<SettingProvider>();
+    final theme = context.watch<AppTheme>();
 
     bool isSelected = currentSelected == title;
     return InkWell(
@@ -389,15 +425,15 @@ class ChatsScreen extends StatelessWidget{
         });
 
         if (title == "Light") {
-          AppTheme.changeTheme(P1());
+          theme.changeTheme(P1());
         } else if (title == "Dark") {
-          AppTheme.changeTheme(DefulatPallet());
+          theme.changeTheme(DefulatPallet());
         } else {
-          AppTheme.changeTheme(DefulatPallet());
+          theme.changeTheme(DefulatPallet());
         }
       },
       child: Container(
-        color: AppTheme.greyShade900,
+        color: theme.greyShade900,
         child: Row(
           children: [
             Container(
@@ -407,8 +443,8 @@ class ChatsScreen extends StatelessWidget{
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? AppTheme.greenAccentShade700
-                      : AppTheme.greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -418,7 +454,7 @@ class ChatsScreen extends StatelessWidget{
                         height: AppSize.getSize(12),
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
-                          color: AppTheme.greenAccentShade700,
+                          color: theme.greenAccentShade700,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -429,7 +465,7 @@ class ChatsScreen extends StatelessWidget{
             Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

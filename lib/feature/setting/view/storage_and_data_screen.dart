@@ -16,9 +16,9 @@ class StorageAndDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<SettingProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,13 +26,13 @@ class StorageAndDataScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           context.l10n.storageanddata,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -51,7 +51,7 @@ class StorageAndDataScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageStorageScreen()));
                 },
-                child: appTile(
+                child: appTile(context,
                   context.l10n.managestorage,
                   "571.4 MB",
                   showIcon: true,
@@ -63,7 +63,7 @@ class StorageAndDataScreen extends StatelessWidget {
                 onTap: () {
                Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkUsageScreen()));
                 },
-                child: appTile(
+                child: appTile(context,
                   context.l10n.networkusage,
                   "75.8 MB sent. 630.0 MB received",
                   showIcon: true,
@@ -84,7 +84,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.uselessdataforcalls,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -94,9 +94,9 @@ class StorageAndDataScreen extends StatelessWidget {
                     ),
                     Switch(
                       value: provider.isOn,
-                      activeThumbColor: AppTheme.blackColor,
-                      activeTrackColor: AppTheme.greenAccentShade700,
-                      inactiveTrackColor: AppTheme.blackColor,
+                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
                       onChanged: (val) {
                         provider.isOn = val;
                       },
@@ -109,10 +109,10 @@ class StorageAndDataScreen extends StatelessWidget {
                 onTap: () {
                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProxyScreen()));
                 },
-                child: appTile(context.l10n.proxy, context.l10n.off),
+                child: appTile(context,context.l10n.proxy, context.l10n.off),
               ),
               SizedBox(height: AppSize.getSize(35)),
-              appTile(
+              appTile(context,
                 context.l10n.mediauploadquality,
                 context.l10n.standardquality,
                 showIcon: true,
@@ -131,7 +131,7 @@ class StorageAndDataScreen extends StatelessWidget {
 
               SizedBox(height: AppSize.getSize(30)),
 
-              appTile(
+              appTile(context,
                 context.l10n.autodownloadquality,
                 context.l10n.choose,
                 onTap: () {
@@ -150,19 +150,19 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 context.l10n.mediaautodownload,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
                 context.l10n.voicemessagesarealwaysautomaticallydownloaded,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
-              appTile(
+              appTile(context,
                 context.l10n.whenusingmobiledata,
                 context.l10n.photos,
                 onTap: () {
@@ -171,7 +171,7 @@ class StorageAndDataScreen extends StatelessWidget {
               ),
 
               SizedBox(height: AppSize.getSize(30)),
-              appTile(
+              appTile(context,
                 context.l10n.whenconnectedonWiFi,
                 context.l10n.allmedia,
                 onTap: () {
@@ -179,7 +179,7 @@ class StorageAndDataScreen extends StatelessWidget {
                 },
               ),
               SizedBox(height: AppSize.getSize(30)),
-              appTile(
+              appTile(context,
                 context.l10n.whenroaming,
                 context.l10n.nomedia,
                 onTap: () {
@@ -202,33 +202,33 @@ class StorageAndDataScreen extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: AppTheme.greyShade900,
+              backgroundColor: context.watch<AppTheme>().greyShade900,
               title: Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(28),
                 ),
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  dialogCheckItem(
+                  dialogCheckItem(context,
                     context.l10n.photos,
                     provider.selectedItems,
                     setState,
                   ),
-                  dialogCheckItem(
+                  dialogCheckItem(context,
                     context.l10n.audio,
                     provider.selectedItems,
                     setState,
                   ),
-                  dialogCheckItem(
+                  dialogCheckItem(context,
                     context.l10n.video,
                     provider.selectedItems,
                     setState,
                   ),
-                  dialogCheckItem(
+                  dialogCheckItem(context,
                     context.l10n.documents,
                     provider.selectedItems,
                     setState,
@@ -244,7 +244,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.cancel,
                           style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             fontWeight: FontWeight.bold,
                             fontSize: AppSize.getSize(16),
                           ),
@@ -258,7 +258,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.ok,
                           style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             fontWeight: FontWeight.bold,
                             fontSize: AppSize.getSize(16),
                           ),
@@ -290,17 +290,17 @@ class StorageAndDataScreen extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: AppTheme.greyShade900,
+              backgroundColor: context.watch<AppTheme>().greyShade900,
 
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(color: AppTheme.whiteColor)),
+                  Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor)),
                   SizedBox(height: 10),
                   Text(
                     subtitle,
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -331,8 +331,8 @@ class StorageAndDataScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: isSelected
-                                    ? AppTheme.greenAccentShade700
-                                    : AppTheme.greyShade400,
+                                    ? context.watch<AppTheme>().greenAccentShade700
+                                    : context.watch<AppTheme>().greyShade400,
                                 width: AppSize.getSize(2),
                               ),
                             ),
@@ -343,7 +343,7 @@ class StorageAndDataScreen extends StatelessWidget {
                                       width: AppSize.getSize(12),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: AppTheme.greenAccentShade700,
+                                        color: context.watch<AppTheme>().greenAccentShade700,
                                       ),
                                     ),
                                   )
@@ -354,7 +354,7 @@ class StorageAndDataScreen extends StatelessWidget {
                             child: Text(
                               option,
                               style: TextStyle(
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -373,7 +373,7 @@ class StorageAndDataScreen extends StatelessWidget {
                   child: Text(
                     context.l10n.cancel,
                     style: TextStyle(
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -386,7 +386,7 @@ class StorageAndDataScreen extends StatelessWidget {
                   child: Text(
                     context.l10n.save,
                     style: TextStyle(
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -401,6 +401,7 @@ class StorageAndDataScreen extends StatelessWidget {
   }
 
  Widget dialogCheckItem(
+  BuildContext context,
   String title,
   Map<String, bool> selectedItems,
   StateSetter setState,
@@ -415,8 +416,8 @@ class StorageAndDataScreen extends StatelessWidget {
       children: [
         Checkbox(
           value: selectedItems[title] ?? false,
-          checkColor: AppTheme.blackColor,
-          activeColor: AppTheme.greenAccentShade700,
+          checkColor: context.watch<AppTheme>().blackColor,
+          activeColor: context.watch<AppTheme>().greenAccentShade700,
           onChanged: (val) {
             setState(() {
               selectedItems[title] = val ?? false;
@@ -427,7 +428,7 @@ class StorageAndDataScreen extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
               fontSize: AppSize.getSize(16),
               fontWeight: FontWeight.w600,
             ),
@@ -440,6 +441,7 @@ class StorageAndDataScreen extends StatelessWidget {
 
 
   Widget appTile(
+    BuildContext context,
     String title,
     String subtitle, {
     bool showIcon = false,
@@ -452,7 +454,7 @@ class StorageAndDataScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           if (showIcon && icon != null) ...[
-            Icon(icon, size: 30, color: AppTheme.greyShade400),
+            Icon(icon, size: 30, color: context.watch<AppTheme>().greyShade400),
             SizedBox(width: AppSize.getSize(20)),
           ] else
             SizedBox(width: AppSize.getSize(50)),
@@ -462,7 +464,7 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
@@ -470,7 +472,7 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),

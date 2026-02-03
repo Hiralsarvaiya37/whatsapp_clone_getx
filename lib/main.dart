@@ -8,7 +8,10 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/provider/call
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/provider/dashboard_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/provider/account_view_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/provider/accessibility_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/provider/chat_view_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/provider/help_and_feedback_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/provider/list_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
@@ -17,6 +20,7 @@ import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -52,6 +56,10 @@ void main() async {
         ),
         ChangeNotifierProvider(create: (_)=>ListViewProvider()),
         ChangeNotifierProvider(create: (_)=>ChatViewProvider()),
+        ChangeNotifierProvider(create: (_)=>AccessibilityViewProvider()),
+        ChangeNotifierProvider(create: (_)=>HelpAndFeedbackViewProvider()),
+        ChangeNotifierProvider(create: (_)=>AccountViewProvider()),
+        ChangeNotifierProvider(create: (_)=>AppTheme()),
       ],
       child: const MyApp(),
     ),

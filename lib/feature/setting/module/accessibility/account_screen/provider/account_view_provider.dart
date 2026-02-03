@@ -2,7 +2,7 @@
 
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/delete_account_screen.dart';
@@ -16,38 +16,91 @@ import 'package:whatsapp_clone_getx/utils/enums/account_options_enum.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AccountViewController extends GetxController {
-  RxBool isNotificationOn = false.obs;
-  RxBool isYes = false.obs;
-  RxBool isOn = false.obs;
-  RxBool isNo = false.obs;
-  RxInt selectedOption = (-1).obs;
-  RxList<String> options = [
+class AccountViewProvider extends ChangeNotifier {
+  bool isNotificationOn = false;
+  bool isNo = false;
+  int selectedOption = (-1);
+  List<String> options = [
     "The article is confusing",
     "The information is inaccurate",
     "I need a more detailed explanation",
     "This isn't the information I'm looking for",
     "Other",
-  ].obs;
+  ];
+  void setSelectedOption(int value) {
+  selectedOption = value;
+  notifyListeners(); 
+}
 
-  late VideoPlayerController videoController;
-  RxBool isInitialized = false.obs;
-  RxBool isPlaying = false.obs;
-  Rx<Country?> selectedCountry = Rx<Country?>(null);
 
-  @override
-  void onInit() {
-    super.onInit();
-    initVideo();
+   bool isOn = false;
+  bool isYes = false;
+  void toggleIsOn() {
+    isOn = !isOn;
+    notifyListeners();
+  }
+   void toggleisNotificationOn() {
+    isNotificationOn = !isNotificationOn;
+    notifyListeners();
   }
 
+
+  void toggleIsYes() {
+    isYes = !isYes;
+    notifyListeners();
+  }
+
+  late VideoPlayerController videoController;
+  bool isInitialized = false;
+  bool isPlaying = false;
+  Country? _selectedCountry;
+
+  Country? get selectedCountry => _selectedCountry;
+
+  set selectedCountry(Country? val) {
+    _selectedCountry = val;
+    notifyListeners();
+  }
+  AccountViewProvider() {
+    initVideo();   
+  }
   void initVideo() async {
     videoController = VideoPlayerController.network(
       'https://www.pexels.com/download/video/11836616/',
     );
 
     await videoController.initialize();
-    isInitialized.value = true;
+    isInitialized = true;
+    notifyListeners();
+  }
+
+  void playPause() {
+    if (videoController.value.isPlaying) {
+      videoController.pause();
+      isPlaying = false;
+    } else {
+      videoController.play();
+      isPlaying = true;
+    }
+      notifyListeners();
+  }
+
+  void setYes() {
+  isYes = true;
+  isNo = false;
+  notifyListeners();
+}
+
+void setNo() {
+  isYes = false;
+  isNo = true;
+  notifyListeners();
+}
+
+  @override
+  void dispose() {
+    videoController.dispose();
+    super.dispose();
   }
 
   void onTapAccountOption(AccountOptionsEnum value, BuildContext context) {
@@ -58,28 +111,44 @@ class AccountViewController extends GetxController {
       );
     }
     if (value == AccountOptionsEnum.passKeys) {
-      Get.toNamed(PassKeysScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PassKeysScreen()),
+      );
     }
 
     if (value == AccountOptionsEnum.emailAddress) {
-      Get.toNamed(EmailAddressScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => EmailAddressScreen()),
+      );
     }
     if (value == AccountOptionsEnum.twoStepVerification) {
-      Get.toNamed(TwoStepVerificationScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TwoStepVerificationScreen()),
+      );
     }
 
     if (value == AccountOptionsEnum.changeNumber) {
-      Get.toNamed(ChangeNumberScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChangeNumberScreen()),
+      );
     }
 
     if (value == AccountOptionsEnum.requestAccountInfo) {
-      Get.toNamed(RequestAccountInfoScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RequestAccountInfoScreen()),
+      );
     }
 
     if (value == AccountOptionsEnum.addAccount) {
+         final theme = Provider.of<AppTheme>(context, listen: false);
       showModalBottomSheet(
-        context: Get.context!,
-        backgroundColor: AppTheme.greyShade900,
+        context: context,
+        backgroundColor:theme.greyShade900,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(AppSize.getSize(20)),
@@ -97,7 +166,7 @@ class AccountViewController extends GetxController {
                     height: AppSize.getSize(3),
                     width: AppSize.getSize(40),
                     decoration: BoxDecoration(
-                      color: AppTheme.greyShade400,
+                      color: theme.greyShade400,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -110,7 +179,7 @@ class AccountViewController extends GetxController {
                     vertical: AppSize.getSize(20),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppTheme.greyShade800),
+                    border: Border.all(color: context.watch<AppTheme>().greyShade800),
                     borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                   ),
                   child: Column(
@@ -133,14 +202,14 @@ class AccountViewController extends GetxController {
                                 Text(
                                   context.l10n.addnewaccount,
                                   style: TextStyle(
-                                    color: AppTheme.whiteColor,
+                                    color: context.watch<AppTheme>().whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                 ),
                                 Text(
                                   "+26587848545",
                                   style: TextStyle(
-                                    color: AppTheme.greyShade400,
+                                    color: context.watch<AppTheme>().greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -149,7 +218,7 @@ class AccountViewController extends GetxController {
                           ),
                           Icon(
                             Icons.check_circle,
-                            color: AppTheme.greenAccentShade700,
+                            color: theme.greenAccentShade700,
                             size: AppSize.getSize(25),
                           ),
                         ],
@@ -166,11 +235,11 @@ class AccountViewController extends GetxController {
                               borderRadius: BorderRadius.circular(
                                 AppSize.getSize(50),
                               ),
-                              color: AppTheme.greyShade900,
+                              color: theme.greyShade900,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: AppTheme.whiteColor,
+                              color:theme.whiteColor,
                               size: AppSize.getSize(28),
                             ),
                           ),
@@ -178,7 +247,7 @@ class AccountViewController extends GetxController {
                           Text(
                             context.l10n.addWhatsAppaccount,
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -195,23 +264,10 @@ class AccountViewController extends GetxController {
     }
 
     if (value == AccountOptionsEnum.deleteAccount) {
-      Get.toNamed(DeleteAccountScreen.id);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DeleteAccountScreen()),
+      );
     }
-  }
-
-  void playPause() {
-    if (videoController.value.isPlaying) {
-      videoController.pause();
-      isPlaying.value = false;
-    } else {
-      videoController.play();
-      isPlaying.value = true;
-    }
-  }
-
-  @override
-  void onClose() {
-    videoController.dispose();
-    super.onClose();
   }
 }

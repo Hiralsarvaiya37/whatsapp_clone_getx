@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -10,14 +11,14 @@ class EndToEndScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.greyShade400),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
         ),
       ),
       body: Column(
@@ -32,28 +33,28 @@ class EndToEndScreen extends StatelessWidget {
                   Icon(
                     Icons.lock,
                     size: AppSize.getSize(70),
-                    color: AppTheme.greenAccentShade700,
+                    color: context.watch<AppTheme>().greenAccentShade700,
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
                     context.l10n.addanextralayerofprotection,
-                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(25)),
+                    style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(25)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(35)),
                   appInfo(
                     context.l10n.yourbackupwillbesafeevenifyouloseyourphone,
-                    Icons.lock_outline,
+                    Icons.lock_outline,context
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appInfo(
                     context.l10n.secureyourbackupwithapasskeypasswordoranencryptionkey,
-                    Icons.key,
+                    Icons.key,context
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appInfo(
                     context.l10n.nooneelsewillbeabletoaccessyourbackupNotevenWhatsApporGoogle,
-                    Icons.remove_red_eye_outlined,
+                    Icons.remove_red_eye_outlined,context
                   ),
                 ],
               ),
@@ -66,14 +67,14 @@ class EndToEndScreen extends StatelessWidget {
                 Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppTheme.greenAccentShade700,
+                    color: context.watch<AppTheme>().greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     context.l10n.usepasskey,
                     style: TextStyle(
-                      color: AppTheme.blackColor,
+                      color: context.watch<AppTheme>().blackColor,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -83,14 +84,14 @@ class EndToEndScreen extends StatelessWidget {
                  Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppTheme.greyColor, width: AppSize.getSize(0.5)),
+                    border: Border.all(color: context.watch<AppTheme>().greyColor, width: AppSize.getSize(0.5)),
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     context.l10n.moreoptions,
                     style: TextStyle(
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -105,16 +106,16 @@ class EndToEndScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Expanded(
           child: Text(
             title,
-            style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+            style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
           ),
         ),
       ],

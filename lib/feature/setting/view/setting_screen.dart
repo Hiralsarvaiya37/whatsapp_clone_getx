@@ -50,16 +50,16 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final settingProvider = context.watch<SettingProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: Icon(
             Icons.arrow_back,
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             size: AppSize.getSize(25),
           ),
         ),
@@ -67,14 +67,14 @@ class SettingScreen extends StatelessWidget {
           context.l10n.settings,
           style: TextStyle(
             fontSize: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           Icon(
             Icons.search,
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             size: AppSize.getSize(25),
           ),
           SizedBox(width: AppSize.getSize(20)),
@@ -121,17 +121,19 @@ class SettingScreen extends StatelessWidget {
                             height: AppSize.getSize(22),
                             width: AppSize.getSize(22),
                             decoration: BoxDecoration(
-                              color: AppTheme.greenAccentShade700,
+                              color: context
+                                  .watch<AppTheme>()
+                                  .greenAccentShade700,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: AppTheme.blackColor,
+                                color: context.watch<AppTheme>().blackColor,
                                 width: AppSize.getSize(0.5),
                               ),
                             ),
                             child: Icon(
                               Icons.edit,
                               size: AppSize.getSize(16),
-                              color: AppTheme.blackColor,
+                              color: context.watch<AppTheme>().blackColor,
                             ),
                           ),
                         ),
@@ -147,7 +149,7 @@ class SettingScreen extends StatelessWidget {
                         Text(
                           "User account",
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -158,7 +160,9 @@ class SettingScreen extends StatelessWidget {
                             vertical: AppSize.getSize(2),
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppTheme.greyShade400),
+                            border: Border.all(
+                              color: context.watch<AppTheme>().greyShade400,
+                            ),
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(20),
                             ),
@@ -166,7 +170,7 @@ class SettingScreen extends StatelessWidget {
                           child: Text(
                             "Busy",
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(14),
                             ),
                           ),
@@ -184,7 +188,7 @@ class SettingScreen extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.qr_code,
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                       size: AppSize.getSize(28),
                     ),
                   ),
@@ -195,7 +199,7 @@ class SettingScreen extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.add_circle_outline,
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                       size: AppSize.getSize(28),
                     ),
                   ),
@@ -213,14 +217,14 @@ class SettingScreen extends StatelessWidget {
                   return ListTile(
                     leading: Icon(
                       item.iconData,
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       size: AppSize.getSize(28),
                     ),
 
                     title: Text(
                       item.label(context),
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -228,7 +232,7 @@ class SettingScreen extends StatelessWidget {
                         ? Text(
                             item.subtitles,
                             style: TextStyle(
-                              color: AppTheme.greyColor,
+                              color: context.watch<AppTheme>().greyColor,
                               fontSize: AppSize.getSize(16),
                             ),
                           )
@@ -365,11 +369,11 @@ class SettingScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: AppTheme.greyShade800,
+                      color: context.watch<AppTheme>().greyShade800,
                       width: AppSize.getSize(1),
                     ),
                     bottom: BorderSide(
-                      color: AppTheme.greyShade800,
+                      color: context.watch<AppTheme>().greyShade800,
                       width: AppSize.getSize(1),
                     ),
                   ),
@@ -382,13 +386,13 @@ class SettingScreen extends StatelessWidget {
                         Icon(
                           Icons.all_inclusive,
                           size: AppSize.getSize(25),
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                         ),
                         SizedBox(width: AppSize.getSize(10)),
                         Text(
                           "Meta",
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -399,7 +403,7 @@ class SettingScreen extends StatelessWidget {
                     Text(
                       "Accounts Center",
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: AppSize.getSize(17),
                       ),
                     ),
@@ -408,7 +412,7 @@ class SettingScreen extends StatelessWidget {
                     Text(
                       "Control your experience across WhatsApp, Facebook, Instagram and more.",
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                       maxLines: 2,
@@ -422,7 +426,7 @@ class SettingScreen extends StatelessWidget {
               Text(
                 "Also from Meta",
                 style: TextStyle(
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                   fontSize: AppSize.getSize(17),
                 ),
               ),
@@ -432,10 +436,10 @@ class SettingScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  appIcon("Meta AI App", Icons.circle_outlined),
-                  appIcon("Instagram", Icons.photo_camera),
-                  appIcon("Facebook", Icons.facebook),
-                  appIcon("Threads", Icons.alternate_email_outlined),
+                  appIcon("Meta AI App", Icons.circle_outlined, context),
+                  appIcon("Instagram", Icons.photo_camera, context),
+                  appIcon("Facebook", Icons.facebook, context),
+                  appIcon("Threads", Icons.alternate_email_outlined, context),
                 ],
               ),
             ],
@@ -445,27 +449,27 @@ class SettingScreen extends StatelessWidget {
     );
   }
 
-  Widget appIcon(String label, IconData icon) {
+  Widget appIcon(String label, IconData icon, BuildContext context) {
     return Column(
       children: [
         Container(
           height: AppSize.getSize(50),
           width: AppSize.getSize(50),
           decoration: BoxDecoration(
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             borderRadius: BorderRadius.circular(AppSize.getSize(50)),
           ),
           child: Icon(
             icon,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         SizedBox(height: AppSize.getSize(7)),
         Text(
           label,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(16),
           ),
           textAlign: TextAlign.center,
@@ -475,9 +479,10 @@ class SettingScreen extends StatelessWidget {
   }
 
   void openAddAccountSheet(BuildContext context) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppTheme.greyShade900,
+      backgroundColor: theme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -495,7 +500,7 @@ class SettingScreen extends StatelessWidget {
                   height: AppSize.getSize(4),
                   width: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppTheme.greyShade400,
+                    color: theme.greyShade400,
                     borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                   ),
                 ),
@@ -508,7 +513,7 @@ class SettingScreen extends StatelessWidget {
                   vertical: AppSize.getSize(20),
                 ),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppTheme.greyShade800),
+                  border: Border.all(color: theme.greyShade800),
                   borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                 ),
                 child: Column(
@@ -531,14 +536,14 @@ class SettingScreen extends StatelessWidget {
                               Text(
                                 "Add new account",
                                 style: TextStyle(
-                                  color: AppTheme.whiteColor,
+                                  color: theme.whiteColor,
                                   fontSize: AppSize.getSize(18),
                                 ),
                               ),
                               Text(
                                 "+26587848545",
                                 style: TextStyle(
-                                  color: AppTheme.greyShade400,
+                                  color: theme.greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
@@ -547,7 +552,7 @@ class SettingScreen extends StatelessWidget {
                         ),
                         Icon(
                           Icons.check_circle,
-                          color: AppTheme.greenAccentShade700,
+                          color: theme.greenAccentShade700,
                           size: AppSize.getSize(25),
                         ),
                       ],
@@ -564,11 +569,11 @@ class SettingScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(50),
                             ),
-                            color: AppTheme.greyShade900,
+                            color: theme.greyShade900,
                           ),
                           child: Icon(
                             Icons.add,
-                            color: AppTheme.whiteColor,
+                            color: theme.whiteColor,
                             size: AppSize.getSize(28),
                           ),
                         ),
@@ -576,7 +581,7 @@ class SettingScreen extends StatelessWidget {
                         Text(
                           "Add WhatsApp account",
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -593,10 +598,13 @@ class SettingScreen extends StatelessWidget {
   }
 
   void openModalSheet(BuildContext context) {
+    final theme = context.read<AppTheme>();
+    final settingProvider = context.read<SettingProvider>();
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: AppTheme.greyShade900,
+      backgroundColor: theme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -620,16 +628,14 @@ class SettingScreen extends StatelessWidget {
                       height: AppSize.getSize(5),
                       width: AppSize.getSize(40),
                       decoration: BoxDecoration(
-                        color: AppTheme.greyColor,
+                        color: theme.greyColor,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(20),
                         ),
                       ),
                     ),
                   ),
-
                   SizedBox(height: AppSize.getSize(20)),
-
                   Row(
                     children: [
                       InkWell(
@@ -639,14 +645,14 @@ class SettingScreen extends StatelessWidget {
                         child: Icon(
                           Icons.close,
                           size: AppSize.getSize(25),
-                          color: AppTheme.greyShade400,
+                          color: theme.greyShade400,
                         ),
                       ),
                       SizedBox(width: AppSize.getSize(25)),
                       Text(
                         "App language",
                         style: TextStyle(
-                          color: AppTheme.whiteColor,
+                          color: theme.whiteColor,
                           fontSize: AppSize.getSize(20),
                           fontWeight: FontWeight.w600,
                         ),
@@ -658,9 +664,57 @@ class SettingScreen extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: LanguageEnum.values.length,
                       itemBuilder: (context, index) {
+                        final lang = LanguageEnum.values[index];
+                        bool isSelected =
+                            settingProvider.selectedLanguage.code == lang.code;
+
                         return Padding(
                           padding: EdgeInsets.only(bottom: AppSize.getSize(20)),
-                          child: radioTile(LanguageEnum.values[index], context),
+                          child: InkWell(
+                            onTap: () {
+                              settingProvider.changeLanguage(lang);
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: AppSize.getSize(22),
+                                  width: AppSize.getSize(22),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: isSelected
+                                          ? theme.greenAccentShade700
+                                          : theme.greyColor,
+                                      width: 2,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: isSelected
+                                      ? Center(
+                                          child: Container(
+                                            height: AppSize.getSize(12),
+                                            width: AppSize.getSize(12),
+                                            decoration: BoxDecoration(
+                                              color: theme.greenAccentShade700,
+                                              shape: BoxShape.circle,
+                                            ),
+                                          ),
+                                        )
+                                      : SizedBox(),
+                                ),
+                                SizedBox(width: AppSize.getSize(25)),
+                                Text(
+                                  lang.title,
+                                  style: TextStyle(
+                                    color: theme.whiteColor,
+                                    fontSize: AppSize.getSize(18),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),
@@ -675,7 +729,8 @@ class SettingScreen extends StatelessWidget {
   }
 
   Widget radioTile(LanguageEnum lang, BuildContext context) {
-    final settingProvider = context.watch<SettingProvider>();
+    final settingProvider = context.read<SettingProvider>();
+    final theme = context.read<AppTheme>();
     bool isSelected = settingProvider.selectedLanguage.code == lang.code;
 
     return InkWell(
@@ -694,8 +749,8 @@ class SettingScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: isSelected
-                      ? AppTheme.greenAccentShade700
-                      : AppTheme.greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: 2,
                 ),
                 shape: BoxShape.circle,
@@ -706,7 +761,7 @@ class SettingScreen extends StatelessWidget {
                         height: AppSize.getSize(12),
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
-                          color: AppTheme.greenAccentShade700,
+                          color: theme.greenAccentShade700,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -717,7 +772,7 @@ class SettingScreen extends StatelessWidget {
             Text(
               lang.title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -729,9 +784,10 @@ class SettingScreen extends StatelessWidget {
   }
 
   void showImagePickerSheet(BuildContext context) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppTheme.greyShade900,
+      backgroundColor: theme.greyShade900,
       builder: (context) {
         return Padding(
           padding: EdgeInsets.all(AppSize.getSize(20)),
@@ -748,14 +804,11 @@ class SettingScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 25,
-                      backgroundColor: AppTheme.greenAccentShade700,
-                      child: Icon(Icons.camera_alt, color: AppTheme.blackColor),
+                      backgroundColor: theme.greenAccentShade700,
+                      child: Icon(Icons.camera_alt, color: theme.blackColor),
                     ),
                     SizedBox(height: 8),
-                    Text(
-                      "Camera",
-                      style: TextStyle(color: AppTheme.whiteColor),
-                    ),
+                    Text("Camera", style: TextStyle(color: theme.whiteColor)),
                   ],
                 ),
               ),
@@ -769,14 +822,11 @@ class SettingScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 25,
-                      backgroundColor: AppTheme.greenAccentShade700,
-                      child: Icon(Icons.photo, color: AppTheme.blackColor),
+                      backgroundColor: theme.greenAccentShade700,
+                      child: Icon(Icons.photo, color: theme.blackColor),
                     ),
                     SizedBox(height: 8),
-                    Text(
-                      "Gallery",
-                      style: TextStyle(color: AppTheme.whiteColor),
-                    ),
+                    Text("Gallery", style: TextStyle(color: theme.whiteColor)),
                   ],
                 ),
               ),

@@ -14,19 +14,19 @@ class PrivacyContactsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Contacts",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -40,11 +40,11 @@ class PrivacyContactsScreen extends StatelessWidget {
             children: [
               Text(
                 "Blocked contacts",
-                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(19)),
+                style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(19)),
               ),
               Text(
                 "0",
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(19)),
+                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(19)),
               ),
               SizedBox(height: AppSize.getSize(30)),
               Row(
@@ -56,7 +56,7 @@ class PrivacyContactsScreen extends StatelessWidget {
                       children: [
                         Text(
                           "WhatsApp contacts",
-                          style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(19)),
+                          style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(19)),
                         ),
                         SizedBox(height: AppSize.getSize(19)),
                         Text.rich(
@@ -66,14 +66,14 @@ class PrivacyContactsScreen extends StatelessWidget {
                                 text:
                                     "Contacts are saved to your WhatsApp account to manage them across devices. ",
                                 style: TextStyle(
-                                  color: AppTheme.greyShade400,
+                                  color: context.watch<AppTheme>().greyShade400,
                                   fontSize: AppSize.getSize(17),
                                 ),
                               ),
                               TextSpan(
                                 text: "Learn more",
                                 style: TextStyle(
-                                  color: AppTheme.blueshade500,
+                                  color: context.watch<AppTheme>().blueshade500,
                                   fontSize: AppSize.getSize(17),
                                   fontWeight: FontWeight.w600,
                                 ),recognizer: TapGestureRecognizer()
@@ -89,9 +89,9 @@ class PrivacyContactsScreen extends StatelessWidget {
                   ),
                   Switch(
                       value: provider.isOn,
-                      activeThumbColor: AppTheme.blackColor,
-                      activeTrackColor: AppTheme.greenAccentShade700,
-                      inactiveTrackColor: AppTheme.blackColor,
+                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
                       onChanged: (val) {
                           provider.isOn = val;
                       },

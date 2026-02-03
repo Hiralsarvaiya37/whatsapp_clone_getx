@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen3.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen1.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen2.dart';
@@ -14,26 +14,33 @@ class PrivacyCheckupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: context.watch<AppTheme>().whiteColor,
+          ),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(20),
+          vertical: AppSize.getSize(20),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -41,17 +48,23 @@ class PrivacyCheckupScreen extends StatelessWidget {
             Icon(
               Icons.privacy_tip_outlined,
               size: AppSize.getSize(70),
-              color: AppTheme.greenAccentShade700,
+              color: context.watch<AppTheme>().greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Your privacy matters",
-              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(22)),
+              style: TextStyle(
+                color: context.watch<AppTheme>().whiteColor,
+                fontSize: AppSize.getSize(22),
+              ),
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
               "Control your privacy settings and set up WhatsApp just the way you want it.",
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(
+                color: context.watch<AppTheme>().greyShade400,
+                fontSize: AppSize.getSize(16),
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(35)),
@@ -59,24 +72,50 @@ class PrivacyCheckupScreen extends StatelessWidget {
               "Choose who can contacts you",
               Icons.add_ic_call_outlined,
               () {
-               Get.toNamed(PrivacyCheckupScreen1.id);
-              },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrivacyCheckupScreen1(),
+                  ),
+                );
+              },context
             ),
             SizedBox(height: AppSize.getSize(30)),
             appInfo("Cntrol your personal info", Icons.person_2_outlined, () {
-            Get.toNamed(PrivacyCheckupScreen2.id);
-            }),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PrivacyCheckupScreen2(),
+                ),
+              );
+            },context),
             SizedBox(height: AppSize.getSize(30)),
             appInfo("Add more privacy to your chats", Icons.message, () {
-              Get.toNamed(PrivacyCheckupScreen3.id);
-            }),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PrivacyCheckupScreen3(),
+                ),
+              );
+            },context),
             SizedBox(height: AppSize.getSize(30)),
             appInfo(
               "Add more protection to your account",
               Icons.lock_clock_outlined,
               () {
-                Get.toNamed(PrivacyCheckupScreen4.id);
-              },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrivacyCheckupScreen4(),
+                  ),
+                );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrivacyCheckupScreen4(),
+                  ),
+                );
+              },context
             ),
             SizedBox(height: AppSize.getSize(30)),
           ],
@@ -85,21 +124,24 @@ class PrivacyCheckupScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon, VoidCallback onTap) {
+  Widget appInfo(String title, IconData icon, VoidCallback onTap, BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Row(
         children: [
-          Icon(icon, size: AppSize.getSize(28), color: AppTheme.greyShade400),
+          Icon(icon, size: AppSize.getSize(28), color: context.watch<AppTheme>().greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Text(
               title,
-              style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+              style: TextStyle(
+                color: context.watch<AppTheme>().whiteColor,
+                fontSize: AppSize.getSize(18),
+              ),
             ),
           ),
           SizedBox(width: AppSize.getSize(47)),
-          Icon(Icons.arrow_forward, size: 28, color: AppTheme.greyShade400),
+          Icon(Icons.arrow_forward, size: 28, color: context.watch<AppTheme>().greyShade400),
         ],
       ),
     );

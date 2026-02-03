@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
@@ -13,19 +13,19 @@ class TwoStepVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           context.l10n.twostepverification,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,7 +37,7 @@ class TwoStepVerificationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: AppSize.getSize(15)),
-            Icon(Icons.keyboard, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
+            Icon(Icons.keyboard, size: AppSize.getSize(70), color: context.watch<AppTheme>().greenAccentShade700),
             SizedBox(height: AppSize.getSize(30)),
             Text.rich(
               TextSpan(
@@ -46,18 +46,18 @@ class TwoStepVerificationScreen extends StatelessWidget {
                     text:
                         context.l10n.forextrasecurityturnontwostepverificationwhichwillrequireaPINwhenregisteringyourphonenumberwithWhatsAppagain,
 
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
                     text: context.l10n.learnmore,
                     style: TextStyle(
-                      color: AppTheme.blueshade500,
+                      color: context.watch<AppTheme>().blueshade500,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.w600,
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                       Get.toNamed(LearnMoreScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                       },
                   ),
                 ],
@@ -69,19 +69,19 @@ class TwoStepVerificationScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: AppTheme.blackColor,
+        color: context.watch<AppTheme>().blackColor,
         child: Center(
           child: Container(
             height: AppSize.getSize(45),
             width: AppSize.getSize(120),
             decoration: BoxDecoration(
-              color: AppTheme.greenAccentShade700,
+              color: context.watch<AppTheme>().greenAccentShade700,
               borderRadius: BorderRadius.circular(AppSize.getSize(25)),
             ),
             alignment: Alignment.center,
             child: Text(
               context.l10n.turnon,
-              style: TextStyle(color: AppTheme.blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
+              style: TextStyle(color: context.watch<AppTheme>().blackColor, fontSize: AppSize.getSize(16), fontWeight: FontWeight.w500),
             ),
           ),
         ),

@@ -14,9 +14,9 @@ class ChatHistoryScreen extends StatelessWidget {
     final chatProvider = context.watch<ChatViewProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +24,13 @@ class ChatHistoryScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           context.l10n.chathistory,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -44,7 +44,7 @@ class ChatHistoryScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            appInfo(context.l10n.exportchat, Icons.file_upload_outlined),
+            appInfo(context.l10n.exportchat, Icons.file_upload_outlined,context),
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
@@ -54,7 +54,7 @@ class ChatHistoryScreen extends StatelessWidget {
                     return Dialog(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: AppTheme.greyShade900,
+                          color: context.watch<AppTheme>().greyShade900,
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(20),
                           ),
@@ -70,7 +70,7 @@ class ChatHistoryScreen extends StatelessWidget {
                               Text(
                                 context.l10n.areyousurewanttoarchiveALLchats,
                                 style: TextStyle(
-                                  color: AppTheme.greyShade400,
+                                  color: context.watch<AppTheme>().greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
@@ -85,7 +85,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                     child: Text(
                                       context.l10n.cancel,
                                       style: TextStyle(
-                                        color: AppTheme.greenAccentShade700,
+                                        color: context.watch<AppTheme>().greenAccentShade700,
                                         fontSize: AppSize.getSize(16),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -100,7 +100,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                     child: Text(
                                       context.l10n.ok,
                                       style: TextStyle(
-                                        color: AppTheme.greenAccentShade700,
+                                        color: context.watch<AppTheme>().greenAccentShade700,
                                         fontSize: AppSize.getSize(16),
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -122,7 +122,7 @@ class ChatHistoryScreen extends StatelessWidget {
                 chatProvider.isArchived
                     ? context.l10n.unarchiveallchats
                     : context.l10n.archiveallchats,
-                Icons.archive_outlined,
+                Icons.archive_outlined,context
               ),
             ),
 
@@ -140,7 +140,7 @@ class ChatHistoryScreen extends StatelessWidget {
                               AppSize.getSize(15),
                             ),
                           ),
-                          backgroundColor: AppTheme.greyShade900,
+                          backgroundColor: context.watch<AppTheme>().greyShade900,
                           child: Padding(
                             padding: EdgeInsets.all(AppSize.getSize(20)),
                             child: Column(
@@ -150,7 +150,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                 Text(
                                   context.l10n.clearallchats,
                                   style: TextStyle(
-                                    color: AppTheme.whiteColor,
+                                    color: context.watch<AppTheme>().whiteColor,
                                     fontSize: AppSize.getSize(22),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -198,7 +198,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.cancel,
                                         style: TextStyle(
-                                          color: AppTheme.greenAccentShade700,
+                                          color: context.watch<AppTheme>().greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -212,7 +212,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.clearchats,
                                         style: TextStyle(
-                                          color: AppTheme.greenAccentShade700,
+                                          color: context.watch<AppTheme>().greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -232,7 +232,7 @@ class ChatHistoryScreen extends StatelessWidget {
               },
               child: appInfo(
                 context.l10n.clearallchats,
-                Icons.remove_circle_outline,
+                Icons.remove_circle_outline,context
               ),
             ),
 
@@ -250,7 +250,7 @@ class ChatHistoryScreen extends StatelessWidget {
                               AppSize.getSize(15),
                             ),
                           ),
-                          backgroundColor: AppTheme.greyShade900,
+                          backgroundColor: context.watch<AppTheme>().greyShade900,
                           child: Padding(
                             padding: EdgeInsets.all(AppSize.getSize(20)),
                             child: Column(
@@ -260,7 +260,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                 Text(
                                   context.l10n.deleteallchats,
                                   style: TextStyle(
-                                    color: AppTheme.whiteColor,
+                                    color: context.watch<AppTheme>().whiteColor,
                                     fontSize: AppSize.getSize(22),
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -288,7 +288,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.cancel,
                                         style: TextStyle(
-                                          color: AppTheme.greenAccentShade700,
+                                          color: context.watch<AppTheme>().greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -302,7 +302,7 @@ class ChatHistoryScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.deletechats,
                                         style: TextStyle(
-                                          color: AppTheme.greenAccentShade700,
+                                          color: context.watch<AppTheme>().greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -320,7 +320,7 @@ class ChatHistoryScreen extends StatelessWidget {
                   },
                 );
               },
-              child: appInfo(context.l10n.deleteallchats, Icons.delete),
+              child: appInfo(context.l10n.deleteallchats, Icons.delete,context),
             ),
           ],
         ),
@@ -328,15 +328,15 @@ class ChatHistoryScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),
@@ -368,19 +368,19 @@ class ChatHistoryScreen extends StatelessWidget {
             width: AppSize.getSize(22),
             decoration: BoxDecoration(
               color: isSelected
-                  ? AppTheme.greenAccentShade700
-                  : AppTheme.greyShade900,
+                  ? context.watch<AppTheme>().greenAccentShade700
+                  : context.watch<AppTheme>().greyShade900,
               border: Border.all(
                 color: isSelected
-                    ? AppTheme.greenAccentShade700
-                    : AppTheme.greyColor,
+                    ? context.watch<AppTheme>().greenAccentShade700
+                    : context.watch<AppTheme>().greyColor,
                 width: AppSize.getSize(2),
               ),
             ),
             child: isSelected
                 ? Icon(
                     Icons.check,
-                    color: AppTheme.blackColor,
+                    color: context.watch<AppTheme>().blackColor,
                     size: AppSize.getSize(18),
                   )
                 : SizedBox(),
@@ -396,7 +396,7 @@ class ChatHistoryScreen extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(16),
                 ),
               ),

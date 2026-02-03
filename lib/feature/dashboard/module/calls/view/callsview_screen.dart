@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -35,7 +36,7 @@ class CallsviewScreen extends StatelessWidget {
                           height: AppSize.getSize(60),
                           width: AppSize.getSize(60),
                           decoration: BoxDecoration(
-                            color: AppTheme.greyShade900,
+                            color: context.watch<AppTheme>().greyShade900,
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(50),
                             ),
@@ -43,14 +44,14 @@ class CallsviewScreen extends StatelessWidget {
                           child: Icon(
                             Icons.call,
                             size: AppSize.getSize(30),
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                           ),
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         Text(
                           context.l10n.call,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -64,7 +65,7 @@ class CallsviewScreen extends StatelessWidget {
                         height: AppSize.getSize(60),
                         width: AppSize.getSize(60),
                         decoration: BoxDecoration(
-                          color: AppTheme.greyShade800,
+                          color: context.watch<AppTheme>().greyShade800,
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(50),
                           ),
@@ -72,14 +73,14 @@ class CallsviewScreen extends StatelessWidget {
                         child: Icon(
                           Icons.calendar_month,
                           size: AppSize.getSize(30),
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                         ),
                       ),
                       SizedBox(height: AppSize.getSize(7)),
                       Text(
                         context.l10n.schedule,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -92,7 +93,7 @@ class CallsviewScreen extends StatelessWidget {
                         height: AppSize.getSize(60),
                         width: AppSize.getSize(60),
                         decoration: BoxDecoration(
-                          color: AppTheme.greyShade800,
+                          color: context.watch<AppTheme>().greyShade800,
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(50),
                           ),
@@ -100,14 +101,14 @@ class CallsviewScreen extends StatelessWidget {
                         child: Icon(
                           Icons.keyboard_alt_sharp,
                           size: AppSize.getSize(30),
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                         ),
                       ),
                       SizedBox(height: AppSize.getSize(7)),
                       Text(
                         context.l10n.keypad,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -129,7 +130,7 @@ class CallsviewScreen extends StatelessWidget {
                           height: AppSize.getSize(60),
                           width: AppSize.getSize(60),
                           decoration: BoxDecoration(
-                            color: AppTheme.greyShade800,
+                            color: context.watch<AppTheme>().greyShade800,
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(50),
                             ),
@@ -137,14 +138,14 @@ class CallsviewScreen extends StatelessWidget {
                           child: Icon(
                             Icons.favorite_border,
                             size: AppSize.getSize(30),
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                           ),
                         ),
                         SizedBox(height: AppSize.getSize(7)),
                         Text(
                           context.l10n.favorites,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -161,7 +162,7 @@ class CallsviewScreen extends StatelessWidget {
                   Text(
                     context.l10n.recent,
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(20),
                       fontWeight: FontWeight.bold,
                     ),
@@ -193,7 +194,7 @@ class CallsviewScreen extends StatelessWidget {
                           Text(
                             "Demo",
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               fontSize: AppSize.getSize(20),
                             ),
                           ),
@@ -202,13 +203,13 @@ class CallsviewScreen extends StatelessWidget {
                               Icon(
                                 Icons.arrow_outward_sharp,
                                 size: AppSize.getSize(20),
-                                color: AppTheme.greyShade400,
+                                color: context.watch<AppTheme>().greyShade400,
                               ),
                               SizedBox(width: AppSize.getSize(7)),
                               Text(
                                 context.l10n.yesterday10_07PM,
                                 style: TextStyle(
-                                  color: AppTheme.greyShade400,
+                                  color: context.watch<AppTheme>().greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
@@ -222,7 +223,7 @@ class CallsviewScreen extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.videocam_outlined,
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                           size: AppSize.getSize(30),
                         ),
                       ],
@@ -244,12 +245,12 @@ class CallsviewScreen extends StatelessWidget {
             width: AppSize.getSize(60),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSize.getSize(15)),
-              color: AppTheme.greenAccentShade700,
+              color: context.watch<AppTheme>().greenAccentShade700,
             ),
             child: Icon(
               Icons.add_call,
               size: AppSize.getSize(27),
-              color: AppTheme.blackColor,
+              color: context.watch<AppTheme>().blackColor,
             ),
           ),
         ),

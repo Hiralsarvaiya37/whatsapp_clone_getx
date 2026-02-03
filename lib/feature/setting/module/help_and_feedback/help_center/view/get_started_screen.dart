@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/download_and_installation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/help_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/linked_devices_screen.dart';
@@ -16,29 +16,29 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.search, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          Icon(Icons.search, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.whiteColor),
-            color: AppTheme.greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -48,7 +48,7 @@ class GetStartedScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -67,49 +67,49 @@ class GetStartedScreen extends StatelessWidget {
               children: [
                 Text(
                   "Get Started",
-                  style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(DownloadAndInstallationScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DownloadAndInstallationScreen()));
                   },
-                  child: appInfo("Download and installation", Icons.download),
+                  child: appInfo("Download and installation", Icons.download,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(RegistrationScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationScreen()));
                   },
-                  child: appInfo("Registration", Icons.person_2),
+                  child: appInfo("Registration", Icons.person_2,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(LinkedDevicesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>LinkedDevicesScreen()));
                   },
-                  child: appInfo("Linked Devices", Icons.devices),
+                  child: appInfo("Linked Devices", Icons.devices,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(TroubleshootingScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TroubleshootingScreen()));
                   },
-                  child: appInfo("Troubleshooting", Icons.help),
+                  child: appInfo("Troubleshooting", Icons.help,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(HelpContactsScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpContactsScreen()));
                   },
-                  child: appInfo("Contacts", Icons.perm_contact_cal_rounded),
+                  child: appInfo("Contacts", Icons.perm_contact_cal_rounded,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(StatusScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>StatusScreen()));
                   },
-                  child: appInfo("Status", Icons.data_saver_on_rounded),
+                  child: appInfo("Status", Icons.data_saver_on_rounded,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
               ],
@@ -121,15 +121,15 @@ class GetStartedScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(25), color: AppTheme.greenAccentShade700),
+        Icon(icon, size: AppSize.getSize(25), color: context.watch<AppTheme>().greenAccentShade700),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

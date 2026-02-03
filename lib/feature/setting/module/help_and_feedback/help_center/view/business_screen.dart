@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_platform_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_troubleshooting.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/connecting_with_customers_screen.dart';
@@ -18,9 +17,9 @@ class BusinessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -28,13 +27,13 @@ class BusinessScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -43,16 +42,16 @@ class BusinessScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -62,7 +61,7 @@ class BusinessScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -85,62 +84,62 @@ class BusinessScreen extends StatelessWidget {
                 Text(
                   "WhatsApp for Business",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(SettingUpAnAccountScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingUpAnAccountScreen()));
                   },
-                  child: appInfo("Setting Up an Account", Icons.person_add),
+                  child: appInfo("Setting Up an Account", Icons.person_add,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ConnectingWithCustomersScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ConnectingWithCustomersScreen()));
                   },
                   child: appInfo(
                     "Connecting with Customers",
-                    Icons.group_outlined,
+                    Icons.group_outlined,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(SellingProductsAndServices.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SellingProductsAndServices()));
                   },
                   child: appInfo(
                     "Selling Products and Services",
-                    Icons.shopping_cart,
+                    Icons.shopping_cart,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(BusinessTroubleshooting.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessTroubleshooting()));
                   },
-                  child: appInfo("Troubleshooting", Icons.help),
+                  child: appInfo("Troubleshooting", Icons.help,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                      Get.toNamed(PremiumFeaturesScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PremiumFeaturesScreen()));
                   },
                   child: appInfo(
                     "WhatsApp Preminum Features",
-                    Icons.diamond_outlined,
+                    Icons.diamond_outlined,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(BusinessPlatformScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessPlatformScreen()));
                   },
                   child: appInfo(
                     "WhatsApp Business Platform",
-                    Icons.business_center,
+                    Icons.business_center,context
                   ),
                 ),
               ],
@@ -152,19 +151,19 @@ class BusinessScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

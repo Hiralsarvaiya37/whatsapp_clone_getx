@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -10,25 +11,25 @@ class ChatThemeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           context.l10n.chattheme,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: AppTheme.whiteColor),
+          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
           SizedBox(width:  AppSize.getSize(15)),
         ],
       ),
@@ -39,7 +40,7 @@ class ChatThemeScreen extends StatelessWidget {
           children: [
             Text(
               context.l10n.themes,
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             SingleChildScrollView(
@@ -49,36 +50,36 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      themeBox(AppTheme.redColor),
+                      themeBox(context.watch<AppTheme>().redColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.greenColor),
+                      themeBox(context.watch<AppTheme>().greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.yellowColor),
+                      themeBox(context.watch<AppTheme>().yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.deeppurpleColor),
+                      themeBox(context.watch<AppTheme>().deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.orangeColor),
+                      themeBox(context.watch<AppTheme>().orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.pinkColor),
+                      themeBox(context.watch<AppTheme>().pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.blueColor),
+                      themeBox(context.watch<AppTheme>().blueColor),
                       SizedBox(width: AppSize.getSize(15)),
                     ],
                   ),
                   SizedBox(height: AppSize.getSize(15)),
                   Row(
                     children: [
-                      themeBox(AppTheme.pinkColor),
+                      themeBox(context.watch<AppTheme>().pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.orangeColor),
+                      themeBox(context.watch<AppTheme>().orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.deeppurpleColor),
+                      themeBox(context.watch<AppTheme>().deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.yellowColor),
+                      themeBox(context.watch<AppTheme>().yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.greenColor),
+                      themeBox(context.watch<AppTheme>().greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(AppTheme.redColor),
+                      themeBox(context.watch<AppTheme>().redColor),
                     ],
                   ),
                 ],
@@ -88,12 +89,12 @@ class ChatThemeScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             Text(
               context.l10n.thechatcolorandwallpaperwillbothchange,
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               context.l10n.customize,
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Padding(
@@ -102,11 +103,11 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.chat, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+                      Icon(Icons.chat, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         context.l10n.chatcolor,
-                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),
@@ -116,12 +117,12 @@ class ChatThemeScreen extends StatelessWidget {
                       Icon(
                         Icons.wallpaper,
                         size: AppSize.getSize(30),
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         context.l10n.wallpaper,
-                        style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),

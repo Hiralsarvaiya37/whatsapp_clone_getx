@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/view/login_screen.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/view/otp_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/callsview_screen.dart';
@@ -8,38 +7,26 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorite
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communitiesview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/delete_account_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/email_address_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/pass_keys_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/request_account_info_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/security_notifications_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibiity_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_history_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/end_to_end_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/controller/help_and_feedback_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/accounts_and_account_bans/view/account_bans_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/accounts_and_account_bans/view/accounts_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_admins_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_followers_and_viewers_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channels_get_started_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channle_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/ai_experiences_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/back_up_and_restore_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/chat_troubleshooting_screen.dart';
@@ -59,22 +46,20 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/hel
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/help_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/linked_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/registration_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/status_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/troubleshooting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/payments_and_requests_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/security_and_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/setting_up_payments_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/privacy_screen1.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/safety_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/security_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/accounts_and_account_bans_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/business_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/channles_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/connect_businesses_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/get_started_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/help_chats_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/help_communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/payments_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/privacy_safety_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/search_help_center_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/show_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/voice_and_video_calls_screen.dart';
@@ -92,7 +77,6 @@ import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/vie
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/send_feedback_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_communities_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/unread_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen1.dart';
@@ -102,15 +86,13 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privac
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/about_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/avatar_stickers_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/chat_lock_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/lastseen_and_online_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/links_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/live_location_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_checkup_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
@@ -131,235 +113,7 @@ import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/starred/view/starred_screen.dart';
 
 class AppRouter {
-  static List<GetPage<dynamic>> appRoute = [
-    GetPage(
-      name: SecurityNotificationsScreen.id,
-      page: () => SecurityNotificationsScreen(),
-    ),
-    GetPage(name: PassKeysScreen.id, page: () => PassKeysScreen()),
-    GetPage(name: EmailAddressScreen.id, page: () => EmailAddressScreen()),
-    GetPage(
-      name: TwoStepVerificationScreen.id,
-      page: () => TwoStepVerificationScreen(),
-    ),
-    GetPage(name: ChangeNumberScreen.id, page: () => ChangeNumberScreen()),
-    GetPage(
-      name: RequestAccountInfoScreen.id,
-      page: () => RequestAccountInfoScreen(),
-    ),
-    GetPage(name: DeleteAccountScreen.id, page: () => DeleteAccountScreen()),
-    GetPage(name: LearnMoreScreen.id, page: () => LearnMoreScreen()),
-
-    GetPage(name: AvatarScreen.id, page: () => AvatarScreen()),
-    GetPage(name: AvatarStickersScreen.id, page: () => AvatarStickersScreen()),
-    
-   
-    GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen()),
-    GetPage(name: TransferChatScreen.id, page: () => TransferChatScreen()),
-   
-    GetPage(
-      name: AccessibilityScreen.id,
-      page: () => AccessibilityScreen(),
-      binding: AccessibiityBinding(),
-    ),
-    GetPage(name: AnimationScreen.id, page: () => AnimationScreen()),
-    GetPage(
-      name: HelpAndFeedbackScreen.id,
-      page: () => HelpAndFeedbackScreen(),
-      binding: HelpAndFeedbackBinding(),
-    ),
-    GetPage(
-      name: SendFeedbackScreen.id,
-      page: () => SendFeedbackScreen(),
-      binding: HelpAndFeedbackBinding(),
-    ),
-    GetPage(name: InviteFriendScreen.id, page: () => InviteFriendScreen()),
-    GetPage(name: AppUpdatesScreen.id, page: () => AppUpdatesScreen()),
-    GetPage(name: QrScreen.id, page: () => QrScreen()),
-    GetPage(
-      name: LastseenAndOnlineScreen.id,
-      page: () => LastseenAndOnlineScreen(),
-    ),
-    GetPage(name: ProfilePhotoScreen.id, page: () => ProfilePhotoScreen()),
-    GetPage(name: AboutScreen.id, page: () => AboutScreen()),
-    GetPage(name: LinksScreen.id, page: () => LinksScreen()),
-
-    GetPage(
-      name: DefaultMessageTimerScreen.id,
-      page: () => DefaultMessageTimerScreen(),
-    ),
-    GetPage(name: GroupsScreen.id, page: () => GroupsScreen()),
-    GetPage(name: LiveLocationScreen.id, page: () => LiveLocationScreen()),
-    GetPage(
-      name: PrivacyContactsScreen.id,
-      page: () => PrivacyContactsScreen(),
-    ),
-    GetPage(name: AppLockScreen.id, page: () => AppLockScreen()),
-    GetPage(name: ChatLockScreen.id, page: () => ChatLockScreen()),
-    GetPage(name: AdvancedScreen.id, page: () => AdvancedScreen()),
-    GetPage(name: PrivacyCheckupScreen.id, page: () => PrivacyCheckupScreen()),
-    GetPage(
-      name: PrivacyCheckupScreen1.id,
-      page: () => PrivacyCheckupScreen1(),
-    ),
-    GetPage(
-      name: PrivacyCheckupScreen2.id,
-      page: () => PrivacyCheckupScreen2(),
-    ),
-    GetPage(
-      name: PrivacyCheckupScreen3.id,
-      page: () => PrivacyCheckupScreen3(),
-    ),
-    GetPage(
-      name: PrivacyCheckupScreen4.id,
-      page: () => PrivacyCheckupScreen4(),
-    ),
-    GetPage(name: UnreadScreen.id, page: () => UnreadScreen()),
-    GetPage(name: ListFavoritesScreen.id, page: () => ListFavoritesScreen()),
-    GetPage(name: ListGroupsScreen.id, page: () => ListGroupsScreen()),
-    GetPage(
-      name: ListCommunitiesScreen.id,
-      page: () => ListCommunitiesScreen(),
-    ),
-    GetPage(name: ChatThemeScreen.id, page: () => ChatThemeScreen()),
-    GetPage(name: ManageStorageScreen.id, page: () => ManageStorageScreen()),
-    GetPage(name: NetworkUsageScreen.id, page: () => NetworkUsageScreen()),
-    GetPage(name: ProxyScreen.id, page: () => ProxyScreen()),
-    GetPage(name: HelpCenterScreen.id, page: () => HelpCenterScreen()),
-    GetPage(name: ChannelReportsScreen.id, page: () => ChannelReportsScreen()),
-    GetPage(name: AppInfoScreen.id, page: () => AppInfoScreen()),
-    GetPage(
-      name: SearchHelpCenterScreen.id,
-      page: () => SearchHelpCenterScreen(),
-    ),
-    GetPage(name: GetStartedScreen.id, page: () => GetStartedScreen()),
-    GetPage(name: HelpChatsScreen.id, page: () => HelpChatsScreen()),
-    GetPage(
-      name: ConnectBusinessesScreen.id,
-      page: () => ConnectBusinessesScreen(),
-    ),
-    GetPage(
-      name: VoiceAndVideoCallsScreen.id,
-      page: () => VoiceAndVideoCallsScreen(),
-    ),
-    GetPage(
-      name: HelpCommunitiesScreen.id,
-      page: () => HelpCommunitiesScreen(),
-    ),
-    GetPage(name: ChannlesScreen.id, page: () => ChannlesScreen()),
-    GetPage(name: PrivacySafetyScreen.id, page: () => PrivacySafetyScreen()),
-    GetPage(
-      name: AccountsAndAccountBansScreen.id,
-      page: () => AccountsAndAccountBansScreen(),
-    ),
-    GetPage(name: PaymentsScreen.id, page: () => PaymentsScreen()),
-    GetPage(name: BusinessScreen.id, page: () => BusinessScreen()),
-    GetPage(name: ShowMoreScreen.id, page: () => ShowMoreScreen()),
-    GetPage(name: AccountsScreen.id, page: () => AccountsScreen()),
-    GetPage(name: AccountBansScreen.id, page: () => AccountBansScreen()),
-    GetPage(
-      name: SettingUpAnAccountScreen.id,
-      page: () => SettingUpAnAccountScreen(),
-    ),
-    GetPage(
-      name: ConnectingWithCustomersScreen.id,
-      page: () => ConnectingWithCustomersScreen(),
-    ),
-    GetPage(
-      name: SellingProductsAndServices.id,
-      page: () => SellingProductsAndServices(),
-    ),
-    GetPage(
-      name: BusinessTroubleshooting.id,
-      page: () => BusinessTroubleshooting(),
-    ),
-    GetPage(
-      name: PremiumFeaturesScreen.id,
-      page: () => PremiumFeaturesScreen(),
-    ),
-    GetPage(
-      name: BusinessPlatformScreen.id,
-      page: () => BusinessPlatformScreen(),
-    ),
-    GetPage(
-      name: ChannelsGetStartedScreen.id,
-      page: () => ChannelsGetStartedScreen(),
-    ),
-    GetPage(
-      name: ChannelFollowersAndViewersScreen.id,
-      page: () => ChannelFollowersAndViewersScreen(),
-    ),
-    GetPage(name: ChannelAdminsScreen.id, page: () => ChannelAdminsScreen()),
-    GetPage(name: ChannlePrivacyScreen.id, page: () => ChannlePrivacyScreen()),
-    GetPage(name: MessageScreen.id, page: () => MessageScreen()),
-    GetPage(name: DiscoverScreen.id, page: () => DiscoverScreen()),
-    GetPage(name: ShopScreen.id, page: () => ShopScreen()),
-    GetPage(
-      name: PrivacySafetySecurityScreen.id,
-      page: () => PrivacySafetySecurityScreen(),
-    ),
-    GetPage(
-      name: DownloadAndInstallationScreen.id,
-      page: () => DownloadAndInstallationScreen(),
-    ),
-    GetPage(name: RegistrationScreen.id, page: () => RegistrationScreen()),
-    GetPage(name: LinkedDevicesScreen.id, page: () => LinkedDevicesScreen()),
-    GetPage(
-      name: TroubleshootingScreen.id,
-      page: () => TroubleshootingScreen(),
-    ),
-    GetPage(name: HelpContactsScreen.id, page: () => HelpContactsScreen()),
-    GetPage(
-      name: IndividualAndGroupchatsScreen.id,
-      page: () => IndividualAndGroupchatsScreen(),
-    ),
-    GetPage(
-      name: BackUpAndRestoreScreen.id,
-      page: () => BackUpAndRestoreScreen(),
-    ),
-    GetPage(name: NotificationsScreen.id, page: () => NotificationsScreen()),
-    GetPage(name: MediaScreen.id, page: () => MediaScreen()),
-    GetPage(
-      name: VoiceMessagesAndChatsScreen.id,
-      page: () => VoiceMessagesAndChatsScreen(),
-    ),
-    GetPage(name: VideoNotesScreen.id, page: () => VideoNotesScreen()),
-    GetPage(name: AiExperiencesScreen.id, page: () => AiExperiencesScreen()),
-    GetPage(
-      name: ChatTroubleshootingScreen.id,
-      page: () => ChatTroubleshootingScreen(),
-    ),
-    GetPage(name: HelpGetStartedScreen.id, page: () => HelpGetStartedScreen()),
-    GetPage(name: AdminScreen.id, page: () => AdminScreen()),
-    GetPage(name: MemberScreen.id, page: () => MemberScreen()),
-    GetPage(name: HelpPrivacyScreen.id, page: () => HelpPrivacyScreen()),
-    GetPage(
-      name: SettingUpPaymentsScreen.id,
-      page: () => SettingUpPaymentsScreen(),
-    ),
-    GetPage(
-      name: PaymentsAndRequestsScreen.id,
-      page: () => PaymentsAndRequestsScreen(),
-    ),
-    GetPage(
-      name: SecurityAndPrivacyScreen.id,
-      page: () => SecurityAndPrivacyScreen(),
-    ),
-    GetPage(name: PrivacyScreen1.id, page: () => PrivacyScreen1()),
-    GetPage(name: SafetyScreen.id, page: () => SafetyScreen()),
-    GetPage(name: SecurityScreen.id, page: () => SecurityScreen()),
-    GetPage(name: VideoCallsScreen.id, page: () => VideoCallsScreen()),
-    GetPage(name: VoiceCallsScreen.id, page: () => VoiceCallsScreen()),
-    GetPage(
-      name: VoiceTroubleshootingScreen.id,
-      page: () => VoiceTroubleshootingScreen(),
-    ),
-    GetPage(
-      name: DisappearingMessagesScreen.id,
-      page: () => DisappearingMessagesScreen(),
-    ),
-    GetPage(name: EndToEndScreen.id, page: () => EndToEndScreen()),
-  ];
+  static List<dynamic> appRoute = [];
 
   static Map<String, WidgetBuilder> routes = {
     SplashScreen.id: (context) => SplashScreen(),
@@ -401,5 +155,83 @@ class AppRouter {
     TransferChatScreen.id: (context) => TransferChatScreen(),
     ChatHistoryScreen.id: (context) => ChatHistoryScreen(),
     EndToEndScreen.id: (context) => EndToEndScreen(),
+    AnimationScreen.id: (context) => AnimationScreen(),
+    HelpCenterScreen.id: (context) => HelpCenterScreen(),
+    SendFeedbackScreen.id: (context) => SendFeedbackScreen(),
+    ChannelReportsScreen.id: (context) => ChannelReportsScreen(),
+    AppInfoScreen.id: (context) => AppInfoScreen(),
+    PaymentScreen.id: (context) => PaymentScreen(),
+    QrScreen.id: (context) => QrScreen(),
+    GetStartedScreen.id: (context) => GetStartedScreen(),
+    HelpChatsScreen.id: (context) => HelpChatsScreen(),
+    ConnectBusinessesScreen.id: (context) => ConnectBusinessesScreen(),
+    VoiceAndVideoCallsScreen.id: (context) => VoiceAndVideoCallsScreen(),
+    HelpCommunitiesScreen.id: (context) => HelpCommunitiesScreen(),
+    ChannelsGetStartedScreen.id: (context) => ChannelsGetStartedScreen(),
+    PrivacySafetySecurityScreen.id: (context) => PrivacySafetySecurityScreen(),
+    AccountsAndAccountBansScreen.id: (context) =>
+        AccountsAndAccountBansScreen(),
+    PaymentsScreen.id: (context) => PaymentsScreen(),
+    BusinessScreen.id: (context) => BusinessScreen(),
+    ShowMoreScreen.id: (context) => ShowMoreScreen(),
+    SearchHelpCenterScreen.id: (context) => SearchHelpCenterScreen(),
+    NetworkUsageScreen.id: (context) => NetworkUsageScreen(),
+    ChatThemeScreen.id: (context) => ChatThemeScreen(),
+    LastseenAndOnlineScreen.id: (context) => LastseenAndOnlineScreen(),
+    ProfilePhotoScreen.id: (context) => ProfilePhotoScreen(),
+    AboutScreen.id: (context) => AboutScreen(),
+    LinksScreen.id: (context) => LinksScreen(),
+    GroupsScreen.id: (context) => GroupsScreen(),
+    LiveLocationScreen.id: (context) => LiveLocationScreen(),
+    CallsScreen.id: (context) => CallsScreen(),
+    AppLockScreen.id: (context) => AppLockScreen(),
+    ChatLockScreen.id: (context) => ChatLockScreen(),
+    AdvancedScreen.id: (context) => AdvancedScreen(),
+    PrivacyCheckupScreen.id: (context) => PrivacyCheckupScreen(),
+    PrivacyCheckupScreen1.id: (context) => PrivacyCheckupScreen1(),
+    PrivacyCheckupScreen2.id: (context) => PrivacyCheckupScreen2(),
+    PrivacyCheckupScreen3.id: (context) => PrivacyCheckupScreen3(),
+    PrivacyCheckupScreen4.id: (context) => PrivacyCheckupScreen4(),
+    DownloadAndInstallationScreen.id: (context) =>
+        DownloadAndInstallationScreen(),
+    RegistrationScreen.id: (context) => RegistrationScreen(),
+    LinkedDevicesScreen.id: (context) => LinkedDevicesScreen(),
+    TroubleshootingScreen.id: (context) => TroubleshootingScreen(),
+    HelpContactsScreen.id: (context) => HelpContactsScreen(),
+    StatusScreen.id: (context) => StatusScreen(),
+    IndividualAndGroupchatsScreen.id: (context) =>
+        IndividualAndGroupchatsScreen(),
+    BackUpAndRestoreScreen.id: (context) => BackUpAndRestoreScreen(),
+    MediaScreen.id: (context) => MediaScreen(),
+    VoiceMessagesAndChatsScreen.id: (context) => VoiceMessagesAndChatsScreen(),
+    VideoNotesScreen.id: (context) => VideoNotesScreen(),
+    AiExperiencesScreen.id: (context) => AiExperiencesScreen(),
+    ChatTroubleshootingScreen.id: (context) => ChatTroubleshootingScreen(),
+    MessageScreen.id: (context) => MessageScreen(),
+    DiscoverScreen.id: (context) => DiscoverScreen(),
+    ShopScreen.id: (context) => ShopScreen(),
+    VideoCallsScreen.id: (context) => VideoCallsScreen(),
+    VoiceCallsScreen.id: (context) => VoiceCallsScreen(),
+    VoiceTroubleshootingScreen.id: (context) => VoiceTroubleshootingScreen(),
+    HelpGetStartedScreen.id: (context) => HelpGetStartedScreen(),
+    AdminScreen.id: (context) => AdminScreen(),
+    MemberScreen.id: (context) => MemberScreen(),
+    ChannelFollowersAndViewersScreen.id: (context) =>
+        ChannelFollowersAndViewersScreen(),
+    HelpPrivacyScreen.id: (context) => HelpPrivacyScreen(),
+    SafetyScreen.id: (context) => SafetyScreen(),
+    SecurityScreen.id: (context) => SecurityScreen(),
+    AccountsScreen.id: (context) => AccountsScreen(),
+    AccountBansScreen.id: (context) => AccountBansScreen(),
+    SettingUpPaymentsScreen.id: (context) => SettingUpPaymentsScreen(),
+    PaymentsAndRequestsScreen.id: (context) => PaymentsAndRequestsScreen(),
+    SecurityAndPrivacyScreen.id: (context) => SecurityAndPrivacyScreen(),
+    SettingUpAnAccountScreen.id: (context) => SettingUpAnAccountScreen(),
+    ConnectingWithCustomersScreen.id: (context) =>
+        ConnectingWithCustomersScreen(),
+    SellingProductsAndServices.id: (context) => SellingProductsAndServices(),
+    BusinessTroubleshooting.id: (context) => BusinessTroubleshooting(),
+    PremiumFeaturesScreen.id: (context) => PremiumFeaturesScreen(),
+    BusinessPlatformScreen.id: (context) => BusinessPlatformScreen(),
   };
 }

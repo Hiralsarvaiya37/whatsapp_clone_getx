@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/ai_experiences_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/back_up_and_restore_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/chat_troubleshooting_screen.dart';
@@ -20,9 +19,9 @@ class HelpChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -30,13 +29,13 @@ class HelpChatsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -45,16 +44,16 @@ class HelpChatsScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -64,7 +63,7 @@ class HelpChatsScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -87,77 +86,77 @@ class HelpChatsScreen extends StatelessWidget {
                 Text(
                   "Chats",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(IndividualAndGroupchatsScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>IndividualAndGroupchatsScreen()));
                   },
                   child: appInfo(
                     "Individual and Group Chats",
-                    Icons.chat_bubble,
+                    Icons.chat_bubble,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(BackUpAndRestoreScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BackUpAndRestoreScreen()));
                   },
                   child: appInfo(
                     "Back Up and Restore",
-                    Icons.cloud_upload_rounded,
+                    Icons.cloud_upload_rounded,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(NotificationScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
                   },
-                  child: appInfo("Notifications", Icons.notifications),
+                  child: appInfo("Notifications", Icons.notifications,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(MediaScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MediaScreen()));
                   },
-                  child: appInfo("Media", Icons.image),
+                  child: appInfo("Media", Icons.image, context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(VoiceMessagesAndChatsScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VoiceMessagesAndChatsScreen()));
                   },
                   child: appInfo(
                     "Voice Messages and Chats",
-                    Icons.keyboard_voice_rounded,
+                    Icons.keyboard_voice_rounded,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(VideoNotesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoNotesScreen()));
                   },
-                  child: appInfo("Video Notes", Icons.video_call_rounded),
+                  child: appInfo("Video Notes", Icons.video_call_rounded,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(AiExperiencesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>AiExperiencesScreen()));
                   },
                   child: appInfo(
                     "AI Experiences",
-                    Icons.switch_access_shortcut_add_rounded,
+                    Icons.switch_access_shortcut_add_rounded,context
                   ),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(ChatTroubleshootingScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatTroubleshootingScreen()));
                   },
-                  child: appInfo("Troubleshooting", Icons.help),
+                  child: appInfo("Troubleshooting", Icons.help,context),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
               ],
@@ -169,19 +168,19 @@ class HelpChatsScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
@@ -10,9 +11,9 @@ class DisappearingMessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -20,13 +21,13 @@ class DisappearingMessagesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Disappearing messages",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -46,13 +47,13 @@ class DisappearingMessagesScreen extends StatelessWidget {
                 Icon(
                   Icons.access_time,
                   size: AppSize.getSize(70),
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 Text(
                   "Set messages to automatically disappear",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.w600,
                   ),
@@ -62,7 +63,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                 Text(
                   "For added privacy, new messages will disappear for everyone from the chat after the duration you select. Chat members will see you turned this on.",
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(15),
                   ),
                   textAlign: TextAlign.center,
@@ -70,7 +71,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                 Text(
                   "Learn more",
                   style: TextStyle(
-                    color: AppTheme.blueColor,
+                    color: context.watch<AppTheme>().blueColor,
                     fontSize: AppSize.getSize(15),
                     fontWeight: FontWeight.bold,
                   ),
@@ -81,7 +82,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
             Text(
               "Set for your account",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -96,7 +97,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                   Icon(
                     Icons.person_outline_outlined,
                     size: AppSize.getSize(30),
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                   ),
                   SizedBox(width: AppSize.getSize(30)),
                   Expanded(
@@ -106,7 +107,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                         Text(
                           "Default message timer",
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -114,7 +115,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                         Text(
                           "New chats will begin with a disappearing message timer",
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -128,7 +129,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
             Text(
               "Set for your current chats",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -139,7 +140,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                 Icon(
                   Icons.list_alt,
                   size: AppSize.getSize(30),
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                 ),
                 SizedBox(width: AppSize.getSize(30)),
                 Expanded(
@@ -149,7 +150,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                       Text(
                         "Apply timer to chats",
                         style: TextStyle(
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -157,7 +158,7 @@ class DisappearingMessagesScreen extends StatelessWidget {
                       Text(
                         "5 chats using disappearing messages",
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),

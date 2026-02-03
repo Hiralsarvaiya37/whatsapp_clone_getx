@@ -12,19 +12,19 @@ class AppLockScreen extends StatelessWidget {
   Widget build(BuildContext context) {
      final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "App lock",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -42,20 +42,20 @@ class AppLockScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Unlock with biometric",
-                      style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+                      style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
                     ),
                     Text(
                       "When enabled, you'll need to use fingerprint, face or other unique identifiers to open WhatsApp. You can still answer calls if WhatsApp is locked.",
-                      style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                      style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                     ),
                   ],
                 ),
               ),
           
              Switch(value: provider.isOn,
-                activeThumbColor: AppTheme.blackColor,
-                activeTrackColor: AppTheme.greenAccentShade700,
-                inactiveTrackColor: AppTheme.blackColor,
+                activeThumbColor: context.watch<AppTheme>().blackColor,
+                activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                inactiveTrackColor: context.watch<AppTheme>().blackColor,
                  onChanged: (val){
                     provider.isOn = val;
                 }),

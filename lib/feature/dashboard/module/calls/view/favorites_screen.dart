@@ -15,14 +15,14 @@ class FavoritesScreen extends StatelessWidget {
     final callProvider = context.watch<CallProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             size: AppSize.getSize(25),
           ),
         ),
@@ -31,16 +31,16 @@ class FavoritesScreen extends StatelessWidget {
             FocusScope.of(context).unfocus();
           },
           controller: callProvider.searchController,
-          cursorColor: AppTheme.greenAccentShade700,
+          cursorColor: context.watch<AppTheme>().greenAccentShade700,
           cursorWidth: 3,
           onChanged: callProvider.searchContacts,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
           ),
           decoration: InputDecoration(
             hintText: context.l10n.search,
-            hintStyle: TextStyle(color: AppTheme.greyShade400),
+            hintStyle: TextStyle(color: context.watch<AppTheme>().greyShade400),
             border: InputBorder.none,
           ),
         ),
@@ -58,13 +58,13 @@ class FavoritesScreen extends StatelessWidget {
             sectionWidget(
               context.l10n.frequentlyContacted,
               callProvider.filteredFavoritesFrequently,
-              callProvider,
+              callProvider,context
             ),
             SizedBox(height: AppSize.getSize(30)),
             sectionWidget(
               context.l10n.contactsonWhatsApp,
               callProvider.filteredAllFav,
-              callProvider,
+              callProvider,context
             ),
           ],
         ),
@@ -73,12 +73,12 @@ class FavoritesScreen extends StatelessWidget {
         height: AppSize.getSize(60),
         width: AppSize.getSize(60),
         decoration: BoxDecoration(
-          color: AppTheme.greenAccentShade700,
+          color: context.watch<AppTheme>().greenAccentShade700,
           borderRadius: BorderRadius.circular(AppSize.getSize(15)),
         ),
         child: Icon(
           Icons.check,
-          color: AppTheme.blackColor,
+          color: context.watch<AppTheme>().blackColor,
           size: AppSize.getSize(25),
         ),
       ),
@@ -108,7 +108,7 @@ class FavoritesScreen extends StatelessWidget {
             Text(
               provider.favorites[index],
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(14),
               ),
             ),
@@ -119,8 +119,7 @@ class FavoritesScreen extends StatelessWidget {
     );
   }
 
-  // Single contact tile
-  Widget contactTile(String name) {
+  Widget contactTile(String name, BuildContext context) {
     return Row(
       children: [
         ClipOval(
@@ -135,7 +134,7 @@ class FavoritesScreen extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(18),
           ),
         ),
@@ -144,7 +143,7 @@ class FavoritesScreen extends StatelessWidget {
   }
 
   // Section widget for frequently contacted or all contacts
-  Widget sectionWidget(String title, List<String> list, CallProvider provider) {
+  Widget sectionWidget(String title, List<String> list, CallProvider provider,BuildContext context) {
     if (list.isEmpty) return SizedBox();
 
     return Column(
@@ -152,7 +151,7 @@ class FavoritesScreen extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+          style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
         ),
         SizedBox(height: AppSize.getSize(15)),
         ListView.separated(
@@ -161,7 +160,7 @@ class FavoritesScreen extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => GestureDetector(
             onTap: () => provider.addToFavorites(list[index]),
-            child: contactTile(list[index]),
+            child: contactTile(list[index],context),
           ),
           separatorBuilder: (context, index) => SizedBox(height: AppSize.getSize(18)),
         ),

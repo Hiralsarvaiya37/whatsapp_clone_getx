@@ -8,11 +8,19 @@ class PrivacyViewProvider extends ChangeNotifier {
 
   String selectedLastSeen = "Nobody";
   String selectedOnline = "Everyone";
-  String selectedOption = "";
 
-  bool isOn1 = false;
-  bool isOn2 = false;
-  bool isOn3 = false;
+  void updateMessageTimer(String value) {
+    selectedOption = value;
+    notifyListeners();
+  }
+
+   String selectedOption = "My contacts";
+
+  void updateAvatarOption(String value) {
+    selectedOption = value;
+    notifyListeners();
+  }
+
   bool isNo = false;
 
   bool _isYes = false;
@@ -37,6 +45,30 @@ class PrivacyViewProvider extends ChangeNotifier {
 
   set isOn(bool val) {
     _isOn = val;
+    notifyListeners();
+  }
+  bool _isOn1 = false;
+
+  bool get isOn1 => _isOn1;
+
+  set isOn1(bool val) {
+    _isOn1 = val;
+    notifyListeners();
+  }
+  bool _isOn2 = false;
+
+  bool get isOn2 => _isOn2;
+
+  set isOn2(bool val) {
+    _isOn2 = val;
+    notifyListeners();
+  }
+  bool _isOn3 = false;
+
+  bool get isOn3 => _isOn3;
+
+  set isOn3(bool val) {
+    _isOn3 = val;
     notifyListeners();
   }
 
@@ -82,6 +114,10 @@ class PrivacyViewProvider extends ChangeNotifier {
 
   void setYes(bool value) {
     isYes = value;
+    notifyListeners();
+  }
+   void setOn(bool value) {
+    isOn = value;
     notifyListeners();
   }
 

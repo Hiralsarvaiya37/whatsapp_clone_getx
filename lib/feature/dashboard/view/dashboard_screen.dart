@@ -27,7 +27,7 @@ class DashboardScreen extends StatelessWidget {
     final dashboardProvider = context.watch<DashboardProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       body: Padding(
         padding: EdgeInsets.only(
           top: AppSize.getSize(35),
@@ -42,7 +42,7 @@ class DashboardScreen extends StatelessWidget {
                   child:  Text(
                       dashboardProvider.getAppBarName(dashboardProvider.currentIndex),
                       style: TextStyle(
-                        color: AppTheme.whiteColor,
+                        color: context.watch<AppTheme>().whiteColor,
                         fontSize: AppSize.getSize(25),
                         fontWeight: FontWeight.w500,
                       ),
@@ -54,18 +54,18 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.qr_code,
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               size: AppSize.getSize(30),
                             ),
 
                             SizedBox(width: AppSize.getSize(25)),
                             Icon(
                               Icons.camera_alt_outlined,
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             PopupMenuButton(
-                              color: AppTheme.greyShade900,
+                              color: context.watch<AppTheme>().greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -74,21 +74,21 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
                                 handleMenuClick(value, context);
                               },
                               itemBuilder: (context) => [
-                                popupTile(context.l10n.newgroup, 1),
-                                popupTile(context.l10n.newcommunity, 9),
-                                popupTile(context.l10n.broadcastlists, 10),
-                                popupTile(context.l10n.linkeddevices, 11),
-                                popupTile(context.l10n.starred, 12),
-                                popupTile(context.l10n.payments, 16),
-                                popupTile(context.l10n.readall, 7),
-                                popupTile(context.l10n.settings, 8),
+                                popupTile(context.l10n.newgroup, 1,context),
+                                popupTile(context.l10n.newcommunity, 9,context),
+                                popupTile(context.l10n.broadcastlists, 10,context),
+                                popupTile(context.l10n.linkeddevices, 11,context),
+                                popupTile(context.l10n.starred, 12,context),
+                                popupTile(context.l10n.payments, 16,context),
+                                popupTile(context.l10n.readall, 7,context),
+                                popupTile(context.l10n.settings, 8,context),
                               ],
                             ),
                           ],
@@ -98,12 +98,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppTheme.greyShade900,
+                              color: context.watch<AppTheme>().greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -112,7 +112,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -122,10 +122,10 @@ class DashboardScreen extends StatelessWidget {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile(context.l10n.createchannel, 15),
-                                popupTile(context.l10n.statusprivacy, 14),
-                                popupTile(context.l10n.starred, 12),
-                                popupTile(context.l10n.settings, 8),
+                                popupTile(context.l10n.createchannel, 15,context),
+                                popupTile(context.l10n.statusprivacy, 14,context),
+                                popupTile(context.l10n.starred, 12,context),
+                                popupTile(context.l10n.settings, 8,context),
                               ],
                             ),
                           ],
@@ -135,12 +135,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppTheme.greyShade900,
+                              color: context.watch<AppTheme>().greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -149,14 +149,14 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
                                 handleMenuClick(value, context);
                               },
                               itemBuilder: (context) => [
-                                popupTile(context.l10n.settings, 8),
+                                popupTile(context.l10n.settings, 8,context),
                               ],
                             ),
                           ],
@@ -166,12 +166,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: AppTheme.greyShade900,
+                              color: context.watch<AppTheme>().greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -180,7 +180,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -190,9 +190,9 @@ class DashboardScreen extends StatelessWidget {
                                 }
                               },
                               itemBuilder: (context) => [
-                                popupTile(context.l10n.clearcalllog, 17),
-                                popupTile(context.l10n.scheduledcalls, 13),
-                                popupTile(context.l10n.settings, 8),
+                                popupTile(context.l10n.clearcalllog, 17,context),
+                                popupTile(context.l10n.scheduledcalls, 13,context),
+                                popupTile(context.l10n.settings, 8,context),
                               ],
                             ),
                           ],
@@ -220,61 +220,49 @@ class DashboardScreen extends StatelessWidget {
 
       bottomNavigationBar: Container(
         height: AppSize.getSize(70),
-        color: AppTheme.blackColor,
+        color: context.watch<AppTheme>().blackColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
-            bottomOption(context.l10n.chats, Icons.chat, 0, dashboardProvider),
-            bottomOption(context.l10n.updates, Icons.update, 1, dashboardProvider),
-            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2, dashboardProvider),
-            bottomOption(context.l10n.calls, Icons.call, 3, dashboardProvider),
+            bottomOption(context.l10n.chats, Icons.chat, 0, dashboardProvider,context),
+            bottomOption(context.l10n.updates, Icons.update, 1, dashboardProvider,context),
+            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2, dashboardProvider,context),
+            bottomOption(context.l10n.calls, Icons.call, 3, dashboardProvider,context),
           ],
         ),
       ),
     );
   }
 
-  void showClearCallLogDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: AppTheme.greyShade900,
-          content: Text(
-            "Do you want to clear your entire call log?",
-            style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+void showClearCallLogDialog(BuildContext context) {
+  final theme = context.read<AppTheme>(); 
+  showDialog(
+    context: context,
+    builder: (_) {
+      return AlertDialog(
+        backgroundColor: theme.greyShade900,
+        content: Text(
+          "Do you want to clear your entire call log?",
+          style: TextStyle(color: theme.greyShade400, fontSize: 16),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Cancel", style: TextStyle(color: theme.greenAccentShade700)),
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(
-                "Cancel",
-                style: TextStyle(
-                  color: AppTheme.greenAccentShade700,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text(
-                "Ok",
-                style: TextStyle(
-                  color: AppTheme.greenAccentShade700,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Ok", style: TextStyle(color: theme.greenAccentShade700)),
+          ),
+        ],
+      );
+    },
+  );
+}
 
-  Widget bottomOption(String title, IconData icon, int index, DashboardProvider dashboardProvider) {
+
+  Widget bottomOption(String title, IconData icon, int index, DashboardProvider dashboardProvider, BuildContext context) {
    
       final isActive = dashboardProvider.currentIndex == index;
 
@@ -292,19 +280,19 @@ class DashboardScreen extends StatelessWidget {
                 horizontal: AppSize.getSize(10),
               ),
               decoration: BoxDecoration(
-                color: isActive ? AppTheme.greenshade900 : AppTheme.blackColor,
+                color: isActive ? context.watch<AppTheme>().greenshade900 : context.watch<AppTheme>().blackColor,
                 borderRadius: BorderRadius.circular(AppSize.getSize(15)),
               ),
               child: Icon(
                 icon,
-                color: isActive ? AppTheme.greyShade400 : AppTheme.whiteColor,
+                color: isActive ? context.watch<AppTheme>().greyShade400 : context.watch<AppTheme>().whiteColor,
                 size: AppSize.getSize(30),
               ),
             ),
             Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(15),
               ),
             ),
@@ -314,24 +302,27 @@ class DashboardScreen extends StatelessWidget {
   
   }
 
-  PopupMenuItem popupTile(String title, int value) {
-    return PopupMenuItem(
-      value: value,
-      child: Text(
-        title,
-        style: TextStyle(
-          color: AppTheme.whiteColor,
-          fontSize: AppSize.getSize(17),
-        ),
+PopupMenuItem popupTile(String title, int value, BuildContext context) {
+  final theme = context.read<AppTheme>(); 
+  return PopupMenuItem(
+    value: value,
+    child: Text(
+      title,
+      style: TextStyle(
+        color: theme.whiteColor,
+        fontSize: AppSize.getSize(17),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   void bottomSheet(BuildContext context) {
+      final theme = context.read<AppTheme>(); 
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: AppTheme.greyShade900,
+      backgroundColor:theme.greyShade900,
       builder: (context) => SizedBox(
         height: MediaQuery.of(context).size.height * 0.73,
         child: SingleChildScrollView(
@@ -348,7 +339,7 @@ class DashboardScreen extends StatelessWidget {
                   height: AppSize.getSize(6),
                   width: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                   ),
                 ),
@@ -356,13 +347,13 @@ class DashboardScreen extends StatelessWidget {
                 Icon(
                   Icons.wifi_tethering_sharp,
                   size: AppSize.getSize(55),
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                 ),
                 SizedBox(height: AppSize.getSize(15)),
                 Text(
                   "Create a channel to reach unlimited followers",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: AppSize.getSize(24),
                   ),
@@ -372,35 +363,35 @@ class DashboardScreen extends StatelessWidget {
                 appTitle(
                   Icons.public,
                   "Anyone can discover your channel",
-                  "Channels are public, so anyone can find them and see 30 days of history.",
+                  "Channels are public, so anyone can find them and see 30 days of history.",context
                 ),
                 appTitle(
                   Icons.visibility_off_outlined,
                   "People see your channel, not you",
-                  "Followers can't see your phone number, profile picture or name, but other admins can.",
+                  "Followers can't see your phone number, profile picture or name, but other admins can.",context
                 ),
                 appTitle(
                   Icons.shield_outlined,
                   "You're responsible for your channel",
-                  "Your channel needs to follow our guidelines and is reviewed against them.",
+                  "Your channel needs to follow our guidelines and is reviewed against them.",context
                 ),
                 SizedBox(height: AppSize.getSize(25)),
                 Text.rich(
                   TextSpan(
                     text: "By continuing you agree to the WhatsApp",
-                    style: TextStyle(color: AppTheme.greyShade500),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade500),
                     children: [
                       TextSpan(
                         text: "Channels Terms ",
-                        style: TextStyle(color: AppTheme.blueshade500),
+                        style: TextStyle(color: context.watch<AppTheme>().blueshade500),
                       ),
                       TextSpan(
                         text: "and ",
-                        style: TextStyle(color: AppTheme.greyShade500),
+                        style: TextStyle(color: context.watch<AppTheme>().greyShade500),
                       ),
                       TextSpan(
                         text: "Privacy Policy.Learn more",
-                        style: TextStyle(color: AppTheme.blueshade500),
+                        style: TextStyle(color: context.watch<AppTheme>().blueshade500),
                       ),
                     ],
                   ),
@@ -410,7 +401,7 @@ class DashboardScreen extends StatelessWidget {
                 Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: AppTheme.greenAccentShade700,
+                    color: context.watch<AppTheme>().greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
@@ -430,7 +421,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget appTitle(IconData iconData, String title, String subtitle) {
+  Widget appTitle(IconData iconData, String title, String subtitle, BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
       child: Row(
@@ -438,7 +429,7 @@ class DashboardScreen extends StatelessWidget {
           Icon(
             iconData,
             size: AppSize.getSize(30),
-            color: AppTheme.greyShade400,
+            color: context.watch<AppTheme>().greyShade400,
           ),
           SizedBox(width: AppSize.getSize(30)),
           Expanded(
@@ -448,7 +439,7 @@ class DashboardScreen extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.bold,
                   ),
@@ -456,7 +447,7 @@ class DashboardScreen extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: AppTheme.greyShade500,
+                    color: context.watch<AppTheme>().greyShade500,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),

@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             "From",
-            style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+            style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,13 +55,13 @@ class _SplashScreenState extends State<SplashScreen> {
               Icon(
                 Icons.all_inclusive,
                 size: AppSize.getSize(23),
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
               ),
               SizedBox(width: AppSize.getSize(5)),
               Text(
                 "Meta",
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.bold,
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
@@ -13,9 +13,9 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +23,13 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -47,20 +47,20 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
             Icon(
               Icons.people_sharp,
               size: AppSize.getSize(70),
-              color: AppTheme.greenAccentShade700,
+              color: context.watch<AppTheme>().greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Choose who can contact you",
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(22),
               ),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               "You're control of your privacy. Choose who can contact you and stop unwanted calls or messages.",
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(35)),
@@ -69,8 +69,8 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Decide if you want everyone to add you to groups or just your contacts",
               Icons.group_add_sharp,
               () {
-                Get.toNamed(GroupsScreen.id);
-              },
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupsScreen()));
+              },context
             ),
             SizedBox(height: AppSize.getSize(30)),
             appInfo(
@@ -78,8 +78,8 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Prevent calls from unknown contacts.",
               Icons.notifications_off_outlined,
               () {
-                Get.toNamed(CallsScreen.id);
-              },
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>CallsScreen()));
+              },context
             ),
             SizedBox(height: AppSize.getSize(30)),
             appInfo(
@@ -87,8 +87,8 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Stop receiving calls, messages and status updates from selected contacts.",
               Icons.person_off_outlined,
               () {
-                Get.toNamed(PrivacyContactsScreen.id);
-              },
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyContactsScreen()));
+              },context
             ),
           ],
         ),
@@ -101,13 +101,14 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
     String subtitle,
     IconData icon,
     VoidCallback onTap,
+    BuildContext context
   ) {
     return InkWell(
       onTap: onTap,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Column(
@@ -116,7 +117,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -124,7 +125,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                   maxLines: 3,
@@ -138,7 +139,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
           Icon(
             Icons.arrow_forward,
             size: AppSize.getSize(25),
-            color: AppTheme.greyShade400,
+            color: context.watch<AppTheme>().greyShade400,
           ),
         ],
       ),

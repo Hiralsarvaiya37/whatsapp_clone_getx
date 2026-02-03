@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibility_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/provider/accessibility_view_provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AnimationScreen extends GetView<AccessibilityViewController> {
+class AnimationScreen extends StatelessWidget {
   static const id = "/AnimationScreen";
   const AnimationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           context.l10n.animation,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,38 +37,38 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           children: [
             Text(
               context.l10n.whenturnedonemojistickersorGIFswillmoveautomatically,
-              style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
+              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(30)),
-            appTile(context.l10n.emoji, Icons.emoji_emotions_outlined, 1),
+            appTile(context.l10n.emoji, Icons.emoji_emotions_outlined, 1, context),
             SizedBox(height: AppSize.getSize(20)),
-            appTile(context.l10n.stickers, Icons.sticky_note_2_outlined, 2),
+            appTile(context.l10n.stickers, Icons.sticky_note_2_outlined, 2, context),
             SizedBox(height: AppSize.getSize(20)),
-            appTile(context.l10n.gifs, Icons.gif, 3),
+            appTile(context.l10n.gifs, Icons.gif, 3, context),
           ],
         ),
       ),
     );
   }
 
-  Widget appTile(String title, IconData icon, int index) {
-   return Obx((){
+  Widget appTile(String title, IconData icon, int index, BuildContext context) {
+      final animationProvider = context.watch<AccessibilityViewProvider>();
      bool currentValue;
     if (index == 1) {
-      currentValue = controller.isOn1.value;
+      currentValue = animationProvider.isOn1;
     } else if (index == 2) {
-      currentValue = controller.isOn2.value;
+      currentValue = animationProvider.isOn2;
     } else {
-      currentValue = controller.isOn3.value;
+      currentValue = animationProvider.isOn3;
     }
     return InkWell(
       onTap: () {
           if (index == 1) {
-            controller.isOn1.value = !controller.isOn1.value;
+            animationProvider.isOn1 = !animationProvider.isOn1;
           } else if (index == 2) {
-            controller.isOn2.value = !controller.isOn2.value;
+            animationProvider.isOn2 = !animationProvider.isOn2;
           } else {
-            controller.isOn3.value = !controller.isOn3.value;
+            animationProvider.isOn3 = !animationProvider.isOn3;
           }
       },
       child: Row(
@@ -76,12 +76,12 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           Expanded(
             child: Row(
               children: [
-                Icon(icon, size: AppSize.getSize(30), color: AppTheme.whiteColor),
+                Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().whiteColor),
                 SizedBox(width: AppSize.getSize(20)),
                 Text(
                   title,
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.w600,
                   ),
@@ -92,16 +92,16 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
          
              Switch(
               value: currentValue,
-              activeThumbColor: AppTheme.blackColor,
-              activeTrackColor: AppTheme.greenAccentShade700,
-              inactiveTrackColor: AppTheme.blackColor,
+              activeThumbColor: context.watch<AppTheme>().blackColor,
+              activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+              inactiveTrackColor: context.watch<AppTheme>().blackColor,
               onChanged: (val) {
                   if (index == 1) {
-                    controller.isOn1.value = val;
+                    animationProvider.isOn1 = val;
                   } else if (index == 2) {
-                    controller.isOn2.value = val;
+                    animationProvider.isOn2 = val;
                   } else {
-                    controller.isOn3.value = val;
+                    animationProvider.isOn3 = val;
                   }
               },
             ),
@@ -109,6 +109,6 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
         ],
       ),
     );
-   });
+
   }
 }

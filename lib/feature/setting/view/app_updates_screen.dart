@@ -12,9 +12,9 @@ class AppUpdatesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<SettingProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.whiteColor,
+      backgroundColor: context.watch<AppTheme>().whiteColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.whiteColor,
+        backgroundColor: context.watch<AppTheme>().whiteColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -55,7 +55,7 @@ class AppUpdatesScreen extends StatelessWidget {
               provider.isShow1,
               (val) {
                 provider.isShow1 = val;
-              },
+              },context
             ),
             SizedBox(height: AppSize.getSize(25)),
             appInfo(
@@ -64,7 +64,7 @@ class AppUpdatesScreen extends StatelessWidget {
               provider.isShow2,
               (val) {
                 provider.isShow2 = val;
-              },
+              },context
             ),
 
             SizedBox(height: AppSize.getSize(35)),
@@ -82,7 +82,7 @@ class AppUpdatesScreen extends StatelessWidget {
               provider.isShow3,
               (val) {
                 provider.isShow3 = val;
-              },
+              },context
             ),
           ],
         ),
@@ -95,6 +95,7 @@ class AppUpdatesScreen extends StatelessWidget {
     String subtitle,
     bool value,
     Function(bool) onChanged,
+    BuildContext context
   ) {
     return InkWell(
       onTap: () {
@@ -118,7 +119,7 @@ class AppUpdatesScreen extends StatelessWidget {
                   subtitle,
                   style: TextStyle(
                     fontSize: AppSize.getSize(16),
-                    color: AppTheme.greyShade800,
+                    color: context.watch<AppTheme>().greyShade800,
                   ),
                 ),
               ],
@@ -126,10 +127,10 @@ class AppUpdatesScreen extends StatelessWidget {
           ),
           Switch(
             value: value,
-            activeThumbColor: AppTheme.blueshade900,
-            activeTrackColor: AppTheme.blueshade100,
-            inactiveTrackColor: AppTheme.greyShade400,
-            inactiveThumbColor: AppTheme.whiteColor,
+            activeThumbColor: context.watch<AppTheme>().blueshade900,
+            activeTrackColor: context.watch<AppTheme>().blueshade100,
+            inactiveTrackColor: context.watch<AppTheme>().greyShade400,
+            inactiveThumbColor: context.watch<AppTheme>().whiteColor,
             onChanged: onChanged,
           ),
         ],

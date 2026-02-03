@@ -1,22 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/provider/account_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class SecurityNotificationsScreen extends GetView<AccountViewController> {
-  static const id ="/SecurityNotificationsScreen";
+class SecurityNotificationsScreen extends StatelessWidget {
+  static const id = "/SecurityNotificationsScreen";
   const SecurityNotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final accountProvider = context.watch<AccountViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +25,13 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           context.l10n.securitynotifications,
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -48,7 +49,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
               Center(
                 child: Icon(
                   Icons.lock,
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                   size: AppSize.getSize(80),
                 ),
               ),
@@ -63,16 +64,18 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                         Text(
                           context.l10n.yourchatsandcallsareprivate,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
-                          context.l10n.endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour,
+                          context
+                              .l10n
+                              .endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour,
                           softWrap: true,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -88,14 +91,14 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     children: [
                       Icon(
                         Icons.message,
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.textandvoicemessages,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -106,14 +109,14 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     children: [
                       Icon(
                         Icons.call,
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.audioandvideocalls,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -124,14 +127,14 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     children: [
                       Icon(
                         Icons.crop_portrait,
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.photosvideosanddocuments,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -142,14 +145,14 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     children: [
                       Icon(
                         Icons.location_on_outlined,
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.locationsharing,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -160,14 +163,14 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     children: [
                       Icon(
                         Icons.update_sharp,
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.statusupdates,
                         style: TextStyle(
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -179,7 +182,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                       Text(
                         context.l10n.learnmore,
                         style: TextStyle(
-                          color: AppTheme.blueshade500,
+                          color: context.watch<AppTheme>().blueshade500,
                           fontSize: AppSize.getSize(18),
                         ),
                       ),
@@ -191,31 +194,29 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                context.l10n.showsecuritynotificationsonthisdevice,
-                                style: TextStyle(
-                                  color: AppTheme.whiteColor,
-                                  fontSize: AppSize.getSize(18),
-                                ),
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context
+                                  .l10n
+                                  .showsecuritynotificationsonthisdevice,
+                              style: TextStyle(
+                                color: context.watch<AppTheme>().whiteColor,
+                                fontSize: AppSize.getSize(18),
                               ),
                             ),
-                            Obx(
-                              ()=> Switch(
-                                value:
-                                    controller.isNotificationOn.value,
-                                activeThumbColor: AppTheme.blackColor,
-                                activeTrackColor: AppTheme.greenAccentShade700,
-                                inactiveTrackColor: AppTheme.blackColor,
-                                onChanged: (val) {
-                                  controller.isNotificationOn.value =
-                                      val;
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Switch(
+                            value: accountProvider.isNotificationOn,
+                            activeThumbColor: context.watch<AppTheme>().blackColor,
+                            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                            inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                            onChanged: (val) {
+                              accountProvider.toggleisNotificationOn();
+                            },
+                          ),
+                        ],
+                      ),
 
                       SizedBox(height: AppSize.getSize(10)),
 
@@ -230,20 +231,19 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                                     "in an end-to-end encrypted chat. If you have multiple devices, this "
                                     "setting must be enabled on each device where you want to get notifications. ",
                                 style: TextStyle(
-                                  color: AppTheme.greyShade400,
+                                  color: context.watch<AppTheme>().greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
                               TextSpan(
                                 text: context.l10n.learnmore,
                                 style: TextStyle(
-                                  color: AppTheme.blueshade500,
+                                  color: context.watch<AppTheme>().blueshade500,
                                   fontSize: AppSize.getSize(16),
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Get.toNamed(LearnMoreScreen.id);
-                                    
+                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                                   },
                               ),
                             ],

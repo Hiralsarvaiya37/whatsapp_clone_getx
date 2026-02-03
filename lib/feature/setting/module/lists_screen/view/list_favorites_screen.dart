@@ -12,9 +12,9 @@ class ListFavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final listProvider = context.watch<ListViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class ListFavoritesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Favorites",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -39,7 +39,7 @@ class ListFavoritesScreen extends StatelessWidget {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                backgroundColor: AppTheme.greyShade900,
+                backgroundColor: context.watch<AppTheme>().greyShade900,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(AppSize.getSize(20)),
@@ -50,7 +50,7 @@ class ListFavoritesScreen extends StatelessWidget {
                     height:
                         MediaQuery.of(context).size.height *
                         AppSize.getSize(0.97),
-                    color: AppTheme.greyShade900,
+                    color: context.watch<AppTheme>().greyShade900,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: AppSize.getSize(20),
@@ -65,7 +65,7 @@ class ListFavoritesScreen extends StatelessWidget {
                               height: AppSize.getSize(5),
                               width: AppSize.getSize(45),
                               decoration: BoxDecoration(
-                                color: AppTheme.greyColor,
+                                color: context.watch<AppTheme>().greyColor,
                                 borderRadius: BorderRadius.circular(
                                   AppSize.getSize(30),
                                 ),
@@ -83,13 +83,13 @@ class ListFavoritesScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.clear_rounded,
                                   size: AppSize.getSize(25),
-                                  color: AppTheme.whiteColor,
+                                  color: context.watch<AppTheme>().whiteColor,
                                 ),
                               ),
                               Text(
                                 "Edit Favorites",
                                 style: TextStyle(
-                                  color: AppTheme.whiteColor,
+                                  color: context.watch<AppTheme>().whiteColor,
                                   fontSize: AppSize.getSize(22),
                                 ),
                               ),
@@ -100,7 +100,7 @@ class ListFavoritesScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.done,
                                   size: AppSize.getSize(25),
-                                  color: AppTheme.whiteColor,
+                                  color: context.watch<AppTheme>().whiteColor,
                                 ),
                               ),
                             ],
@@ -110,7 +110,7 @@ class ListFavoritesScreen extends StatelessWidget {
                           Text(
                             "Use the pencil to reorder how your lists appear in the Chats tab.",
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -120,7 +120,7 @@ class ListFavoritesScreen extends StatelessWidget {
                           Text(
                             "Included",
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -132,7 +132,7 @@ class ListFavoritesScreen extends StatelessWidget {
                                 height: AppSize.getSize(45),
                                 width: AppSize.getSize(45),
                                 decoration: BoxDecoration(
-                                  color: AppTheme.greenAccentShade700,
+                                  color: context.watch<AppTheme>().greenAccentShade700,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -144,7 +144,7 @@ class ListFavoritesScreen extends StatelessWidget {
                               Text(
                                 "Add people or groups",
                                 style: TextStyle(
-                                  color: AppTheme.whiteColor,
+                                  color: context.watch<AppTheme>().whiteColor,
                                   fontSize: AppSize.getSize(18),
                                 ),
                               ),
@@ -154,7 +154,7 @@ class ListFavoritesScreen extends StatelessWidget {
                           Text(
                             "You can edit favorites here or reorder how they appear on the Calls tab.",
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -169,7 +169,7 @@ class ListFavoritesScreen extends StatelessWidget {
             child: Icon(
               Icons.edit_outlined,
               size: AppSize.getSize(30),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
           ),
           SizedBox(width: AppSize.getSize(30)),
@@ -187,7 +187,7 @@ class ListFavoritesScreen extends StatelessWidget {
             Text(
               "Use the pencil to reorder how your lists appear in the Chats tab.",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
               textAlign: TextAlign.center,
@@ -197,7 +197,7 @@ class ListFavoritesScreen extends StatelessWidget {
             Text(
               "Notifications",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -209,16 +209,16 @@ class ListFavoritesScreen extends StatelessWidget {
                   child: Text(
                     "Mute",
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(20),
                     ),
                   ),
                 ),
                 Switch(
                   value: listProvider.isOn,
-                  activeThumbColor: AppTheme.blackColor,
-                  activeTrackColor: AppTheme.greenAccentShade700,
-                  inactiveTrackColor: AppTheme.blackColor,
+                  activeThumbColor: context.watch<AppTheme>().blackColor,
+                  activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                  inactiveTrackColor: context.watch<AppTheme>().blackColor,
                   onChanged: (val) {
                     listProvider.setSwitch(val);
                     if (val) {
@@ -233,7 +233,7 @@ class ListFavoritesScreen extends StatelessWidget {
             Text(
               "Included",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -244,7 +244,7 @@ class ListFavoritesScreen extends StatelessWidget {
                   height: AppSize.getSize(45),
                   width: AppSize.getSize(45),
                   decoration: BoxDecoration(
-                    color: AppTheme.greenAccentShade700,
+                    color: context.watch<AppTheme>().greenAccentShade700,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(Icons.add, size: AppSize.getSize(25)),
@@ -253,7 +253,7 @@ class ListFavoritesScreen extends StatelessWidget {
                 Text(
                   "Add people or groups",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(20),
                   ),
                 ),
@@ -263,7 +263,7 @@ class ListFavoritesScreen extends StatelessWidget {
             Text(
               "You can edit favorites here or reorder how they appear on the Calls tab.",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
               textAlign: TextAlign.center,
@@ -280,7 +280,7 @@ class ListFavoritesScreen extends StatelessWidget {
       context: context,
       builder: (context) {
         return Dialog(
-          backgroundColor: AppTheme.greyShade900,
+          backgroundColor: context.watch<AppTheme>().greyShade900,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               AppSize.getSize(AppSize.getSize(20)),
@@ -288,7 +288,7 @@ class ListFavoritesScreen extends StatelessWidget {
           ),
           child: Container(
             decoration: BoxDecoration(
-              color: AppTheme.greyShade900,
+              color: context.watch<AppTheme>().greyShade900,
               borderRadius: BorderRadius.circular(AppSize.getSize(20)),
             ),
             child: Padding(
@@ -303,7 +303,7 @@ class ListFavoritesScreen extends StatelessWidget {
                   Text(
                     "Mute messsage notifications",
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(25),
                     ),
                   ),
@@ -311,7 +311,7 @@ class ListFavoritesScreen extends StatelessWidget {
                   Text(
                     "Other members will not see that you muted these chats, and you will still be notified if you are mentioned.",
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(17),
                     ),
                   ),
@@ -319,7 +319,7 @@ class ListFavoritesScreen extends StatelessWidget {
                   Text(
                     "Mute all chats in Favorites",
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -350,7 +350,7 @@ class ListFavoritesScreen extends StatelessWidget {
                         child: Text(
                           "Cancel",
                           style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -364,7 +364,7 @@ class ListFavoritesScreen extends StatelessWidget {
                         child: Text(
                           "Ok",
                           style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w600,
                           ),
@@ -399,8 +399,8 @@ class ListFavoritesScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: isSelected
-                        ? AppTheme.greenAccentShade700
-                        : AppTheme.greyColor,
+                        ? context.watch<AppTheme>().greenAccentShade700
+                        : context.watch<AppTheme>().greyColor,
                     width: AppSize.getSize(2),
                   ),
                   shape: BoxShape.circle,
@@ -411,7 +411,7 @@ class ListFavoritesScreen extends StatelessWidget {
                           height: AppSize.getSize(12),
                           width: AppSize.getSize(12),
                           decoration: BoxDecoration(
-                            color: AppTheme.greenAccentShade700,
+                            color: context.watch<AppTheme>().greenAccentShade700,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -422,7 +422,7 @@ class ListFavoritesScreen extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(17),
                 ),
               ),

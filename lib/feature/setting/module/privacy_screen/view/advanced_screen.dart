@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
@@ -15,19 +14,19 @@ class AdvancedScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Advanced",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -74,7 +73,7 @@ class AdvancedScreen extends StatelessWidget{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: AppTheme.whiteColor, fontSize: 20)),
+              Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: 20)),
               SizedBox(height: AppSize.getSize(5)),
               Text.rich(
                 TextSpan(
@@ -82,19 +81,19 @@ class AdvancedScreen extends StatelessWidget{
                     TextSpan(
                       text: subtitle,
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
                     TextSpan(
                       text: "Learn more",
                       style: TextStyle(
-                        color: AppTheme.blueshade500,
+                        color: context.watch<AppTheme>().blueshade500,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.bold,
                       ),recognizer: TapGestureRecognizer()
                       ..onTap = (){
-                       Get.toNamed(LearnMoreScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                       }
                     ),
                   ],
@@ -110,9 +109,9 @@ class AdvancedScreen extends StatelessWidget{
                 : index == 2
                 ? provider.isOn2
                 : provider.isOn3,
-            activeThumbColor: AppTheme.blackColor,
-            activeTrackColor: AppTheme.greenAccentShade700,
-            inactiveTrackColor: AppTheme.blackColor,
+            activeThumbColor: context.watch<AppTheme>().blackColor,
+            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+            inactiveTrackColor: context.watch<AppTheme>().blackColor,
             onChanged: (val) {
                 if (index == 1) provider.isOn1 = val;
                 if (index == 2) provider.isOn2 = val;

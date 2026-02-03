@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -12,9 +12,9 @@ class SettingUpAnAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class SettingUpAnAccountScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Setting Up an Account",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,16 +37,16 @@ class SettingUpAnAccountScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
             ),
-            color: AppTheme.greyShade900,
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -56,7 +56,7 @@ class SettingUpAnAccountScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -80,7 +80,7 @@ class SettingUpAnAccountScreen extends StatelessWidget {
                   Text(
                     "Setting Up an Account",
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -117,7 +117,7 @@ class SettingUpAnAccountScreen extends StatelessWidget {
   Widget appInfo(String title, BuildContext context) {
     return InkWell(
       onTap: () {
-      Get.toNamed(LearnMoreScreen.id);
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
       },
       child: Padding(
         padding: EdgeInsets.only(bottom: AppSize.getSize(30)),
@@ -127,14 +127,14 @@ class SettingUpAnAccountScreen extends StatelessWidget {
             Icon(
               Icons.file_open_sharp,
               size: AppSize.getSize(30),
-              color: AppTheme.greyShade400,
+              color: context.watch<AppTheme>().greyShade400,
             ),
             SizedBox(width: AppSize.getSize(30)),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontWeight: FontWeight.w600,
                   fontSize: AppSize.getSize(18),
                 ),

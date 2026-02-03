@@ -14,9 +14,9 @@ class ChatMessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final chatProvider = context.watch<ChatProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,7 +24,7 @@ class ChatMessagesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Row(
@@ -42,7 +42,7 @@ class ChatMessagesScreen extends StatelessWidget {
               chatProvider.otherUserName,
               style: TextStyle(
                 fontSize: AppSize.getSize(23),
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
               ),
             ),
           ],
@@ -52,19 +52,19 @@ class ChatMessagesScreen extends StatelessWidget {
           Icon(
             Icons.videocam_outlined,
             size: AppSize.getSize(27),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.phone,
             size: AppSize.getSize(27),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(20)),
           Icon(
             Icons.more_vert,
             size: AppSize.getSize(27),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
         ],
@@ -109,8 +109,8 @@ class ChatMessagesScreen extends StatelessWidget {
                           padding: EdgeInsets.all(AppSize.getSize(10)),
                           decoration: BoxDecoration(
                             color: isMe
-                                ? AppTheme.greenColor
-                                : AppTheme.greyShade800,
+                                ? context.watch<AppTheme>().greenColor
+                                : context.watch<AppTheme>().greyShade800,
                             borderRadius: isMe
                                 ? BorderRadius.only(
                                     topLeft: Radius.circular(14),
@@ -127,7 +127,7 @@ class ChatMessagesScreen extends StatelessWidget {
                           ),
                           child: Text(
                             data['message'] ?? "",
-                            style: TextStyle(color: AppTheme.whiteColor),
+                            style: TextStyle(color: context.watch<AppTheme>().whiteColor),
                           ),
                         ),
                       );
@@ -150,14 +150,14 @@ class ChatMessagesScreen extends StatelessWidget {
                       horizontal: AppSize.getSize(12),
                     ),
                     decoration: BoxDecoration(
-                      color: AppTheme.greyShade900,
+                      color: context.watch<AppTheme>().greyShade900,
                       borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                     ),
                     child: Row(
                       children: [
                         Icon(
                           Icons.sticky_note_2_outlined,
-                          color: AppTheme.greyShade400,
+                          color: context.watch<AppTheme>().greyShade400,
                         ),
                         SizedBox(width: AppSize.getSize(10)),
 
@@ -170,9 +170,9 @@ class ChatMessagesScreen extends StatelessWidget {
                             minLines: 1,
                             maxLines: 4,
                             keyboardType: TextInputType.multiline,
-                            cursorColor: AppTheme.greenAccentShade700,
+                            cursorColor: context.watch<AppTheme>().greenAccentShade700,
                             cursorWidth: 3,
-                            style: TextStyle(color: AppTheme.whiteColor),
+                            style: TextStyle(color: context.watch<AppTheme>().whiteColor),
 
                             onChanged: (value) {
                               chatProvider.isShow = value.isNotEmpty;
@@ -182,7 +182,7 @@ class ChatMessagesScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: context.l10n.message,
                               hintStyle: TextStyle(
-                                color: AppTheme.greyShade400,
+                                color: context.watch<AppTheme>().greyShade400,
                               ),
                               border: InputBorder.none,
 
@@ -191,18 +191,18 @@ class ChatMessagesScreen extends StatelessWidget {
                                 children: [
                                   Icon(
                                     Icons.attach_file,
-                                    color: AppTheme.greyShade400,
+                                    color: context.watch<AppTheme>().greyShade400,
                                   ),
                                   if (!chatProvider.isShow) ...[
                                     SizedBox(width: AppSize.getSize(8)),
                                     Icon(
                                       Icons.currency_rupee_sharp,
-                                      color: AppTheme.greyShade400,
+                                      color: context.watch<AppTheme>().greyShade400,
                                     ),
                                     SizedBox(width: AppSize.getSize(8)),
                                     Icon(
                                       Icons.camera_alt_outlined,
-                                      color: AppTheme.greyShade400,
+                                      color: context.watch<AppTheme>().greyShade400,
                                     ),
                                   ],
                                 ],
@@ -219,7 +219,7 @@ class ChatMessagesScreen extends StatelessWidget {
                   height: AppSize.getSize(45),
                   width: AppSize.getSize(45),
                   decoration: BoxDecoration(
-                    color: AppTheme.greenAccentShade700,
+                    color: context.watch<AppTheme>().greenAccentShade700,
                     shape: BoxShape.circle,
                   ),
                   child: InkWell(

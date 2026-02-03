@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
@@ -31,12 +32,12 @@ class CommunitiesviewScreen extends StatelessWidget {
                       vertical: AppSize.getSize(14),
                     ),
                     decoration: BoxDecoration(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                     ),
                     child: Icon(
                       Icons.groups_2_outlined,
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       size: AppSize.getSize(30),
                     ),
                   ),
@@ -48,17 +49,17 @@ class CommunitiesviewScreen extends StatelessWidget {
                       height: AppSize.getSize(26),
                       width: AppSize.getSize(26),
                       decoration: BoxDecoration(
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: AppTheme.blackColor,
+                          color: context.watch<AppTheme>().blackColor,
                           width: AppSize.getSize(2),
                         ),
                       ),
                       child: Icon(
                         Icons.add,
                         size: AppSize.getSize(16),
-                        color: AppTheme.blackColor,
+                        color: context.watch<AppTheme>().blackColor,
                       ),
                     ),
                   ),
@@ -68,7 +69,7 @@ class CommunitiesviewScreen extends StatelessWidget {
               Text(
                 context.l10n.newcommunity,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w500,
                 ),
@@ -93,7 +94,7 @@ class CommunitiesviewScreen extends StatelessWidget {
               Text(
                 context.l10n.hudhhuhewnssxhwu,
                 style: TextStyle(
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w500,
                 ),
@@ -111,12 +112,12 @@ class CommunitiesviewScreen extends StatelessWidget {
                   vertical: AppSize.getSize(6),
                 ),
                 decoration: BoxDecoration(
-                  color: AppTheme.greenColor,
+                  color: context.watch<AppTheme>().greenColor,
                   borderRadius: BorderRadius.circular(AppSize.getSize(12)),
                 ),
                 child: Icon(
                   Icons.campaign,
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                   size: AppSize.getSize(30),
                 ),
               ),
@@ -131,7 +132,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                         Text(
                           context.l10n.announcements,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w500,
                           ),
@@ -140,7 +141,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                         Text(
                           context.l10n.yesterday,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w500,
                           ),
@@ -152,7 +153,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w500,
                       ),
@@ -196,13 +197,13 @@ class CommunitiesviewScreen extends StatelessWidget {
                           Icon(
                             Icons.arrow_forward_ios,
                             size: AppSize.getSize(20),
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                           ),
                           SizedBox(width: AppSize.getSize(28)),
                           Text(
                             context.l10n.viewall,
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(20),
                             ),
                           ),
@@ -230,7 +231,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                       Text(
                         context.l10n.hudhhuhewnssxhwu,
                         style: TextStyle(
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                           fontSize: AppSize.getSize(20),
                           fontWeight: FontWeight.w500,
                         ),
@@ -248,14 +249,14 @@ class CommunitiesviewScreen extends StatelessWidget {
                           vertical: AppSize.getSize(7),
                         ),
                         decoration: BoxDecoration(
-                          color: AppTheme.greenColor,
+                          color: context.watch<AppTheme>().greenColor,
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(12),
                           ),
                         ),
                         child: Icon(
                           Icons.campaign,
-                          color: AppTheme.whiteColor,
+                          color: context.watch<AppTheme>().whiteColor,
                           size: AppSize.getSize(30),
                         ),
                       ),
@@ -270,7 +271,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                                 Text(
                                   context.l10n.announcements,
                                   style: TextStyle(
-                                    color: AppTheme.whiteColor,
+                                    color: context.watch<AppTheme>().whiteColor,
                                     fontSize: AppSize.getSize(18),
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -279,7 +280,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                                 Text(
                                   "8/4/25",
                                   style: TextStyle(
-                                    color: AppTheme.greyShade400,
+                                    color: context.watch<AppTheme>().greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -290,7 +291,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                color: AppTheme.greyShade400,
+                                color: context.watch<AppTheme>().greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -320,7 +321,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                           Text(
                             context.l10n.hudhhuheud,
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               fontSize: AppSize.getSize(20),
                               fontWeight: FontWeight.w500,
                             ),
@@ -328,7 +329,7 @@ class CommunitiesviewScreen extends StatelessWidget {
                           Text(
                             context.l10n.hudhhuhewnssxhwu,
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -355,13 +356,13 @@ class CommunitiesviewScreen extends StatelessWidget {
                 Icon(
                   Icons.arrow_forward_ios,
                   size: AppSize.getSize(18),
-                  color: AppTheme.greyShade400,
+                  color: context.watch<AppTheme>().greyShade400,
                 ),
                 SizedBox(width: AppSize.getSize(28)),
                 Text(
                   context.l10n.viewall,
                   style: TextStyle(
-                    color: AppTheme.greyShade400,
+                    color: context.watch<AppTheme>().greyShade400,
                     fontSize: AppSize.getSize(20),
                   ),
                 ),

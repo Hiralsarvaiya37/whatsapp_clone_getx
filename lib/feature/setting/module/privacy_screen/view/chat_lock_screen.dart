@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
@@ -9,19 +10,19 @@ class ChatLockScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Chat lock",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -34,11 +35,11 @@ class ChatLockScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: AppSize.getSize(20)),
-            Icon(Icons.lock, size: AppSize.getSize(70), color: AppTheme.greenAccentShade700),
+            Icon(Icons.lock, size: AppSize.getSize(70), color: context.watch<AppTheme>().greenAccentShade700),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Chat lock keeps your chats locked and hidden",
-              style: TextStyle(fontSize: AppSize.getSize(25), color: AppTheme.whiteColor),
+              style: TextStyle(fontSize: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(25)),
@@ -48,12 +49,12 @@ class ChatLockScreen extends StatelessWidget {
                   TextSpan(
                     text:
                         "If you have locked chats, pull down on your chat list or type your secret code in the search bar to find them. ",
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
                     text: "Learn more",
                     style: TextStyle(
-                      color: AppTheme.blueshade500,
+                      color: context.watch<AppTheme>().blueshade500,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.w600,
                     ),
@@ -67,14 +68,14 @@ class ChatLockScreen extends StatelessWidget {
               children: [
                 Text(
               "Unlock and clear locked chats",
-              style: TextStyle(fontSize: 18, color: AppTheme.whiteColor),
+              style: TextStyle(fontSize: 18, color: context.watch<AppTheme>().whiteColor),
             ),
               ],
             ),
             SizedBox(height: AppSize.getSize(5)),
             Text(
               "If you forgot your secretcode, you can clear it. This will also unlock and clear messages, photos and videos in locked chats.",
-              style: TextStyle(fontSize: AppSize.getSize(16), color: AppTheme.greyShade400),
+              style: TextStyle(fontSize: AppSize.getSize(16), color: context.watch<AppTheme>().greyShade400),
             ),
           ],
         ),

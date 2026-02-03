@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/accounts_and_account_bans_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/business_screen.dart';
@@ -24,27 +24,27 @@ class HelpCenterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Help center",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: AppTheme.whiteColor),
-            color: AppTheme.greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+            color: context.watch<AppTheme>().greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -55,7 +55,7 @@ class HelpCenterScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: AppTheme.whiteColor,
+                    color: context.watch<AppTheme>().whiteColor,
                     fontWeight: FontWeight.w600,
                     fontSize: AppSize.getSize(16),
                   ),
@@ -79,13 +79,13 @@ class HelpCenterScreen extends StatelessWidget {
                         Icon(
                           Icons.call,
                           size: AppSize.getSize(60),
-                          color: AppTheme.greenAccentShade700,
+                          color: context.watch<AppTheme>().greenAccentShade700,
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
                           "How can we help?",
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(22),
                             fontWeight: FontWeight.w600,
                           ),
@@ -97,7 +97,7 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                     Get.toNamed(SearchHelpCenterScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchHelpCenterScreen()));
                     },
                     child: Row(
                       children: [
@@ -105,7 +105,7 @@ class HelpCenterScreen extends StatelessWidget {
                           height: AppSize.getSize(45),
                           width: MediaQuery.of(context).size.width * AppSize.getSize(0.88),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppTheme.greyColor, width: AppSize.getSize(1)),
+                            border: Border.all(color: context.watch<AppTheme>().greyColor, width: AppSize.getSize(1)),
                             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                           ),
                           child: Padding(
@@ -116,13 +116,13 @@ class HelpCenterScreen extends StatelessWidget {
                                 Icon(
                                   Icons.search,
                                   size: AppSize.getSize(25),
-                                  color: AppTheme.greyShade400,
+                                  color: context.watch<AppTheme>().greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(15)),
                                 Text(
                                   "Search Help Center",
                                   style: TextStyle(
-                                    color: AppTheme.greyShade400,
+                                    color: context.watch<AppTheme>().greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -136,88 +136,88 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Help topics",
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   InkWell(
                     onTap: () {
-                       Get.toNamed(GetStartedScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>GetStartedScreen()));
                     },
-                    child: appInfo("Get Started", Icons.flag),
+                    child: appInfo("Get Started", Icons.flag,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(HelpChatsScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpChatsScreen()));
                     },
-                    child: appInfo("Chats", Icons.chat_sharp),
+                    child: appInfo("Chats", Icons.chat_sharp,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                     Get.toNamed(ConnectBusinessesScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ConnectBusinessesScreen()));
                     },
                     child: appInfo(
                       "Connect with Businesses",
-                      Icons.add_business_outlined,
+                      Icons.add_business_outlined,context
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                       Get.toNamed(VoiceAndVideoCallsScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>VoiceAndVideoCallsScreen()));
                     },
-                    child: appInfo("Voice and Video Calls", Icons.call),
+                    child: appInfo("Voice and Video Calls", Icons.call,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                     Get.toNamed(HelpCommunitiesScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpCommunitiesScreen()));
                     },
-                    child: appInfo("Communities", Icons.groups_2),
+                    child: appInfo("Communities", Icons.groups_2,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(ChannlesScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannlesScreen()));
                     },
-                    child: appInfo("Channels", Icons.contactless_rounded),
+                    child: appInfo("Channels", Icons.contactless_rounded,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(PrivacySafetyScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacySafetyScreen()));
                     },
-                    child: appInfo("Privacy, Safety, and Security", Icons.lock),
+                    child: appInfo("Privacy, Safety, and Security", Icons.lock,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(AccountsAndAccountBansScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountsAndAccountBansScreen()));
                     },
                     child: appInfo(
                       "Accounts and Account Bans",
-                      Icons.account_circle,
+                      Icons.account_circle,context
                     ),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(PaymentsScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentsScreen()));
                     },
-                    child: appInfo("Payments", Icons.payment),
+                    child: appInfo("Payments", Icons.payment,context),
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   InkWell(
                     onTap: () {
-                       Get.toNamed(BusinessScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessScreen()));
                     },
-                    child: appInfo("WhatsApp for Business", Icons.add_call),
+                    child: appInfo("WhatsApp for Business", Icons.add_call,context),
                   ),
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Popular articles",
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appTile(
@@ -248,14 +248,14 @@ class HelpCenterScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: AppSize.getSize(50)),
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(ShowMoreScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ShowMoreScreen()));
                       },
                       child: Row(
                         children: [
                           Text(
                             "Show more",
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               fontWeight: FontWeight.w600,
                               fontSize: AppSize.getSize(17),
                             ),
@@ -275,16 +275,16 @@ class HelpCenterScreen extends StatelessWidget {
     );
   }
 
-  Widget appInfo(String title, IconData icon) {
+  Widget appInfo(String title, IconData icon, BuildContext context) {
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: AppTheme.greenAccentShade700),
+        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greenAccentShade700),
         SizedBox(width: AppSize.getSize(20)),
         Expanded(
           child: Text(
             title,
             style: TextStyle(
-              color: AppTheme.whiteColor,
+              color: context.watch<AppTheme>().whiteColor,
               fontSize: AppSize.getSize(17),
               fontWeight: FontWeight.w600,
             ),
@@ -297,17 +297,17 @@ class HelpCenterScreen extends StatelessWidget {
   Widget appTile(String title, IconData icon, BuildContext context) {
     return InkWell(
       onTap: () {
-       Get.toNamed(LearnMoreScreen.id);
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
       },
       child: Row(
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: AppTheme.greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(17),
                 fontWeight: FontWeight.w600,
               ),

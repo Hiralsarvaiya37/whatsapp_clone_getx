@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
@@ -9,16 +10,16 @@ class NewCommunityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: Icon(
             Icons.close,
-            color: AppTheme.greyColor,
+            color: context.watch<AppTheme>().greyColor,
             size: AppSize.getSize(30),
           ),
         ),
@@ -34,7 +35,7 @@ class NewCommunityScreen extends StatelessWidget {
             Icon(
               Icons.groups_2_rounded,
               size: AppSize.getSize(90),
-              color: AppTheme.greenAccentShade700,
+              color: context.watch<AppTheme>().greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(15)),
             Text(
@@ -42,14 +43,14 @@ class NewCommunityScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: AppSize.getSize(25),
                 fontWeight: FontWeight.bold,
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
               ),
             ),
             SizedBox(height: AppSize.getSize(12)),
             Text(
               "Bring together a neighborhood, school or more. Create topic-based groups for members, an easily send them admin announcements.",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(18),
               ),
               textAlign: TextAlign.center,
@@ -58,7 +59,7 @@ class NewCommunityScreen extends StatelessWidget {
             Text(
               "See example communities >",
               style: TextStyle(
-                color: AppTheme.blueshade500,
+                color: context.watch<AppTheme>().blueshade500,
                 fontSize: AppSize.getSize(18),
               ),
             ),
@@ -66,11 +67,11 @@ class NewCommunityScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: AppTheme.blackColor,
+        color: context.watch<AppTheme>().blackColor,
         height: AppSize.getSize(65),
         child: Container(
           decoration: BoxDecoration(
-            color: AppTheme.greenAccentShade700,
+            color: context.watch<AppTheme>().greenAccentShade700,
             borderRadius: BorderRadius.circular(AppSize.getSize(40)),
           ),
           alignment: Alignment.center,

@@ -11,9 +11,9 @@ class ProfilePhotoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +21,13 @@ class ProfilePhotoScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Profile photo",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -45,7 +45,7 @@ class ProfilePhotoScreen extends StatelessWidget {
             Text(
               "Who can see my profile photo",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -80,8 +80,8 @@ class ProfilePhotoScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: isSelected
-                      ? AppTheme.greenAccentShade700
-                      : AppTheme.greyColor,
+                      ? context.watch<AppTheme>().greenAccentShade700
+                      : context.watch<AppTheme>().greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -93,7 +93,7 @@ class ProfilePhotoScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppTheme.greenAccentShade700,
+                          color: context.watch<AppTheme>().greenAccentShade700,
                         ),
                       ),
                     )
@@ -105,7 +105,7 @@ class ProfilePhotoScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

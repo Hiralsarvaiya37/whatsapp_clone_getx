@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/provider/privacy_view_provider.dart';
@@ -15,20 +14,20 @@ class CallsScreen extends StatelessWidget{
   Widget build(BuildContext context) {
      final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
 
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
         ),
         title: Text(
           "Calls",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -46,21 +45,21 @@ class CallsScreen extends StatelessWidget{
                 children: [
                   Text(
                     "Slience unknown callers",
-                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(18)),
+                    style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
                   ),
                   SizedBox(height: AppSize.getSize(10)),
                   Text(
                     "Calls from unknown numbers will be silenced. They will still be shown in the calls tab and in your notifications. ",
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(LearnMoreScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                     },
                     child: Text(
                       "Learn more",
                       style: TextStyle(
-                        color: AppTheme.blueshade500,
+                        color: context.watch<AppTheme>().blueshade500,
                         fontWeight: FontWeight.w600,
                         fontSize: AppSize.getSize(16),
                       ),
@@ -73,9 +72,9 @@ class CallsScreen extends StatelessWidget{
                 children: [
                   Switch(
                     value: provider.isOn,
-                    activeThumbColor: AppTheme.blackColor,
-                    activeTrackColor: AppTheme.greenAccentShade700,
-                    inactiveTrackColor: AppTheme.blackColor,
+                    activeThumbColor: context.watch<AppTheme>().blackColor,
+                    activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
+                    inactiveTrackColor: context.watch<AppTheme>().blackColor,
                     onChanged: (val) {
                         provider.isOn = val;
                     },

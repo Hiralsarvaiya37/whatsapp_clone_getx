@@ -13,9 +13,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<LoginProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.whiteColor,
+      backgroundColor: context.watch<AppTheme>().whiteColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.whiteColor,
+        backgroundColor: context.watch<AppTheme>().whiteColor,
         title: Text(context.l10n.phoneAuth),
         centerTitle: true,
       ),

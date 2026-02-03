@@ -82,6 +82,8 @@ class StatusViewProvider extends ChangeNotifier {
       Future.delayed(const Duration(milliseconds: 50), () {
         loadStatus(nextIndex, vsync);
       });
+    }else{
+      // Navigator.pop(context);
     }
   }
 

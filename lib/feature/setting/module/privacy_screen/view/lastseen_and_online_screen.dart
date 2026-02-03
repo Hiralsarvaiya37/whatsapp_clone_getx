@@ -12,9 +12,9 @@ class LastseenAndOnlineScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: AppTheme.blackColor,
+      backgroundColor: context.watch<AppTheme>().blackColor,
       appBar: AppBar(
-        backgroundColor: AppTheme.blackColor,
+        backgroundColor: context.watch<AppTheme>().blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +22,13 @@ class LastseenAndOnlineScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
           ),
         ),
         title: Text(
           "Last seen and online",
           style: TextStyle(
-            color: AppTheme.whiteColor,
+            color: context.watch<AppTheme>().whiteColor,
             fontSize: AppSize.getSize(23),
           ),
         ),
@@ -45,27 +45,27 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "Who can see my last seen",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
             SizedBox(height: AppSize.getSize(15)),
 
-            radioTile("Everyone", provider.selectedLastSeen, (value) {
+            radioTile(context,"Everyone", provider.selectedLastSeen, (value) {
               provider.updateLastSeen("Everyone");
             }),
 
-            radioTile("My contacts", provider.selectedLastSeen, (value) {
+            radioTile(context, "My contacts", provider.selectedLastSeen, (value) {
               provider.updateLastSeen("My contacts");
             }),
 
-            radioTile("My contacts except...", provider.selectedLastSeen, (
+            radioTile(context,"My contacts except...", provider.selectedLastSeen, (
               value,
             ) {
               provider.updateLastSeen("My contacts except...");
             }),
 
-            radioTile("Nobody", provider.selectedLastSeen, (value) {
+            radioTile(context,"Nobody", provider.selectedLastSeen, (value) {
               provider.updateLastSeen("Nobody");
             }),
 
@@ -73,17 +73,17 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "Who can see when I'm online",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
             SizedBox(height: AppSize.getSize(15)),
 
-            radioTile("Everyone", provider.selectedOnline, (value) {
+            radioTile(context,"Everyone", provider.selectedOnline, (value) {
               provider.updateOnline("Everyone");
             }),
 
-            radioTile("Same as last seen", provider.selectedOnline, (value) {
+            radioTile(context,"Same as last seen", provider.selectedOnline, (value) {
               provider.updateOnline("Same as last seen");
             }),
 
@@ -91,7 +91,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
               style: TextStyle(
-                color: AppTheme.greyShade400,
+                color: context.watch<AppTheme>().greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -102,6 +102,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
   }
 
   Widget radioTile(
+    BuildContext context,
     String title,
     String selectedValue,
     Function(String) onSelect,
@@ -125,8 +126,8 @@ class LastseenAndOnlineScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? AppTheme.greenAccentShade700
-                      : AppTheme.greyColor,
+                      ? context.watch<AppTheme>().greenAccentShade700
+                      : context.watch<AppTheme>().greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -137,7 +138,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppTheme.greenAccentShade700,
+                          color: context.watch<AppTheme>().greenAccentShade700,
                         ),
                       ),
                     )
@@ -148,7 +149,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: AppTheme.whiteColor,
+                color: context.watch<AppTheme>().whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

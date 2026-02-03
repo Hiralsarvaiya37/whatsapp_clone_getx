@@ -58,7 +58,7 @@ class UpdateviewScreen extends StatelessWidget {
                   Text(
                     context.l10n.status,
                     style: TextStyle(
-                      color: AppTheme.whiteColor,
+                      color: context.watch<AppTheme>().whiteColor,
                       fontSize: AppSize.getSize(20),
                       fontWeight: FontWeight.bold,
                     ),
@@ -94,7 +94,7 @@ class UpdateviewScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: AppTheme.greenColor,
+                              color: context.watch<AppTheme>().greenColor,
                               width: AppSize.getSize(3),
                             ),
                           ),
@@ -108,7 +108,7 @@ class UpdateviewScreen extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: hasStatus
-                                      ? AppTheme.greenColor
+                                      ? context.watch<AppTheme>().greenColor
                                       : Colors.transparent,
                                   width: 1,
                                 ),
@@ -141,17 +141,17 @@ class UpdateviewScreen extends StatelessWidget {
                               height: AppSize.getSize(22),
                               width: AppSize.getSize(22),
                               decoration: BoxDecoration(
-                                color: AppTheme.greenColor,
+                                color: context.watch<AppTheme>().greenColor,
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: AppTheme.blackColor,
+                                  color: context.watch<AppTheme>().blackColor,
                                   width: AppSize.getSize(0.5),
                                 ),
                               ),
                               child: Icon(
                                 Icons.add,
                                 size: AppSize.getSize(16),
-                                color: AppTheme.blackColor,
+                                color: context.watch<AppTheme>().blackColor,
                               ),
                             ),
                           ),
@@ -165,7 +165,7 @@ class UpdateviewScreen extends StatelessWidget {
                         Text(
                           context.l10n.mystatus,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(20),
                             fontWeight: FontWeight.w600,
                           ),
@@ -175,7 +175,7 @@ class UpdateviewScreen extends StatelessWidget {
                               ? context.l10n.taptoaddstatus
                               : context.l10n.minutesago,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -191,7 +191,7 @@ class UpdateviewScreen extends StatelessWidget {
                   Text(
                     context.l10n.recentupdates,
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -219,7 +219,7 @@ class UpdateviewScreen extends StatelessWidget {
                           Text(
                             "Users",
                             style: TextStyle(
-                              color: AppTheme.whiteColor,
+                              color: context.watch<AppTheme>().whiteColor,
                               fontSize: AppSize.getSize(19),
                               fontWeight: FontWeight.w500,
                             ),
@@ -227,7 +227,7 @@ class UpdateviewScreen extends StatelessWidget {
                           Text(
                             context.l10n.minutesago,
                             style: TextStyle(
-                              color: AppTheme.greyShade400,
+                              color: context.watch<AppTheme>().greyShade400,
                               fontSize: AppSize.getSize(15),
                             ),
                           ),
@@ -245,7 +245,7 @@ class UpdateviewScreen extends StatelessWidget {
                   Text(
                     context.l10n.viewedupdates,
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -256,14 +256,14 @@ class UpdateviewScreen extends StatelessWidget {
                           !updateviewProvider.isArrowDown;
                     },
                     child: Container(
-                      color: AppTheme.blackColor,
+                      color: context.watch<AppTheme>().blackColor,
 
                       child: Icon(
                         updateviewProvider.isArrowDown
                             ? Icons.expand_more_sharp
                             : Icons.expand_less,
                         size: AppSize.getSize(30),
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                       ),
                     ),
                   ),
@@ -277,7 +277,7 @@ class UpdateviewScreen extends StatelessWidget {
                         Text(
                           context.l10n.channels,
                           style: TextStyle(
-                            color: AppTheme.whiteColor,
+                            color: context.watch<AppTheme>().whiteColor,
                             fontSize: AppSize.getSize(20),
                             fontWeight: FontWeight.w500,
                           ),
@@ -290,7 +290,7 @@ class UpdateviewScreen extends StatelessWidget {
                               .l10n
                               .stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
                           style: TextStyle(
-                            color: AppTheme.greyShade400,
+                            color: context.watch<AppTheme>().greyShade400,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.w500,
                           ),
@@ -321,7 +321,7 @@ class UpdateviewScreen extends StatelessWidget {
                                     Text(
                                       "Users",
                                       style: TextStyle(
-                                        color: AppTheme.whiteColor,
+                                        color: context.watch<AppTheme>().whiteColor,
                                         fontSize: AppSize.getSize(19),
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -329,7 +329,7 @@ class UpdateviewScreen extends StatelessWidget {
                                     Text(
                                       context.l10n.minutesago,
                                       style: TextStyle(
-                                        color: AppTheme.greyShade400,
+                                        color: context.watch<AppTheme>().greyShade400,
                                         fontSize: AppSize.getSize(15),
                                       ),
                                     ),
@@ -349,7 +349,7 @@ class UpdateviewScreen extends StatelessWidget {
                             Text(
                               context.l10n.channels,
                               style: TextStyle(
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 fontSize: AppSize.getSize(19),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -362,7 +362,7 @@ class UpdateviewScreen extends StatelessWidget {
                                   .l10n
                                   .stayupdatedontopicsthatmatterstoyouFindchannelstofollowbelow,
                               style: TextStyle(
-                                color: AppTheme.greyShade400,
+                                color: context.watch<AppTheme>().greyShade400,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -378,7 +378,7 @@ class UpdateviewScreen extends StatelessWidget {
                   Text(
                     context.l10n.findchannelstofollow,
                     style: TextStyle(
-                      color: AppTheme.greyShade400,
+                      color: context.watch<AppTheme>().greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -388,14 +388,14 @@ class UpdateviewScreen extends StatelessWidget {
                       updateviewProvider.isDown = !updateviewProvider.isDown;
                     },
                     child: Container(
-                      color: AppTheme.blackColor,
+                      color: context.watch<AppTheme>().blackColor,
 
                       child: Icon(
                         updateviewProvider.isDown
                             ? Icons.expand_less
                             : Icons.expand_more_sharp,
                         size: AppSize.getSize(30),
-                        color: AppTheme.greyShade400,
+                        color: context.watch<AppTheme>().greyShade400,
                       ),
                     ),
                   ),
@@ -428,7 +428,7 @@ class UpdateviewScreen extends StatelessWidget {
                             Text(
                               "Demo",
                               style: TextStyle(
-                                color: AppTheme.whiteColor,
+                                color: context.watch<AppTheme>().whiteColor,
                                 fontSize: AppSize.getSize(18),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -436,7 +436,7 @@ class UpdateviewScreen extends StatelessWidget {
                             Text(
                               context.l10n.followers,
                               style: TextStyle(
-                                color: AppTheme.greyShade400,
+                                color: context.watch<AppTheme>().greyShade400,
                                 fontSize: AppSize.getSize(15),
                               ),
                             ),
@@ -450,7 +450,7 @@ class UpdateviewScreen extends StatelessWidget {
                           vertical: AppSize.getSize(10),
                         ),
                         decoration: BoxDecoration(
-                          color: AppTheme.greenAccentShade700,
+                          color: context.watch<AppTheme>().greenAccentShade700,
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(25),
                           ),
@@ -458,7 +458,7 @@ class UpdateviewScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.follow,
                           style: TextStyle(
-                            color: AppTheme.blackColor,
+                            color: context.watch<AppTheme>().blackColor,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.bold,
                           ),
@@ -479,7 +479,7 @@ class UpdateviewScreen extends StatelessWidget {
                   vertical: AppSize.getSize(10),
                 ),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppTheme.greyColor),
+                  border: Border.all(color: context.watch<AppTheme>().greyColor),
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Row(
@@ -488,14 +488,14 @@ class UpdateviewScreen extends StatelessWidget {
                     Icon(
                       Icons.qr_code,
                       size: AppSize.getSize(28),
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Text(
                       context.l10n.exploremore,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                       ),
                     ),
                   ],
@@ -508,7 +508,7 @@ class UpdateviewScreen extends StatelessWidget {
                   vertical: AppSize.getSize(10),
                 ),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppTheme.greyColor),
+                  border: Border.all(color: context.watch<AppTheme>().greyColor),
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Row(
@@ -517,14 +517,14 @@ class UpdateviewScreen extends StatelessWidget {
                     Icon(
                       Icons.add,
                       size: AppSize.getSize(28),
-                      color: AppTheme.greenAccentShade700,
+                      color: context.watch<AppTheme>().greenAccentShade700,
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Text(
                       context.l10n.createchannel,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
-                        color: AppTheme.greenAccentShade700,
+                        color: context.watch<AppTheme>().greenAccentShade700,
                       ),
                     ),
                   ],
@@ -544,7 +544,7 @@ class UpdateviewScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.getSize(14)),
-                  color: AppTheme.greyShade900,
+                  color: context.watch<AppTheme>().greyShade900,
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: AppSize.getSize(10),
@@ -554,14 +554,14 @@ class UpdateviewScreen extends StatelessWidget {
                 child: Icon(
                   Icons.edit,
                   size: AppSize.getSize(26),
-                  color: AppTheme.whiteColor,
+                  color: context.watch<AppTheme>().whiteColor,
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.getSize(14)),
-                  color: AppTheme.greenAccentShade700,
+                  color: context.watch<AppTheme>().greenAccentShade700,
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: AppSize.getSize(17),
@@ -571,7 +571,7 @@ class UpdateviewScreen extends StatelessWidget {
                 child: Icon(
                   Icons.linked_camera_outlined,
                   size: AppSize.getSize(28),
-                  color: AppTheme.blackColor,
+                  color: context.watch<AppTheme>().blackColor,
                 ),
               ),
             ],
@@ -582,9 +582,10 @@ class UpdateviewScreen extends StatelessWidget {
   }
 
   void showImagePickerSheet(BuildContext context) {
+      final theme = context.read<AppTheme>();
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppTheme.greyShade900,
+      backgroundColor: theme.greyShade900,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.getSize(20)),
@@ -607,19 +608,19 @@ class UpdateviewScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(AppSize.getSize(14)),
                       decoration: BoxDecoration(
-                        color: AppTheme.greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.camera_alt,
-                        color: AppTheme.blackColor,
+                        color:theme.blackColor,
                         size: AppSize.getSize(25),
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
                       context.l10n.camera,
-                      style: TextStyle(color: AppTheme.whiteColor),
+                      style: TextStyle(color: theme.whiteColor),
                     ),
                   ],
                 ),
@@ -636,19 +637,19 @@ class UpdateviewScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(AppSize.getSize(14)),
                       decoration: BoxDecoration(
-                        color: AppTheme.greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.photo,
-                        color: AppTheme.blackColor,
+                        color: theme.blackColor,
                         size: AppSize.getSize(25),
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
                       context.l10n.gallery,
-                      style: TextStyle(color: AppTheme.whiteColor),
+                      style: TextStyle(color: theme.whiteColor),
                     ),
                   ],
                 ),
@@ -664,19 +665,19 @@ class UpdateviewScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(AppSize.getSize(14)),
                       decoration: BoxDecoration(
-                        color: AppTheme.greenAccentShade700,
+                        color:theme.greenAccentShade700,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.video_camera_back,
-                        color: AppTheme.blackColor,
+                        color: theme.blackColor,
                         size: AppSize.getSize(25),
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
                       context.l10n.video,
-                      style: TextStyle(color: AppTheme.whiteColor),
+                      style: TextStyle(color: theme.whiteColor),
                     ),
                   ],
                 ),
