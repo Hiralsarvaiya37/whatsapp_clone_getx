@@ -12,10 +12,11 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +24,13 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.channelFollowersandViewers,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -38,16 +39,16 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
             ),
-            color: context.watch<AppTheme>().greyShade900,
+            color: theme.greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -57,7 +58,7 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
                 child: Text(
                   context.l10n.openinbrowser,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -80,7 +81,7 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
                 Text(
                   context.l10n.channelFollowersandViewers,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greyShade400,
+                    color: theme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -105,6 +106,7 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () {
      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
@@ -117,14 +119,14 @@ class ChannelFollowersAndViewersScreen extends StatelessWidget {
             Icon(
               Icons.file_open_sharp,
               size: AppSize.getSize(30),
-              color: context.watch<AppTheme>().greyShade400,
+              color: theme.greyShade400,
             ),
             SizedBox(width: AppSize.getSize(30)),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontWeight: FontWeight.w600,
                   fontSize: AppSize.getSize(18),
                 ),

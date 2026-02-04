@@ -26,11 +26,12 @@ class PrivacyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -38,13 +39,13 @@ class PrivacyScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.privacy,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -62,7 +63,7 @@ class PrivacyScreen extends StatelessWidget {
               Text(
                 context.l10n.whocanseemypersonalinfo,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -141,16 +142,16 @@ class PrivacyScreen extends StatelessWidget {
                       child: Text(
                         context.l10n.readreceipts,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().whiteColor,
+                          color: theme.whiteColor,
                           fontSize: AppSize.getSize(18),
                         ),
                       ),
                     ),
                     Switch(
                       value: provider.isOn,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
-                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
+                      activeTrackColor: theme.greenAccentShade700,
+                      inactiveTrackColor: theme.blackColor,
                       onChanged: (val) {
                         provider.isOn = val;
                       },
@@ -163,7 +164,7 @@ class PrivacyScreen extends StatelessWidget {
                     .l10n
                     .ifturnedoffyouwontsendorreceiveReadreceiptsReadreceiptsarealwayssentforgroupchats,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -172,7 +173,7 @@ class PrivacyScreen extends StatelessWidget {
               Text(
                 context.l10n.disappearingmessages,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -196,7 +197,7 @@ class PrivacyScreen extends StatelessWidget {
                           Text(
                             context.l10n.defaultmessagetimer,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -205,7 +206,7 @@ class PrivacyScreen extends StatelessWidget {
                                 .l10n
                                 .startnewchatswithdisappearingmessagessettoyourtimer,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -215,7 +216,7 @@ class PrivacyScreen extends StatelessWidget {
                     Text(
                       context.l10n.off,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -262,7 +263,7 @@ class PrivacyScreen extends StatelessWidget {
                 child: Text(
                   context.l10n.livelocation,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -313,7 +314,7 @@ class PrivacyScreen extends StatelessWidget {
                 child: Text(
                   context.l10n.chatlock,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -333,7 +334,7 @@ class PrivacyScreen extends StatelessWidget {
                           Text(
                             context.l10n.allowcameraeffects,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -345,14 +346,14 @@ class PrivacyScreen extends StatelessWidget {
                                       .l10n
                                       .useeffectsinthecameraandvideocalls,
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().greyShade400,
+                                    color: theme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
                                 TextSpan(
                                   text: context.l10n.learnmore,
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().blueshade500,
+                                    color: theme.blueshade500,
                                     fontSize: AppSize.getSize(16),
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -365,9 +366,9 @@ class PrivacyScreen extends StatelessWidget {
                     ),
                     Switch(
                       value: provider.isYes,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
-                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
+                      activeTrackColor: theme.greenAccentShade700,
+                      inactiveTrackColor: theme.blackColor,
                       onChanged: (val) {
                         provider.isYes = val;
                       },
@@ -390,14 +391,14 @@ class PrivacyScreen extends StatelessWidget {
                     Text(
                       context.l10n.advanced,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
                     Text(
                       context.l10n.protectIPaddressincallsDisablelinkpreviews,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -420,7 +421,7 @@ class PrivacyScreen extends StatelessWidget {
                     Text(
                       context.l10n.privacycheckup,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -429,7 +430,7 @@ class PrivacyScreen extends StatelessWidget {
                           .l10n
                           .controlyourprivacyandchoosetherightsettingsforyou,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -446,7 +447,7 @@ class PrivacyScreen extends StatelessWidget {
   }
 
   Widget appTitle(BuildContext context,String title, String subtitle, {VoidCallback? onTap}) {
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: onTap,
       child: Column(
@@ -455,14 +456,14 @@ class PrivacyScreen extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
               fontSize: AppSize.getSize(18),
             ),
           ),
           Text(
             subtitle,
             style: TextStyle(
-              color: context.watch<AppTheme>().greyShade400,
+              color: theme.greyShade400,
               fontSize: AppSize.getSize(16),
             ),
           ),

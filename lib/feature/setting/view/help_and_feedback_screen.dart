@@ -14,10 +14,11 @@ class HelpAndFeedbackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,13 +26,13 @@ class HelpAndFeedbackScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.help,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -126,10 +127,11 @@ class HelpAndFeedbackScreen extends StatelessWidget {
     IconData icon, {
     bool isShow = true,
   }) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyColor),
+        Icon(icon, size: AppSize.getSize(30), color: theme.greyColor),
         SizedBox(width: AppSize.getSize(30)),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +139,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -146,7 +148,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),

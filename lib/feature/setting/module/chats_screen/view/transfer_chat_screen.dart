@@ -10,12 +10,13 @@ class TransferChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         actions: [
-          Icon(Icons.more_vert, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
+          Icon(Icons.more_vert, size: AppSize.getSize(25), color: theme.greyShade400),
           SizedBox(width: AppSize.getSize(10)),
         ],
       ),
@@ -31,18 +32,18 @@ class TransferChatScreen extends StatelessWidget {
                   Icon(
                     Icons.history_edu,
                     size: AppSize.getSize(75),
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
                     context.l10n.transferchathistorytonewphone,
-                    style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(23)),
+                    style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(23)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(20)),
                   Text(
                     context.l10n.transferyourchathistoryprivatelytoanotherAndroidphoneHaveyourmostuptodatemessageswithoutusingGooglestorageCertaindevicepermissionsareneededtoConnecttoyournewdevice,
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -58,7 +59,7 @@ class TransferChatScreen extends StatelessWidget {
                   height: AppSize.getSize(40),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),alignment: Alignment.center,
                   child: Text(
@@ -73,7 +74,7 @@ class TransferChatScreen extends StatelessWidget {
                   },
                   child: Text(
                     context.l10n.cancel,
-                    style: TextStyle(color: context.watch<AppTheme>().greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
+                    style: TextStyle(color: theme.greenAccentShade700,fontSize: AppSize.getSize(16), fontWeight: FontWeight.w600),
                   ),
                 ),
               ],

@@ -23,28 +23,29 @@ class HelpCenterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor:theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Help center",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
-            color: context.watch<AppTheme>().greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color:theme.whiteColor),
+            color:theme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -55,7 +56,7 @@ class HelpCenterScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontWeight: FontWeight.w600,
                     fontSize: AppSize.getSize(16),
                   ),
@@ -79,13 +80,13 @@ class HelpCenterScreen extends StatelessWidget {
                         Icon(
                           Icons.call,
                           size: AppSize.getSize(60),
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                         SizedBox(height: AppSize.getSize(20)),
                         Text(
                           "How can we help?",
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(22),
                             fontWeight: FontWeight.w600,
                           ),
@@ -105,7 +106,7 @@ class HelpCenterScreen extends StatelessWidget {
                           height: AppSize.getSize(45),
                           width: MediaQuery.of(context).size.width * AppSize.getSize(0.88),
                           decoration: BoxDecoration(
-                            border: Border.all(color: context.watch<AppTheme>().greyColor, width: AppSize.getSize(1)),
+                            border: Border.all(color: theme.greyColor, width: AppSize.getSize(1)),
                             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                           ),
                           child: Padding(
@@ -116,13 +117,13 @@ class HelpCenterScreen extends StatelessWidget {
                                 Icon(
                                   Icons.search,
                                   size: AppSize.getSize(25),
-                                  color: context.watch<AppTheme>().greyShade400,
+                                  color: theme.greyShade400,
                                 ),
                                 SizedBox(width: AppSize.getSize(15)),
                                 Text(
                                   "Search Help Center",
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().greyShade400,
+                                    color: theme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -136,7 +137,7 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Help topics",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   InkWell(
@@ -217,7 +218,7 @@ class HelpCenterScreen extends StatelessWidget {
                   SizedBox(height: AppSize.getSize(35)),
                   Text(
                     "Popular articles",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   appTile(
@@ -255,7 +256,7 @@ class HelpCenterScreen extends StatelessWidget {
                           Text(
                             "Show more",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color:theme.whiteColor,
                               fontWeight: FontWeight.w600,
                               fontSize: AppSize.getSize(17),
                             ),
@@ -276,15 +277,16 @@ class HelpCenterScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, IconData icon, BuildContext context) {
+        final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greenAccentShade700),
+        Icon(icon, size: AppSize.getSize(30), color: theme.greenAccentShade700),
         SizedBox(width: AppSize.getSize(20)),
         Expanded(
           child: Text(
             title,
             style: TextStyle(
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
               fontSize: AppSize.getSize(17),
               fontWeight: FontWeight.w600,
             ),
@@ -295,19 +297,20 @@ class HelpCenterScreen extends StatelessWidget {
   }
 
   Widget appTile(String title, IconData icon, BuildContext context) {
+        final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () {
      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
       },
       child: Row(
         children: [
-          Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
+          Icon(icon, size: AppSize.getSize(30), color: theme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(17),
                 fontWeight: FontWeight.w600,
               ),

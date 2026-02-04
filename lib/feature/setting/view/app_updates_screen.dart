@@ -10,11 +10,12 @@ class AppUpdatesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final provider = context.watch<SettingProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().whiteColor,
+      backgroundColor: theme.whiteColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().whiteColor,
+        backgroundColor: theme.whiteColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -97,6 +98,7 @@ class AppUpdatesScreen extends StatelessWidget {
     Function(bool) onChanged,
     BuildContext context
   ) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () {
         onChanged(!value);
@@ -119,7 +121,7 @@ class AppUpdatesScreen extends StatelessWidget {
                   subtitle,
                   style: TextStyle(
                     fontSize: AppSize.getSize(16),
-                    color: context.watch<AppTheme>().greyShade800,
+                    color: theme.greyShade800,
                   ),
                 ),
               ],
@@ -127,10 +129,10 @@ class AppUpdatesScreen extends StatelessWidget {
           ),
           Switch(
             value: value,
-            activeThumbColor: context.watch<AppTheme>().blueshade900,
-            activeTrackColor: context.watch<AppTheme>().blueshade100,
-            inactiveTrackColor: context.watch<AppTheme>().greyShade400,
-            inactiveThumbColor: context.watch<AppTheme>().whiteColor,
+            activeThumbColor: theme.blueshade900,
+            activeTrackColor: theme.blueshade100,
+            inactiveTrackColor: theme.greyShade400,
+            inactiveThumbColor: theme.whiteColor,
             onChanged: onChanged,
           ),
         ],

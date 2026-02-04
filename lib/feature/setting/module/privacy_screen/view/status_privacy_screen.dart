@@ -11,10 +11,11 @@ class StatusPrivacyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +23,13 @@ class StatusPrivacyScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Status Privacy",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -45,7 +46,7 @@ class StatusPrivacyScreen extends StatelessWidget {
             Text(
               "Who can see my status updates",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -59,7 +60,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                 Text(
                   "0 excluded",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -72,7 +73,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                 Text(
                   "25 included",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -92,7 +93,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                     Icon(
                       Icons.cached_sharp,
                       size: AppSize.getSize(30),
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Expanded(
@@ -102,14 +103,14 @@ class StatusPrivacyScreen extends StatelessWidget {
                           Text(
                             "Allow Sharing",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
                           Text(
                             "Let pepople who can see your status reshare and forward it.",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             maxLines: 2,
@@ -121,11 +122,11 @@ class StatusPrivacyScreen extends StatelessWidget {
 
                     Switch(
                       value: provider.isOn,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
                       activeTrackColor: context
                           .watch<AppTheme>()
                           .greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      inactiveTrackColor: theme.blackColor,
                       onChanged: (val) {
                         provider.setOn(val);
                       },
@@ -143,7 +144,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                 Text(
                   "Share across apps",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greyShade400,
+                    color: theme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -158,7 +159,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                               text:
                                   "Automatically share your status to your Facebook or instagram Stories.",
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greyShade400,
+                                color: theme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -193,25 +194,25 @@ class StatusPrivacyScreen extends StatelessWidget {
                     Icon(
                       Icons.facebook,
                       size: AppSize.getSize(30),
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Expanded(
                       child: Text(
                         "Facebook Story",
                         style: TextStyle(
-                          color: context.watch<AppTheme>().whiteColor,
+                          color: theme.whiteColor,
                           fontSize: AppSize.getSize(18),
                         ),
                       ),
                     ),
                     Switch(
                       value: provider.isYes,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
                       activeTrackColor: context
                           .watch<AppTheme>()
                           .greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      inactiveTrackColor: theme.blackColor,
                        onChanged: (val) => provider.setYes(val),
                     ),
                   ],
@@ -231,25 +232,25 @@ class StatusPrivacyScreen extends StatelessWidget {
                     Icon(
                       Icons.flip_to_front_rounded,
                       size: AppSize.getSize(30),
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                     ),
                     SizedBox(width: AppSize.getSize(15)),
                     Expanded(
                       child: Text(
                         "Instagram Story",
                         style: TextStyle(
-                          color: context.watch<AppTheme>().whiteColor,
+                          color: theme.whiteColor,
                           fontSize: AppSize.getSize(18),
                         ),
                       ),
                     ),
                     Switch(
                       value: provider.isNo,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
                       activeTrackColor: context
                           .watch<AppTheme>()
                           .greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      inactiveTrackColor: theme.blackColor,
                      onChanged: (val) => provider.setNo(val), 
                     ),
                   ],
@@ -261,7 +262,7 @@ class StatusPrivacyScreen extends StatelessWidget {
             Text(
               "Changes to your privacy settings won't affect status updates that you've sent already",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -273,7 +274,7 @@ class StatusPrivacyScreen extends StatelessWidget {
 
   Widget radioTile(String title, BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     bool isSelected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
@@ -290,8 +291,8 @@ class StatusPrivacyScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? context.watch<AppTheme>().greenAccentShade700
-                      : context.watch<AppTheme>().greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -302,7 +303,7 @@ class StatusPrivacyScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -313,7 +314,7 @@ class StatusPrivacyScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

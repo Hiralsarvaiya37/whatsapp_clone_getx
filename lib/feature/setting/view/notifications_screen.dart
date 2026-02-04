@@ -12,11 +12,11 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SettingProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +24,13 @@ class NotificationsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.notifications,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -64,7 +64,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 context.l10n.message,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(15),
                 ),
               ),
@@ -90,14 +90,14 @@ class NotificationsScreen extends StatelessWidget {
                 context.l10n.popupnotification,
                 context.l10n.notavailable,
                 showSwitch: false,
-                titlecolor: context.watch<AppTheme>().greyShade700,
-                subtitlecolor: context.watch<AppTheme>().greyShade700,
+                titlecolor: theme.greyShade700,
+                subtitlecolor: theme.greyShade700,
                 onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: context.watch<AppTheme>().greyShade900,
+                        backgroundColor: theme.greyShade900,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                             AppSize.getSize(20),
@@ -123,7 +123,7 @@ class NotificationsScreen extends StatelessWidget {
                                       .l10n
                                       .popupnotificationsarenolongeravailableinyourversionofAndroid,
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().greyShade400,
+                                    color: theme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),
@@ -139,7 +139,7 @@ class NotificationsScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.learnmore,
                                         style: TextStyle(
-                                          color: context.watch<AppTheme>().greenAccentShade700,
+                                          color: theme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -153,7 +153,7 @@ class NotificationsScreen extends StatelessWidget {
                                       child: Text(
                                         context.l10n.ok,
                                         style: TextStyle(
-                                          color: context.watch<AppTheme>().greenAccentShade700,
+                                          color: theme.greenAccentShade700,
                                           fontSize: AppSize.getSize(16),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -197,7 +197,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 context.l10n.groups,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(15),
                 ),
               ),
@@ -246,7 +246,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 context.l10n.calls,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(15),
                 ),
               ),
@@ -270,7 +270,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 context.l10n.status,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(15),
                 ),
               ),
@@ -309,7 +309,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 context.l10n.homescreennotifications,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(15),
                 ),
               ),
@@ -337,6 +337,7 @@ class NotificationsScreen extends StatelessWidget {
     Function(String) onSelected,
     bool isShow,
   ) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     String tempSelected = selectedValue;
     showDialog(
       context: context,
@@ -344,14 +345,14 @@ class NotificationsScreen extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setStateDialog) {
             return AlertDialog(
-              backgroundColor: context.watch<AppTheme>().greyShade900,
+              backgroundColor: theme.greyShade900,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
               ),
               title: Text(
                 title,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.w600,
                 ),
@@ -379,7 +380,7 @@ class NotificationsScreen extends StatelessWidget {
                           child: Text(
                             "Cancel",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greenAccentShade700,
+                              color: theme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -391,7 +392,7 @@ class NotificationsScreen extends StatelessWidget {
                           child: Text(
                             "Ok",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greenAccentShade700,
+                              color: theme.greenAccentShade700,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -417,7 +418,7 @@ class NotificationsScreen extends StatelessWidget {
     BuildContext context
   ) {
     bool isSelected = selectedValue == text;
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () {
         onSelected(text);
@@ -433,8 +434,8 @@ class NotificationsScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? context.watch<AppTheme>().greenAccentShade700
-                      : context.watch<AppTheme>().greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -445,7 +446,7 @@ class NotificationsScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -455,7 +456,7 @@ class NotificationsScreen extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -477,7 +478,7 @@ class NotificationsScreen extends StatelessWidget {
   VoidCallback? onTap,
 }) {
   final provider = context.watch<SettingProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
   return InkWell(
     onTap: onTap ??
         () {
@@ -524,7 +525,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: titlecolor ?? context.watch<AppTheme>().whiteColor,
+                  color: titlecolor ?? theme.whiteColor,
                   fontSize: AppSize.getSize(17),
                   fontWeight: FontWeight.w600,
                 ),
@@ -532,7 +533,7 @@ class NotificationsScreen extends StatelessWidget {
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: subtitlecolor ?? context.watch<AppTheme>().greyShade400,
+                  color: subtitlecolor ?? theme.greyShade400,
                   fontSize: 15,
                 ),
               ),
@@ -543,9 +544,9 @@ class NotificationsScreen extends StatelessWidget {
         if (showSwitch && index != null)
           Switch(
             value: provider.isOn4[index],
-            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-            activeThumbColor: context.watch<AppTheme>().blackColor,
-            inactiveTrackColor: context.watch<AppTheme>().blackColor,
+            activeTrackColor: theme.greenAccentShade700,
+            activeThumbColor: theme.blackColor,
+            inactiveTrackColor: theme.blackColor,
             onChanged: (val) {
             provider.toggleNotification(index, val);
             },

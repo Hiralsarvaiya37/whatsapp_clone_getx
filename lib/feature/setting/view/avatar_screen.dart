@@ -10,20 +10,21 @@ class AvatarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           context.l10n.avatar,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -35,14 +36,14 @@ class AvatarScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: AppSize.getSize(20)),
-            Icon(Icons.groups, size: AppSize.getSize(80), color: context.watch<AppTheme>().greenAccentShade700),
+            Icon(Icons.groups, size: AppSize.getSize(80), color: theme.greenAccentShade700),
             SizedBox(height: AppSize.getSize(30)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   context.l10n.saymorewithAvatarsnowonWhatsApp,
-                  style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(17)),
+                  style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(17)),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -51,7 +52,7 @@ class AvatarScreen extends StatelessWidget {
             Container(
               height: AppSize.getSize(43),
               decoration: BoxDecoration(
-                color: context.watch<AppTheme>().greenAccentShade700,
+                color: theme.greenAccentShade700,
                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
               ),
               alignment: Alignment.center,
@@ -67,10 +68,10 @@ class AvatarScreen extends StatelessWidget {
                 Text(
                   context.l10n.learnmore,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().blueshade500,
+                    color: theme.blueshade500,
                     fontSize: AppSize.getSize(18),
                     decoration: TextDecoration.underline,
-                    decorationColor: context.watch<AppTheme>().blueshade500
+                    decorationColor: theme.blueshade500
                   ),
                 ),
               ],

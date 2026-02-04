@@ -9,10 +9,11 @@ class StarredScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -20,13 +21,13 @@ class StarredScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Starred",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(22),
             fontWeight: FontWeight.w600,
           ),
@@ -38,7 +39,7 @@ class StarredScreen extends StatelessWidget {
           Icon(
             Icons.star_border_outlined,
             size: AppSize.getSize(70),
-            color: context.watch<AppTheme>().greenAccentShade700,
+            color: theme.greenAccentShade700,
           ),
           SizedBox(height: AppSize.getSize(30)),
           Padding(
@@ -46,7 +47,7 @@ class StarredScreen extends StatelessWidget {
             child: Text(
               "Tap and hold on any message or channel updates to star it, so you can easily find it later.",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(18),
               ),
               textAlign: TextAlign.center,

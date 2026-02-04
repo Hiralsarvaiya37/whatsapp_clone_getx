@@ -11,15 +11,16 @@ class CommunitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             pinned: true,
             expandedHeight: AppSize.getSize(200),
             collapsedHeight: AppSize.getSize(120),
-            backgroundColor: context.watch<AppTheme>().blackColor,
+            backgroundColor: theme.blackColor,
             automaticallyImplyLeading: false,
             toolbarHeight: AppSize.getSize(0),
             flexibleSpace: LayoutBuilder(
@@ -47,7 +48,7 @@ class CommunitiesScreen extends StatelessWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(25),
                               ),
                             ),
@@ -74,7 +75,7 @@ class CommunitiesScreen extends StatelessWidget {
                                         Text(
                                           context.l10n.hSSCGroup,
                                           style: TextStyle(
-                                            color: context.watch<AppTheme>().whiteColor,
+                                            color: theme.whiteColor,
                                             fontSize: AppSize.getSize(18),
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -84,7 +85,7 @@ class CommunitiesScreen extends StatelessWidget {
                                         Text(
                                          context.l10n.requesttojoin,
                                           style: TextStyle(
-                                            color: context.watch<AppTheme>().greyColor,
+                                            color: theme.greyColor,
                                             fontSize: AppSize.getSize(16),
                                           ),
                                         ),
@@ -105,7 +106,7 @@ class CommunitiesScreen extends StatelessWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(25),
                               ),
                             ),
@@ -130,7 +131,7 @@ class CommunitiesScreen extends StatelessWidget {
                                       Text(
                                         "HSSC Group ${2022}",
                                         style: TextStyle(
-                                          color: context.watch<AppTheme>().whiteColor,
+                                          color: theme.whiteColor,
                                           fontSize: AppSize.getSize(18),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -140,7 +141,7 @@ class CommunitiesScreen extends StatelessWidget {
                                       Text(
                                         context.l10n.requesttojoin,
                                         style: TextStyle(
-                                          color: context.watch<AppTheme>().greyColor,
+                                          color: theme.greyColor,
                                           fontSize: AppSize.getSize(16),
                                         ),
                                       ),
@@ -170,7 +171,7 @@ class CommunitiesScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(8), vertical: AppSize.getSize(5)),
                       child: Icon(
                         Icons.campaign,
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         size: AppSize.getSize(30),
                       ),
                     ),
@@ -185,7 +186,7 @@ class CommunitiesScreen extends StatelessWidget {
                             Text(
                               context.l10n.announcements,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -194,7 +195,7 @@ class CommunitiesScreen extends StatelessWidget {
                             Text(
                               context.l10n.yesterday,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greyColor,
+                                color: theme.greyColor,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -204,7 +205,7 @@ class CommunitiesScreen extends StatelessWidget {
                           context.l10n.hh15487851454hbcsdwdwdhbxhsbhsbsh,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: context.watch<AppTheme>().greyColor, fontSize: AppSize.getSize(16)),
+                          style: TextStyle(color: theme.greyColor, fontSize: AppSize.getSize(16)),
                         ),
                       ],
                     ),
@@ -219,7 +220,7 @@ class CommunitiesScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
               child: Text(
                 context.l10n.groupsyoucanjoin,
-                style: TextStyle(color: context.watch<AppTheme>().greyColor, fontSize: AppSize.getSize(17)),
+                style: TextStyle(color: theme.greyColor, fontSize: AppSize.getSize(17)),
               ),
             ),
           ),
@@ -247,7 +248,7 @@ class CommunitiesScreen extends StatelessWidget {
                           Text(
                             context.l10n.hSSCGroup2022,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.w600,
                             ),
@@ -256,7 +257,7 @@ class CommunitiesScreen extends StatelessWidget {
                           ),
                           Text(
                             context.l10n.requesttojoin,
-                            style: TextStyle(color: context.watch<AppTheme>().greyColor, fontSize: AppSize.getSize(16)),
+                            style: TextStyle(color: theme.greyColor, fontSize: AppSize.getSize(16)),
                           ),
                         ],
                       ),
@@ -271,7 +272,7 @@ class CommunitiesScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: context.watch<AppTheme>().blackColor,
+        color: theme.blackColor,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(11)),
           child: Container(
@@ -282,12 +283,12 @@ class CommunitiesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.add, color: context.watch<AppTheme>().blackColor, size: AppSize.getSize(25)),
+                Icon(Icons.add, color: theme.blackColor, size: AppSize.getSize(25)),
                 SizedBox(width: AppSize.getSize(10)),
                 Text(
                  context.l10n.addgroup,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().blackColor,
+                    color: theme.blackColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.w500,
                   ),
@@ -313,13 +314,14 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final progress = (shrinkOffset / (maxExtent - minExtent)).clamp(0.0, 1.0);
 
     final double imageSize = lerpDouble(60, 36, progress)!;
     final double titleFontSize = lerpDouble(22, 18, progress)!;
 
     return Container(
-      color: context.watch<AppTheme>().blackColor,
+      color: theme.blackColor,
       padding: EdgeInsets.only(
         left: 20,
         right: 20,
@@ -347,7 +349,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                 Text(
                   context.l10n.haryanaGovtJobs2025,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: titleFontSize,
                     fontWeight: FontWeight.w600,
                   ),
@@ -358,7 +360,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: Text(
                     context.l10n.community_5groups,
-                    style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(16)),
                   ),
                 ),
               ],

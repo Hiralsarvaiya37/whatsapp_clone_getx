@@ -15,10 +15,11 @@ class StorageAndDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SettingProvider>();
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,13 +27,13 @@ class StorageAndDataScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.storageanddata,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -84,7 +85,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.uselessdataforcalls,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.w600,
                           ),
@@ -94,9 +95,9 @@ class StorageAndDataScreen extends StatelessWidget {
                     ),
                     Switch(
                       value: provider.isOn,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
-                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
+                      activeTrackColor: theme.greenAccentShade700,
+                      inactiveTrackColor: theme.blackColor,
                       onChanged: (val) {
                         provider.isOn = val;
                       },
@@ -150,14 +151,14 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 context.l10n.mediaautodownload,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
               Text(
                 context.l10n.voicemessagesarealwaysautomaticallydownloaded,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),
@@ -195,18 +196,18 @@ class StorageAndDataScreen extends StatelessWidget {
 
   void showDialogItems(BuildContext context, String title) {
     final provider = context.read<SettingProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     showDialog(
       context: context,
       builder: (_) {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: context.watch<AppTheme>().greyShade900,
+              backgroundColor: theme.greyShade900,
               title: Text(
                 title,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(28),
                 ),
               ),
@@ -244,7 +245,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.cancel,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greenAccentShade700,
+                            color: theme.greenAccentShade700,
                             fontWeight: FontWeight.bold,
                             fontSize: AppSize.getSize(16),
                           ),
@@ -258,7 +259,7 @@ class StorageAndDataScreen extends StatelessWidget {
                         child: Text(
                           context.l10n.ok,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greenAccentShade700,
+                            color: theme.greenAccentShade700,
                             fontWeight: FontWeight.bold,
                             fontSize: AppSize.getSize(16),
                           ),
@@ -283,24 +284,24 @@ class StorageAndDataScreen extends StatelessWidget {
     List<String> options,
   ) {
     String selectedValue = options[0];
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     showDialog(
       context: context,
       builder: (_) {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: context.watch<AppTheme>().greyShade900,
+              backgroundColor: theme.greyShade900,
 
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor)),
+                  Text(title, style: TextStyle(color: theme.whiteColor)),
                   SizedBox(height: 10),
                   Text(
                     subtitle,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -331,8 +332,8 @@ class StorageAndDataScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: isSelected
-                                    ? context.watch<AppTheme>().greenAccentShade700
-                                    : context.watch<AppTheme>().greyShade400,
+                                    ? theme.greenAccentShade700
+                                    : theme.greyShade400,
                                 width: AppSize.getSize(2),
                               ),
                             ),
@@ -343,7 +344,7 @@ class StorageAndDataScreen extends StatelessWidget {
                                       width: AppSize.getSize(12),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: context.watch<AppTheme>().greenAccentShade700,
+                                        color: theme.greenAccentShade700,
                                       ),
                                     ),
                                   )
@@ -354,7 +355,7 @@ class StorageAndDataScreen extends StatelessWidget {
                             child: Text(
                               option,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -373,7 +374,7 @@ class StorageAndDataScreen extends StatelessWidget {
                   child: Text(
                     context.l10n.cancel,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greenAccentShade700,
+                      color: theme.greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -386,7 +387,7 @@ class StorageAndDataScreen extends StatelessWidget {
                   child: Text(
                     context.l10n.save,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greenAccentShade700,
+                      color: theme.greenAccentShade700,
                       fontWeight: FontWeight.bold,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -406,6 +407,7 @@ class StorageAndDataScreen extends StatelessWidget {
   Map<String, bool> selectedItems,
   StateSetter setState,
 ) {
+   final theme = Provider.of<AppTheme>(context, listen: false);
   return InkWell(
     onTap: () {
       setState(() {
@@ -416,8 +418,8 @@ class StorageAndDataScreen extends StatelessWidget {
       children: [
         Checkbox(
           value: selectedItems[title] ?? false,
-          checkColor: context.watch<AppTheme>().blackColor,
-          activeColor: context.watch<AppTheme>().greenAccentShade700,
+          checkColor: theme.blackColor,
+          activeColor: theme.greenAccentShade700,
           onChanged: (val) {
             setState(() {
               selectedItems[title] = val ?? false;
@@ -428,7 +430,7 @@ class StorageAndDataScreen extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
               fontSize: AppSize.getSize(16),
               fontWeight: FontWeight.w600,
             ),
@@ -448,13 +450,14 @@ class StorageAndDataScreen extends StatelessWidget {
     IconData? icon,
     VoidCallback? onTap,
   }) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: onTap,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           if (showIcon && icon != null) ...[
-            Icon(icon, size: 30, color: context.watch<AppTheme>().greyShade400),
+            Icon(icon, size: 30, color: theme.greyShade400),
             SizedBox(width: AppSize.getSize(20)),
           ] else
             SizedBox(width: AppSize.getSize(50)),
@@ -464,7 +467,7 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
@@ -472,7 +475,7 @@ class StorageAndDataScreen extends StatelessWidget {
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
               ),

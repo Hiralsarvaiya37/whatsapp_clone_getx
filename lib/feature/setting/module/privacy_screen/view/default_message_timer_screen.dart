@@ -12,19 +12,20 @@ class DefaultMessageTimerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Default message timer",
-          style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(23)),
+          style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(23)),
         ),
       ),
       body: Padding(
@@ -33,7 +34,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
             children: [
               Text(
                 "Start new chats with a disappearing message timer set to",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
           
@@ -52,12 +53,12 @@ class DefaultMessageTimerScreen extends StatelessWidget {
                     TextSpan(
                       text:
                           "When turned on, all new individual chats will start with disappearing messages set to the duration you select. This setting will not affect your existing chats. ",
-                      style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                      style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                     ),
                     TextSpan(
                       text: "Learn more",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().blueshade500,
+                        color: theme.blueshade500,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
@@ -79,7 +80,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
 
   Widget radioTile(String title, BuildContext context) {
      final provider = context.watch<PrivacyViewProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
      bool isSelected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
@@ -96,7 +97,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
               width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isSelected ? context.watch<AppTheme>().greenAccentShade700 : context.watch<AppTheme>().greyColor,
+                  color: isSelected ? theme.greenAccentShade700 : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -107,7 +108,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
                         height: AppSize.getSize(12),
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -115,7 +116,7 @@ class DefaultMessageTimerScreen extends StatelessWidget {
                   : SizedBox(),
             ),
             SizedBox(width: AppSize.getSize(20)),
-            Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18))),
+            Text(title, style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18))),
           ],
         ),
       ),

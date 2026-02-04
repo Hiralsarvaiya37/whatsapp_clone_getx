@@ -23,11 +23,12 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.watch<AppTheme>();
     AppSize.setupData(MediaQuery.of(context));
     final dashboardProvider = context.watch<DashboardProvider>();
 
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       body: Padding(
         padding: EdgeInsets.only(
           top: AppSize.getSize(35),
@@ -42,7 +43,7 @@ class DashboardScreen extends StatelessWidget {
                   child:  Text(
                       dashboardProvider.getAppBarName(dashboardProvider.currentIndex),
                       style: TextStyle(
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(25),
                         fontWeight: FontWeight.w500,
                       ),
@@ -54,18 +55,18 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.qr_code,
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
 
                             SizedBox(width: AppSize.getSize(25)),
                             Icon(
                               Icons.camera_alt_outlined,
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             PopupMenuButton(
-                              color: context.watch<AppTheme>().greyShade900,
+                              color: theme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -74,7 +75,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -98,12 +99,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: context.watch<AppTheme>().greyShade900,
+                              color: theme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -112,7 +113,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -135,12 +136,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: context.watch<AppTheme>().greyShade900,
+                              color: theme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -149,7 +150,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -166,12 +167,12 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.search,
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               size: AppSize.getSize(30),
                             ),
                             SizedBox(width: AppSize.getSize(15)),
                             PopupMenuButton(
-                              color: context.watch<AppTheme>().greyShade900,
+                              color: theme.greyShade900,
                               offset: Offset(0, 45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
@@ -180,7 +181,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                               icon: Icon(
                                 Icons.more_vert,
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 size: AppSize.getSize(30),
                               ),
                               onSelected: (value) {
@@ -220,7 +221,7 @@ class DashboardScreen extends StatelessWidget {
 
       bottomNavigationBar: Container(
         height: AppSize.getSize(70),
-        color: context.watch<AppTheme>().blackColor,
+        color: theme.blackColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
@@ -263,6 +264,7 @@ void showClearCallLogDialog(BuildContext context) {
 
 
   Widget bottomOption(String title, IconData icon, int index, DashboardProvider dashboardProvider, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
    
       final isActive = dashboardProvider.currentIndex == index;
 
@@ -280,19 +282,19 @@ void showClearCallLogDialog(BuildContext context) {
                 horizontal: AppSize.getSize(10),
               ),
               decoration: BoxDecoration(
-                color: isActive ? context.watch<AppTheme>().greenshade900 : context.watch<AppTheme>().blackColor,
+                color: isActive ? theme.greenshade900 : theme.blackColor,
                 borderRadius: BorderRadius.circular(AppSize.getSize(15)),
               ),
               child: Icon(
                 icon,
-                color: isActive ? context.watch<AppTheme>().greyShade400 : context.watch<AppTheme>().whiteColor,
+                color: isActive ? theme.greyShade400 : theme.whiteColor,
                 size: AppSize.getSize(30),
               ),
             ),
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(15),
               ),
             ),
@@ -339,7 +341,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                   height: AppSize.getSize(6),
                   width: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: context.watch<AppTheme>().greyShade400,
+                    color: theme.greyShade400,
                     borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                   ),
                 ),
@@ -347,13 +349,13 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                 Icon(
                   Icons.wifi_tethering_sharp,
                   size: AppSize.getSize(55),
-                  color: context.watch<AppTheme>().greenAccentShade700,
+                  color: theme.greenAccentShade700,
                 ),
                 SizedBox(height: AppSize.getSize(15)),
                 Text(
                   "Create a channel to reach unlimited followers",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: AppSize.getSize(24),
                   ),
@@ -379,19 +381,19 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                 Text.rich(
                   TextSpan(
                     text: "By continuing you agree to the WhatsApp",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade500),
+                    style: TextStyle(color: theme.greyShade500),
                     children: [
                       TextSpan(
                         text: "Channels Terms ",
-                        style: TextStyle(color: context.watch<AppTheme>().blueshade500),
+                        style: TextStyle(color: theme.blueshade500),
                       ),
                       TextSpan(
                         text: "and ",
-                        style: TextStyle(color: context.watch<AppTheme>().greyShade500),
+                        style: TextStyle(color: theme.greyShade500),
                       ),
                       TextSpan(
                         text: "Privacy Policy.Learn more",
-                        style: TextStyle(color: context.watch<AppTheme>().blueshade500),
+                        style: TextStyle(color: theme.blueshade500),
                       ),
                     ],
                   ),
@@ -401,7 +403,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                 Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
@@ -422,6 +424,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
   }
 
   Widget appTitle(IconData iconData, String title, String subtitle, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
       child: Row(
@@ -429,7 +432,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
           Icon(
             iconData,
             size: AppSize.getSize(30),
-            color: context.watch<AppTheme>().greyShade400,
+            color: theme.greyShade400,
           ),
           SizedBox(width: AppSize.getSize(30)),
           Expanded(
@@ -439,7 +442,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                 Text(
                   title,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.bold,
                   ),
@@ -447,7 +450,7 @@ PopupMenuItem popupTile(String title, int value, BuildContext context) {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greyShade500,
+                    color: theme.greyShade500,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),

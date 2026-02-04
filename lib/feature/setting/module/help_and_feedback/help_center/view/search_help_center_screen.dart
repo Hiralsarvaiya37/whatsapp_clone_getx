@@ -9,10 +9,11 @@ class SearchHelpCenterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -20,13 +21,13 @@ class SearchHelpCenterScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Help center",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -36,9 +37,9 @@ class SearchHelpCenterScreen extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
             ),
-            color: context.watch<AppTheme>().greyShade900,
+            color: theme.greyShade900,
             offset: Offset(0, AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -49,7 +50,7 @@ class SearchHelpCenterScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontWeight: FontWeight.w600,
                     fontSize: AppSize.getSize(16),
                   ),
@@ -70,8 +71,8 @@ class SearchHelpCenterScreen extends StatelessWidget {
               child: Container(
                 height: AppSize.getSize(45),
                 decoration: BoxDecoration(
-                  border: Border.all(color: context.watch<AppTheme>().greyShade400, width: 1.5),
-                  color: context.watch<AppTheme>().greyShade900,
+                  border: Border.all(color: theme.greyShade400, width: 1.5),
+                  color: theme.greyShade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                 ),
                 child: Padding(
@@ -81,7 +82,7 @@ class SearchHelpCenterScreen extends StatelessWidget {
                       Icon(
                         Icons.search,
                         size: AppSize.getSize(25),
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Expanded(
@@ -89,17 +90,17 @@ class SearchHelpCenterScreen extends StatelessWidget {
                           onTapOutside: (event) {
                             FocusScope.of(context).unfocus();
                           },
-                          cursorColor: context.watch<AppTheme>().greenAccentShade700,
+                          cursorColor: theme.greenAccentShade700,
                           cursorWidth: AppSize.getSize(3),
                           style: TextStyle(
                             fontSize: AppSize.getSize(16),
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontWeight: FontWeight.w600,
                           ),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: "Search Help Center",
-                            hintStyle: TextStyle(color: context.watch<AppTheme>().greyShade400),
+                            hintStyle: TextStyle(color: theme.greyShade400),
                             isDense: true,
                           ),
                         ),

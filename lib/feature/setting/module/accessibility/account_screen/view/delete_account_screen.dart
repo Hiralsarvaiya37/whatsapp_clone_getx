@@ -13,12 +13,13 @@ class DeleteAccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final accountProvider = context.watch<AccountViewProvider>();
     final country = accountProvider.selectedCountry;
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,13 +27,13 @@ class DeleteAccountScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.deletethisaccount,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -54,7 +55,7 @@ class DeleteAccountScreen extends StatelessWidget {
                   Icon(
                     Icons.warning_amber,
                     size: AppSize.getSize(30),
-                    color: context.watch<AppTheme>().redShade600,
+                    color: theme.redShade600,
                   ),
                   SizedBox(width: AppSize.getSize(20)),
                   Expanded(
@@ -64,7 +65,7 @@ class DeleteAccountScreen extends StatelessWidget {
                         Text(
                           context.l10n.ifyoudeletethisaccount,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().redShade600,
+                            color: theme.redShade600,
                             fontSize: AppSize.getSize(18),
                             fontWeight: FontWeight.bold,
                           ),
@@ -112,7 +113,7 @@ class DeleteAccountScreen extends StatelessWidget {
                   Icon(
                     Icons.system_security_update,
                     size: AppSize.getSize(30),
-                    color: context.watch<AppTheme>().greyShade400,
+                    color: theme.greyShade400,
                   ),
                   SizedBox(width: AppSize.getSize(30)),
                   Column(
@@ -121,7 +122,7 @@ class DeleteAccountScreen extends StatelessWidget {
                       Text(
                         context.l10n.changenumberinsted,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().whiteColor,
+                          color: theme.whiteColor,
                           fontSize: AppSize.getSize(18),
                           fontWeight: FontWeight.w600,
                         ),
@@ -140,7 +141,7 @@ class DeleteAccountScreen extends StatelessWidget {
                           height: AppSize.getSize(42),
                           width: AppSize.getSize(170),
                           decoration: BoxDecoration(
-                            color: context.watch<AppTheme>().greenAccentShade700,
+                            color: theme.greenAccentShade700,
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(25),
                             ),
@@ -171,7 +172,7 @@ class DeleteAccountScreen extends StatelessWidget {
                           .l10n
                           .todeleteyouraccountconfirmyourcountrycodeandenteryourphonenumber,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -179,7 +180,7 @@ class DeleteAccountScreen extends StatelessWidget {
                     Text(
                       context.l10n.country,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(14),
                       ),
                     ),
@@ -190,7 +191,7 @@ class DeleteAccountScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
-                            color: context.watch<AppTheme>().greyColor,
+                            color: theme.greyColor,
                             width: 1,
                           ),
                         ),
@@ -204,12 +205,12 @@ class DeleteAccountScreen extends StatelessWidget {
                                   context: context,
                                   showPhoneCode: false,
                                   countryListTheme: CountryListThemeData(
-                                    backgroundColor: context.watch<AppTheme>().blackColor,
+                                    backgroundColor: theme.blackColor,
                                     searchTextStyle: TextStyle(
                                       color: Colors.white,
                                     ),
                                     textStyle: TextStyle(
-                                      color: context.watch<AppTheme>().whiteColor,
+                                      color: theme.whiteColor,
                                       fontSize: 16,
                                     ),
                                     borderRadius: BorderRadius.only(
@@ -219,20 +220,20 @@ class DeleteAccountScreen extends StatelessWidget {
                                     inputDecoration: InputDecoration(
                                       labelText: 'Search',
                                       labelStyle: TextStyle(
-                                        color: context.watch<AppTheme>().greyShade400,
+                                        color: theme.greyShade400,
                                       ),
                                       prefixIcon: Icon(
                                         Icons.search,
-                                        color: context.watch<AppTheme>().greyShade400,
+                                        color: theme.greyShade400,
                                       ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: context.watch<AppTheme>().greyShade400,
+                                          color: theme.greyShade400,
                                         ),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: context.watch<AppTheme>().greenAccentShade700,
+                                          color: theme.greenAccentShade700,
                                           width: 1.5,
                                         ),
                                       ),
@@ -259,7 +260,7 @@ class DeleteAccountScreen extends StatelessWidget {
                                         accountProvider.selectedCountry?.name ??
                                             context.l10n.india,
                                         style: TextStyle(
-                                          color: context.watch<AppTheme>().whiteColor,
+                                          color: theme.whiteColor,
                                           fontSize: AppSize.getSize(18),
                                         ),
                                       ),
@@ -267,7 +268,7 @@ class DeleteAccountScreen extends StatelessWidget {
                                     Icon(
                                       Icons.arrow_drop_down,
                                       size: AppSize.getSize(25),
-                                      color: context.watch<AppTheme>().greyShade400,
+                                      color: theme.greyShade400,
                                     ),
                                   ],
                                 ),
@@ -287,24 +288,24 @@ class DeleteAccountScreen extends StatelessWidget {
                           child: TextField(
                             readOnly: true,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                             ),
                             decoration: InputDecoration(
                               hintText: country != null
                                   ? "+${country.phoneCode}"
                                   : "+91",
-                              hintStyle: TextStyle(color: context.watch<AppTheme>().whiteColor),
+                              hintStyle: TextStyle(color: theme.whiteColor),
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: context.watch<AppTheme>().greyColor,
+                                  color: theme.greyColor,
                                 ),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: context.watch<AppTheme>().greenAccentShade700,
+                                  color: theme.greenAccentShade700,
                                 ),
                               ),
                             ),
@@ -314,22 +315,22 @@ class DeleteAccountScreen extends StatelessWidget {
                         Expanded(
                           child: TextField(
                             keyboardType: TextInputType.phone,
-                            cursorColor: context.watch<AppTheme>().greenAccentShade700,
-                            style: TextStyle(color: context.watch<AppTheme>().whiteColor),
+                            cursorColor: theme.greenAccentShade700,
+                            style: TextStyle(color: theme.whiteColor),
                             decoration: InputDecoration(
                               hintText: context.l10n.phonenumber,
-                              hintStyle: TextStyle(color: context.watch<AppTheme>().greyColor),
+                              hintStyle: TextStyle(color: theme.greyColor),
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: context.watch<AppTheme>().greyColor,
+                                  color: theme.greyColor,
                                   width: AppSize.getSize(1.3),
                                 ),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: context.watch<AppTheme>().greenAccentShade700,
+                                  color: theme.greenAccentShade700,
                                   width: AppSize.getSize(2),
                                 ),
                               ),
@@ -344,7 +345,7 @@ class DeleteAccountScreen extends StatelessWidget {
                       height: AppSize.getSize(40),
                       width: AppSize.getSize(140),
                       decoration: BoxDecoration(
-                        color: context.watch<AppTheme>().redShade600,
+                        color: theme.redShade600,
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(25),
                         ),
@@ -367,6 +368,7 @@ class DeleteAccountScreen extends StatelessWidget {
   }
 
   Widget appTitle(String title, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Column(
       children: [
         Row(
@@ -375,7 +377,7 @@ class DeleteAccountScreen extends StatelessWidget {
             Text(
               "•",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(22),
                 height: AppSize.getSize(1.1),
               ),
@@ -385,7 +387,7 @@ class DeleteAccountScreen extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                   height: AppSize.getSize(1.3),
                 ),

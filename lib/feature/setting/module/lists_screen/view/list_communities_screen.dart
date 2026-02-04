@@ -9,20 +9,21 @@ class ListCommunitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Communities",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -34,10 +35,10 @@ class ListCommunitiesScreen extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return Dialog(
-                    backgroundColor: context.watch<AppTheme>().greyShade900,
+                    backgroundColor: theme.greyShade900,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: context.watch<AppTheme>().greyShade900,
+                        color: theme.greyShade900,
                         borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                       ),
                       child: Padding(
@@ -52,7 +53,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                             Text(
                               "Delete communities?",
                               style: TextStyle(
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 fontSize: AppSize.getSize(22),
                               ),
                             ),
@@ -60,7 +61,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                             Text(
                               "Deleting this preset list will hide it from view. Your communities and chats with people and groups won't be deleted. To add this list again, go to Lists in Settings.",
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greyShade400,
+                                color: theme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -75,7 +76,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                                   child: Text(
                                     "Cancel",
                                     style: TextStyle(
-                                      color: context.watch<AppTheme>().greenAccentShade700,
+                                      color: theme.greenAccentShade700,
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -89,7 +90,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                                   child: Text(
                                     "Delete",
                                     style: TextStyle(
-                                      color: context.watch<AppTheme>().greenAccentShade700,
+                                      color: theme.greenAccentShade700,
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -105,7 +106,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                 },
               );
             },
-            child: Icon(Icons.delete, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+            child: Icon(Icons.delete, size: AppSize.getSize(25), color: theme.whiteColor),
           ),
           SizedBox(width: AppSize.getSize(15)),
         ],
@@ -118,12 +119,12 @@ class ListCommunitiesScreen extends StatelessWidget {
           children: [
             Text(
               "This list automatically updates for you with all communities.",
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+              style: TextStyle(color: theme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Included",
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(15)),
             Row(
@@ -131,7 +132,7 @@ class ListCommunitiesScreen extends StatelessWidget {
                 SizedBox(width: AppSize.getSize(55)),
                 Text(
                   "Communities",
-                  style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18)),
                 ),
               ],
             ),

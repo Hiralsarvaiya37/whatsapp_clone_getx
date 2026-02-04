@@ -10,26 +10,27 @@ class ChatThemeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           context.l10n.chattheme,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          Icon(Icons.more_vert, size:  AppSize.getSize(25), color: theme.whiteColor),
           SizedBox(width:  AppSize.getSize(15)),
         ],
       ),
@@ -40,7 +41,7 @@ class ChatThemeScreen extends StatelessWidget {
           children: [
             Text(
               context.l10n.themes,
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             SingleChildScrollView(
@@ -50,36 +51,36 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      themeBox(context.watch<AppTheme>().redColor),
+                      themeBox(theme.redColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().greenColor),
+                      themeBox(theme.greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().yellowColor),
+                      themeBox(theme.yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().deeppurpleColor),
+                      themeBox(theme.deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().orangeColor),
+                      themeBox(theme.orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().pinkColor),
+                      themeBox(theme.pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().blueColor),
+                      themeBox(theme.blueColor),
                       SizedBox(width: AppSize.getSize(15)),
                     ],
                   ),
                   SizedBox(height: AppSize.getSize(15)),
                   Row(
                     children: [
-                      themeBox(context.watch<AppTheme>().pinkColor),
+                      themeBox(theme.pinkColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().orangeColor),
+                      themeBox(theme.orangeColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().deeppurpleColor),
+                      themeBox(theme.deeppurpleColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().yellowColor),
+                      themeBox(theme.yellowColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().greenColor),
+                      themeBox(theme.greenColor),
                       SizedBox(width: AppSize.getSize(15)),
-                      themeBox(context.watch<AppTheme>().redColor),
+                      themeBox(theme.redColor),
                     ],
                   ),
                 ],
@@ -89,12 +90,12 @@ class ChatThemeScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             Text(
               context.l10n.thechatcolorandwallpaperwillbothchange,
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+              style: TextStyle(color: theme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               context.l10n.customize,
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Padding(
@@ -103,11 +104,11 @@ class ChatThemeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.chat, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
+                      Icon(Icons.chat, size: AppSize.getSize(30), color: theme.greyShade400),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         context.l10n.chatcolor,
-                        style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),
@@ -117,12 +118,12 @@ class ChatThemeScreen extends StatelessWidget {
                       Icon(
                         Icons.wallpaper,
                         size: AppSize.getSize(30),
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                       ),
                       SizedBox(width: AppSize.getSize(20)),
                       Text(
                         context.l10n.wallpaper,
-                        style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
+                        style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18)),
                       ),
                     ],
                   ),

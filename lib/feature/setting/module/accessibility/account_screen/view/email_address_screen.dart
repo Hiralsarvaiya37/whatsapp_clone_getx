@@ -12,10 +12,11 @@ class EmailAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +24,13 @@ class EmailAddressScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.addyouremail,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -46,7 +47,7 @@ class EmailAddressScreen extends StatelessWidget {
           children: [
             Icon(
               Icons.email,
-              color: context.watch<AppTheme>().greenAccentShade700,
+              color: theme.greenAccentShade700,
               size: AppSize.getSize(80),
             ),
             SizedBox(height: AppSize.getSize(15)),
@@ -57,7 +58,7 @@ class EmailAddressScreen extends StatelessWidget {
                     text:
                         context.l10n.emailhelpsusverifyyouraccountorreachyouincaseofsecurityorsupportissuesyouremailaddressWontbevisibletoothers,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -65,7 +66,7 @@ class EmailAddressScreen extends StatelessWidget {
                   TextSpan(
                     text: context.l10n.learnmore,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greenAccentShade700,
+                      color: theme.greenAccentShade700,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.w600,
                     ),
@@ -85,27 +86,27 @@ class EmailAddressScreen extends StatelessWidget {
               onTapOutside: (event) {
                 FocusScope.of(context).unfocus();
               },
-              cursorColor: context.watch<AppTheme>().greenAccentShade700,
+              cursorColor: theme.greenAccentShade700,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
               decoration: InputDecoration(
                 hintText: context.l10n.enteryouremail,
                 hintStyle: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(18),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     width: AppSize.getSize(2),
                   ),
                   borderRadius: BorderRadius.circular(AppSize.getSize(10)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     width: AppSize.getSize(2),
                   ),
                   borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -116,10 +117,10 @@ class EmailAddressScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: context.watch<AppTheme>().blackColor,
+        color: theme.blackColor,
         child: Container(
           decoration: BoxDecoration(
-            color: context.watch<AppTheme>().greenAccentShade700,
+            color: theme.greenAccentShade700,
             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
           ),
           child: Padding(
@@ -127,7 +128,7 @@ class EmailAddressScreen extends StatelessWidget {
             child: Text(
               context.l10n.next,
               style: TextStyle(
-                color: context.watch<AppTheme>().blackColor,
+                color: theme.blackColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w500,
               ),

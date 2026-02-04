@@ -9,20 +9,21 @@ class ProxyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Proxy",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -36,7 +37,7 @@ class ProxyScreen extends StatelessWidget {
             Text(
               "Use proxy",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -47,12 +48,12 @@ class ProxyScreen extends StatelessWidget {
                   TextSpan(
                     text:
                         "Only use a proxy if you're unable to connect to WhatsApp. Your Ip address may be visible to the proxy provider, which is not WhatsApp. ",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   TextSpan(
                     text: "Learn more",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().blueshade500,
+                      color: theme.blueshade500,
                       fontSize: AppSize.getSize(16),
                       fontWeight: FontWeight.bold,
                     ),
@@ -65,7 +66,7 @@ class ProxyScreen extends StatelessWidget {
             Text(
               "Set-up proxy",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),

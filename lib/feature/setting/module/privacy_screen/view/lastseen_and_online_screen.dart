@@ -10,11 +10,12 @@ class LastseenAndOnlineScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final provider = context.watch<PrivacyViewProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,13 +23,13 @@ class LastseenAndOnlineScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Last seen and online",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
           ),
         ),
@@ -45,7 +46,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "Who can see my last seen",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -73,7 +74,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "Who can see when I'm online",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -91,7 +92,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -108,7 +109,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
     Function(String) onSelect,
   ) {
     bool isSelected = selectedValue == title;
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () => onSelect(title),
       child: Padding(
@@ -126,8 +127,8 @@ class LastseenAndOnlineScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? context.watch<AppTheme>().greenAccentShade700
-                      : context.watch<AppTheme>().greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -138,7 +139,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -149,7 +150,7 @@ class LastseenAndOnlineScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

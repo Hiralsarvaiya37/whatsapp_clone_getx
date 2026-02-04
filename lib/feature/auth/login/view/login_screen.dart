@@ -12,10 +12,11 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<LoginProvider>();
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().whiteColor,
+      backgroundColor: theme.whiteColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().whiteColor,
+        backgroundColor: theme.whiteColor,
         title: Text(context.l10n.phoneAuth),
         centerTitle: true,
       ),

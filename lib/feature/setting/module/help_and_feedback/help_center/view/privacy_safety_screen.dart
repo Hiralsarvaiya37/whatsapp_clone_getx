@@ -13,10 +13,11 @@ class PrivacySafetyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +25,13 @@ class PrivacySafetyScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -39,16 +40,16 @@ class PrivacySafetyScreen extends StatelessWidget {
           Icon(
             Icons.search,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
             icon: Icon(
               Icons.more_vert,
               size: AppSize.getSize(25),
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
             ),
-            color: context.watch<AppTheme>().greyShade900,
+            color: theme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -58,7 +59,7 @@ class PrivacySafetyScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -81,7 +82,7 @@ class PrivacySafetyScreen extends StatelessWidget {
                 Text(
                   "Privacy, Safety, and Security",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().greyShade400,
+                    color: theme.greyShade400,
                     fontSize: AppSize.getSize(16),
                   ),
                 ),
@@ -116,18 +117,19 @@ class PrivacySafetyScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, IconData icon, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       children: [
         Icon(
           icon,
           size: AppSize.getSize(25),
-          color: context.watch<AppTheme>().greenAccentShade700,
+          color: theme.greenAccentShade700,
         ),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

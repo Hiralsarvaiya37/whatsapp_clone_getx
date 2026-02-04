@@ -10,10 +10,11 @@ class AvatarStickersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +22,13 @@ class AvatarStickersScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Avatar stickers",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -45,7 +46,7 @@ class AvatarStickersScreen extends StatelessWidget {
             Text(
               "Who can feature my avatar in their stickers",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -59,7 +60,7 @@ class AvatarStickersScreen extends StatelessWidget {
             Text(
               "If you and a contact allow this for each other, stickers featuring your avatar with their avatar will be available in your chat.",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -71,7 +72,7 @@ class AvatarStickersScreen extends StatelessWidget {
 
   Widget radioTile(String title, BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     bool isselected = provider.selectedOption == title;
     return InkWell(
       onTap: () {
@@ -88,8 +89,8 @@ class AvatarStickersScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isselected
-                      ? context.watch<AppTheme>().greenAccentShade700
-                      : context.watch<AppTheme>().greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
               ),
@@ -100,7 +101,7 @@ class AvatarStickersScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -110,7 +111,7 @@ class AvatarStickersScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

@@ -13,11 +13,12 @@ class SecurityNotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final accountProvider = context.watch<AccountViewProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,13 +26,13 @@ class SecurityNotificationsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.securitynotifications,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -49,7 +50,7 @@ class SecurityNotificationsScreen extends StatelessWidget {
               Center(
                 child: Icon(
                   Icons.lock,
-                  color: context.watch<AppTheme>().greenAccentShade700,
+                  color: theme.greenAccentShade700,
                   size: AppSize.getSize(80),
                 ),
               ),
@@ -64,7 +65,7 @@ class SecurityNotificationsScreen extends StatelessWidget {
                         Text(
                           context.l10n.yourchatsandcallsareprivate,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -75,7 +76,7 @@ class SecurityNotificationsScreen extends StatelessWidget {
                               .endtoendencryptionkeepsyourpersonalmessagedandcallsbetweenyouandthepeopleyouchoosenooneoutsideofthechatnotevenWhatsAppcanreadlistentoorsharethemthisincludesyour,
                           softWrap: true,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color: theme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -91,14 +92,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.message,
-                        color: context.watch<AppTheme>().greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.textandvoicemessages,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -109,14 +110,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.call,
-                        color: context.watch<AppTheme>().greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.audioandvideocalls,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -127,14 +128,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.crop_portrait,
-                        color: context.watch<AppTheme>().greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.photosvideosanddocuments,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -145,14 +146,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.location_on_outlined,
-                        color: context.watch<AppTheme>().greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.locationsharing,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -163,14 +164,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.update_sharp,
-                        color: context.watch<AppTheme>().greenAccentShade700,
+                        color: theme.greenAccentShade700,
                         size: AppSize.getSize(25),
                       ),
                       SizedBox(width: AppSize.getSize(15)),
                       Text(
                         context.l10n.statusupdates,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(17),
                         ),
                       ),
@@ -182,7 +183,7 @@ class SecurityNotificationsScreen extends StatelessWidget {
                       Text(
                         context.l10n.learnmore,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().blueshade500,
+                          color: theme.blueshade500,
                           fontSize: AppSize.getSize(18),
                         ),
                       ),
@@ -201,16 +202,16 @@ class SecurityNotificationsScreen extends StatelessWidget {
                                   .l10n
                                   .showsecuritynotificationsonthisdevice,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 fontSize: AppSize.getSize(18),
                               ),
                             ),
                           ),
                           Switch(
                             value: accountProvider.isNotificationOn,
-                            activeThumbColor: context.watch<AppTheme>().blackColor,
-                            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-                            inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                            activeThumbColor: theme.blackColor,
+                            activeTrackColor: theme.greenAccentShade700,
+                            inactiveTrackColor: theme.blackColor,
                             onChanged: (val) {
                               accountProvider.toggleisNotificationOn();
                             },
@@ -231,14 +232,14 @@ class SecurityNotificationsScreen extends StatelessWidget {
                                     "in an end-to-end encrypted chat. If you have multiple devices, this "
                                     "setting must be enabled on each device where you want to get notifications. ",
                                 style: TextStyle(
-                                  color: context.watch<AppTheme>().greyShade400,
+                                  color: theme.greyShade400,
                                   fontSize: AppSize.getSize(16),
                                 ),
                               ),
                               TextSpan(
                                 text: context.l10n.learnmore,
                                 style: TextStyle(
-                                  color: context.watch<AppTheme>().blueshade500,
+                                  color: theme.blueshade500,
                                   fontSize: AppSize.getSize(16),
                                 ),
                                 recognizer: TapGestureRecognizer()

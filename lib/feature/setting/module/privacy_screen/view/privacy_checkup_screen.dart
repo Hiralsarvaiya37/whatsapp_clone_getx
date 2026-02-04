@@ -13,10 +13,11 @@ class PrivacyCheckupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -24,13 +25,13 @@ class PrivacyCheckupScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Privacy checkup",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -48,13 +49,13 @@ class PrivacyCheckupScreen extends StatelessWidget {
             Icon(
               Icons.privacy_tip_outlined,
               size: AppSize.getSize(70),
-              color: context.watch<AppTheme>().greenAccentShade700,
+              color: theme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(30)),
             Text(
               "Your privacy matters",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(22),
               ),
             ),
@@ -62,7 +63,7 @@ class PrivacyCheckupScreen extends StatelessWidget {
             Text(
               "Control your privacy settings and set up WhatsApp just the way you want it.",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
               textAlign: TextAlign.center,
@@ -125,23 +126,24 @@ class PrivacyCheckupScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, IconData icon, VoidCallback onTap, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: onTap,
       child: Row(
         children: [
-          Icon(icon, size: AppSize.getSize(28), color: context.watch<AppTheme>().greyShade400),
+          Icon(icon, size: AppSize.getSize(28), color: theme.greyShade400),
           SizedBox(width: AppSize.getSize(20)),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),
           ),
           SizedBox(width: AppSize.getSize(47)),
-          Icon(Icons.arrow_forward, size: 28, color: context.watch<AppTheme>().greyShade400),
+          Icon(Icons.arrow_forward, size: 28, color: theme.greyShade400),
         ],
       ),
     );

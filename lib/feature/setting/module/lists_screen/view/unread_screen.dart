@@ -9,20 +9,21 @@ class UnreadScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Unread",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -40,7 +41,7 @@ class UnreadScreen extends StatelessWidget {
                     child: Container(
 
                       decoration: BoxDecoration(
-                        color: context.watch<AppTheme>().greyShade900,
+                        color: theme.greyShade900,
                         borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                       ),
                       child: Padding(
@@ -55,7 +56,7 @@ class UnreadScreen extends StatelessWidget {
                             Text(
                               "Delete Unread?",
                               style: TextStyle(
-                                color: context.watch<AppTheme>().whiteColor,
+                                color: theme.whiteColor,
                                 fontSize: AppSize.getSize(22),
                               ),
                             ),
@@ -63,7 +64,7 @@ class UnreadScreen extends StatelessWidget {
                             Text(
                               "Deleting this preset list will hide it from view. Your chats with people and groups won't be deleted. To add this list again, go to Lists in Settings.",
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greyShade400,
+                                color: theme.greyShade400,
                                 fontSize: AppSize.getSize(16),
                               ),
                             ),
@@ -78,7 +79,7 @@ class UnreadScreen extends StatelessWidget {
                                   child: Text(
                                     "Cancel",
                                     style: TextStyle(
-                                      color: context.watch<AppTheme>().greenAccentShade700,
+                                      color: theme.greenAccentShade700,
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -92,7 +93,7 @@ class UnreadScreen extends StatelessWidget {
                                   child: Text(
                                     "Delete",
                                     style: TextStyle(
-                                      color: context.watch<AppTheme>().greenAccentShade700,
+                                      color: theme.greenAccentShade700,
                                       fontSize: AppSize.getSize(16),
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -109,7 +110,7 @@ class UnreadScreen extends StatelessWidget {
                 },
               );
             },
-            child: Icon(Icons.delete, color: context.watch<AppTheme>().whiteColor, size: AppSize.getSize(25)),
+            child: Icon(Icons.delete, color: theme.whiteColor, size: AppSize.getSize(25)),
           ),
           SizedBox(width: AppSize.getSize(15)),
         ],
@@ -122,13 +123,13 @@ class UnreadScreen extends StatelessWidget {
           children: [
             Text(
               "This list automatically updates for you with all chats with inread messages.",
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: AppSize.getSize(40)),
             Text(
               "Included",
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
             ),
             SizedBox(height: AppSize.getSize(20)),
             Row(
@@ -138,7 +139,7 @@ class UnreadScreen extends StatelessWidget {
                   width: AppSize.getSize(45),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: context.watch<AppTheme>().greyColor,
+                    color: theme.greyColor,
                   ),
                   child: Icon(
                     Icons.add_chart_sharp,
@@ -148,7 +149,7 @@ class UnreadScreen extends StatelessWidget {
                 SizedBox(width: AppSize.getSize(20)),
                 Text(
                   "Unread chats",
-                  style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
+                  style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18)),
                 ),
               ],
             ),

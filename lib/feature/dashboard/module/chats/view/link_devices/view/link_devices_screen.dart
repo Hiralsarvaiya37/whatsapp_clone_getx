@@ -10,10 +10,11 @@ class LinkDevicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +22,13 @@ class LinkDevicesScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Linked devices",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(22),
             fontWeight: FontWeight.w600,
           ),
@@ -44,13 +45,13 @@ class LinkDevicesScreen extends StatelessWidget {
             Icon(
               Icons.laptop_chromebook_outlined,
               size: AppSize.getSize(70),
-              color: context.watch<AppTheme>().greenAccentShade700,
+              color: theme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(20)),
             Text(
               "Use WhatsApp on other devices",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(25),
                 fontWeight: FontWeight.w500,
               ),
@@ -62,14 +63,14 @@ class LinkDevicesScreen extends StatelessWidget {
                 text:
                     "You can link other devices to this account, including Windows, Mac and Web. ",
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(16),
                 ),
                 children: [
                   TextSpan(
                     text: "Learn more",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().blueshade500,
+                      color: theme.blueshade500,
                       fontSize: AppSize.getSize(16),
                     ),
                   ),
@@ -81,7 +82,7 @@ class LinkDevicesScreen extends StatelessWidget {
             Container(
               height: AppSize.getSize(40),
               decoration: BoxDecoration(
-                color: context.watch<AppTheme>().greenAccentShade700,
+                color: theme.greenAccentShade700,
                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
               ),
               alignment: Alignment.center,
@@ -100,21 +101,21 @@ class LinkDevicesScreen extends StatelessWidget {
                 Icon(
                   Icons.lock_outline_rounded,
                   size: AppSize.getSize(20),
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                 ),
                 Expanded(
                   child: Text.rich(
                     TextSpan(
                       text: "Your personal messages are ",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(15),
                       ),
                       children: [
                         TextSpan(
                           text: "end-to-end-encrypted ",
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greenAccentShade700,
+                            color: theme.greenAccentShade700,
                             fontSize: AppSize.getSize(15),
                           ),
                           recognizer: TapGestureRecognizer()
@@ -252,7 +253,7 @@ class LinkDevicesScreen extends StatelessWidget {
                         TextSpan(
                           text: "on all your devices.",
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color: theme.greyShade400,
                             fontSize: AppSize.getSize(15),
                           ),
                         ),
@@ -270,6 +271,7 @@ class LinkDevicesScreen extends StatelessWidget {
   }
 
   Widget appInfo(IconData iconData, String title, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: AppSize.getSize(7)),
       child: Row(
@@ -278,13 +280,13 @@ class LinkDevicesScreen extends StatelessWidget {
           Icon(
             iconData,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().greyShade500,
+            color: theme.greyShade500,
           ),
           SizedBox(width: AppSize.getSize(20)),
           Text(
             title,
             style: TextStyle(
-              color: context.watch<AppTheme>().greyShade500,
+              color: theme.greyShade500,
               fontSize: AppSize.getSize(17),
             ),
           ),

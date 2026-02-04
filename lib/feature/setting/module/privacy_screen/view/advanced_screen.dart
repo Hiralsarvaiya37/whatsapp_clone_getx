@@ -13,20 +13,21 @@ class AdvancedScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Advanced",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -65,7 +66,8 @@ class AdvancedScreen extends StatelessWidget{
   }
 
   Widget appTitle(String title, String subtitle, int index, BuildContext context) {
-     final provider = context.read<PrivacyViewProvider>();
+     final provider = context.watch<PrivacyViewProvider>();
+      final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -73,7 +75,7 @@ class AdvancedScreen extends StatelessWidget{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: 20)),
+              Text(title, style: TextStyle(color: theme.whiteColor, fontSize: 20)),
               SizedBox(height: AppSize.getSize(5)),
               Text.rich(
                 TextSpan(
@@ -81,14 +83,14 @@ class AdvancedScreen extends StatelessWidget{
                     TextSpan(
                       text: subtitle,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
                     TextSpan(
                       text: "Learn more",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().blueshade500,
+                        color: theme.blueshade500,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.bold,
                       ),recognizer: TapGestureRecognizer()
@@ -109,9 +111,9 @@ class AdvancedScreen extends StatelessWidget{
                 : index == 2
                 ? provider.isOn2
                 : provider.isOn3,
-            activeThumbColor: context.watch<AppTheme>().blackColor,
-            activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-            inactiveTrackColor: context.watch<AppTheme>().blackColor,
+            activeThumbColor: theme.blackColor,
+            activeTrackColor: theme.greenAccentShade700,
+            inactiveTrackColor: theme.blackColor,
             onChanged: (val) {
                 if (index == 1) provider.isOn1 = val;
                 if (index == 2) provider.isOn2 = val;

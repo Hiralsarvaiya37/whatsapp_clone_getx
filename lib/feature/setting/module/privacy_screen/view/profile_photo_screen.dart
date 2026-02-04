@@ -10,10 +10,11 @@ class ProfilePhotoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,13 +22,13 @@ class ProfilePhotoScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Profile photo",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -45,7 +46,7 @@ class ProfilePhotoScreen extends StatelessWidget {
             Text(
               "Who can see my profile photo",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(16),
               ),
             ),
@@ -65,6 +66,7 @@ class ProfilePhotoScreen extends StatelessWidget {
 
   Widget radioTile(String title, BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
+     final theme = Provider.of<AppTheme>(context, listen: false);
     bool isSelected = provider.selectedLastSeen == title;
     return InkWell(
       onTap: () {
@@ -80,8 +82,8 @@ class ProfilePhotoScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: isSelected
-                      ? context.watch<AppTheme>().greenAccentShade700
-                      : context.watch<AppTheme>().greyColor,
+                      ? theme.greenAccentShade700
+                      : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -93,7 +95,7 @@ class ProfilePhotoScreen extends StatelessWidget {
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -105,7 +107,7 @@ class ProfilePhotoScreen extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
               ),
             ),

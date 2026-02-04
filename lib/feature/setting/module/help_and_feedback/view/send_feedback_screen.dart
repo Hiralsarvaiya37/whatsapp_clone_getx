@@ -13,23 +13,24 @@ class SendFeedbackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final helpProvider = context.watch<HelpAndFeedbackViewProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Send feedback",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -53,14 +54,14 @@ class SendFeedbackScreen extends StatelessWidget {
                             text:
                                 "For other issues like span or scams, you can get help or contact support from the ",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
                           TextSpan(
                             text: "Help center.",
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade800,
+                              color: theme.greyShade800,
                               fontWeight: FontWeight.bold,
                               fontSize: AppSize.getSize(16),
                             ),
@@ -83,23 +84,23 @@ class SendFeedbackScreen extends StatelessWidget {
                       onTapOutside: (event) {
                         FocusScope.of(context).unfocus();
                       },
-                      cursorColor: context.watch<AppTheme>().greyShade400,
+                      cursorColor: theme.greyShade400,
                       cursorWidth: AppSize.getSize(3),
                       maxLines: 4,
                       enableInteractiveSelection: false,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                         fontSize: AppSize.getSize(16),
                         fontWeight: FontWeight.w600,
                       ),
                       decoration: InputDecoration(
                         labelText: "Describe the technical issue",
                         floatingLabelStyle: TextStyle(
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                           fontSize: AppSize.getSize(18),
                         ),
                         labelStyle: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -107,7 +108,7 @@ class SendFeedbackScreen extends StatelessWidget {
                             AppSize.getSize(10),
                           ),
                           borderSide: BorderSide(
-                            color: context.watch<AppTheme>().greyColor,
+                            color: theme.greyColor,
                             width: AppSize.getSize(2),
                           ),
                         ),
@@ -116,7 +117,7 @@ class SendFeedbackScreen extends StatelessWidget {
                             AppSize.getSize(10),
                           ),
                           borderSide: BorderSide(
-                            color: context.watch<AppTheme>().greyShade800,
+                            color: theme.greyShade800,
                             width: AppSize.getSize(2),
                           ),
                         ),
@@ -133,7 +134,7 @@ class SendFeedbackScreen extends StatelessWidget {
                     Text(
                       "Screenshots or recordings (optional) Tap screenshot to edit or remove sensitive info",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -145,12 +146,12 @@ class SendFeedbackScreen extends StatelessWidget {
                           height: AppSize.getSize(95),
                           width: AppSize.getSize(95),
                           decoration: BoxDecoration(
-                            color: context.watch<AppTheme>().greyShade800,
+                            color: theme.greyShade800,
                           ),
                           child: Icon(
                             Icons.add_photo_alternate_outlined,
                             size: AppSize.getSize(25),
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                           ),
                         ),
                       ],
@@ -167,7 +168,7 @@ class SendFeedbackScreen extends StatelessWidget {
                       Text(
                         "By sending, you allow WhatsApp to review related technical info to help address your feedback.",
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -183,7 +184,7 @@ class SendFeedbackScreen extends StatelessWidget {
                         child: Text(
                           "Learn more",
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color: theme.greyShade400,
                             fontSize: AppSize.getSize(16),
                             fontWeight: FontWeight.bold,
                           ),
@@ -196,16 +197,16 @@ class SendFeedbackScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: helpProvider.hasText
-                          ? context.watch<AppTheme>().greenAccentShade700
-                          : context.watch<AppTheme>().greyShade800,
+                          ? theme.greenAccentShade700
+                          : theme.greyShade800,
                       borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                     ),
                     child: Text(
                       "Send",
                       style: TextStyle(
                         color: helpProvider.hasText
-                            ? context.watch<AppTheme>().blackColor
-                            : context.watch<AppTheme>().greyShade400,
+                            ? theme.blackColor
+                            : theme.greyShade400,
                         fontSize: AppSize.getSize(15),
                       ),
                     ),

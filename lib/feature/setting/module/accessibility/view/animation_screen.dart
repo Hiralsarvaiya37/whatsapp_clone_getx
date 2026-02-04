@@ -11,20 +11,21 @@ class AnimationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           context.l10n.animation,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,7 +38,7 @@ class AnimationScreen extends StatelessWidget {
           children: [
             Text(
               context.l10n.whenturnedonemojistickersorGIFswillmoveautomatically,
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+              style: TextStyle(color: theme.greyShade400, fontSize: 16),
             ),
             SizedBox(height: AppSize.getSize(30)),
             appTile(context.l10n.emoji, Icons.emoji_emotions_outlined, 1, context),
@@ -53,6 +54,7 @@ class AnimationScreen extends StatelessWidget {
 
   Widget appTile(String title, IconData icon, int index, BuildContext context) {
       final animationProvider = context.watch<AccessibilityViewProvider>();
+       final theme = Provider.of<AppTheme>(context, listen: false);
      bool currentValue;
     if (index == 1) {
       currentValue = animationProvider.isOn1;
@@ -76,12 +78,12 @@ class AnimationScreen extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().whiteColor),
+                Icon(icon, size: AppSize.getSize(30), color: theme.whiteColor),
                 SizedBox(width: AppSize.getSize(20)),
                 Text(
                   title,
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(18),
                     fontWeight: FontWeight.w600,
                   ),
@@ -92,9 +94,9 @@ class AnimationScreen extends StatelessWidget {
          
              Switch(
               value: currentValue,
-              activeThumbColor: context.watch<AppTheme>().blackColor,
-              activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-              inactiveTrackColor: context.watch<AppTheme>().blackColor,
+              activeThumbColor: theme.blackColor,
+              activeTrackColor: theme.greenAccentShade700,
+              inactiveTrackColor: theme.blackColor,
               onChanged: (val) {
                   if (index == 1) {
                     animationProvider.isOn1 = val;

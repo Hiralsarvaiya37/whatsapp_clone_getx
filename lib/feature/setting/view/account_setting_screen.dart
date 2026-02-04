@@ -11,11 +11,12 @@ class AccountSettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     final accountProvider = context.watch<AccountViewProvider>();
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -23,13 +24,13 @@ class AccountSettingScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Account",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -56,14 +57,14 @@ class AccountSettingScreen extends StatelessWidget {
                       children: [
                         Icon(
                           AccountOptionsEnum.values[index].iconData,
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           size: AppSize.getSize(30),
                         ),
                         SizedBox(width: AppSize.getSize(20)),
                         Text(
                           AccountOptionsEnum.values[index].labels(context),
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),

@@ -15,30 +15,31 @@ class GetStartedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor:theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color:theme.whiteColor),
         ),
         title: Text(
           "Help Center",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color:theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
-          Icon(Icons.search, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          Icon(Icons.search, size: AppSize.getSize(25), color: theme.whiteColor),
           SizedBox(width: AppSize.getSize(10)),
           PopupMenuButton(
-            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
-            color: context.watch<AppTheme>().greyShade900,
+            icon: Icon(Icons.more_vert, size: AppSize.getSize(25), color:theme.whiteColor),
+            color: theme.greyShade900,
             offset: Offset(0, 45),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
@@ -48,7 +49,7 @@ class GetStartedScreen extends StatelessWidget {
                 child: Text(
                   "Open in browser",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(16),
                     fontWeight: FontWeight.bold,
                   ),
@@ -67,7 +68,7 @@ class GetStartedScreen extends StatelessWidget {
               children: [
                 Text(
                   "Get Started",
-                  style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                  style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
@@ -122,14 +123,15 @@ class GetStartedScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, IconData icon, BuildContext context) {
+      final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       children: [
-        Icon(icon, size: AppSize.getSize(25), color: context.watch<AppTheme>().greenAccentShade700),
+        Icon(icon, size: AppSize.getSize(25), color: theme.greenAccentShade700),
         SizedBox(width: AppSize.getSize(25)),
         Text(
           title,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(18),
             fontWeight: FontWeight.w600,
           ),

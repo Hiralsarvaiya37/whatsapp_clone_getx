@@ -179,7 +179,7 @@ void setNo() {
                     vertical: AppSize.getSize(20),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: context.watch<AppTheme>().greyShade800),
+                    border: Border.all(color: theme.greyShade800),
                     borderRadius: BorderRadius.circular(AppSize.getSize(15)),
                   ),
                   child: Column(
@@ -202,14 +202,14 @@ void setNo() {
                                 Text(
                                   context.l10n.addnewaccount,
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().whiteColor,
+                                    color: theme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                 ),
                                 Text(
                                   "+26587848545",
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().greyShade400,
+                                    color: theme.greyShade400,
                                     fontSize: AppSize.getSize(16),
                                   ),
                                 ),

@@ -10,15 +10,16 @@ class EndToEndScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.greyShade400),
         ),
       ),
       body: Column(
@@ -33,12 +34,12 @@ class EndToEndScreen extends StatelessWidget {
                   Icon(
                     Icons.lock,
                     size: AppSize.getSize(70),
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Text(
                     context.l10n.addanextralayerofprotection,
-                    style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(25)),
+                    style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(25)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSize.getSize(35)),
@@ -67,14 +68,14 @@ class EndToEndScreen extends StatelessWidget {
                 Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     context.l10n.usepasskey,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().blackColor,
+                      color: theme.blackColor,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -84,14 +85,14 @@ class EndToEndScreen extends StatelessWidget {
                  Container(
                   height: AppSize.getSize(40),
                   decoration: BoxDecoration(
-                    border: Border.all(color: context.watch<AppTheme>().greyColor, width: AppSize.getSize(0.5)),
+                    border: Border.all(color: theme.greyColor, width: AppSize.getSize(0.5)),
                     borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     context.l10n.moreoptions,
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greenAccentShade700,
+                      color: theme.greenAccentShade700,
                       fontWeight: FontWeight.w600,
                       fontSize: AppSize.getSize(16),
                     ),
@@ -107,15 +108,16 @@ class EndToEndScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, IconData icon, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(icon, size: AppSize.getSize(30), color: context.watch<AppTheme>().greyShade400),
+        Icon(icon, size: AppSize.getSize(30), color: theme.greyShade400),
         SizedBox(width: AppSize.getSize(30)),
         Expanded(
           child: Text(
             title,
-            style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18)),
+            style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18)),
           ),
         ),
       ],

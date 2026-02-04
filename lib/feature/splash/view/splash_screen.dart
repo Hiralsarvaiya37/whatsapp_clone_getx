@@ -25,9 +25,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -36,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipOval(
-                  child: Image.network(
-                    "https://static.vecteezy.com/system/resources/previews/021/495/965/non_2x/whatsapp-social-media-logo-icon-free-png.png",
+                  child: Image.asset(
+                    "assets/icon/icon2.png",
                     height: AppSize.getSize(100),
                     fit: BoxFit.cover,
                   ),
@@ -47,7 +48,10 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             "From",
-            style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+            style: TextStyle(
+              color: theme.greyShade400,
+              fontSize: 16,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,13 +59,13 @@ class _SplashScreenState extends State<SplashScreen> {
               Icon(
                 Icons.all_inclusive,
                 size: AppSize.getSize(23),
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
               ),
               SizedBox(width: AppSize.getSize(5)),
               Text(
                 "Meta",
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(20),
                   fontWeight: FontWeight.bold,
                 ),

@@ -9,10 +9,11 @@ class ScheduledCallsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -20,13 +21,13 @@ class ScheduledCallsScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           "Scheduled calls",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(22),
             fontWeight: FontWeight.w600,
           ),
@@ -39,13 +40,13 @@ class ScheduledCallsScreen extends StatelessWidget {
             Icon(
               Icons.call_outlined,
               size: AppSize.getSize(60),
-              color: context.watch<AppTheme>().greenAccentShade700,
+              color: theme.greenAccentShade700,
             ),
             SizedBox(height: AppSize.getSize(25)),
             Text(
               "Schedule a call",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(25),
                 fontWeight: FontWeight.bold,
               ),
@@ -54,7 +55,7 @@ class ScheduledCallsScreen extends StatelessWidget {
             Text(
               "Invite people or groups to join a call.",
               style: TextStyle(
-                color: context.watch<AppTheme>().greyShade400,
+                color: theme.greyShade400,
                 fontSize: AppSize.getSize(17),
               ),
               textAlign: TextAlign.center,
@@ -63,11 +64,11 @@ class ScheduledCallsScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: context.watch<AppTheme>().blackColor,
+        color: theme.blackColor,
         height: AppSize.getSize(65),
         child: Container(
           decoration: BoxDecoration(
-            color: context.watch<AppTheme>().greenAccentShade700,
+            color: theme.greenAccentShade700,
             borderRadius: BorderRadius.circular(AppSize.getSize(30)),
           ),
           alignment: Alignment.center,

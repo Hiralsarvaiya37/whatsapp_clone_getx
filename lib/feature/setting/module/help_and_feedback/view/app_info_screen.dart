@@ -9,15 +9,16 @@ class AppInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
       ),
       body: Column(
@@ -31,28 +32,28 @@ class AppInfoScreen extends StatelessWidget {
                   Text(
                     "WhatsApp Messenger",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().whiteColor,
+                      color: theme.whiteColor,
                       fontSize: AppSize.getSize(22),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     "Version 2.52.81.77",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
-                  Icon(Icons.call, size: 50, color: context.watch<AppTheme>().whiteColor),
+                  Icon(Icons.call, size: 50, color: theme.whiteColor),
                   SizedBox(height: AppSize.getSize(25)),
                   Text(
                     "@2011 - 2025 WhatsApp Inc.",
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+                    style: TextStyle(color: theme.greyShade400, fontSize: 16),
                   ),
                   SizedBox(height: AppSize.getSize(25)),
                   Container(
                     height: AppSize.getSize(40),
                     width: AppSize.getSize(120),
                     decoration: BoxDecoration(
-                      color: context.watch<AppTheme>().greenAccentShade700,
+                      color: theme.greenAccentShade700,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     alignment: Alignment.center,

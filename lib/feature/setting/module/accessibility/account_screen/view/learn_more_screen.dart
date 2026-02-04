@@ -15,10 +15,11 @@ class LearnMoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final accountProvider = context.watch<AccountViewProvider>();
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor:theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -26,27 +27,28 @@ class LearnMoreScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
           ),
         ),
         title: Text(
           context.l10n.helparticle,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color:theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
         ),
+           
         actions: [
           PopupMenuButton(
-            color: context.watch<AppTheme>().greyShade900,
+            color: theme.greyShade900,
             offset: Offset(AppSize.getSize(0), AppSize.getSize(45)),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.getSize(10)),
             ),
             icon: Icon(
               Icons.more_vert,
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
               size: AppSize.getSize(25),
             ),
 
@@ -70,7 +72,7 @@ class LearnMoreScreen extends StatelessWidget {
               Text(
                 context.l10n.aboutsecuritycodechangenotifications,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(25),
                 ),
               ),
@@ -92,7 +94,7 @@ class LearnMoreScreen extends StatelessWidget {
                                 ? Icons.pause_circle
                                 : Icons.play_circle,
                             size: AppSize.getSize(50),
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                           ),
                           onPressed: () {
                             accountProvider.playPause();
@@ -102,7 +104,7 @@ class LearnMoreScreen extends StatelessWidget {
                     )
                   : Container(
                       height: AppSize.getSize(200),
-                      color: context.watch<AppTheme>().greyShade900,
+                      color: theme.greyShade900,
                       child: Center(child: CircularProgressIndicator()),
                     ),
 
@@ -112,7 +114,7 @@ class LearnMoreScreen extends StatelessWidget {
                     .l10n
                     .endtoendencryptedchatsbetweenyouandoneotherpersonhavetheirownsecuritycodethiscodeisusedtoverifythatthecallsandthemessagesyousendtothatchatareendtoendencrypted,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -122,7 +124,7 @@ class LearnMoreScreen extends StatelessWidget {
                     .l10n
                     .thesecuritycodecanbefoundinthecontactinfoscreenbothasaQRcodeanda60digitnumberthesecodesareuniquetoeachindividualchattheycanbecomparedbetweenpeopleineachchattoverifythatthemessagesyousendtothechatareendtoendencyptedsecuritycodesarejustvisibleversionsofthespecialkeyssharedbetweenyouDontworryitsnottheactualkeysthemselveswhicharealwayskeptsecret,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -132,7 +134,7 @@ class LearnMoreScreen extends StatelessWidget {
                     .l10n
                     .attimesthesecuritycodesusedinendtoendencryptedchatsbetweenyouandoneotherpersonmightchangeThisislikelybecauseyouoryourcontactreinstalledWhatsAppchangedphonesoraddedorremovedapaireddeviceYoucanalwaysverifythatacontactssecuritycodeislegitimte,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -146,7 +148,7 @@ class LearnMoreScreen extends StatelessWidget {
                           TextSpan(
                             text: context.l10n.learnhowin,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -154,14 +156,14 @@ class LearnMoreScreen extends StatelessWidget {
                           TextSpan(
                             text: context.l10n.thisarticle,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().blueshade500,
+                              color: theme.blueshade500,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
                           TextSpan(
                             text: context.l10n.onendtoendencryption,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(18),
                             ),
                           ),
@@ -176,7 +178,7 @@ class LearnMoreScreen extends StatelessWidget {
               Text(
                 context.l10n.receivenotificationwhensecuritycodeschange,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greenAccentShade700,
+                  color: theme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
@@ -186,7 +188,7 @@ class LearnMoreScreen extends StatelessWidget {
                     .l10n
                     .youcanreceivenotificationswhenyoursecuritycodechangesforacontactsphoneinanendtoendencryptedchattodosoyoullneedtoenablethesettingoneachdevicewhereyouwanttogetnotifications,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greyShade400,
+                  color: theme.greyShade400,
                   fontSize: AppSize.getSize(18),
                 ),
               ),
@@ -194,7 +196,7 @@ class LearnMoreScreen extends StatelessWidget {
               Text(
                 context.l10n.enablesecuritycodenotifications,
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greenAccentShade700,
+                  color: theme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
@@ -204,19 +206,19 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "1. Tap ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
                   Icon(
                     Icons.more_vert_rounded,
                     size: AppSize.getSize(25),
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color: theme.greenAccentShade700,
                   ),
                   Text(
                     "> Settings.",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -229,7 +231,7 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "2. ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -237,7 +239,7 @@ class LearnMoreScreen extends StatelessWidget {
                     child: Text(
                       "Tap Account > Security notifications.",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -251,7 +253,7 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "3. ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -260,7 +262,7 @@ class LearnMoreScreen extends StatelessWidget {
                     child: Text(
                       "Turn on Show security notifications on this device.",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -271,7 +273,7 @@ class LearnMoreScreen extends StatelessWidget {
               Text(
                 "Disable security code notifications",
                 style: TextStyle(
-                  color: context.watch<AppTheme>().greenAccentShade700,
+                  color: theme.greenAccentShade700,
                   fontSize: AppSize.getSize(20),
                 ),
               ),
@@ -281,19 +283,19 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "1. Tap ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
                   Icon(
                     Icons.more_vert_rounded,
                     size: AppSize.getSize(25),
-                    color: context.watch<AppTheme>().greenAccentShade700,
+                    color:theme.greenAccentShade700,
                   ),
                   Text(
                     "> Settings.",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -306,7 +308,7 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "2. ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color:theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -314,7 +316,7 @@ class LearnMoreScreen extends StatelessWidget {
                     child: Text(
                       "Tap Account > Security notifications.",
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color:theme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -328,7 +330,7 @@ class LearnMoreScreen extends StatelessWidget {
                   Text(
                     "3. ",
                     style: TextStyle(
-                      color: context.watch<AppTheme>().greyShade400,
+                      color: theme.greyShade400,
                       fontSize: AppSize.getSize(18),
                     ),
                   ),
@@ -337,7 +339,7 @@ class LearnMoreScreen extends StatelessWidget {
                     child: Text(
                       context.l10n.turnoffShowsecuritynotificationsonthisdevice,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
@@ -352,7 +354,7 @@ class LearnMoreScreen extends StatelessWidget {
                         Text(
                           context.l10n.thanksforlettingusknow,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color: theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -365,7 +367,7 @@ class LearnMoreScreen extends StatelessWidget {
                                 .welluseyourfeedbacktohelpimproveWhatsAppsupport,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color:theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -395,7 +397,7 @@ class LearnMoreScreen extends StatelessWidget {
                             context.l10n.tellusalittlemore,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(18),
                               fontWeight: FontWeight.w600,
                             ),
@@ -449,7 +451,7 @@ class LearnMoreScreen extends StatelessWidget {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: accountProvider.selectedOption == -1
-                                  ? context.watch<AppTheme>().greyShade800
+                                  ? theme.greyShade800
                                   : context
                                         .watch<AppTheme>()
                                         .greenAccentShade700,
@@ -466,8 +468,8 @@ class LearnMoreScreen extends StatelessWidget {
                                 context.l10n.submitfeedback,
                                 style: TextStyle(
                                   color: accountProvider.selectedOption == -1
-                                      ? context.watch<AppTheme>().greyShade400
-                                      : context.watch<AppTheme>().blackColor,
+                                      ? theme.greyShade400
+                                      : theme.blackColor,
                                   fontSize: AppSize.getSize(16),
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -482,7 +484,7 @@ class LearnMoreScreen extends StatelessWidget {
                         Text(
                           context.l10n.doesthisansweryourquestion,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().whiteColor,
+                            color:theme.whiteColor,
                             fontSize: AppSize.getSize(18),
                           ),
                         ),
@@ -493,7 +495,7 @@ class LearnMoreScreen extends StatelessWidget {
                               .yourresponseisanonymoushelpsusimproveourhelpresources,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color:theme.greyShade400,
                             fontSize: AppSize.getSize(15),
                           ),
                         ),
@@ -588,11 +590,12 @@ class LearnMoreScreen extends StatelessWidget {
   }
 
   PopupMenuItem popupTile(String title, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return PopupMenuItem(
       child: Text(
         title,
         style: TextStyle(
-          color: context.watch<AppTheme>().whiteColor,
+          color: theme.whiteColor,
           fontSize: AppSize.getSize(17),
         ),
       ),

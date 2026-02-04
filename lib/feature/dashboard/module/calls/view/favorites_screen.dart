@@ -11,18 +11,17 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Provider se data access
     final callProvider = context.watch<CallProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             size: AppSize.getSize(25),
           ),
         ),
@@ -31,16 +30,16 @@ class FavoritesScreen extends StatelessWidget {
             FocusScope.of(context).unfocus();
           },
           controller: callProvider.searchController,
-          cursorColor: context.watch<AppTheme>().greenAccentShade700,
+          cursorColor: theme.greenAccentShade700,
           cursorWidth: 3,
           onChanged: callProvider.searchContacts,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(18),
           ),
           decoration: InputDecoration(
             hintText: context.l10n.search,
-            hintStyle: TextStyle(color: context.watch<AppTheme>().greyShade400),
+            hintStyle: TextStyle(color: theme.greyShade400),
             border: InputBorder.none,
           ),
         ),
@@ -53,7 +52,7 @@ class FavoritesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            favoritesRow(callProvider),
+            favoritesRow(callProvider, context),
             SizedBox(height: AppSize.getSize(25)),
             sectionWidget(
               context.l10n.frequentlyContacted,
@@ -73,20 +72,20 @@ class FavoritesScreen extends StatelessWidget {
         height: AppSize.getSize(60),
         width: AppSize.getSize(60),
         decoration: BoxDecoration(
-          color: context.watch<AppTheme>().greenAccentShade700,
+          color: theme.greenAccentShade700,
           borderRadius: BorderRadius.circular(AppSize.getSize(15)),
         ),
         child: Icon(
           Icons.check,
-          color: context.watch<AppTheme>().blackColor,
+          color: theme.blackColor,
           size: AppSize.getSize(25),
         ),
       ),
     );
   }
 
-  // Horizontal row of favorites
-  Widget favoritesRow(CallProvider provider) {
+  Widget favoritesRow(CallProvider provider, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     if (provider.favorites.isEmpty) return SizedBox();
 
     return SizedBox(
@@ -108,7 +107,7 @@ class FavoritesScreen extends StatelessWidget {
             Text(
               provider.favorites[index],
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(14),
               ),
             ),
@@ -120,6 +119,7 @@ class FavoritesScreen extends StatelessWidget {
   }
 
   Widget contactTile(String name, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       children: [
         ClipOval(
@@ -134,7 +134,7 @@ class FavoritesScreen extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(18),
           ),
         ),
@@ -142,8 +142,8 @@ class FavoritesScreen extends StatelessWidget {
     );
   }
 
-  // Section widget for frequently contacted or all contacts
   Widget sectionWidget(String title, List<String> list, CallProvider provider,BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     if (list.isEmpty) return SizedBox();
 
     return Column(
@@ -151,7 +151,7 @@ class FavoritesScreen extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+          style: TextStyle(color: theme.greyShade400, fontSize: 16),
         ),
         SizedBox(height: AppSize.getSize(15)),
         ListView.separated(

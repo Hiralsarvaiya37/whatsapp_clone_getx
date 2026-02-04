@@ -9,13 +9,14 @@ class StatusItem {
 
   StatusItem({required this.file, required this.type});
 }
-  
+
 class UpdateviewProvider extends ChangeNotifier {
   bool isArrowDown = true;
   bool isDown = true;
   List<StatusItem> statusList = <StatusItem>[];
 
   void addImage(File file) {
+    if (statusList.length >= 10) return;
     statusList.add(StatusItem(file: file, type: StatusType.image));
     notifyListeners();
   }

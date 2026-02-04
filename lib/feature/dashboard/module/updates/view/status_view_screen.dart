@@ -35,6 +35,12 @@ class _StatusViewScreenState extends State<StatusViewScreen>
       value: provider,
       child: Consumer<StatusViewProvider>(
         builder: (_, p, _) {
+          if (p.shouldClose) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pop(context);
+            });
+          }
+
           return Scaffold(
             backgroundColor: Colors.black,
             body: GestureDetector(
@@ -46,11 +52,18 @@ class _StatusViewScreenState extends State<StatusViewScreen>
                   p.nextStatus(this);
                 }
               },
+              onLongPressStart: (_) => p.pause(),
+              onLongPressEnd: (_) => p.resume(),
+              onVerticalDragUpdate: (d) {
+                if (d.delta.dy > 12) {
+                  p.requestClose();
+                }
+              },
               child: Stack(
                 children: [
                   PageView.builder(
                     controller: p.pageController,
-                    physics: const NeverScrollableScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
                     itemCount: p.statusList.length,
                     itemBuilder: (_, index) {
                       final item = p.statusList[index];
@@ -60,24 +73,32 @@ class _StatusViewScreenState extends State<StatusViewScreen>
                           child: Image.file(item.file, fit: BoxFit.contain),
                         );
                       } else {
-                        if (p.videoController == null ||
+                        if (index != p.currentIndex ||
+                            p.videoController == null ||
                             !p.videoController!.value.isInitialized) {
-                          return const Center(
+                          return Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
                             ),
                           );
                         }
+
                         return Center(
                           child: AspectRatio(
                             aspectRatio: p.videoController!.value.aspectRatio,
-                            child: VideoPlayer(p.videoController!),
+                            child: Stack(
+                              children: [
+                                VideoPlayer(p.videoController!),
+                                Positioned.fill(
+                                  child: Container(color: Colors.transparent),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       }
                     },
                   ),
-
                   Positioned(
                     top: 40,
                     left: 10,
@@ -87,13 +108,11 @@ class _StatusViewScreenState extends State<StatusViewScreen>
                         p.statusList.length,
                         (i) => Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            padding: EdgeInsets.symmetric(horizontal: 2),
                             child: LinearProgressIndicator(
                               value: p.getProgress(i),
                               backgroundColor: Colors.white30,
-                              valueColor: const AlwaysStoppedAnimation(
-                                Colors.white,
-                              ),
+                              valueColor: AlwaysStoppedAnimation(Colors.white),
                             ),
                           ),
                         ),

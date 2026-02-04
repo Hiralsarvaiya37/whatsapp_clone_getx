@@ -9,20 +9,21 @@ class ChannelReportsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Channel reports",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -36,7 +37,7 @@ class ChannelReportsScreen extends StatelessWidget {
             Text(
               "No reports",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(22),
                 fontWeight: FontWeight.bold,
               ),
@@ -44,7 +45,7 @@ class ChannelReportsScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(5)),
             Text(
               "If you report a channel, you can see your report and the outcome here.",
-              style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+              style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               textAlign: TextAlign.center,
             ),
           ],

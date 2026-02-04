@@ -14,11 +14,12 @@ class ChatviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final theme = context.watch<AppTheme>();
     String currentUser = "user1";
     final chatProvider = context.read<ChatProvider>();
 
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       body: Stack(
         children: [
           Padding(
@@ -27,19 +28,19 @@ class ChatviewScreen extends StatelessWidget {
               children: [
                 TextField(
                   onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                  style: TextStyle(color: context.watch<AppTheme>().whiteColor),
-                  cursorColor: context.watch<AppTheme>().greenAccentShade700,
+                  style: TextStyle(color: theme.whiteColor),
+                  cursorColor: theme.greenAccentShade700,
                   decoration: InputDecoration(
                     isDense: true,
                     filled: true,
-                    fillColor: context.watch<AppTheme>().greyShade800,
+                    fillColor: theme.greyShade800,
                     prefixIcon: Icon(
                       Icons.search,
                       size: AppSize.getSize(23),
-                      color: context.watch<AppTheme>().whiteColor,
+                      color: theme.whiteColor,
                     ),
                     hintText: context.l10n.askMetaAIorSearch,
-                    hintStyle: TextStyle(color: context.watch<AppTheme>().whiteColor),
+                    hintStyle: TextStyle(color: theme.whiteColor),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(AppSize.getSize(25)),
                       borderSide: BorderSide.none,
@@ -65,12 +66,12 @@ class ChatviewScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(30),
                             ),
-                            color: context.watch<AppTheme>().greyShade800,
+                            color: theme.greyShade800,
                           ),
                           child: Text(
                             filters[index],
                             style: TextStyle(
-                              color: context.watch<AppTheme>().whiteColor,
+                              color: theme.whiteColor,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -128,7 +129,7 @@ class ChatviewScreen extends StatelessWidget {
                                     Text(
                                       user,
                                       style: TextStyle(
-                                        color: context.watch<AppTheme>().whiteColor,
+                                        color: theme.whiteColor,
                                         fontSize: AppSize.getSize(18),
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -136,7 +137,7 @@ class ChatviewScreen extends StatelessWidget {
                                     Text(
                                       context.l10n.lastmessagepreview,
                                       style: TextStyle(
-                                        color: context.watch<AppTheme>().greyShade400,
+                                        color: theme.greyShade400,
                                       ),
                                       overflow: TextOverflow.ellipsis,
                                     ),
@@ -149,13 +150,13 @@ class ChatviewScreen extends StatelessWidget {
                                   Text(
                                     "11:11",
                                     style: TextStyle(
-                                      color: context.watch<AppTheme>().whiteColor,
+                                      color: theme.whiteColor,
                                     ),
                                   ),
                                   SizedBox(height: AppSize.getSize(5)),
                                   Icon(
                                     Icons.push_pin,
-                                    color: context.watch<AppTheme>().whiteColor,
+                                    color: theme.whiteColor,
                                     size: AppSize.getSize(18),
                                   ),
                                 ],
@@ -175,7 +176,7 @@ class ChatviewScreen extends StatelessWidget {
             right: AppSize.getSize(15),
             child: Container(
               decoration: BoxDecoration(
-                color: context.watch<AppTheme>().greyShade800,
+                color: theme.greyShade800,
                 borderRadius: BorderRadius.circular(AppSize.getSize(15)),
               ),
               child: Padding(
@@ -184,7 +185,7 @@ class ChatviewScreen extends StatelessWidget {
                   Icons.circle_outlined,
                   size: 30,
                   fontWeight: FontWeight.w600,
-                  color: context.watch<AppTheme>().deeppurpleColor,
+                  color: theme.deeppurpleColor,
                 ),
               ),
             ),
@@ -194,7 +195,7 @@ class ChatviewScreen extends StatelessWidget {
             right: AppSize.getSize(6),
             child: Container(
               decoration: BoxDecoration(
-                color: context.watch<AppTheme>().greenAccentShade700,
+                color: theme.greenAccentShade700,
                 borderRadius: BorderRadius.circular(AppSize.getSize(15)),
               ),
               child: Padding(

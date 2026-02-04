@@ -10,20 +10,21 @@ class LinksScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Links",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,7 +38,7 @@ class LinksScreen extends StatelessWidget{
             children: [
               Text(
                 "Who can see links on my profile",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile("Everyone", context),
@@ -56,7 +57,7 @@ class LinksScreen extends StatelessWidget{
 
   Widget radioTile(String title, BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
-  
+   final theme = Provider.of<AppTheme>(context, listen: false);
       bool isSelected = provider.selectedLastSeen == title;
     return InkWell(
       onTap: () {
@@ -73,7 +74,7 @@ class LinksScreen extends StatelessWidget{
               width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isSelected ? context.watch<AppTheme>().greenAccentShade700 : context.watch<AppTheme>().greyColor,
+                  color: isSelected ? theme.greenAccentShade700 : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -85,7 +86,7 @@ class LinksScreen extends StatelessWidget{
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
@@ -94,7 +95,7 @@ class LinksScreen extends StatelessWidget{
         
             SizedBox(width: AppSize.getSize(15)),
         
-            Text(title, style: TextStyle(fontSize: AppSize.getSize(18), color: context.watch<AppTheme>().whiteColor)),
+            Text(title, style: TextStyle(fontSize: AppSize.getSize(18), color: theme.whiteColor)),
           ],
         ),
       ),

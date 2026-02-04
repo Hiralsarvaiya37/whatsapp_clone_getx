@@ -14,20 +14,21 @@ class ListsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           context.l10n.lists,
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -38,14 +39,14 @@ class ListsScreen extends StatelessWidget {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                backgroundColor: context.watch<AppTheme>().greyShade900,
+                backgroundColor: theme.greyShade900,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.getSize(20))),
                 ),
                 builder: (context) {
                   return Container(
                     height: MediaQuery.of(context).size.height * AppSize.getSize(0.97),
-                    color: context.watch<AppTheme>().greyShade900,
+                    color: theme.greyShade900,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: AppSize.getSize(20),
@@ -59,7 +60,7 @@ class ListsScreen extends StatelessWidget {
                               height: AppSize.getSize(6),
                               width: AppSize.getSize(45),
                               decoration: BoxDecoration(
-                                color: context.watch<AppTheme>().greyColor,
+                                color:theme.greyColor,
                                 borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                               ),
                             ),
@@ -75,13 +76,13 @@ class ListsScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.clear,
                                   size: AppSize.getSize(25),
-                                  color: context.watch<AppTheme>().whiteColor,
+                                  color:theme.whiteColor,
                                 ),
                               ),
                               Text(
                                 context.l10n.editLists,
                                 style: TextStyle(
-                                  color: context.watch<AppTheme>().whiteColor,
+                                  color: theme.whiteColor,
                                   fontSize: AppSize.getSize(22),
                                 ),
                               ),
@@ -92,7 +93,7 @@ class ListsScreen extends StatelessWidget {
                                 child: Icon(
                                   Icons.done,
                                   size: AppSize.getSize(25),
-                                  color: context.watch<AppTheme>().whiteColor,
+                                  color:theme.whiteColor,
                                 ),
                               ),
                             ],
@@ -102,7 +103,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             context.l10n.youcaneditlistsandfiltershereorreorderhowtheyappearontheChatstab,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color:theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -111,7 +112,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             context.l10n.yourlists,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color:theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -122,7 +123,7 @@ class ListsScreen extends StatelessWidget {
                                 child: Text(
                                   context.l10n.favorites,
                                   style: TextStyle(
-                                    color: context.watch<AppTheme>().whiteColor,
+                                    color: theme.whiteColor,
                                     fontSize: AppSize.getSize(18),
                                   ),
                                 ),
@@ -130,7 +131,7 @@ class ListsScreen extends StatelessWidget {
                               Icon(
                                 Icons.drag_handle,
                                 size: AppSize.getSize(25),
-                                color: context.watch<AppTheme>().greyShade400,
+                                color:theme.greyShade400,
                               ),
                             ],
                           ),
@@ -144,7 +145,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             context.l10n.availablepresets,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color: theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                           ),
@@ -152,7 +153,7 @@ class ListsScreen extends StatelessWidget {
                           Text(
                             context.l10n.ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere,
                             style: TextStyle(
-                              color: context.watch<AppTheme>().greyShade400,
+                              color:theme.greyShade400,
                               fontSize: AppSize.getSize(16),
                             ),
                             textAlign: TextAlign.center,
@@ -164,7 +165,7 @@ class ListsScreen extends StatelessWidget {
                 },
               );
             },
-            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: context.watch<AppTheme>().whiteColor),
+            child: Icon(Icons.edit_outlined, size: AppSize.getSize(30), color: theme.whiteColor),
           ),
           SizedBox(width: AppSize.getSize(15)),
         ],
@@ -177,7 +178,7 @@ class ListsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: AppSize.getSize(20)),
-              Icon(Icons.add, size: AppSize.getSize(70), color: context.watch<AppTheme>().greenAccentShade700),
+              Icon(Icons.add, size: AppSize.getSize(70), color: theme.greenAccentShade700),
               SizedBox(height: AppSize.getSize(30)),
               Text(
                 context.l10n.anylistcreatebecomesafilteratthetopofyourChatstab,
@@ -190,14 +191,14 @@ class ListsScreen extends StatelessWidget {
                 height: AppSize.getSize(45),
                 width: AppSize.getSize(300),
                 decoration: BoxDecoration(
-                  color: context.watch<AppTheme>().greenshade900,
+                  color:theme.greenshade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(30)),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   "+  Create a custom list",
                   style: TextStyle(
-                    color: context.watch<AppTheme>().whiteColor,
+                    color: theme.whiteColor,
                     fontSize: AppSize.getSize(18),
                   ),
                 ),
@@ -208,7 +209,7 @@ class ListsScreen extends StatelessWidget {
                 children: [
                   Text(
                     context.l10n.yourlists,
-                    style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
                   ),
                 ],
               ),
@@ -239,7 +240,7 @@ class ListsScreen extends StatelessWidget {
                         Text(
                           context.l10n.availablepresets,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color: theme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                         ),
@@ -247,7 +248,7 @@ class ListsScreen extends StatelessWidget {
                         Text(
                           context.l10n.ifyouremoveapresetlistlikeUnreadorGroupsitwillbecomeavailablehere,
                           style: TextStyle(
-                            color: context.watch<AppTheme>().greyShade400,
+                            color:theme.greyShade400,
                             fontSize: AppSize.getSize(16),
                           ),
                           textAlign: TextAlign.center,
@@ -265,6 +266,7 @@ class ListsScreen extends StatelessWidget {
   }
 
   Widget appInfo(String title, String subtitle, VoidCallback onTap, BuildContext context) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: onTap,
       child: Row(
@@ -273,10 +275,10 @@ class ListsScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18))),
+              Text(title, style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18))),
               Text(
                 subtitle,
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
@@ -286,24 +288,25 @@ class ListsScreen extends StatelessWidget {
   }
 
   Widget appTitle(BuildContext context, String title, String subtitle) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return Row(
       children: [
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18))),
+              Text(title, style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18))),
               SizedBox(height: AppSize.getSize(5)),
               Text(
                 subtitle,
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
         ),
         openDeleteDialog(context, "Delete $title?", getDeleteMessage(title)),
         SizedBox(width: AppSize.getSize(20)),
-        Icon(Icons.drag_handle, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
+        Icon(Icons.drag_handle, size: AppSize.getSize(25), color: theme.greyShade400),
       ],
     );
   }
@@ -325,19 +328,20 @@ class ListsScreen extends StatelessWidget {
   }
 
   Widget openDeleteDialog(BuildContext context, String title, String messsage) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return InkWell(
       onTap: () {
         showDialog(
           context: context,
           builder: (context) {
             return Dialog(
-              backgroundColor: context.watch<AppTheme>().greyShade900,
+              backgroundColor: theme.greyShade900,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.getSize(20)),
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  color: context.watch<AppTheme>().greyShade900,
+                  color: theme.greyShade900,
                   borderRadius: BorderRadius.circular(AppSize.getSize(20)),
                 ),
                 child: Padding(
@@ -348,13 +352,13 @@ class ListsScreen extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(22)),
+                        style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(22)),
                       ),
                       SizedBox(height: AppSize.getSize(20)),
                       Text(
                         messsage,
                         style: TextStyle(
-                          color: context.watch<AppTheme>().greyShade400,
+                          color: theme.greyShade400,
                           fontSize: AppSize.getSize(16),
                         ),
                       ),
@@ -369,7 +373,7 @@ class ListsScreen extends StatelessWidget {
                             child: Text(
                               context.l10n.cancel,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greenAccentShade700,
+                                color:theme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -383,7 +387,7 @@ class ListsScreen extends StatelessWidget {
                             child: Text(
                               context.l10n.delete,
                               style: TextStyle(
-                                color: context.watch<AppTheme>().greenAccentShade700,
+                                color: theme.greenAccentShade700,
                                 fontSize: AppSize.getSize(16),
                                 fontWeight: FontWeight.w600,
                               ),
@@ -399,7 +403,7 @@ class ListsScreen extends StatelessWidget {
           },
         );
       },
-      child: Icon(Icons.delete, size: AppSize.getSize(25), color: context.watch<AppTheme>().greyShade400),
+      child: Icon(Icons.delete, size: AppSize.getSize(25), color: theme.greyShade400),
     );
   }
 }

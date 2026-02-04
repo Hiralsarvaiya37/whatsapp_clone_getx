@@ -13,20 +13,21 @@ class PrivacyContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<PrivacyViewProvider>();
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Contacts",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -40,11 +41,11 @@ class PrivacyContactsScreen extends StatelessWidget {
             children: [
               Text(
                 "Blocked contacts",
-                style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(19)),
+                style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(19)),
               ),
               Text(
                 "0",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(19)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(19)),
               ),
               SizedBox(height: AppSize.getSize(30)),
               Row(
@@ -56,7 +57,7 @@ class PrivacyContactsScreen extends StatelessWidget {
                       children: [
                         Text(
                           "WhatsApp contacts",
-                          style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(19)),
+                          style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(19)),
                         ),
                         SizedBox(height: AppSize.getSize(19)),
                         Text.rich(
@@ -66,14 +67,14 @@ class PrivacyContactsScreen extends StatelessWidget {
                                 text:
                                     "Contacts are saved to your WhatsApp account to manage them across devices. ",
                                 style: TextStyle(
-                                  color: context.watch<AppTheme>().greyShade400,
+                                  color: theme.greyShade400,
                                   fontSize: AppSize.getSize(17),
                                 ),
                               ),
                               TextSpan(
                                 text: "Learn more",
                                 style: TextStyle(
-                                  color: context.watch<AppTheme>().blueshade500,
+                                  color: theme.blueshade500,
                                   fontSize: AppSize.getSize(17),
                                   fontWeight: FontWeight.w600,
                                 ),recognizer: TapGestureRecognizer()
@@ -89,9 +90,9 @@ class PrivacyContactsScreen extends StatelessWidget {
                   ),
                   Switch(
                       value: provider.isOn,
-                      activeThumbColor: context.watch<AppTheme>().blackColor,
-                      activeTrackColor: context.watch<AppTheme>().greenAccentShade700,
-                      inactiveTrackColor: context.watch<AppTheme>().blackColor,
+                      activeThumbColor: theme.blackColor,
+                      activeTrackColor: theme.greenAccentShade700,
+                      inactiveTrackColor: theme.blackColor,
                       onChanged: (val) {
                           provider.isOn = val;
                       },

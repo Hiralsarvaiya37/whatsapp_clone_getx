@@ -11,20 +11,21 @@ const  GroupsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: context.watch<AppTheme>().whiteColor),
+          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         title: Text(
           "Groups",
           style: TextStyle(
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             fontSize: AppSize.getSize(23),
             fontWeight: FontWeight.w600,
           ),
@@ -37,7 +38,7 @@ const  GroupsScreen({super.key});
             children: [
               Text(
                 "Who can add me to groups",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(20)),
               radioTile("Everyone", context),
@@ -49,12 +50,12 @@ const  GroupsScreen({super.key});
 
               Text(
                 "Admins who can't add you to a group will have the option of inviting you privately instead.",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
               SizedBox(height: AppSize.getSize(25)),
               Text(
                 "This setting does not apply to community announcement groups. if you're added to a community, you'll always be added to a community announcement group.",
-                style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(color: theme.greyShade400, fontSize: AppSize.getSize(16)),
               ),
             ],
           ),
@@ -65,7 +66,7 @@ const  GroupsScreen({super.key});
 
   Widget radioTile(String title, BuildContext context){
      final provider = context.watch<PrivacyViewProvider>();
-  
+   final theme = Provider.of<AppTheme>(context, listen: false);
      bool isSelect = provider.selectedLastSeen == title;
     return InkWell(
       onTap: () {
@@ -80,7 +81,7 @@ const  GroupsScreen({super.key});
               width: AppSize.getSize(22),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isSelect ? context.watch<AppTheme>().greenAccentShade700 : context.watch<AppTheme>().greyColor,
+                  color: isSelect ? theme.greenAccentShade700 : theme.greyColor,
                   width: AppSize.getSize(2),
                 ),
                 shape: BoxShape.circle,
@@ -92,14 +93,14 @@ const  GroupsScreen({super.key});
                         width: AppSize.getSize(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: context.watch<AppTheme>().greenAccentShade700,
+                          color: theme.greenAccentShade700,
                         ),
                       ),
                     )
                   : SizedBox(),
             ),
             SizedBox(width: AppSize.getSize(15)),
-            Text(title, style: TextStyle(color: context.watch<AppTheme>().whiteColor, fontSize: AppSize.getSize(18))),
+            Text(title, style: TextStyle(color: theme.whiteColor, fontSize: AppSize.getSize(18))),
           ],
         ),
       ),

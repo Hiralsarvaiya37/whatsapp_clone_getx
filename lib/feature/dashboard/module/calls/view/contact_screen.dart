@@ -12,15 +12,15 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final callProvider = context.watch<CallProvider>();
-
+ final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
-      backgroundColor: context.watch<AppTheme>().blackColor,
+      backgroundColor: theme.blackColor,
       appBar: AppBar(
-        backgroundColor: context.watch<AppTheme>().blackColor,
+        backgroundColor: theme.blackColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             size: AppSize.getSize(25),
           ),
           onPressed: () => Navigator.pop(context),
@@ -30,12 +30,12 @@ class ContactScreen extends StatelessWidget {
             FocusScope.of(context).unfocus();
           },
           controller: callProvider.searchController,
-          cursorColor: context.watch<AppTheme>().greenAccentShade700,
+          cursorColor: theme.greenAccentShade700,
           cursorWidth: 3,
-          style: TextStyle(color: context.watch<AppTheme>().whiteColor),
+          style: TextStyle(color: theme.whiteColor),
           decoration: InputDecoration(
             hintText: context.l10n.search,
-            hintStyle: TextStyle(color: context.watch<AppTheme>().greyShade400),
+            hintStyle: TextStyle(color: theme.greyShade400),
             border: InputBorder.none,
           ),
           onChanged: (value) {
@@ -45,7 +45,7 @@ class ContactScreen extends StatelessWidget {
         actions: [
           Icon(
             Icons.search,
-            color: context.watch<AppTheme>().whiteColor,
+            color: theme.whiteColor,
             size: AppSize.getSize(25),
           ),
           SizedBox(width: AppSize.getSize(15)),
@@ -64,7 +64,7 @@ class ContactScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: context.watch<AppTheme>().greyColor,
+                      color: theme.greyColor,
                       width: AppSize.getSize(0.7),
                     ),
                   ),
@@ -75,7 +75,7 @@ class ContactScreen extends StatelessWidget {
                     Text(
                       context.l10n.addupto31people,
                       style: TextStyle(
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                         fontSize: AppSize.getSize(16),
                       ),
                     ),
@@ -115,6 +115,7 @@ class ContactScreen extends StatelessWidget {
   }
 
   Widget menuTiles(BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Column(
       children: [
         Row(
@@ -124,7 +125,7 @@ class ContactScreen extends StatelessWidget {
             Text(
               "New call link",
               style: TextStyle(
-                color: context.watch<AppTheme>().whiteColor,
+                color: theme.whiteColor,
                 fontSize: AppSize.getSize(18),
                 fontWeight: FontWeight.w600,
               ),
@@ -140,7 +141,7 @@ class ContactScreen extends StatelessWidget {
               child: Text(
                 "New contact",
                 style: TextStyle(
-                  color: context.watch<AppTheme>().whiteColor,
+                  color: theme.whiteColor,
                   fontSize: AppSize.getSize(18),
                   fontWeight: FontWeight.w600,
                 ),
@@ -149,7 +150,7 @@ class ContactScreen extends StatelessWidget {
             Icon(
               Icons.qr_code,
               size: AppSize.getSize(30),
-              color: context.watch<AppTheme>().whiteColor,
+              color: theme.whiteColor,
             ),
             SizedBox(width: AppSize.getSize(25)),
           ],
@@ -162,12 +163,13 @@ class ContactScreen extends StatelessWidget {
     required String title,
     required List<Map<String, String>> list,
   }) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: TextStyle(color: context.watch<AppTheme>().greyShade400, fontSize: 16),
+          style: TextStyle(color: theme.greyShade400, fontSize: 16),
         ),
         SizedBox(height: AppSize.getSize(15)),
         ListView.separated(
@@ -194,14 +196,14 @@ class ContactScreen extends StatelessWidget {
                       c["name"]!,
                       style: TextStyle(
                         fontSize: 18,
-                        color: context.watch<AppTheme>().whiteColor,
+                        color: theme.whiteColor,
                       ),
                     ),
                     Text(
                       c["status"]!,
                       style: TextStyle(
                         fontSize: AppSize.getSize(16),
-                        color: context.watch<AppTheme>().greyShade400,
+                        color: theme.greyShade400,
                       ),
                     ),
                   ],
@@ -217,14 +219,15 @@ class ContactScreen extends StatelessWidget {
   }
 
   Widget iconCircle(IconData icon, BuildContext context) {
+     final theme = Provider.of<AppTheme>(context, listen: false);
     return Container(
       height: AppSize.getSize(50),
       width: AppSize.getSize(50),
       decoration: BoxDecoration(
-        color: context.watch<AppTheme>().greenAccentShade700,
+        color: theme.greenAccentShade700,
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Icon(icon, size: AppSize.getSize(25), color: context.watch<AppTheme>().blackColor),
+      child: Icon(icon, size: AppSize.getSize(25), color: theme.blackColor),
     );
   }
 }
