@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -49,7 +51,7 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settingProvider = context.watch<SettingProvider>();
-     final theme = Provider.of<AppTheme>(context, listen: false);
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return Scaffold(
       backgroundColor: theme.blackColor,
       appBar: AppBar(
@@ -96,21 +98,48 @@ class SettingScreen extends StatelessWidget {
                   Stack(
                     children: [
                       ClipOval(
-                        child: settingProvider.profilePicFile != null
-                            ? Image.file(
-                                File(settingProvider.profilePicFile!),
+                        child:
+                            settingProvider
+                                .isProfilePicLoading // ← naya variable add karna padega
+                            ? SizedBox(
                                 height: 55,
                                 width: 55,
-                                fit: BoxFit.cover,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.5,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    theme.greenAccentShade700,
+                                  ),
+                                ),
+                              )
+                            : settingProvider.profilePicFile != null
+                            ? ClipOval(
+                                child: Image.file(
+                                  File(settingProvider.profilePicFile!),
+                                  height: 55,
+                                  width: 55,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stack) =>
+                                      defaultAvatar(context),
+                                ),
                               )
                             : settingProvider.profilePicUrl.isNotEmpty
-                            ? Image.network(
-                                settingProvider.profilePicUrl,
-                                height: 55,
-                                width: 55,
-                                fit: BoxFit.cover,
+                            ? ClipOval(
+                                child: Image.network(
+                                  settingProvider.profilePicUrl,
+                                  height: 55,
+                                  width: 55,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                        return loadingProgress == null
+                                            ? child
+                                            : defaultAvatar(context);
+                                      },
+                                  errorBuilder: (context, error, stack) =>
+                                      defaultAvatar(context),
+                                ),
                               )
-                            : CircularProgressIndicator(),
+                            : defaultAvatar(context),
                       ),
 
                       Positioned(
@@ -161,9 +190,7 @@ class SettingScreen extends StatelessWidget {
                             vertical: AppSize.getSize(2),
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(
-                              color: theme.greyShade400,
-                            ),
+                            border: Border.all(color: theme.greyShade400),
                             borderRadius: BorderRadius.circular(
                               AppSize.getSize(20),
                             ),
@@ -451,7 +478,7 @@ class SettingScreen extends StatelessWidget {
   }
 
   Widget appIcon(String label, IconData icon, BuildContext context) {
-     final theme = Provider.of<AppTheme>(context, listen: false);
+    final theme = Provider.of<AppTheme>(context, listen: false);
     return Column(
       children: [
         Container(
@@ -461,11 +488,7 @@ class SettingScreen extends StatelessWidget {
             color: theme.greyShade900,
             borderRadius: BorderRadius.circular(AppSize.getSize(50)),
           ),
-          child: Icon(
-            icon,
-            size: AppSize.getSize(25),
-            color: theme.whiteColor,
-          ),
+          child: Icon(icon, size: AppSize.getSize(25), color: theme.whiteColor),
         ),
         SizedBox(height: AppSize.getSize(7)),
         Text(
@@ -781,6 +804,23 @@ class SettingScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget defaultAvatar(BuildContext context) {
+    final theme = Provider.of<AppTheme>(context, listen: false);
+    return Container(
+      height: 55,
+      width: 55,
+      decoration: BoxDecoration(
+        color: theme.greyShade800,
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.person,
+        size: 38,
+        color: theme.whiteColor.withOpacity(0.7),
       ),
     );
   }

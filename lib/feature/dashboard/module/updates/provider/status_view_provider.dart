@@ -1,169 +1,139 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:video_player/video_player.dart';
-import 'updateview_provider.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart'; // StatusItem, StatusType
 
 class StatusViewProvider extends ChangeNotifier {
   final List<StatusItem> statusList;
-  StatusViewProvider(this.statusList);
+  late final PageController pageController;
 
-  late PageController pageController;
-  AnimationController? progressController;
   VideoPlayerController? videoController;
+  AnimationController? progressController;
+  VoidCallback? onAllStoriesCompleted;
 
   int currentIndex = 0;
+  bool isPaused = false;
+  bool isReady = false;
 
-  // UI layer will handle navigation
-  bool shouldClose = false;
-  void requestClose() {
-    shouldClose = true;
+  StatusViewProvider(this.statusList) {
+    pageController = PageController(initialPage: 0);
+  }
+
+  Future<void> initialize(TickerProvider vsync) async {
+    if (isReady) return;
+    await _loadStatus(0, vsync);
+    isReady = true;
+    notifyListeners();
+  }
+  void setOnCompletedCallback(VoidCallback callback) {
+    onAllStoriesCompleted = callback;
+  }
+
+  double getProgressValue(int index) {
+    if (index < currentIndex) return 1.0;
+    if (index > currentIndex) return 0.0;
+    return progressController?.value ?? 0.0;
+  }
+
+  void pause() {
+    if (isPaused) return;
+    isPaused = true;
+    progressController?.stop();
+    videoController?.pause();
     notifyListeners();
   }
 
-  void init(TickerProvider vsync) {
-    pageController = PageController();
-    loadStatus(0, vsync);
-  }
-
-  /// Pause the current status
-  void pause() {
-    if (progressController != null && progressController!.isAnimating) {
-      progressController!.stop();
-    }
-
-    if (videoController != null &&
-        videoController!.value.isInitialized &&
-        videoController!.value.isPlaying) {
-      videoController!.pause();
-    }
-  }
-
-  /// Resume the current status
   void resume() {
-    if (progressController != null && !progressController!.isAnimating) {
-      progressController!.forward();
-    }
-
-    if (videoController != null &&
-        videoController!.value.isInitialized &&
-        !videoController!.value.isPlaying) {
-      videoController!.play();
-    }
+    if (!isPaused) return;
+    isPaused = false;
+    progressController?.forward();
+    videoController?.play();
+    notifyListeners();
   }
 
-  /// Get progress of a status for UI
-  double getProgress(int index) {
-    if (index < currentIndex) return 1;
-    if (index > currentIndex) return 0;
-    return progressController?.value ?? 0;
-  }
-
-  /// Load a specific status
-  Future<void> loadStatus(int index, TickerProvider vsync) async {
-    // Dispose previous controllers
-    await _disposeCurrentControllers();
+  Future<void> _loadStatus(int index, TickerProvider vsync) async {
+    progressController?.removeListener(notifyListeners);
+    progressController?.dispose();
+    await videoController?.dispose();
+    videoController = null;
 
     currentIndex = index;
+    isPaused = false;
     notifyListeners();
 
     final item = statusList[index];
 
     if (item.type == StatusType.image) {
-      _loadImageStatus(item, vsync);
+      progressController =
+          AnimationController(
+              vsync: vsync,
+              duration: const Duration(seconds: 5),
+            )
+            ..addListener(notifyListeners)
+            ..addStatusListener((status) {
+              if (status == AnimationStatus.completed) {
+                nextStatus();
+              }
+            })
+            ..forward();
     } else {
-      await _loadVideoStatus(item, vsync);
+      final vc = VideoPlayerController.file(item.file);
+      await vc.initialize();
+      final duration = vc.value.duration;
+
+      videoController = vc;
+
+      progressController = AnimationController(vsync: vsync, duration: duration)
+        ..addListener(notifyListeners)
+        ..addStatusListener((status) {
+          if (status == AnimationStatus.completed) {
+            nextStatus();
+          }
+        });
+
+      if (!isPaused) {
+        vc.play();
+        progressController!.forward();
+      }
     }
   }
 
-  /// Load an image status
-  void _loadImageStatus(StatusItem item, TickerProvider vsync) {
-    progressController = AnimationController(
-      vsync: vsync,
-      duration: const Duration(seconds: 5),
-    );
-
-    progressController!.addListener(() => notifyListeners());
-    progressController!.addStatusListener((status) {
-      if (status == AnimationStatus.completed) nextStatus(vsync);
-    });
-
-    progressController!.forward();
+  void onPageChanged(int index) {
+    _loadStatus(index, TickerProviderImpl(this)); 
   }
 
-  /// Load a video status
-  Future<void> _loadVideoStatus(StatusItem item, TickerProvider vsync) async {
-    videoController = VideoPlayerController.file(item.file);
-    await videoController!.initialize();
-
-    if (!videoController!.value.isInitialized) return;
-
-    final duration = videoController!.value.duration;
-    if (duration.inMilliseconds == 0) return;
-
-    videoController!.setLooping(false);
-    videoController!.play();
-
-    progressController = AnimationController(vsync: vsync, duration: duration);
-
-    progressController!.addListener(() => notifyListeners());
-    progressController!.addStatusListener((status) {
-      if (status == AnimationStatus.completed) nextStatus(vsync);
-    });
-
-    progressController!.forward();
-  }
-
-  /// Go to the next status
-  void nextStatus(TickerProvider vsync) {
+  void nextStatus() {
     if (currentIndex < statusList.length - 1) {
-      final nextIndex = currentIndex + 1;
-      pageController.animateToPage(
-        nextIndex,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
       );
-
-      Future.delayed(const Duration(milliseconds: 50), () {
-        loadStatus(nextIndex, vsync);
-      });
     } else {
-      requestClose();
+      onAllStoriesCompleted?.call();
     }
   }
 
-  /// Go to the previous status
-  void previousStatus(TickerProvider vsync) {
-    if (currentIndex > 0) {
-      final prevIndex = currentIndex - 1;
-      pageController.animateToPage(
-        prevIndex,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
-      );
-
-      Future.delayed(const Duration(milliseconds: 50), () {
-        loadStatus(prevIndex, vsync);
-      });
-    }
+  void previousStatus() {
+    if (currentIndex <= 0) return;
+    pageController.previousPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
   }
 
-  /// Dispose current controllers safely
-  Future<void> _disposeCurrentControllers() async {
-    if (progressController != null) {
-      progressController!.stop();
-      progressController!.dispose();
-      progressController = null;
-    }
-
-    if (videoController != null) {
-      await videoController!.pause();
-      await videoController!.dispose();
-      videoController = null;
-    }
-  }
-
-  /// Dispose everything
-  void disposeAll() {
-    _disposeCurrentControllers();
+  @override
+  void dispose() {
+    progressController?.dispose();
+    videoController?.dispose();
     pageController.dispose();
+    super.dispose();
   }
+}
+
+class TickerProviderImpl implements TickerProvider {
+  final StatusViewProvider provider;
+  TickerProviderImpl(this.provider);
+
+  @override
+  Ticker createTicker(TickerCallback onTick) => Ticker(onTick);
 }

@@ -1,130 +1,154 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/status_view_provider.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
+import 'package:whatsapp_clone_getx/utils/app_size.dart'; 
+import '../provider/status_view_provider.dart';
+import '../provider/updateview_provider.dart'; 
 
-class StatusViewScreen extends StatefulWidget {
-  final List<StatusItem> statuses;
-  const StatusViewScreen({super.key, required this.statuses});
+class StatusViewScreen extends StatelessWidget {
+  static const id = "/StatusViewScreen";
+  final List<StatusItem> statusList;
+
+  const StatusViewScreen({super.key, required this.statusList});
 
   @override
-  State<StatusViewScreen> createState() => _StatusViewScreenState();
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => StatusViewProvider(statusList),
+      child: const _StatusViewBody(),
+    );
+  }
 }
 
-class _StatusViewScreenState extends State<StatusViewScreen>
-    with TickerProviderStateMixin {
-  late StatusViewProvider provider;
+class _StatusViewBody extends StatefulWidget {
+  const _StatusViewBody();
 
+  @override
+  State<_StatusViewBody> createState() => _StatusViewBodyState();
+}
+
+class _StatusViewBodyState extends State<_StatusViewBody>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    provider = StatusViewProvider(widget.statuses);
-    provider.init(this);
-  }
-
-  @override
-  void dispose() {
-    provider.disposeAll();
-    super.dispose();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final provider = context.read<StatusViewProvider>();
+      provider.initialize(this);
+      provider.setOnCompletedCallback(() {
+        if (mounted) {
+          Navigator.pop(context);
+        }
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: provider,
-      child: Consumer<StatusViewProvider>(
-        builder: (_, p, _) {
-          if (p.shouldClose) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              Navigator.pop(context);
-            });
-          }
-
-          return Scaffold(
+    return Consumer<StatusViewProvider>(
+      builder: (context, provider, child) {
+        if (!provider.isReady) {
+          return const Scaffold(
             backgroundColor: Colors.black,
-            body: GestureDetector(
-              onTapDown: (d) {
-                final w = MediaQuery.of(context).size.width;
-                if (d.localPosition.dx < w / 2) {
-                  p.previousStatus(this);
-                } else {
-                  p.nextStatus(this);
-                }
-              },
-              onLongPressStart: (_) => p.pause(),
-              onLongPressEnd: (_) => p.resume(),
-              onVerticalDragUpdate: (d) {
-                if (d.delta.dy > 12) {
-                  p.requestClose();
-                }
-              },
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    controller: p.pageController,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: p.statusList.length,
-                    itemBuilder: (_, index) {
-                      final item = p.statusList[index];
+            body: Center(child: CircularProgressIndicator(color: Colors.white)),
+          );
+        }
 
-                      if (item.type == StatusType.image) {
-                        return Center(
-                          child: Image.file(item.file, fit: BoxFit.contain),
-                        );
-                      } else {
-                        if (index != p.currentIndex ||
-                            p.videoController == null ||
-                            !p.videoController!.value.isInitialized) {
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          );
-                        }
+        return Scaffold(
+          backgroundColor: Colors.black,
+          body: Stack(
+            fit: StackFit.expand,
+            children: [
+              PageView.builder(
+                controller: provider.pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: provider.statusList.length,
+                onPageChanged: provider.onPageChanged,
+                itemBuilder: (context, index) {
+                  final item = provider.statusList[index];
 
-                        return Center(
-                          child: AspectRatio(
-                            aspectRatio: p.videoController!.value.aspectRatio,
-                            child: Stack(
-                              children: [
-                                VideoPlayer(p.videoController!),
-                                Positioned.fill(
-                                  child: Container(color: Colors.transparent),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 10,
-                    right: 10,
-                    child: Row(
-                      children: List.generate(
-                        p.statusList.length,
-                        (i) => Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 2),
-                            child: LinearProgressIndicator(
-                              value: p.getProgress(i),
-                              backgroundColor: Colors.white30,
-                              valueColor: AlwaysStoppedAnimation(Colors.white),
+                  if (item.type == StatusType.image) {
+                    return Image.file(
+                      item.file,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, _, _) => const Icon(
+                        Icons.broken_image,
+                        color: Colors.white70,
+                        size: 80,
+                      ),
+                    );
+                  }
+                  final ctrl = provider.videoController;
+                  if (ctrl == null || !ctrl.value.isInitialized) {
+                    return const Center(
+                      child: CircularProgressIndicator(color: Colors.white),
+                    );
+                  }
+
+                  return Center(
+                    child: AspectRatio(
+                      aspectRatio: ctrl.value.aspectRatio,
+                      child: VideoPlayer(ctrl),
+                    ),
+                  );
+                },
+              ),
+              Positioned.fill(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: provider.previousStatus,
+                        onLongPressStart: (_) => provider.pause(),
+                        onLongPressEnd: (_) => provider.resume(),
+                        behavior: HitTestBehavior.translucent,
+                      ),
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: provider.nextStatus,
+                        onLongPressStart: (_) => provider.pause(),
+                        onLongPressEnd: (_) => provider.resume(),
+                        behavior: HitTestBehavior.translucent,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: AppSize.getSize(40),
+                left: AppSize.getSize(12),
+                right: AppSize.getSize(12),
+                child: Row(
+                  children: List.generate(
+                    provider.statusList.length,
+                    (i) => Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSize.getSize(2),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: LinearProgressIndicator(
+                            value: provider.getProgressValue(i),
+                            minHeight: AppSize.getSize(3),
+                            backgroundColor: Colors.white.withOpacity(0.4),
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                              Colors.white,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-          );
-        },
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

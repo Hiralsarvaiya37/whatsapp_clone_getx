@@ -17,6 +17,8 @@ class SettingProvider extends ChangeNotifier {
 
   String selectedoption = "Default";
   String selectedoption1 = "White";
+  bool _isProfilePicLoading = true;
+  bool get isProfilePicLoading => _isProfilePicLoading;
 
   List<StatusItem> statusList = [];
 
@@ -112,15 +114,33 @@ class SettingProvider extends ChangeNotifier {
   }
 
   Future<void> loadCurrentProfilePic() async {
-    String userId = FirebaseAuth.instance.currentUser!.uid;
-    final doc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userId)
-        .get();
+    _isProfilePicLoading = true;
+    notifyListeners();
 
-    if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
-      profilePicUrl = doc['profilePicUrl'];
-      notifyListeners();
+    try {
+      String userId = FirebaseAuth.instance.currentUser?.uid ?? '';
+
+      if (userId.isEmpty) {
+        _isProfilePicLoading = false;
+        notifyListeners();
+        return;
+      }
+
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .get();
+
+      if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
+        profilePicUrl = doc['profilePicUrl'] as String? ?? '';
+      } else {
+        profilePicUrl = ''; 
+      }
+    } catch (e) {
+      profilePicUrl = '';
+    } finally {
+      _isProfilePicLoading = false;
+      notifyListeners(); 
     }
   }
 
@@ -151,6 +171,9 @@ class SettingProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       // print("Error: $e");
+    } finally {
+      _isProfilePicLoading = false;
+      notifyListeners();
     }
   }
 }

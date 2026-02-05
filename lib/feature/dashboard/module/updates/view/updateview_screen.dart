@@ -22,7 +22,7 @@ class UpdateviewScreen extends StatelessWidget {
     if (photo != null) {
       provider.addImage(File(photo.path));
     } else {
-      CircularNotchedRectangle();
+      CircularProgressIndicator();
     }
   }
 
@@ -78,7 +78,7 @@ class UpdateviewScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => StatusViewScreen(
-                          statuses: updateviewProvider.statusList,
+                          statusList: updateviewProvider.statusList,
                         ),
                       ),
                     );
@@ -138,7 +138,7 @@ class UpdateviewScreen extends StatelessWidget {
 
                         Positioned(
                           right: AppSize.getSize(-2),
-                          bottom: AppSize.getSize(-2),
+                          bottom: AppSize.getSize(-3),
                           child: GestureDetector(
                             onTap: () => showImagePickerSheet(context),
                             child: Container(
