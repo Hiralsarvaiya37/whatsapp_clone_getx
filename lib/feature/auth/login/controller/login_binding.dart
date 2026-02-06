@@ -1,9 +1,0 @@
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
-
-class LoginBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() =>  LoginController());
-  }
-}

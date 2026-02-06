@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
@@ -27,13 +26,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      // initialBinding: AppBinding(),
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       initialRoute: SplashScreen.id,
-      getPages: AppRouter.appRoute,
-      locale: Locale("en"),
+      routes: AppRouter.appRoute,
+      locale: const Locale("en"),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
             statusBarIconBrightness: Brightness.light,
             statusBarBrightness: Brightness.dark,
           ),
-          child: Scaffold(body: child ?? SizedBox()),
+          child: Scaffold(body: child ?? const SizedBox()),
         );
       },
     );

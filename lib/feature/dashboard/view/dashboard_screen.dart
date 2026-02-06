@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/bloc/dashboard_cubit.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/bloc/dashboard_state.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/callsview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communitiesview_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
@@ -17,7 +18,7 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class DashboardScreen extends GetView<DashboardController> {
+class DashboardScreen extends StatelessWidget {
   static const id = "/DashboardScreen";
   DashboardScreen({super.key});
 
@@ -27,213 +28,239 @@ class DashboardScreen extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     AppSize.setupData(MediaQuery.of(context));
 
-    return Scaffold(
-      backgroundColor: AppTheme.blackColor,
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: AppSize.getSize(35),
-          left: AppSize.getSize(15),
-          right: AppSize.getSize(10),
-        ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Obx(
-                    () => Text(
-                      controller.getAppBarName(controller.currentIndex.value),
-                      style: TextStyle(
-                        color: AppTheme.whiteColor,
-                        fontSize: AppSize.getSize(25),
-                        fontWeight: FontWeight.w500,
+    return BlocProvider(
+      create: (_) => DashboardCubit(),
+      child: BlocBuilder<DashboardCubit, DashboardState>(
+        builder: (context, state) {
+          final cubit = context.read<DashboardCubit>();
+          return Scaffold(
+            backgroundColor: AppTheme.blackColor,
+            body: Padding(
+              padding: EdgeInsets.only(
+                top: AppSize.getSize(35),
+                left: AppSize.getSize(15),
+                right: AppSize.getSize(10),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          cubit.getAppBarName(state.currentIndex),
+                          style: TextStyle(
+                            color: AppTheme.whiteColor,
+                            fontSize: AppSize.getSize(25),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ),
+                      BlocBuilder<DashboardCubit, DashboardState>(
+                        builder: (context, state) {
+                          return state.currentIndex == 0
+                              ? Row(
+                                  children: [
+                                    Icon(
+                                      Icons.qr_code,
+                                      color: AppTheme.whiteColor,
+                                      size: AppSize.getSize(30),
+                                    ),
+
+                                    SizedBox(width: AppSize.getSize(25)),
+                                    Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: AppTheme.whiteColor,
+                                      size: AppSize.getSize(30),
+                                    ),
+                                    PopupMenuButton(
+                                      color: AppTheme.greyShade900,
+                                      offset: Offset(0, 45),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          AppSize.getSize(10),
+                                        ),
+                                      ),
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        color: AppTheme.whiteColor,
+                                        size: AppSize.getSize(30),
+                                      ),
+                                      onSelected: (value) {
+                                        handleMenuClick(value, context);
+                                      },
+                                      itemBuilder: (context) => [
+                                        popupTile(context.l10n.newgroup, 1),
+                                        popupTile(context.l10n.newcommunity, 9),
+                                        popupTile(
+                                          context.l10n.broadcastlists,
+                                          10,
+                                        ),
+                                        popupTile(
+                                          context.l10n.linkeddevices,
+                                          11,
+                                        ),
+                                        popupTile(context.l10n.starred, 12),
+                                        popupTile(context.l10n.payments, 16),
+                                        popupTile(context.l10n.readall, 7),
+                                        popupTile(context.l10n.settings, 8),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : state.currentIndex == 1
+                              ? Row(
+                                  children: [
+                                    Icon(
+                                      Icons.search,
+                                      color: AppTheme.whiteColor,
+                                      size: AppSize.getSize(30),
+                                    ),
+                                    SizedBox(width: AppSize.getSize(15)),
+                                    PopupMenuButton(
+                                      color: AppTheme.greyShade900,
+                                      offset: Offset(0, 45),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          AppSize.getSize(10),
+                                        ),
+                                      ),
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        color: AppTheme.whiteColor,
+                                        size: AppSize.getSize(30),
+                                      ),
+                                      onSelected: (value) {
+                                        handleMenuClick(value, context);
+                                        if (value == 15) {
+                                          bottomSheet(context);
+                                        }
+                                      },
+                                      itemBuilder: (context) => [
+                                        popupTile(
+                                          context.l10n.createchannel,
+                                          15,
+                                        ),
+                                        popupTile(
+                                          context.l10n.statusprivacy,
+                                          14,
+                                        ),
+                                        popupTile(context.l10n.starred, 12),
+                                        popupTile(context.l10n.settings, 8),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : state.currentIndex == 2
+                              ? Row(
+                                  children: [
+                                    Icon(
+                                      Icons.search,
+                                      color: AppTheme.whiteColor,
+                                      size: AppSize.getSize(30),
+                                    ),
+                                    SizedBox(width: AppSize.getSize(15)),
+                                    PopupMenuButton(
+                                      color: AppTheme.greyShade900,
+                                      offset: Offset(0, 45),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          AppSize.getSize(10),
+                                        ),
+                                      ),
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        color: AppTheme.whiteColor,
+                                        size: AppSize.getSize(30),
+                                      ),
+                                      onSelected: (value) {
+                                        handleMenuClick(value, context);
+                                      },
+                                      itemBuilder: (context) => [
+                                        popupTile(context.l10n.settings, 8),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : state.currentIndex == 3
+                              ? Row(
+                                  children: [
+                                    Icon(
+                                      Icons.search,
+                                      color: AppTheme.whiteColor,
+                                      size: AppSize.getSize(30),
+                                    ),
+                                    SizedBox(width: AppSize.getSize(15)),
+                                    PopupMenuButton(
+                                      color: AppTheme.greyShade900,
+                                      offset: Offset(0, 45),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          AppSize.getSize(10),
+                                        ),
+                                      ),
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        color: AppTheme.whiteColor,
+                                        size: AppSize.getSize(30),
+                                      ),
+                                      onSelected: (value) {
+                                        handleMenuClick(value, context);
+                                        if (value == 17) {
+                                          showClearCallLogDialog(context);
+                                        }
+                                      },
+                                      itemBuilder: (context) => [
+                                        popupTile(
+                                          context.l10n.clearcalllog,
+                                          17,
+                                        ),
+                                        popupTile(
+                                          context.l10n.scheduledcalls,
+                                          13,
+                                        ),
+                                        popupTile(context.l10n.settings, 8),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : SizedBox();
+                        },
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: PageView(
+                      scrollDirection: Axis.horizontal,
+                      controller: pageController,
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        ChatviewScreen(),
+                        UpdateviewScreen(),
+                        CommunitiesviewScreen(),
+                        CallsviewScreen(),
+                      ],
                     ),
                   ),
-                ),
-                Obx(
-                  () => controller.currentIndex.value == 0
-                      ? Row(
-                          children: [
-                            Icon(
-                              Icons.qr_code,
-                              color: AppTheme.whiteColor,
-                              size: AppSize.getSize(30),
-                            ),
-
-                            SizedBox(width: AppSize.getSize(25)),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: AppTheme.whiteColor,
-                              size: AppSize.getSize(30),
-                            ),
-                            PopupMenuButton(
-                              color: AppTheme.greyShade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppSize.getSize(10),
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: AppTheme.whiteColor,
-                                size: AppSize.getSize(30),
-                              ),
-                              onSelected: (value) {
-                                handleMenuClick(value);
-                              },
-                              itemBuilder: (context) => [
-                                popupTile(context.l10n.newgroup, 1),
-                                popupTile(context.l10n.newcommunity, 9),
-                                popupTile(context.l10n.broadcastlists, 10),
-                                popupTile(context.l10n.linkeddevices, 11),
-                                popupTile(context.l10n.starred, 12),
-                                popupTile(context.l10n.payments, 16),
-                                popupTile(context.l10n.readall, 7),
-                                popupTile(context.l10n.settings, 8),
-                              ],
-                            ),
-                          ],
-                        )
-                      : controller.currentIndex.value == 1
-                      ? Row(
-                          children: [
-                            Icon(
-                              Icons.search,
-                              color: AppTheme.whiteColor,
-                              size: AppSize.getSize(30),
-                            ),
-                            SizedBox(width: AppSize.getSize(15)),
-                            PopupMenuButton(
-                              color: AppTheme.greyShade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppSize.getSize(10),
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: AppTheme.whiteColor,
-                                size: AppSize.getSize(30),
-                              ),
-                              onSelected: (value) {
-                                handleMenuClick(value);
-                                if (value == 15) {
-                                  bottomSheet(context);
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile(context.l10n.createchannel, 15),
-                                popupTile(context.l10n.statusprivacy, 14),
-                                popupTile(context.l10n.starred, 12),
-                                popupTile(context.l10n.settings, 8),
-                              ],
-                            ),
-                          ],
-                        )
-                      : controller.currentIndex.value == 2
-                      ? Row(
-                          children: [
-                            Icon(
-                              Icons.search,
-                              color: AppTheme.whiteColor,
-                              size: AppSize.getSize(30),
-                            ),
-                            SizedBox(width: AppSize.getSize(15)),
-                            PopupMenuButton(
-                              color: AppTheme.greyShade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppSize.getSize(10),
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: AppTheme.whiteColor,
-                                size: AppSize.getSize(30),
-                              ),
-                              onSelected: (value) {
-                                handleMenuClick(value);
-                              },
-                              itemBuilder: (context) => [
-                                popupTile(context.l10n.settings, 8),
-                              ],
-                            ),
-                          ],
-                        )
-                      : controller.currentIndex.value == 3
-                      ? Row(
-                          children: [
-                            Icon(
-                              Icons.search,
-                              color: AppTheme.whiteColor,
-                              size: AppSize.getSize(30),
-                            ),
-                            SizedBox(width: AppSize.getSize(15)),
-                            PopupMenuButton(
-                              color: AppTheme.greyShade900,
-                              offset: Offset(0, 45),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppSize.getSize(10),
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: AppTheme.whiteColor,
-                                size: AppSize.getSize(30),
-                              ),
-                              onSelected: (value) {
-                                handleMenuClick(value);
-                                if (value == 17) {
-                                  showClearCallLogDialog(context);
-                                }
-                              },
-                              itemBuilder: (context) => [
-                                popupTile(context.l10n.clearcalllog, 17),
-                                popupTile(context.l10n.scheduledcalls, 13),
-                                popupTile(context.l10n.settings, 8),
-                              ],
-                            ),
-                          ],
-                        )
-                      : SizedBox(),
-                ),
-              ],
-            ),
-            Expanded(
-              child: PageView(
-                scrollDirection: Axis.horizontal,
-                controller: pageController,
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  ChatviewScreen(),
-                  UpdateviewScreen(),
-                  CommunitiesviewScreen(),
-                  CallsviewScreen(),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
 
-      bottomNavigationBar: Container(
-        height: AppSize.getSize(70),
-        color: AppTheme.blackColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            bottomOption(context.l10n.chats, Icons.chat, 0),
-            bottomOption(context.l10n.updates, Icons.update, 1),
-            bottomOption(context.l10n.communities, Icons.groups_2_outlined, 2),
-            bottomOption(context.l10n.calls, Icons.call, 3),
-          ],
-        ),
+            bottomNavigationBar: Container(
+              height: AppSize.getSize(75),
+              color: AppTheme.blackColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  navBtn(context, cubit, state, "Chats", Icons.chat, 0),
+                  navBtn(context, cubit, state, "Updates", Icons.update, 1),
+                  navBtn(context, cubit, state, "Communities", Icons.groups, 2),
+                  navBtn(context, cubit, state, "Calls", Icons.call, 3),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -277,44 +304,40 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  Widget bottomOption(String title, IconData icon, int index) {
-    return Obx(() {
-      final isActive = controller.currentIndex.value == index;
+  Widget navBtn(
+    BuildContext context,
+    DashboardCubit cubit,
+    DashboardState state,
+    String title,
+    IconData icon,
+    int index,
+  ) {
+    final isActive = state.currentIndex == index;
 
-      return GestureDetector(
-        onTap: () {
-          controller.changeIndex(index);
-          pageController.jumpToPage(index);
-        },
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: AppSize.getSize(8),
-                horizontal: AppSize.getSize(10),
-              ),
-              decoration: BoxDecoration(
-                color: isActive ? AppTheme.greenshade900 : AppTheme.blackColor,
-                borderRadius: BorderRadius.circular(AppSize.getSize(15)),
-              ),
-              child: Icon(
-                icon,
-                color: isActive ? AppTheme.greyShade400 : AppTheme.whiteColor,
-                size: AppSize.getSize(30),
-              ),
+    return GestureDetector(
+      onTap: () {
+        cubit.changeIndex(index);
+        pageController.jumpToPage(index);
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: isActive ? Colors.green : Colors.transparent,
+              borderRadius: BorderRadius.circular(12),
             ),
-            Text(
-              title,
-              style: TextStyle(
-                color: AppTheme.whiteColor,
-                fontSize: AppSize.getSize(15),
-              ),
+            child: Icon(
+              icon,
+              color: isActive ? Colors.grey.shade300 : Colors.white,
+              size: 27,
             ),
-          ],
-        ),
-      );
-    });
+          ),
+          SizedBox(height: 5),
+          Text(title, style: TextStyle(color: Colors.white)),
+        ],
+      ),
+    );
   }
 
   PopupMenuItem popupTile(String title, int value) {
@@ -471,31 +494,55 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  void handleMenuClick(int value) {
+  void handleMenuClick(int value, BuildContext context) {
     switch (value) {
       case 9:
-        Get.toNamed(NewCommunityScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NewCommunityScreen()),
+        );
         break;
       case 8:
-        Get.toNamed(SettingScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SettingScreen()),
+        );
         break;
       case 10:
-        Get.toNamed(BroadcastsScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => BroadcastsScreen()),
+        );
         break;
       case 11:
-        Get.toNamed(LinkDevicesScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LinkDevicesScreen()),
+        );
         break;
       case 12:
-        Get.toNamed(StarredScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => StarredScreen()),
+        );
         break;
       case 13:
-        Get.toNamed(ScheduledCallsScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ScheduledCallsScreen()),
+        );
         break;
       case 14:
-        Get.toNamed(StatusPrivacyScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => StatusPrivacyScreen()),
+        );
         break;
       case 16:
-        Get.toNamed(PaymentScreen.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PaymentScreen()),
+        );
         break;
     }
   }

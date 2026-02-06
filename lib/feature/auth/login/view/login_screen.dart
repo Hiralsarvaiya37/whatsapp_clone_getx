@@ -1,57 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/auth/login/bloc/login_cubit.dart';
+import 'package:whatsapp_clone_getx/feature/auth/login/bloc/login_state.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
-class LoginScreen extends GetView<LoginController> {
+class LoginScreen extends StatelessWidget {
   static const id = "/LoginScreen";
-  LoginScreen({super.key});
-  final LoginController loginController = Get.put(LoginController());
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return BlocProvider(
+      create: (_) => LoginCubit(),
+      child: Scaffold(
         backgroundColor: Colors.white,
-        title: Text(context.l10n.phoneAuth),
-        centerTitle: true,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: TextField(
-              controller: controller.phoneController,
-              onChanged: (value) {
-                controller.isLoading.value = false;
-              },
-              onTapOutside: (event) {
-                FocusScope.of(context).unfocus();
-              },
-              decoration: InputDecoration(
-                hintText: context.l10n.enterphonenumber,
-                prefixIcon: Icon(Icons.phone),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-              ),
-            ),
-          ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Text(context.l10n.phoneAuth),
+          centerTitle: true,
+        ),
+        body: BlocBuilder<LoginCubit, LoginState>(
+          builder: (context, state) {
+            final cubit = context.read<LoginCubit>();
 
-          SizedBox(height: 30),
-          Obx(() {
-            return controller.isLoading.value
-                ? CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: () {
-                      controller.onVerifyNum(context);
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    controller: cubit.phoneController,
+                    onChanged: (_) {
+                      cubit.onPhoneChanged();
                     },
-                    child: Text(context.l10n.verifyphoneNumber),
-                  );
-          }),
-        ],
+                    decoration: InputDecoration(
+                      hintText: context.l10n.enterphonenumber,
+                      prefixIcon:  Icon(Icons.phone),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                  ),
+                ),
+               SizedBox(height: 30),
+                state.isLoading
+                    ? CircularProgressIndicator()
+                    : ElevatedButton(
+                        onPressed: () {
+                          cubit.onVerifyNum(context);
+                        },
+                        child: Text(context.l10n.verifyphoneNumber),
+                      ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

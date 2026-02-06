@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
@@ -175,11 +174,11 @@ class CommunitiesviewScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(CommunitiesviewScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesviewScreen()));
                     },
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(CommunitiesScreen.id);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
                       },
                       child: Row(
                         children: [
@@ -338,7 +337,7 @@ class CommunitiesviewScreen extends StatelessWidget {
           SizedBox(height: AppSize.getSize(18)),
           GestureDetector(
             onTap: () {
-             Get.toNamed(CommunitiesScreen.id);
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunitiesScreen()));
             },
             child: Row(
               children: [

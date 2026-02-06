@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -22,7 +21,7 @@ class CallsviewScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(ContactScreen.id);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactScreen()));
                     },
                     child: Column(
                       children: [
@@ -105,7 +104,7 @@ class CallsviewScreen extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
-                     Get.toNamed(FavoritesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoritesScreen()));
                     },
                     child: Column(
                       children: [

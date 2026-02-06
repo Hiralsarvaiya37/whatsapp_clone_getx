@@ -1,9 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/auth/login/controller/login_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/view/login_screen.dart';
-import 'package:whatsapp_clone_getx/feature/auth/otp/controller/otp_binding.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/view/otp_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/controller/dashboard_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
@@ -18,9 +16,10 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
+
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
@@ -146,19 +145,9 @@ import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/starred/view/starred_screen.dart';
 
 class AppRouter {
-  static List<GetPage<dynamic>> appRoute = [
+  static List<GetPage<dynamic>> appRoutee = [
     GetPage(name: SplashScreen.id, page: () => SplashScreen()),
-    GetPage(
-      name: LoginScreen.id,
-      page: () => LoginScreen(),
-      binding: LoginBinding(),
-    ),
-    GetPage(name: OtpScreen.id, page: () => OtpScreen(), binding: OtpBinding()),
-    GetPage(
-      name: DashboardScreen.id,
-      page: () => DashboardScreen(),
-      binding: DashboardBinding(),
-    ),
+
     GetPage(
       name: UpdateviewScreen.id,
       page: () => UpdateviewScreen(),
@@ -249,7 +238,11 @@ class AppRouter {
     GetPage(name: ProfilePhotoScreen.id, page: () => ProfilePhotoScreen()),
     GetPage(name: AboutScreen.id, page: () => AboutScreen()),
     GetPage(name: LinksScreen.id, page: () => LinksScreen()),
-    GetPage(name: StatusPrivacyScreen.id, page: () => StatusPrivacyScreen(),binding: PrivacyViewBinding()),
+    GetPage(
+      name: StatusPrivacyScreen.id,
+      page: () => StatusPrivacyScreen(),
+      binding: PrivacyViewBinding(),
+    ),
     GetPage(
       name: DefaultMessageTimerScreen.id,
       page: () => DefaultMessageTimerScreen(),
@@ -460,4 +453,14 @@ class AppRouter {
     GetPage(name: PaymentScreen.id, page: () => PaymentScreen()),
     GetPage(name: HelpScreen.id, page: () => HelpScreen()),
   ];
+
+  static final appRoute = {
+    SplashScreen.id: (context) => SplashScreen(),
+    LoginScreen.id: (context) => LoginScreen(),
+    OtpScreen.id: (context) {
+      final vid = ModalRoute.of(context)!.settings.arguments as String;
+      return OtpScreen(verificationId: vid);
+    },
+    DashboardScreen.id: (context) => DashboardScreen(),
+  };
 }
