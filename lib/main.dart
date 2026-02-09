@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/bloc/dashboard_cubit.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/bloc/chat_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/status_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/update_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
@@ -18,7 +23,18 @@ void main() async {
       statusBarBrightness: Brightness.dark,
     ),
   );
-  runApp(const MyApp());
+
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => DashboardCubit()),
+        BlocProvider(create: (_) => ChatBloc()),
+        BlocProvider(create: (_) => UpdateBloc()),
+        BlocProvider(create: (_) => StatusBloc()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -41,6 +57,7 @@ class MyApp extends StatelessWidget {
             statusBarIconBrightness: Brightness.light,
             statusBarBrightness: Brightness.dark,
           ),
+
           child: Scaffold(body: child ?? const SizedBox()),
         );
       },

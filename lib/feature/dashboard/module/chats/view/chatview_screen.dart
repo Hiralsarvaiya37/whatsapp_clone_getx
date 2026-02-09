@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/bloc/chat_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/bloc/chat_event.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ChatviewScreen extends GetView<ChatController> {
+class ChatviewScreen extends StatelessWidget {
   static const id = "/ChatviewScreen";
   ChatviewScreen({super.key});
   final List<String> filters = ["All", "Unread", "Favorites", "Groups", "+"];
@@ -96,14 +97,17 @@ class ChatviewScreen extends GetView<ChatController> {
                         ),
                         child: InkWell(
                           onTap: () {
-                            controller.initChat(
-                              myId: currentUser,
-                              otherId: user,
-                              otherName: user,
+                            context.read<ChatBloc>().add(
+                              InitChat(
+                                myId: currentUser,
+                                otherId: user,
+                                otherName: user,
+                              ),
                             );
 
-                            Get.toNamed(ChatMessagesScreen.id);
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatMessagesScreen()));
                           },
+
                           child: Row(
                             children: [
                               ClipOval(

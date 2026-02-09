@@ -6,19 +6,16 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/ca
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/scheduled_calls/view/scheduled_calls_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/chat_binding.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chatview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/help/view/help_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/payments/view/payment_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/communities_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/update_bindings.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
-
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/update_state.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/status_view_screen.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/view/dashboard_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/disappearing_messages_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
@@ -148,11 +145,6 @@ class AppRouter {
   static List<GetPage<dynamic>> appRoutee = [
     GetPage(name: SplashScreen.id, page: () => SplashScreen()),
 
-    GetPage(
-      name: UpdateviewScreen.id,
-      page: () => UpdateviewScreen(),
-      binding: UpdateBindings(),
-    ),
     GetPage(
       name: SettingScreen.id,
       page: () => SettingScreen(),
@@ -429,23 +421,7 @@ class AppRouter {
     GetPage(name: EndToEndScreen.id, page: () => EndToEndScreen()),
     GetPage(name: NotificationScreen.id, page: () => NotificationScreen()),
     GetPage(name: ChatviewScreen.id, page: () => ChatviewScreen()),
-    GetPage(
-      name: ChatMessagesScreen.id,
-      page: () => ChatMessagesScreen(),
-      binding: ChatBinding(),
-    ),
-    GetPage(
-      name: ChatviewScreen.id,
-      page: () => ChatviewScreen(),
-      binding: ChatBinding(),
-    ),
-    GetPage(
-      name: StatusViewScreen.id,
-      page: () {
-        List<StatusItem> statusList = Get.arguments;
-        return StatusViewScreen(statusList: statusList);
-      },
-    ),
+
     GetPage(name: NewCommunityScreen.id, page: () => NewCommunityScreen()),
     GetPage(name: LinkDevicesScreen.id, page: () => LinkDevicesScreen()),
     GetPage(name: StarredScreen.id, page: () => StarredScreen()),
@@ -462,5 +438,13 @@ class AppRouter {
       return OtpScreen(verificationId: vid);
     },
     DashboardScreen.id: (context) => DashboardScreen(),
+    ChatviewScreen.id: (context) => ChatviewScreen(),
+    ChatMessagesScreen.id: (context) => ChatMessagesScreen(),
+    UpdateviewScreen.id: (context) => UpdateviewScreen(),
+    StatusViewScreen.id: (context) {
+      final list =
+          ModalRoute.of(context)!.settings.arguments as List<StatusItem>;
+      return StatusViewScreen(statusList: list);
+    },
   };
 }
