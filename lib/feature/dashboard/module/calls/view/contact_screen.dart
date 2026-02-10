@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_event.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ContactScreen extends GetView<CallController> {
+class ContactScreen extends StatelessWidget {
   static const id = "/ContactScreen";
-  const ContactScreen({super.key});
+  ContactScreen({super.key});
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class ContactScreen extends GetView<CallController> {
           onTapOutside: (event) {
             FocusScope.of(context).unfocus();
           },
-          controller: controller.searchController,
+          controller: searchController,
           cursorColor: AppTheme.greenAccentShade700,
           cursorWidth: 3,
           style: TextStyle(color: AppTheme.whiteColor),
@@ -37,7 +40,7 @@ class ContactScreen extends GetView<CallController> {
             border: InputBorder.none,
           ),
           onChanged: (value) {
-            controller.changeValue(value);
+            context.read<CallBloc>().add(SearchContacts(value));
           },
         ),
         actions: [
@@ -54,68 +57,68 @@ class ContactScreen extends GetView<CallController> {
           horizontal: AppSize.getSize(20),
           vertical: AppSize.getSize(20),
         ),
-        child: Obx(
-          () => Column(
-            children: [
-              if (controller.query.value.isEmpty)
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: AppSize.getSize(10)),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: AppTheme.greyColor,
-                        width: AppSize.getSize(0.7),
+        child: BlocBuilder<CallBloc, CallState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                if (searchController.text.isEmpty)
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSize.getSize(10),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: AppTheme.greyColor,
+                          width: AppSize.getSize(0.7),
+                        ),
                       ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        context.l10n.addupto31people,
-                        style: TextStyle(
-                          color: AppTheme.greyShade400,
-                          fontSize: AppSize.getSize(16),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              SizedBox(height: AppSize.getSize(20)),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      if (controller.query.value.isEmpty) ...[
-                        menuTiles(),
-                        SizedBox(height: AppSize.getSize(25)),
-                      ],
-
-                      if (controller.filteredFrequently.isNotEmpty)
-                        Obx(
-                          () => contactListView(
-                            title: context.l10n.frequentlyContacted,
-                            list: controller.filteredFrequently,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          context.l10n.addupto31people,
+                          style: TextStyle(
+                            color: AppTheme.greyShade400,
+                            fontSize: AppSize.getSize(16),
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                SizedBox(height: AppSize.getSize(20)),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        if (searchController.text.isEmpty) ...[
+                          menuTiles(),
+                          SizedBox(height: AppSize.getSize(25)),
+                        ],
 
-                      SizedBox(height: AppSize.getSize(25)),
+                        if (state.filteredFrequently.isNotEmpty)
+                          contactListView(
+                            title: context.l10n.frequentlyContacted,
+                            list: state.filteredFrequently,
+                          ),
 
-                      if (controller.filteredAll.isNotEmpty)
-                        Obx(
-                          () => contactListView(
-                            title: controller.query.value.isEmpty
+                        SizedBox(height: AppSize.getSize(25)),
+
+                        if (state.filteredAll.isNotEmpty)
+                          contactListView(
+                            title: searchController.text.isEmpty
                                 ? context.l10n.allContacts
                                 : context.l10n.results,
-                            list: controller.filteredAll,
+                            list: state.filteredAll,
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -127,38 +130,30 @@ class ContactScreen extends GetView<CallController> {
         Row(
           children: [
             iconCircle(Icons.link),
-            SizedBox(width: AppSize.getSize(20)),
+            SizedBox(width: 20),
             Text(
               "New call link",
               style: TextStyle(
                 color: AppTheme.whiteColor,
-                fontSize: AppSize.getSize(18),
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ],
         ),
-        SizedBox(height: AppSize.getSize(30)),
+        SizedBox(height: 30),
         Row(
           children: [
             iconCircle(Icons.person_add_alt_1),
-            SizedBox(width: AppSize.getSize(20)),
-            Expanded(
-              child: Text(
-                "New contact",
-                style: TextStyle(
-                  color: AppTheme.whiteColor,
-                  fontSize: AppSize.getSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+            SizedBox(width: 20),
+            Text(
+              "New contact",
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
             ),
-            Icon(
-              Icons.qr_code,
-              size: AppSize.getSize(30),
-              color: AppTheme.whiteColor,
-            ),
-            SizedBox(width: AppSize.getSize(25)),
           ],
         ),
       ],
@@ -173,7 +168,7 @@ class ContactScreen extends GetView<CallController> {
           title,
           style: TextStyle(color: AppTheme.greyShade400, fontSize: 16),
         ),
-        SizedBox(height: AppSize.getSize(15)),
+        SizedBox(height: 15),
         ListView.separated(
           itemCount: list.length,
           physics: NeverScrollableScrollPhysics(),
@@ -184,27 +179,27 @@ class ContactScreen extends GetView<CallController> {
               children: [
                 ClipOval(
                   child: Image.network(
-                    c["image"]!,
+                    c["image"],
+                    height: 50,
+                    width: 50,
                     fit: BoxFit.cover,
-                    height: AppSize.getSize(50),
-                    width: AppSize.getSize(50),
                   ),
                 ),
-                SizedBox(width: AppSize.getSize(20)),
+                SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      c["name"]!,
+                      c["name"],
                       style: TextStyle(
                         fontSize: 18,
                         color: AppTheme.whiteColor,
                       ),
                     ),
                     Text(
-                      c["status"]!,
+                      c["status"],
                       style: TextStyle(
-                        fontSize: AppSize.getSize(16),
+                        fontSize: 16,
                         color: AppTheme.greyShade400,
                       ),
                     ),
@@ -213,8 +208,7 @@ class ContactScreen extends GetView<CallController> {
               ],
             );
           },
-          separatorBuilder: (context, index) =>
-              SizedBox(height: AppSize.getSize(20)),
+          separatorBuilder: (_, _) => SizedBox(height: 20),
         ),
       ],
     );
@@ -222,13 +216,13 @@ class ContactScreen extends GetView<CallController> {
 
   Widget iconCircle(IconData icon) {
     return Container(
-      height: AppSize.getSize(50),
-      width: AppSize.getSize(50),
+      height: 50,
+      width: 50,
       decoration: BoxDecoration(
         color: AppTheme.greenAccentShade700,
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Icon(icon, size: AppSize.getSize(25), color: AppTheme.blackColor),
+      child: Icon(icon, size: 25, color: AppTheme.blackColor),
     );
   }
 }

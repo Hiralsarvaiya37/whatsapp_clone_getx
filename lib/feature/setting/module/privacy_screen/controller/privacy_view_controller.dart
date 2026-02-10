@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_controller.dart';
 
 class PrivacyViewController extends GetxController{
   final SettingController settingController = Get.find();

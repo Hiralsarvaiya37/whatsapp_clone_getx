@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/controller/call_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_event.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class FavoritesScreen extends GetView<CallController> {
+class FavoritesScreen extends StatelessWidget {
   static const id = "/FavoritesScreen";
   const FavoritesScreen({super.key});
 
@@ -26,12 +28,13 @@ class FavoritesScreen extends GetView<CallController> {
         ),
         title: TextField(
           onTapOutside: (event) {
-                              FocusScope.of(context).unfocus();
-                            },
-          controller: controller.searchController,
+            FocusScope.of(context).unfocus();
+          },
           cursorColor: AppTheme.greenAccentShade700,
           cursorWidth: 3,
-          onChanged: controller.searchContacts,
+          onChanged: (value) {
+            context.read<CallBloc>().add(SearchContacts(value));
+          },
           style: TextStyle(
             color: AppTheme.whiteColor,
             fontSize: AppSize.getSize(18),
@@ -44,31 +47,38 @@ class FavoritesScreen extends GetView<CallController> {
         ),
       ),
 
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppSize.getSize(20),
-          vertical: AppSize.getSize(20),
-        ),
+      body: BlocBuilder<CallBloc, CallState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.getSize(20),
+              vertical: AppSize.getSize(20),
+            ),
 
-        child: Obx(
-          () => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              favoritesRow(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                favoritesRow(state),
 
-              SizedBox(height: AppSize.getSize(25)),
+                SizedBox(height: AppSize.getSize(25)),
 
-              sectionWidget(
-                context.l10n.frequentlyContacted,
-                controller.filteredFavoritesFrequently,
-              ),
+                sectionWidget(
+                  context.l10n.frequentlyContacted,
+                  state.filteredFrequently.map((e) => e["name"]!).toList(),
+                  context,
+                ),
 
-              SizedBox(height: AppSize.getSize(30)),
+                SizedBox(height: AppSize.getSize(30)),
 
-              sectionWidget(context.l10n.contactsonWhatsApp, controller.filteredAllFav),
-            ],
-          ),
-        ),
+                sectionWidget(
+                  context.l10n.contactsonWhatsApp,
+                  state.filteredAll.map((e) => e["name"]!).toList(),
+                  context,
+                ),
+              ],
+            ),
+          );
+        },
       ),
 
       floatingActionButton: Container(
@@ -87,39 +97,38 @@ class FavoritesScreen extends GetView<CallController> {
     );
   }
 
-  Widget favoritesRow() {
-    return Obx(() {
-      if (controller.favorites.isEmpty) return SizedBox();
-      return SizedBox(
-        height: AppSize.getSize(90),
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: controller.favorites.length,
-          itemBuilder: (context, index) => Column(
-            children: [
-              ClipOval(
-                child: Image.network(
-                  "https://m.media-amazon.com/images/I/61fJjBmd34L._AC_UF350,350_QL80_.jpg",
-                  height: AppSize.getSize(60),
-                  width: AppSize.getSize(60),
-                  fit: BoxFit.cover,
-                ),
+  Widget favoritesRow(CallState state) {
+    if (state.favorites.isEmpty) return SizedBox();
+
+    return SizedBox(
+      height: AppSize.getSize(90),
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: state.favorites.length,
+        itemBuilder: (context, index) => Column(
+          children: [
+            ClipOval(
+              child: Image.network(
+                "https://m.media-amazon.com/images/I/61fJjBmd34L._AC_UF350,350_QL80_.jpg",
+                height: AppSize.getSize(60),
+                width: AppSize.getSize(60),
+                fit: BoxFit.cover,
               ),
-              SizedBox(height: AppSize.getSize(5)),
-              Text(
-                controller.favorites[index],
-                style: TextStyle(
-                  color: AppTheme.whiteColor,
-                  fontSize: AppSize.getSize(14),
-                ),
+            ),
+            SizedBox(height: AppSize.getSize(5)),
+            Text(
+              state.favorites[index],
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: AppSize.getSize(14),
               ),
-            ],
-          ),
-          separatorBuilder: (context, index) =>
-              SizedBox(width: AppSize.getSize(15)),
+            ),
+          ],
         ),
-      );
-    });
+        separatorBuilder: (context, index) =>
+            SizedBox(width: AppSize.getSize(15)),
+      ),
+    );
   }
 
   Widget contactTile(String name) {
@@ -145,7 +154,7 @@ class FavoritesScreen extends GetView<CallController> {
     );
   }
 
-  Widget sectionWidget(String title, List<String> list) {
+  Widget sectionWidget(String title, List<String> list, BuildContext context) {
     if (list.isEmpty) return SizedBox();
 
     return Column(
@@ -162,7 +171,9 @@ class FavoritesScreen extends GetView<CallController> {
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () => controller.addToFavorites(list[index]),
+            onTap: () {
+              context.read<CallBloc>().add(AddToFavorites(list[index]));
+            },
             child: contactTile(list[index]),
           ),
           separatorBuilder: (context, index) =>

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class StorageAndDataScreen extends GetView<SettingController> {
-  static const id ="/StorageAndDataScreen";
- const StorageAndDataScreen({super.key});
-
+class StorageAndDataScreen extends StatelessWidget {
+  static const id = "/StorageAndDataScreen";
+  const StorageAndDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,11 @@ class StorageAndDataScreen extends GetView<SettingController> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppTheme.whiteColor,
+          ),
         ),
         title: Text(
           context.l10n.storageanddata,
@@ -36,13 +41,21 @@ class StorageAndDataScreen extends GetView<SettingController> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(20),
+            vertical: AppSize.getSize(20),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
                 onTap: () {
-                 Get.toNamed(ManageStorageScreen.id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ManageStorageScreen(),
+                    ),
+                  );
                 },
                 child: appTile(
                   context.l10n.managestorage,
@@ -54,7 +67,12 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               InkWell(
                 onTap: () {
-                   Get.toNamed(NetworkUsageScreen.id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NetworkUsageScreen(),
+                    ),
+                  );
                 },
                 child: appTile(
                   context.l10n.networkusage,
@@ -64,45 +82,54 @@ class StorageAndDataScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(30)),
-              InkWell(
-                onTap: () {
-                  controller.isOn.value = !controller.isOn.value;
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(right: AppSize.getSize(30)),
-                        child: Text(
-                          context.l10n.uselessdataforcalls,
-                          style: TextStyle(
-                            color: AppTheme.whiteColor,
-                            fontSize: AppSize.getSize(18),
-                            fontWeight: FontWeight.w600,
+              BlocBuilder<SettingBloc, SettingState>(
+                builder: (context, state) {
+                  return InkWell(
+                    onTap: () {
+                      context.read<SettingBloc>().add(
+                        ToggleSwitch(!state.isOn),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              right: AppSize.getSize(30),
+                            ),
+                            child: Text(
+                              context.l10n.uselessdataforcalls,
+                              style: TextStyle(
+                                color: AppTheme.whiteColor,
+                                fontSize: AppSize.getSize(18),
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ),
+                        Switch(
+                          value: state.isOn,
+                          activeThumbColor: AppTheme.blackColor,
+                          activeTrackColor: AppTheme.greenAccentShade700,
+                          inactiveTrackColor: AppTheme.blackColor,
+                          onChanged: (val) {
+                            context.read<SettingBloc>().add(ToggleSwitch(val));
+                          },
+                        ),
+                      ],
                     ),
-                    Obx(
-                      () => Switch(
-                        value: controller.isOn.value,
-                        activeThumbColor: AppTheme.blackColor,
-                        activeTrackColor: AppTheme.greenAccentShade700,
-                        inactiveTrackColor: AppTheme.blackColor,
-                        onChanged: (val) {
-                          controller.isOn.value = val;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
               SizedBox(height: AppSize.getSize(30)),
               InkWell(
                 onTap: () {
-                 Get.toNamed(ProxyScreen.id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProxyScreen()),
+                  );
                 },
                 child: appTile(context.l10n.proxy, context.l10n.off),
               ),
@@ -116,7 +143,9 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   showRadioDialog(
                     context,
                     context.l10n.mediauploadquality,
-                    context.l10n.selectthequalityforphotosandvideostobesentatinchats,
+                    context
+                        .l10n
+                        .selectthequalityforphotosandvideostobesentatinchats,
                     [context.l10n.standardquality, context.l10n.hDquality],
                   );
                 },
@@ -131,7 +160,9 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   showRadioDialog(
                     context,
                     context.l10n.autodownloadquality,
-                    context.l10n.selectthequalityforphotosandvideostobeautomaticallydownloadedin,
+                    context
+                        .l10n
+                        .selectthequalityforphotosandvideostobeautomaticallydownloadedin,
                     [context.l10n.standardquality, context.l10n.hDquality],
                   );
                 },
@@ -140,11 +171,17 @@ class StorageAndDataScreen extends GetView<SettingController> {
               SizedBox(height: AppSize.getSize(35)),
               Text(
                 context.l10n.mediaautodownload,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(16),
+                ),
               ),
               Text(
                 context.l10n.voicemessagesarealwaysautomaticallydownloaded,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(16),
+                ),
               ),
               SizedBox(height: AppSize.getSize(20)),
               appTile(
@@ -182,78 +219,81 @@ class StorageAndDataScreen extends GetView<SettingController> {
     showDialog(
       context: context,
       builder: (_) {
-        return StatefulBuilder(
+        return BlocBuilder<SettingBloc, SettingState>(builder: (context, state){
+          return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
               backgroundColor: AppTheme.greyShade900,
               title: Text(
                 title,
-                style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(28)),
-              ),
-              content: Obx(
-                () => Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    dialogCheckItem(
-                      context.l10n.photos,
-                      controller.selectedItems,
-                      setState,
-                    ),
-                    dialogCheckItem(
-                      context.l10n.audio,
-                      controller.selectedItems,
-                      setState,
-                    ),
-                    dialogCheckItem(
-                     context.l10n.video,
-                      controller.selectedItems,
-                      setState,
-                    ),
-                    dialogCheckItem(
-                     context.l10n.documents,
-                      controller.selectedItems,
-                      setState,
-                    ),
-
-                    SizedBox(height: AppSize.getSize(25)),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: Text(
-                            context.l10n.cancel,
-                            style: TextStyle(
-                              color: AppTheme.greenAccentShade700,
-                              fontWeight: FontWeight.bold,
-                              fontSize: AppSize.getSize(16),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: AppSize.getSize(30)),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            context.l10n.ok,
-                            style: TextStyle(
-                              color: AppTheme.greenAccentShade700,
-                              fontWeight: FontWeight.bold,
-                              fontSize: AppSize.getSize(16),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: AppSize.getSize(15)),
-                      ],
-                    ),
-                  ],
+                style: TextStyle(
+                  color: AppTheme.whiteColor,
+                  fontSize: AppSize.getSize(28),
                 ),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  dialogCheckItem(
+                    context.l10n.photos,
+                    state.selectedItems,
+                    setState,
+                  ),
+                  dialogCheckItem(
+                    context.l10n.audio,
+                    state.selectedItems,
+                    setState,
+                  ),
+                  dialogCheckItem(
+                    context.l10n.video,
+                    state.selectedItems,
+                    setState,
+                  ),
+                  dialogCheckItem(
+                    context.l10n.documents,
+                    state.selectedItems,
+                    setState,
+                  ),
+
+                  SizedBox(height: AppSize.getSize(25)),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Text(
+                          context.l10n.cancel,
+                          style: TextStyle(
+                            color: AppTheme.greenAccentShade700,
+                            fontWeight: FontWeight.bold,
+                            fontSize: AppSize.getSize(16),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: AppSize.getSize(30)),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          context.l10n.ok,
+                          style: TextStyle(
+                            color: AppTheme.greenAccentShade700,
+                            fontWeight: FontWeight.bold,
+                            fontSize: AppSize.getSize(16),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: AppSize.getSize(15)),
+                    ],
+                  ),
+                ],
               ),
             );
           },
         );
+        });
       },
     );
   }
@@ -281,7 +321,10 @@ class StorageAndDataScreen extends GetView<SettingController> {
                   SizedBox(height: 10),
                   Text(
                     subtitle,
-                    style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(
+                      color: AppTheme.greyShade400,
+                      fontSize: AppSize.getSize(16),
+                    ),
                   ),
                 ],
               ),
@@ -298,7 +341,9 @@ class StorageAndDataScreen extends GetView<SettingController> {
                       });
                     },
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: AppSize.getSize(12)),
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppSize.getSize(12),
+                      ),
                       child: Row(
                         children: [
                           Container(
@@ -309,7 +354,7 @@ class StorageAndDataScreen extends GetView<SettingController> {
                               border: Border.all(
                                 color: isSelected
                                     ? AppTheme.greenAccentShade700
-                                    :AppTheme.greyShade400,
+                                    : AppTheme.greyShade400,
                                 width: AppSize.getSize(2),
                               ),
                             ),
@@ -442,7 +487,10 @@ class StorageAndDataScreen extends GetView<SettingController> {
               ),
               Text(
                 subtitle,
-                style: TextStyle(color: AppTheme.greyShade400, fontSize: AppSize.getSize(16)),
+                style: TextStyle(
+                  color: AppTheme.greyShade400,
+                  fontSize: AppSize.getSize(16),
+                ),
               ),
             ],
           ),

@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/account_setting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/app_updates_screen.dart';
@@ -22,27 +24,27 @@ import 'package:whatsapp_clone_getx/utils/enums/setting_option_enum.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class SettingScreen extends GetView<SettingController> {
+class SettingScreen extends StatelessWidget {
   static const id = "/SettingScreen";
   const SettingScreen({super.key});
 
-  Future pickFromCamera() async {
-    final ImagePicker picker = ImagePicker();
+  Future pickFromCamera(BuildContext context) async {
+    final picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+    if (!context.mounted) return;
 
     if (photo != null) {
-      File file = File(photo.path);
-      await controller.pickAndUploadProfilePic(file);
+      context.read<SettingBloc>().add(UploadProfilePic(File(photo.path)));
     }
   }
 
-  Future pickFromGallery() async {
-    final ImagePicker picker = ImagePicker();
+  Future pickFromGallery(BuildContext context) async {
+    final picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (!context.mounted) return;
 
     if (image != null) {
-      File file = File(image.path);
-      await controller.pickAndUploadProfilePic(file);
+      context.read<SettingBloc>().add(UploadProfilePic(File(image.path)));
     }
   }
 
@@ -93,32 +95,38 @@ class SettingScreen extends GetView<SettingController> {
                 children: [
                   Stack(
                     children: [
-                      Obx(
-                        () => ClipOval(
-                          child: controller.profilePicfile.value != null
-                              ? Image.file(
-                                  File(controller.profilePicfile.value!),
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,
-                                )
-                              : controller.profilePicUrl.value.isNotEmpty
-                              ? Image.network(
-                                  controller.profilePicUrl.value,
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,
-                                  loadingBuilder:
-                                      (context, child, loadingProgress) {
-                                        if (loadingProgress == null) {
-                                          return child;
-                                        }
-                                        return CircularProgressIndicator();
-                                      },
-                                )
-                              :CircularProgressIndicator(),
-                        ),
+                      BlocBuilder<SettingBloc, SettingState>(
+                        builder: (context, state) {
+                          if (state.profilePicUrl.isEmpty) {
+                            return ClipOval(
+                              child: Image.asset(
+                                "assets/i2.jpg",
+                                height: AppSize.getSize(55),
+                                width: AppSize.getSize(55),
+                                fit: BoxFit.cover,
+                              ),
+                            );
+                          } else {
+                            return ClipOval(
+                              child: Image.network(
+                                state.profilePicUrl,
+                                height: AppSize.getSize(55),
+                                width: AppSize.getSize(55),
+                                fit: BoxFit.cover,
+                                loadingBuilder: (context, child, progress) {
+                                  if (progress == null) return child;
+                                  return SizedBox(
+                                    height: 55,
+                                    width: 55,
+                                    child: CircularProgressIndicator(),
+                                  );
+                                },
+                              ),
+                            );
+                          }
+                        },
                       ),
+
                       Positioned(
                         bottom: 0,
                         right: 0,
@@ -184,7 +192,10 @@ class SettingScreen extends GetView<SettingController> {
 
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(QrScreen.id);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => QrScreen()),
+                      );
                     },
                     child: Icon(
                       Icons.qr_code,
@@ -221,7 +232,8 @@ class SettingScreen extends GetView<SettingController> {
                       size: AppSize.getSize(28),
                     ),
 
-                   title: Text(item.label(context).tr,
+                    title: Text(
+                      item.label(context),
 
                       style: TextStyle(
                         color: AppTheme.whiteColor,
@@ -238,62 +250,121 @@ class SettingScreen extends GetView<SettingController> {
                           )
                         : null,
 
-                   onTap: () {
-  switch (item) {
-    case SettingOptionEnum.account:
-      Get.toNamed(AccountSettingScreen.id);
-      break;
+                    onTap: () {
+                      switch (item) {
+                        case SettingOptionEnum.account:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AccountSettingScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.privacy:
-      Get.toNamed(PrivacyScreen.id);
-      break;
+                        case SettingOptionEnum.privacy:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PrivacyScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.avatar:
-      Get.toNamed(AvatarScreen.id);
-      break;
+                        case SettingOptionEnum.avatar:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AvatarScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.lists:
-      Get.toNamed(ListsScreen.id);
-      break;
+                        case SettingOptionEnum.lists:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ListsScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.chat:
-      Get.toNamed(ChatsScreen.id);
-      break;
+                        case SettingOptionEnum.chat:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatsScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.broadcasts:
-      Get.toNamed(BroadcastsScreen.id);
-      break;
+                        case SettingOptionEnum.broadcasts:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BroadcastsScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.notifications:
-      Get.toNamed(NotificationsScreen.id);
-      break;
+                        case SettingOptionEnum.notifications:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NotificationsScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.storageanddata:
-      Get.toNamed(StorageAndDataScreen.id);
-      break;
+                        case SettingOptionEnum.storageanddata:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StorageAndDataScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.accesibility:
-      Get.toNamed(AccessibilityScreen.id);
-      break;
+                        case SettingOptionEnum.accesibility:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AccessibilityScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.applanguage:
-      openModalSheet(context);
-      break;
+                        case SettingOptionEnum.applanguage:
+                          openModalSheet(context);
+                          break;
 
-    case SettingOptionEnum.helpandfeedback:
-      Get.toNamed(HelpAndFeedbackScreen.id);
-      break;
+                        case SettingOptionEnum.helpandfeedback:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HelpAndFeedbackScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.inviteafriend:
-      Get.toNamed(InviteFriendScreen.id);
-      break;
+                        case SettingOptionEnum.inviteafriend:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InviteFriendScreen(),
+                            ),
+                          );
+                          break;
 
-    case SettingOptionEnum.appupdate:
-      Get.toNamed(AppUpdatesScreen.id);
-      break;
-  }
-}
-
+                        case SettingOptionEnum.appupdate:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AppUpdatesScreen(),
+                            ),
+                          );
+                          break;
+                      }
+                    },
                   );
                 },
                 separatorBuilder: (context, index) =>
@@ -600,17 +671,19 @@ class SettingScreen extends GetView<SettingController> {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Expanded(
-                    child:  ListView.builder(
-                        itemCount: LanguageEnum.values.length,
-                        itemBuilder: (context, index) {
-                           return Padding(
-                            padding: EdgeInsets.only(
-                              bottom: AppSize.getSize(20),
-                            ),
-                            child: radioTile(LanguageEnum.values[index], setModalState, modalContext),
-                          );
-                        },
-                      ),
+                    child: ListView.builder(
+                      itemCount: LanguageEnum.values.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: AppSize.getSize(20)),
+                          child: radioTile(
+                            LanguageEnum.values[index],
+                            setModalState,
+                            modalContext,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -626,70 +699,71 @@ class SettingScreen extends GetView<SettingController> {
     void Function(VoidCallback) setModalState,
     BuildContext context,
   ) {
-    return Obx(() {
-      bool isSelected = controller.selectedLanguage.value.code == lang.code;
+    return BlocBuilder<SettingBloc, SettingState>(
+      builder: (context, state) {
+        bool isSelected = state.language.code == lang.code;
 
-      String title = lang.title;
+        String title = lang.title;
 
-      return InkWell(
-        onTap: () {
-          controller.changeLanguage(lang);
-          Navigator.pop(context);
-        },
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: AppSize.getSize(22),
-                width: AppSize.getSize(22),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: isSelected
-                        ? AppTheme.greenAccentShade700
-                        : AppTheme.greyColor,
-                    width: 2,
-                  ),
-                  shape: BoxShape.circle,
-                ),
-                child: isSelected
-                    ? Center(
-                        child: Container(
-                          height: AppSize.getSize(12),
-                          width: AppSize.getSize(12),
-                          decoration: BoxDecoration(
-                            color: AppTheme.greenAccentShade700,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      )
-                    : SizedBox(),
-              ),
-
-              SizedBox(width: AppSize.getSize(25)),
-
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: AppTheme.whiteColor,
-                        fontSize: AppSize.getSize(18),
-                        fontWeight: FontWeight.w600,
-                      ),
+        return InkWell(
+          onTap: () {
+            context.read<SettingBloc>().add(ChangeLanguage(lang));
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: AppSize.getSize(8)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: AppSize.getSize(22),
+                  width: AppSize.getSize(22),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: isSelected
+                          ? AppTheme.greenAccentShade700
+                          : AppTheme.greyColor,
+                      width: 2,
                     ),
-
-                  ],
+                    shape: BoxShape.circle,
+                  ),
+                  child: isSelected
+                      ? Center(
+                          child: Container(
+                            height: AppSize.getSize(12),
+                            width: AppSize.getSize(12),
+                            decoration: BoxDecoration(
+                              color: AppTheme.greenAccentShade700,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        )
+                      : SizedBox(),
                 ),
-              ),
-            ],
+
+                SizedBox(width: AppSize.getSize(25)),
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          color: AppTheme.whiteColor,
+                          fontSize: AppSize.getSize(18),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 
   void showImagePickerSheet(BuildContext context) {
@@ -710,7 +784,7 @@ class SettingScreen extends GetView<SettingController> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  pickFromCamera();
+                  pickFromCamera(context);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -739,7 +813,7 @@ class SettingScreen extends GetView<SettingController> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  pickFromGallery();
+                  pickFromGallery(context);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

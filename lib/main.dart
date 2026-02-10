@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/bloc/dashboard_cubit.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/bloc/chat_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/status_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/update_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
@@ -31,6 +33,8 @@ void main() async {
         BlocProvider(create: (_) => ChatBloc()),
         BlocProvider(create: (_) => UpdateBloc()),
         BlocProvider(create: (_) => StatusBloc()),
+        BlocProvider(create: (_) => CallBloc()),
+        BlocProvider(create: (_) => SettingBloc()),
       ],
       child: const MyApp(),
     ),
