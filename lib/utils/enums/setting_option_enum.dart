@@ -101,7 +101,7 @@ extension SettingOptionEnumExtension on SettingOptionEnum {
       case SettingOptionEnum.accesibility:
         return "Increase contrast, animation";
       case SettingOptionEnum.applanguage:
-        return "English (devices's language)";
+        return "";
       case SettingOptionEnum.helpandfeedback:
         return "Help center, contact us, privacy policy";
       case SettingOptionEnum.inviteafriend:

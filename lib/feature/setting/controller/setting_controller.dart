@@ -31,6 +31,15 @@ class SettingController extends GetxController {
     "Videos": false,
     "Documents": false,
   }.obs;
+  Rx<Locale> appLocale = const Locale('en').obs;  
+
+void changeLanguage(LanguageEnum lang) {
+  selectedLanguage.value = lang;
+  final newLocale = Locale(lang.code); 
+  
+  appLocale.value = newLocale;        
+  Get.updateLocale(newLocale);        
+}
 
   @override
   void onInit() {
@@ -49,10 +58,7 @@ class SettingController extends GetxController {
     }
   }
 
-  void changeLanguage(LanguageEnum lang) {
-    selectedLanguage.value = lang;
-    Get.updateLocale(Locale(lang.code));
-  }
+   
 
   RxList<StatusItem> statusList = <StatusItem>[].obs;
 

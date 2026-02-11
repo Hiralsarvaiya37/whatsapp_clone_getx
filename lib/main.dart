@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart'; 
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
@@ -12,6 +13,8 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  Get.put(SettingController());
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
@@ -19,6 +22,7 @@ void main() async {
       statusBarBrightness: Brightness.dark,
     ),
   );
+
   runApp(const MyApp());
 }
 
@@ -27,13 +31,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale getInitialLocale() {
+      try {
+        return Get.find<SettingController>().appLocale.value;
+      } catch (e) {
+        return const Locale('en');
+      }
+    }
+
     return GetMaterialApp(
-      // initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       initialRoute: SplashScreen.id,
       getPages: AppRouter.appRoute,
-      locale: Locale("en"),
+      locale: getInitialLocale(),
+      fallbackLocale: const Locale('en'),
+
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
@@ -43,7 +56,7 @@ class MyApp extends StatelessWidget {
             statusBarIconBrightness: Brightness.light,
             statusBarBrightness: Brightness.dark,
           ),
-          child: Scaffold(body: child ?? SizedBox()),
+          child: Scaffold(body: child ?? const SizedBox()),
         );
       },
     );

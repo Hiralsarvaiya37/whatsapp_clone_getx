@@ -22,9 +22,7 @@ class ChatsScreen extends GetView<SettingController> {
       appBar: AppBar(
         backgroundColor: AppTheme.blackColor,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
             size: AppSize.getSize(25),
@@ -57,102 +55,10 @@ class ChatsScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
+
+              // Theme selection row
               InkWell(
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return StatefulBuilder(
-                        builder: (context, dialogSetState) {
-                          return Dialog(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: AppTheme.greyShade900,
-                                borderRadius: BorderRadius.circular(
-                                  AppSize.getSize(20),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: AppSize.getSize(25),
-                                  vertical: AppSize.getSize(20),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      context.l10n.choosetheme,
-                                      style: TextStyle(
-                                        color: AppTheme.whiteColor,
-                                        fontSize: 22,
-                                      ),
-                                    ),
-                                    SizedBox(height: AppSize.getSize(20)),
-
-                                    radioTile(
-                                      context.l10n.systemdefault,
-                                      dialogSetState,
-                                      controller.selectedTheme.value,
-                                    ),
-                                    SizedBox(height: AppSize.getSize(30)),
-                                    radioTile(
-                                      context.l10n.light,
-                                      dialogSetState,
-                                      controller.selectedTheme.value,
-                                    ),
-                                    SizedBox(height: AppSize.getSize(30)),
-                                    radioTile(
-                                      context.l10n.dark,
-                                      dialogSetState,
-                                      controller.selectedTheme.value,
-                                    ),
-
-                                    SizedBox(height: AppSize.getSize(35)),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text(
-                                            context.l10n.cancel,
-                                            style: TextStyle(
-                                              color:
-                                                  AppTheme.greenAccentShade700,
-                                              fontSize: AppSize.getSize(16),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(width: AppSize.getSize(30)),
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text(
-                                            context.l10n.ok,
-                                            style: TextStyle(
-                                              color:
-                                                  AppTheme.greenAccentShade700,
-                                              fontSize: AppSize.getSize(16),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  );
-                },
+                onTap: () => _showThemeDialog(context),
                 child: Row(
                   children: [
                     Icon(
@@ -186,11 +92,11 @@ class ChatsScreen extends GetView<SettingController> {
                   ],
                 ),
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               InkWell(
-                onTap: () {
-                  Get.toNamed(ChatThemeScreen.id);
-                },
+                onTap: () => Get.toNamed(ChatThemeScreen.id),
                 child: Row(
                   children: [
                     Icon(
@@ -212,6 +118,7 @@ class ChatsScreen extends GetView<SettingController> {
               ),
 
               SizedBox(height: AppSize.getSize(40)),
+
               Text(
                 context.l10n.chatsettings,
                 style: TextStyle(
@@ -220,40 +127,45 @@ class ChatsScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
+
               Obx(
                 () => appInfo(
                   context.l10n.enterissend,
                   context.l10n.enterkeywillsendyourmessage,
                   switchValue: controller.ison1.value,
-                  onChanged: (val) {
-                    controller.ison1.value = val;
-                  },
+                  onChanged: (val) => controller.ison1.value = val,
                 ),
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               Obx(
                 () => appInfo(
                   context.l10n.mediavisibility,
                   context.l10n.shownewlydownloadedmediainyourdevicesgallery,
                   switchValue: controller.ison2.value,
-                  onChanged: (val) {
-                    controller.ison2.value = val;
-                  },
+                  onChanged: (val) => controller.ison2.value = val,
                 ),
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               appInfo(
                 context.l10n.fontsize,
                 controller.selectedFontSize.value,
                 showSwitch: false,
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               appInfo(
                 context.l10n.voicemessagetranscripts,
                 context.l10n.readnewvoicemessages,
                 showSwitch: false,
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               Text(
                 context.l10n.archivedchats,
                 style: TextStyle(
@@ -262,40 +174,178 @@ class ChatsScreen extends GetView<SettingController> {
                 ),
               ),
               SizedBox(height: AppSize.getSize(20)),
+
               Obx(
                 () => appInfo(
                   context.l10n.keepchatsarchived,
-                  context.l10n.archivedchatswillremainarchivedwhenyoureceiveanewmessage,
+                  context
+                      .l10n
+                      .archivedchatswillremainarchivedwhenyoureceiveanewmessage,
                   switchValue: controller.ison3.value,
-                  onChanged: (val) {
-                    controller.ison3.value = val;
-                  },
+                  onChanged: (val) => controller.ison3.value = val,
                 ),
               ),
 
               SizedBox(height: AppSize.getSize(40)),
+
               InkWell(
-                onTap: () {
-                  Get.toNamed(ChatBackupScreen.id);
-                },
+                onTap: () => Get.toNamed(ChatBackupScreen.id),
                 child: chatInfo(context.l10n.chatbackup, Icons.backup_outlined),
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               InkWell(
-                onTap: () {
-                  Get.toNamed(TransferChatScreen.id);
-                },
-                child: chatInfo(context.l10n.transferchats, Icons.send_to_mobile_rounded),
+                onTap: () => Get.toNamed(TransferChatScreen.id),
+                child: chatInfo(
+                  context.l10n.transferchats,
+                  Icons.send_to_mobile_rounded,
+                ),
               ),
+
               SizedBox(height: AppSize.getSize(30)),
+
               InkWell(
-                onTap: () {
-                  Get.toNamed(ChatHistoryScreen.id);
-                },
-                child: chatInfo(context.l10n.chathistory, Icons.replay_outlined),
+                onTap: () => Get.toNamed(ChatHistoryScreen.id),
+                child: chatInfo(
+                  context.l10n.chathistory,
+                  Icons.replay_outlined,
+                ),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  void _showThemeDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) {
+        return Dialog(
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppTheme.greyShade900,
+              borderRadius: BorderRadius.circular(AppSize.getSize(20)),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.getSize(25),
+                vertical: AppSize.getSize(20),
+              ),
+              child: Obx(
+                () => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      context.l10n.choosetheme,
+                      style: TextStyle(
+                        color: AppTheme.whiteColor,
+                        fontSize: 22,
+                      ),
+                    ),
+                    SizedBox(height: AppSize.getSize(20)),
+
+                    radioTile(context.l10n.systemdefault, context),
+                    SizedBox(height: AppSize.getSize(30)),
+                    radioTile(context.l10n.light, context),
+                    SizedBox(height: AppSize.getSize(30)),
+                    radioTile(context.l10n.dark, context),
+
+                    SizedBox(height: AppSize.getSize(35)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () => Navigator.pop(dialogContext),
+                          child: Text(
+                            context.l10n.cancel,
+                            style: TextStyle(
+                              color: AppTheme.greenAccentShade700,
+                              fontSize: AppSize.getSize(16),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: AppSize.getSize(30)),
+                        InkWell(
+                          onTap: () => Navigator.pop(dialogContext),
+                          child: Text(
+                            context.l10n.ok,
+                            style: TextStyle(
+                              color: AppTheme.greenAccentShade700,
+                              fontSize: AppSize.getSize(16),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget radioTile(String title, BuildContext context) {
+    final isSelected = controller.selectedTheme.value == title;
+
+    return InkWell(
+      onTap: () {
+        controller.selectedTheme.value = title;
+
+        if (title == context.l10n.light) {
+          AppTheme.changeTheme(P1());
+        } else if (title == context.l10n.dark) {
+          AppTheme.changeTheme(DefulatPallet());
+        } else {
+          AppTheme.changeTheme(DefulatPallet()); // system default
+        }
+      },
+      child: Container(
+        color: AppTheme.greyShade900,
+        child: Row(
+          children: [
+            Container(
+              height: AppSize.getSize(22),
+              width: AppSize.getSize(22),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isSelected
+                      ? AppTheme.greenAccentShade700
+                      : AppTheme.greyColor,
+                  width: AppSize.getSize(2),
+                ),
+              ),
+              child: isSelected
+                  ? Center(
+                      child: Container(
+                        height: AppSize.getSize(12),
+                        width: AppSize.getSize(12),
+                        decoration: BoxDecoration(
+                          color: AppTheme.greenAccentShade700,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    )
+                  : const SizedBox(),
+            ),
+            SizedBox(width: AppSize.getSize(20)),
+            Text(
+              title,
+              style: TextStyle(
+                color: AppTheme.whiteColor,
+                fontSize: AppSize.getSize(18),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -368,69 +418,6 @@ class ChatsScreen extends GetView<SettingController> {
               onChanged: onChanged,
             ),
         ],
-      ),
-    );
-  }
-
-  Widget radioTile(
-    String title,
-    StateSetter dialogSetState,
-    String currentSelected,
-  ) {
-    bool isSelected = currentSelected == title;
-    return InkWell(
-      onTap: () {
-        dialogSetState(() {
-          controller.selectedTheme.value = title;
-        });
-
-        if (title == "Light") {
-          AppTheme.changeTheme(P1());
-        } else if (title == "Dark") {
-          AppTheme.changeTheme(DefulatPallet());
-        } else {
-          AppTheme.changeTheme(DefulatPallet());
-        }
-      },
-      child: Container(
-        color: AppTheme.greyShade900,
-        child: Row(
-          children: [
-            Container(
-              height: AppSize.getSize(22),
-              width: AppSize.getSize(22),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: isSelected
-                      ? AppTheme.greenAccentShade700
-                      : AppTheme.greyColor,
-                  width: AppSize.getSize(2),
-                ),
-              ),
-              child: isSelected
-                  ? Center(
-                      child: Container(
-                        height: AppSize.getSize(12),
-                        width: AppSize.getSize(12),
-                        decoration: BoxDecoration(
-                          color: AppTheme.greenAccentShade700,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    )
-                  : SizedBox(),
-            ),
-            SizedBox(width: AppSize.getSize(20)),
-            Text(
-              title,
-              style: TextStyle(
-                color: AppTheme.whiteColor,
-                fontSize: AppSize.getSize(18),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -113,10 +113,28 @@ class SettingScreen extends GetView<SettingController> {
                                         if (loadingProgress == null) {
                                           return child;
                                         }
-                                        return CircularProgressIndicator();
+                                        return SizedBox(
+                                          height: AppSize.getSize(55),
+                                          width: AppSize.getSize(55),
+                                          child: Center(
+                                            child: CircularProgressIndicator(),
+                                          ),
+                                        );
                                       },
                                 )
-                              :CircularProgressIndicator(),
+                              : Container(
+                                  height: AppSize.getSize(55),
+                                  width: AppSize.getSize(55),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppTheme.greyShade500,
+                                  ),
+                                  child: Icon(
+                                    Icons.person,
+                                    size: AppSize.getSize(30),
+                                    color: AppTheme.whiteColor,
+                                  ),
+                                ),
                         ),
                       ),
                       Positioned(
@@ -221,79 +239,89 @@ class SettingScreen extends GetView<SettingController> {
                       size: AppSize.getSize(28),
                     ),
 
-                   title: Text(item.label(context).tr,
+                    title: Text(
+                      item.label(context).tr,
 
                       style: TextStyle(
                         color: AppTheme.whiteColor,
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
-                    subtitle: (item.subtitles.isNotEmpty)
-                        ? Text(
-                            item.subtitles,
-                            style: TextStyle(
-                              color: AppTheme.greyColor,
-                              fontSize: AppSize.getSize(16),
+                    subtitle: item == SettingOptionEnum.applanguage
+                        ? Obx(
+                            () => Text(
+                              controller.selectedLanguage.value.title,
+                              style: TextStyle(
+                                color: AppTheme.greyColor,
+                                fontSize: AppSize.getSize(16),
+                              ),
                             ),
                           )
-                        : null,
+                        : (item.subtitles.isNotEmpty
+                              ? Text(
+                                  item.subtitles,
+                                  style: TextStyle(
+                                    color: AppTheme.greyColor,
+                                    fontSize: AppSize.getSize(16),
+                                  ),
+                                )
+                              : null),
 
-                   onTap: () {
-  switch (item) {
-    case SettingOptionEnum.account:
-      Get.toNamed(AccountSettingScreen.id);
-      break;
+                    onTap: () {
+                      switch (item) {
+                        case SettingOptionEnum.account:
+                          Get.toNamed(AccountSettingScreen.id);
+                          break;
 
-    case SettingOptionEnum.privacy:
-      Get.toNamed(PrivacyScreen.id);
-      break;
+                        case SettingOptionEnum.privacy:
+                          Get.toNamed(PrivacyScreen.id);
+                          break;
 
-    case SettingOptionEnum.avatar:
-      Get.toNamed(AvatarScreen.id);
-      break;
+                        case SettingOptionEnum.avatar:
+                          Get.toNamed(AvatarScreen.id);
+                          break;
 
-    case SettingOptionEnum.lists:
-      Get.toNamed(ListsScreen.id);
-      break;
+                        case SettingOptionEnum.lists:
+                          Get.toNamed(ListsScreen.id);
+                          break;
 
-    case SettingOptionEnum.chat:
-      Get.toNamed(ChatsScreen.id);
-      break;
+                        case SettingOptionEnum.chat:
+                          Get.toNamed(ChatsScreen.id);
+                          break;
 
-    case SettingOptionEnum.broadcasts:
-      Get.toNamed(BroadcastsScreen.id);
-      break;
+                        case SettingOptionEnum.broadcasts:
+                          Get.toNamed(BroadcastsScreen.id);
+                          break;
 
-    case SettingOptionEnum.notifications:
-      Get.toNamed(NotificationsScreen.id);
-      break;
+                        case SettingOptionEnum.notifications:
+                          Get.toNamed(NotificationsScreen.id);
+                          break;
 
-    case SettingOptionEnum.storageanddata:
-      Get.toNamed(StorageAndDataScreen.id);
-      break;
+                        case SettingOptionEnum.storageanddata:
+                          Get.toNamed(StorageAndDataScreen.id);
+                          break;
 
-    case SettingOptionEnum.accesibility:
-      Get.toNamed(AccessibilityScreen.id);
-      break;
+                        case SettingOptionEnum.accesibility:
+                          Get.toNamed(AccessibilityScreen.id);
+                          break;
 
-    case SettingOptionEnum.applanguage:
-      openModalSheet(context);
-      break;
+                        case SettingOptionEnum.applanguage:
+                          openModalSheet(context);
+                          break;
 
-    case SettingOptionEnum.helpandfeedback:
-      Get.toNamed(HelpAndFeedbackScreen.id);
-      break;
+                        case SettingOptionEnum.helpandfeedback:
+                          Get.toNamed(HelpAndFeedbackScreen.id);
+                          break;
 
-    case SettingOptionEnum.inviteafriend:
-      Get.toNamed(InviteFriendScreen.id);
-      break;
+                        case SettingOptionEnum.inviteafriend:
+                          Get.toNamed(InviteFriendScreen.id);
+                          break;
 
-    case SettingOptionEnum.appupdate:
-      Get.toNamed(AppUpdatesScreen.id);
-      break;
-  }
-}
-
+                        case SettingOptionEnum.appupdate:
+                          Get.toNamed(AppUpdatesScreen.id);
+                          break;
+                      }
+                    },
                   );
                 },
                 separatorBuilder: (context, index) =>
@@ -600,17 +628,19 @@ class SettingScreen extends GetView<SettingController> {
                   ),
                   SizedBox(height: AppSize.getSize(30)),
                   Expanded(
-                    child:  ListView.builder(
-                        itemCount: LanguageEnum.values.length,
-                        itemBuilder: (context, index) {
-                           return Padding(
-                            padding: EdgeInsets.only(
-                              bottom: AppSize.getSize(20),
-                            ),
-                            child: radioTile(LanguageEnum.values[index], setModalState, modalContext),
-                          );
-                        },
-                      ),
+                    child: ListView.builder(
+                      itemCount: LanguageEnum.values.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: AppSize.getSize(20)),
+                          child: radioTile(
+                            LanguageEnum.values[index],
+                            setModalState,
+                            modalContext,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -681,7 +711,6 @@ class SettingScreen extends GetView<SettingController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-
                   ],
                 ),
               ),
