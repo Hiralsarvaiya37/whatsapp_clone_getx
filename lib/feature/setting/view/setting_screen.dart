@@ -256,15 +256,16 @@ class SettingScreen extends StatelessWidget {
                         fontSize: AppSize.getSize(18),
                       ),
                     ),
-                    subtitle: (item.subtitles.isNotEmpty)
-                        ? Text(
-                            item.subtitles,
-                            style: TextStyle(
-                              color: theme.greyColor,
-                              fontSize: AppSize.getSize(16),
-                            ),
-                          )
-                        : null,
+                  subtitle: (item.subtitles(context).isNotEmpty)
+    ? Text(
+        item.subtitles(context),
+        style: TextStyle(
+          color: theme.greyColor,
+          fontSize: AppSize.getSize(16),
+        ),
+      )
+    : null,
+
 
                     onTap: () {
                       switch (item) {

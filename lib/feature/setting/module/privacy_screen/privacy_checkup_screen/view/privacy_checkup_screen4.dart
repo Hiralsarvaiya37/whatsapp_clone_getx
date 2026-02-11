@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/email_address_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/pass_keys_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/email_address_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/pass_keys_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/two_step_verification_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 

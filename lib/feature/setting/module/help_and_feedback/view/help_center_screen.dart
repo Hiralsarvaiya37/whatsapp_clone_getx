@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/accounts_and_account_bans_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/business_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/view/channles_screen.dart';

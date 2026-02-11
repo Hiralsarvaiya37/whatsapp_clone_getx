@@ -8,7 +8,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/provider/call
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/provider/chat_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/provider/updateview_provider.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/provider/dashboard_provider.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/provider/account_view_provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/provider/account_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/provider/accessibility_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/provider/chat_view_provider.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/provider/help_and_feedback_view_provider.dart';

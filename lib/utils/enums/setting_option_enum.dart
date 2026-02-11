@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone_getx/feature/setting/provider/setting_provider.dart';
+import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 enum SettingOptionEnum {
@@ -80,34 +83,36 @@ extension SettingOptionEnumExtension on SettingOptionEnum {
     }
   }
 
-  String get subtitles {
-    switch (this) {
-      case SettingOptionEnum.account:
-        return "Security notifications, change number";
-      case SettingOptionEnum.privacy:
-        return "Block contacts, sisappearing messages";
-      case SettingOptionEnum.avatar:
-        return "Create, edit, profile photo";
-      case SettingOptionEnum.lists:
-        return "Manage people and groups";
-      case SettingOptionEnum.chat:
-        return "Theme, wallpapers, chat history";
-      case SettingOptionEnum.broadcasts:
-        return "Manage lists and send broadcasts";
-      case SettingOptionEnum.notifications:
-        return "Message, group & call tones";
-      case SettingOptionEnum.storageanddata:
-        return "Network usage, auto-download";
-      case SettingOptionEnum.accesibility:
-        return "Increase contrast, animation";
-      case SettingOptionEnum.applanguage:
-        return "English (devices's language)";
-      case SettingOptionEnum.helpandfeedback:
-        return "Help center, contact us, privacy policy";
-      case SettingOptionEnum.inviteafriend:
-        return "";
-      case SettingOptionEnum.appupdate:
-        return "";
-    }
+ String subtitles(BuildContext context) {
+  final settingProvider = context.watch<SettingProvider>();
+
+  switch (this) {
+    case SettingOptionEnum.account:
+      return "Security notifications, change number";
+    case SettingOptionEnum.privacy:
+      return "Block contacts, disappearing messages";
+    case SettingOptionEnum.avatar:
+      return "Create, edit, profile photo";
+    case SettingOptionEnum.lists:
+      return "Manage people and groups";
+    case SettingOptionEnum.chat:
+      return "Theme, wallpapers, chat history";
+    case SettingOptionEnum.broadcasts:
+      return "Manage lists and send broadcasts";
+    case SettingOptionEnum.notifications:
+      return "Message, group & call tones";
+    case SettingOptionEnum.storageanddata:
+      return "Network usage, auto-download";
+    case SettingOptionEnum.accesibility:
+      return "Increase contrast, animation";
+    case SettingOptionEnum.applanguage:
+      return settingProvider.selectedLanguage.title; 
+    case SettingOptionEnum.helpandfeedback:
+      return "Help center, contact us, privacy policy";
+    case SettingOptionEnum.inviteafriend:
+      return "";
+    case SettingOptionEnum.appupdate:
+      return "";
   }
+}
 }

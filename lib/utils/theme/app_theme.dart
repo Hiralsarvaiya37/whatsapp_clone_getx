@@ -9,7 +9,7 @@ class AppTheme extends ChangeNotifier {
 
   void changeTheme(BasePallet value) {
     _pallet = value;
-    notifyListeners();   // ✅ Provider ka force update
+    notifyListeners();   
   }
 
 
