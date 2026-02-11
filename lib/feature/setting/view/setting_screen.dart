@@ -41,6 +41,7 @@ class SettingScreen extends StatelessWidget {
   Future pickFromGallery(BuildContext context) async {
     final picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+
     if (!context.mounted) return;
 
     if (image != null) {
@@ -82,381 +83,386 @@ class SettingScreen extends StatelessWidget {
         ],
       ),
 
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSize.getSize(20),
-            vertical: AppSize.getSize(30),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+      body: BlocBuilder<SettingBloc, SettingState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.getSize(20),
+                vertical: AppSize.getSize(30),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Stack(
+                  Row(
                     children: [
-                      BlocBuilder<SettingBloc, SettingState>(
-                        builder: (context, state) {
-                          if (state.profilePicUrl.isEmpty) {
-                            return ClipOval(
+                      Stack(
+                        children: [
+                          if (state.profilePicUrl.isEmpty)
+                            ClipOval(
                               child: Image.asset(
                                 "assets/i2.jpg",
                                 height: AppSize.getSize(55),
                                 width: AppSize.getSize(55),
                                 fit: BoxFit.cover,
                               ),
-                            );
-                          } else {
-                            return ClipOval(
+                            )
+                          else if (state.profilePicUrl.startsWith("http"))
+                            ClipOval(
                               child: Image.network(
                                 state.profilePicUrl,
                                 height: AppSize.getSize(55),
                                 width: AppSize.getSize(55),
                                 fit: BoxFit.cover,
-                                loadingBuilder: (context, child, progress) {
-                                  if (progress == null) return child;
-                                  return SizedBox(
-                                    height: 55,
-                                    width: 55,
-                                    child: CircularProgressIndicator(),
-                                  );
+                                errorBuilder: (context, error, stack) {
+                                  return Icon(Icons.error, size: 55);
                                 },
                               ),
-                            );
-                          }
-                        },
-                      ),
-
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: InkWell(
-                          onTap: () => showImagePickerSheet(context),
-                          child: Container(
-                            height: AppSize.getSize(22),
-                            width: AppSize.getSize(22),
-                            decoration: BoxDecoration(
-                              color: AppTheme.greenAccentShade700,
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: AppTheme.blackColor,
-                                width: AppSize.getSize(0.5),
+                            )
+                          else
+                            ClipOval(
+                              child: Image.file(
+                                File(state.profilePicUrl),
+                                height: AppSize.getSize(55),
+                                width: AppSize.getSize(55),
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            child: Icon(
-                              Icons.edit,
-                              size: AppSize.getSize(16),
-                              color: AppTheme.blackColor,
+
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: InkWell(
+                              onTap: () => showImagePickerSheet(context),
+                              child: Container(
+                                height: AppSize.getSize(22),
+                                width: AppSize.getSize(22),
+                                decoration: BoxDecoration(
+                                  color: AppTheme.greenAccentShade700,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppTheme.blackColor,
+                                    width: AppSize.getSize(0.5),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.edit,
+                                  size: AppSize.getSize(16),
+                                  color: AppTheme.blackColor,
+                                ),
+                              ),
                             ),
                           ),
+                        ],
+                      ),
+                      SizedBox(width: AppSize.getSize(20)),
+
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "User account",
+                              style: TextStyle(
+                                color: AppTheme.whiteColor,
+                                fontSize: AppSize.getSize(18),
+                              ),
+                            ),
+                            SizedBox(height: AppSize.getSize(7)),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: AppSize.getSize(25),
+                                vertical: AppSize.getSize(2),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: AppTheme.greyShade400,
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                  AppSize.getSize(20),
+                                ),
+                              ),
+                              child: Text(
+                                "Busy",
+                                style: TextStyle(
+                                  color: AppTheme.greyShade400,
+                                  fontSize: AppSize.getSize(14),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => QrScreen()),
+                          );
+                        },
+                        child: Icon(
+                          Icons.qr_code,
+                          color: AppTheme.greenAccentShade700,
+                          size: AppSize.getSize(28),
+                        ),
+                      ),
+                      SizedBox(width: 15),
+                      GestureDetector(
+                        onTap: () {
+                          openAddAccountSheet(context);
+                        },
+                        child: Icon(
+                          Icons.add_circle_outline,
+                          color: AppTheme.greenAccentShade700,
+                          size: AppSize.getSize(28),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: AppSize.getSize(20)),
 
-                  Expanded(
+                  SizedBox(height: AppSize.getSize(30)),
+
+                  ListView.separated(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: SettingOptionEnum.values.length,
+                    itemBuilder: (context, index) {
+                      final item = SettingOptionEnum.values[index];
+                      return ListTile(
+                        leading: Icon(
+                          item.iconData,
+                          color: AppTheme.whiteColor,
+                          size: AppSize.getSize(28),
+                        ),
+
+                        title: Text(
+                          item.label(context),
+
+                          style: TextStyle(
+                            color: AppTheme.whiteColor,
+                            fontSize: AppSize.getSize(18),
+                          ),
+                        ),
+                        subtitle: item.subtitles(state).isNotEmpty
+                            ? Text(
+                                item.subtitles(state),
+                                style: TextStyle(
+                                  color: AppTheme.greyColor,
+                                  fontSize: AppSize.getSize(16),
+                                ),
+                              )
+                            : null,
+
+                        onTap: () {
+                          switch (item) {
+                            case SettingOptionEnum.account:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AccountSettingScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.privacy:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PrivacyScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.avatar:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AvatarScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.lists:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ListsScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.chat:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChatsScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.broadcasts:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BroadcastsScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.notifications:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NotificationsScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.storageanddata:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => StorageAndDataScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.accesibility:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AccessibilityScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.applanguage:
+                              openModalSheet(context);
+                              break;
+
+                            case SettingOptionEnum.helpandfeedback:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HelpAndFeedbackScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.inviteafriend:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => InviteFriendScreen(),
+                                ),
+                              );
+                              break;
+
+                            case SettingOptionEnum.appupdate:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AppUpdatesScreen(),
+                                ),
+                              );
+                              break;
+                          }
+                        },
+                      );
+                    },
+                    separatorBuilder: (context, index) =>
+                        SizedBox(height: AppSize.getSize(18)),
+                  ),
+
+                  SizedBox(height: AppSize.getSize(20)),
+
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSize.getSize(10),
+                      vertical: AppSize.getSize(20),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: AppTheme.greyShade800,
+                          width: AppSize.getSize(1),
+                        ),
+                        bottom: BorderSide(
+                          color: AppTheme.greyShade800,
+                          width: AppSize.getSize(1),
+                        ),
+                      ),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.all_inclusive,
+                              size: AppSize.getSize(25),
+                              color: AppTheme.whiteColor,
+                            ),
+                            SizedBox(width: AppSize.getSize(10)),
+                            Text(
+                              "Meta",
+                              style: TextStyle(
+                                color: AppTheme.whiteColor,
+                                fontSize: AppSize.getSize(18),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: AppSize.getSize(5)),
                         Text(
-                          "User account",
+                          "Accounts Center",
                           style: TextStyle(
                             color: AppTheme.whiteColor,
-                            fontSize: AppSize.getSize(18),
+                            fontSize: AppSize.getSize(17),
                           ),
                         ),
-                        SizedBox(height: AppSize.getSize(7)),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: AppSize.getSize(25),
-                            vertical: AppSize.getSize(2),
+
+                        SizedBox(height: AppSize.getSize(5)),
+                        Text(
+                          "Control your experience across WhatsApp, Facebook, Instagram and more.",
+                          style: TextStyle(
+                            color: AppTheme.greyShade400,
+                            fontSize: AppSize.getSize(14),
                           ),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: AppTheme.greyShade400),
-                            borderRadius: BorderRadius.circular(
-                              AppSize.getSize(20),
-                            ),
-                          ),
-                          child: Text(
-                            "Busy",
-                            style: TextStyle(
-                              color: AppTheme.greyShade400,
-                              fontSize: AppSize.getSize(14),
-                            ),
-                          ),
+                          maxLines: 2,
                         ),
                       ],
                     ),
                   ),
 
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QrScreen()),
-                      );
-                    },
-                    child: Icon(
-                      Icons.qr_code,
-                      color: AppTheme.greenAccentShade700,
-                      size: AppSize.getSize(28),
+                  SizedBox(height: AppSize.getSize(20)),
+
+                  Text(
+                    "Also from Meta",
+                    style: TextStyle(
+                      color: AppTheme.greyShade400,
+                      fontSize: AppSize.getSize(17),
                     ),
                   ),
-                  SizedBox(width: 15),
-                  GestureDetector(
-                    onTap: () {
-                      openAddAccountSheet(context);
-                    },
-                    child: Icon(
-                      Icons.add_circle_outline,
-                      color: AppTheme.greenAccentShade700,
-                      size: AppSize.getSize(28),
-                    ),
+
+                  SizedBox(height: AppSize.getSize(25)),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      appIcon("Meta AI App", Icons.circle_outlined),
+                      appIcon("Instagram", Icons.photo_camera),
+                      appIcon("Facebook", Icons.facebook),
+                      appIcon("Threads", Icons.alternate_email_outlined),
+                    ],
                   ),
                 ],
               ),
-
-              SizedBox(height: AppSize.getSize(30)),
-
-              ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: SettingOptionEnum.values.length,
-                itemBuilder: (context, index) {
-                  final item = SettingOptionEnum.values[index];
-                  return ListTile(
-                    leading: Icon(
-                      item.iconData,
-                      color: AppTheme.whiteColor,
-                      size: AppSize.getSize(28),
-                    ),
-
-                    title: Text(
-                      item.label(context),
-
-                      style: TextStyle(
-                        color: AppTheme.whiteColor,
-                        fontSize: AppSize.getSize(18),
-                      ),
-                    ),
-                    subtitle: (item.subtitles.isNotEmpty)
-                        ? Text(
-                            item.subtitles,
-                            style: TextStyle(
-                              color: AppTheme.greyColor,
-                              fontSize: AppSize.getSize(16),
-                            ),
-                          )
-                        : null,
-
-                    onTap: () {
-                      switch (item) {
-                        case SettingOptionEnum.account:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AccountSettingScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.privacy:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => PrivacyScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.avatar:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AvatarScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.lists:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ListsScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.chat:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ChatsScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.broadcasts:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BroadcastsScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.notifications:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => NotificationsScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.storageanddata:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => StorageAndDataScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.accesibility:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AccessibilityScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.applanguage:
-                          openModalSheet(context);
-                          break;
-
-                        case SettingOptionEnum.helpandfeedback:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HelpAndFeedbackScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.inviteafriend:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => InviteFriendScreen(),
-                            ),
-                          );
-                          break;
-
-                        case SettingOptionEnum.appupdate:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AppUpdatesScreen(),
-                            ),
-                          );
-                          break;
-                      }
-                    },
-                  );
-                },
-                separatorBuilder: (context, index) =>
-                    SizedBox(height: AppSize.getSize(18)),
-              ),
-
-              SizedBox(height: AppSize.getSize(20)),
-
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppSize.getSize(10),
-                  vertical: AppSize.getSize(20),
-                ),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: AppTheme.greyShade800,
-                      width: AppSize.getSize(1),
-                    ),
-                    bottom: BorderSide(
-                      color: AppTheme.greyShade800,
-                      width: AppSize.getSize(1),
-                    ),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.all_inclusive,
-                          size: AppSize.getSize(25),
-                          color: AppTheme.whiteColor,
-                        ),
-                        SizedBox(width: AppSize.getSize(10)),
-                        Text(
-                          "Meta",
-                          style: TextStyle(
-                            color: AppTheme.whiteColor,
-                            fontSize: AppSize.getSize(18),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: AppSize.getSize(5)),
-                    Text(
-                      "Accounts Center",
-                      style: TextStyle(
-                        color: AppTheme.whiteColor,
-                        fontSize: AppSize.getSize(17),
-                      ),
-                    ),
-
-                    SizedBox(height: AppSize.getSize(5)),
-                    Text(
-                      "Control your experience across WhatsApp, Facebook, Instagram and more.",
-                      style: TextStyle(
-                        color: AppTheme.greyShade400,
-                        fontSize: AppSize.getSize(14),
-                      ),
-                      maxLines: 2,
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: AppSize.getSize(20)),
-
-              Text(
-                "Also from Meta",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(17),
-                ),
-              ),
-
-              SizedBox(height: AppSize.getSize(25)),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  appIcon("Meta AI App", Icons.circle_outlined),
-                  appIcon("Instagram", Icons.photo_camera),
-                  appIcon("Facebook", Icons.facebook),
-                  appIcon("Threads", Icons.alternate_email_outlined),
-                ],
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

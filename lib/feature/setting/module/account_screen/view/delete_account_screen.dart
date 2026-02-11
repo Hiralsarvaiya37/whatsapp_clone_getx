@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/controller/account_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/change_number_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';

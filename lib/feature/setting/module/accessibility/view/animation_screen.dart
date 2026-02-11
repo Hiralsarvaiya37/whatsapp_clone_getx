@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibility_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/bloc/accessibility_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/bloc/accessibility_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/bloc/accessibility_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AnimationScreen extends GetView<AccessibilityViewController> {
+class AnimationScreen extends StatelessWidget {
   static const id = "/AnimationScreen";
   const AnimationScreen({super.key});
 
@@ -19,7 +21,11 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: AppSize.getSize(25), color: AppTheme.whiteColor),
+          icon: Icon(
+            Icons.arrow_back,
+            size: AppSize.getSize(25),
+            color: AppTheme.whiteColor,
+          ),
         ),
         title: Text(
           context.l10n.animation,
@@ -31,7 +37,10 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.getSize(20),
+          vertical: AppSize.getSize(20),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,63 +61,69 @@ class AnimationScreen extends GetView<AccessibilityViewController> {
   }
 
   Widget appTile(String title, IconData icon, int index) {
-   return Obx((){
-     bool currentValue;
-    if (index == 1) {
-      currentValue = controller.isOn1.value;
-    } else if (index == 2) {
-      currentValue = controller.isOn2.value;
-    } else {
-      currentValue = controller.isOn3.value;
-    }
-    return InkWell(
-      onTap: () {
-          if (index == 1) {
-            controller.isOn1.value = !controller.isOn1.value;
-          } else if (index == 2) {
-            controller.isOn2.value = !controller.isOn2.value;
-          } else {
-            controller.isOn3.value = !controller.isOn3.value;
-          }
-      },
-      child: Row(
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Icon(icon, size: AppSize.getSize(30), color: AppTheme.whiteColor),
-                SizedBox(width: AppSize.getSize(20)),
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: AppTheme.whiteColor,
-                    fontSize: AppSize.getSize(18),
-                    fontWeight: FontWeight.w600,
-                  ),
+    return BlocBuilder<AccessibilityBloc, AccessibilityState>(
+      builder: (context, state) {
+        bool currentValue;
+        if (index == 1) {
+           currentValue = state.isOn1;
+        } else if (index == 2) {
+           currentValue = state.isOn2;
+        } else {
+          currentValue = state.isOn3;
+        }
+        return InkWell(
+          onTap: () {
+            if (index == 1) {
+             context.read<AccessibilityBloc>().add(ToggleOn1());
+            } else if (index == 2) {
+             context.read<AccessibilityBloc>().add(ToggleOn2());
+            } else {
+               context.read<AccessibilityBloc>().add(ToggleOn3());
+            }
+          },
+          child: Row(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(
+                      icon,
+                      size: AppSize.getSize(30),
+                      color: AppTheme.whiteColor,
+                    ),
+                    SizedBox(width: AppSize.getSize(20)),
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: AppTheme.whiteColor,
+                        fontSize: AppSize.getSize(18),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-         
-             Switch(
-              value: currentValue,
-              activeThumbColor: AppTheme.blackColor,
-              activeTrackColor: AppTheme.greenAccentShade700,
-              inactiveTrackColor: AppTheme.blackColor,
-              onChanged: (val) {
+              ),
+
+              Switch(
+                value: currentValue,
+                activeThumbColor: AppTheme.blackColor,
+                activeTrackColor: AppTheme.greenAccentShade700,
+                inactiveTrackColor: AppTheme.blackColor,
+                onChanged: (val) {
                   if (index == 1) {
-                    controller.isOn1.value = val;
+                   context.read<AccessibilityBloc>().add(ToggleOn1());
                   } else if (index == 2) {
-                    controller.isOn2.value = val;
+                   context.read<AccessibilityBloc>().add(ToggleOn2());
                   } else {
-                    controller.isOn3.value = val;
+                    context.read<AccessibilityBloc>().add(ToggleOn3());
                   }
-              },
-            ),
-          
-        ],
-      ),
-    );
-   });
+                },
+              ),
+            ],
+          ),
+        );
+        }
+      );
+
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
+import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 
 enum SettingOptionEnum {
@@ -18,7 +20,7 @@ enum SettingOptionEnum {
 }
 
 extension SettingOptionEnumExtension on SettingOptionEnum {
-   String label(BuildContext context) {
+  String label(BuildContext context) {
     switch (this) {
       case SettingOptionEnum.account:
         return context.l10n.account;
@@ -80,7 +82,7 @@ extension SettingOptionEnumExtension on SettingOptionEnum {
     }
   }
 
-  String get subtitles {
+  String subtitles(SettingState state) {
     switch (this) {
       case SettingOptionEnum.account:
         return "Security notifications, change number";
@@ -101,7 +103,7 @@ extension SettingOptionEnumExtension on SettingOptionEnum {
       case SettingOptionEnum.accesibility:
         return "Increase contrast, animation";
       case SettingOptionEnum.applanguage:
-        return "English (devices's language)";
+        return state.language.title;
       case SettingOptionEnum.helpandfeedback:
         return "Help center, contact us, privacy policy";
       case SettingOptionEnum.inviteafriend:

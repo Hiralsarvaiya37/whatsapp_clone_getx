@@ -10,6 +10,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/communities/view/co
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/view/updateview_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/link_devices/view/link_devices_screen.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/new_community/view/new_community_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/broadcasts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/setting_screen.dart';
@@ -505,7 +506,12 @@ class DashboardScreen extends StatelessWidget {
       case 8:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SettingScreen()),
+          MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+              value: context.read<SettingBloc>(),
+              child: SettingScreen(),
+            ),
+          ),
         );
         break;
       case 10:

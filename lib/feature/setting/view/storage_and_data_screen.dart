@@ -219,81 +219,69 @@ class StorageAndDataScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) {
-        return BlocBuilder<SettingBloc, SettingState>(builder: (context, state){
-          return StatefulBuilder(
-          builder: (context, setState) {
-            return AlertDialog(
-              backgroundColor: AppTheme.greyShade900,
-              title: Text(
-                title,
-                style: TextStyle(
-                  color: AppTheme.whiteColor,
-                  fontSize: AppSize.getSize(28),
-                ),
-              ),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  dialogCheckItem(
-                    context.l10n.photos,
-                    state.selectedItems,
-                    setState,
+        return BlocBuilder<SettingBloc, SettingState>(
+          builder: (context, state) {
+            return StatefulBuilder(
+              builder: (context, setState) {
+                return AlertDialog(
+                  backgroundColor: AppTheme.greyShade900,
+                  title: Text(
+                    title,
+                    style: TextStyle(
+                      color: AppTheme.whiteColor,
+                      fontSize: AppSize.getSize(28),
+                    ),
                   ),
-                  dialogCheckItem(
-                    context.l10n.audio,
-                    state.selectedItems,
-                    setState,
-                  ),
-                  dialogCheckItem(
-                    context.l10n.video,
-                    state.selectedItems,
-                    setState,
-                  ),
-                  dialogCheckItem(
-                    context.l10n.documents,
-                    state.selectedItems,
-                    setState,
-                  ),
-
-                  SizedBox(height: AppSize.getSize(25)),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      InkWell(
-                        onTap: () => Navigator.pop(context),
-                        child: Text(
-                          context.l10n.cancel,
-                          style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
-                            fontWeight: FontWeight.bold,
-                            fontSize: AppSize.getSize(16),
-                          ),
-                        ),
+                      dialogCheckItem(MediaKey.photos, context.l10n.photos),
+                      dialogCheckItem(MediaKey.audio, context.l10n.audio),
+                      dialogCheckItem(MediaKey.video, context.l10n.video),
+                      dialogCheckItem(
+                        MediaKey.documents,
+                        context.l10n.documents,
                       ),
-                      SizedBox(width: AppSize.getSize(30)),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          context.l10n.ok,
-                          style: TextStyle(
-                            color: AppTheme.greenAccentShade700,
-                            fontWeight: FontWeight.bold,
-                            fontSize: AppSize.getSize(16),
+
+                      SizedBox(height: AppSize.getSize(25)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: () => Navigator.pop(context),
+                            child: Text(
+                              context.l10n.cancel,
+                              style: TextStyle(
+                                color: AppTheme.greenAccentShade700,
+                                fontWeight: FontWeight.bold,
+                                fontSize: AppSize.getSize(16),
+                              ),
+                            ),
                           ),
-                        ),
+                          SizedBox(width: AppSize.getSize(30)),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              context.l10n.ok,
+                              style: TextStyle(
+                                color: AppTheme.greenAccentShade700,
+                                fontWeight: FontWeight.bold,
+                                fontSize: AppSize.getSize(16),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: AppSize.getSize(15)),
+                        ],
                       ),
-                      SizedBox(width: AppSize.getSize(15)),
                     ],
                   ),
-                ],
-              ),
+                );
+              },
             );
           },
         );
-        });
       },
     );
   }
@@ -422,38 +410,39 @@ class StorageAndDataScreen extends StatelessWidget {
     );
   }
 
-  Widget dialogCheckItem(
-    String title,
-    Map<String, bool> selectedItems,
-    StateSetter setState,
-  ) {
-    bool isChecked = selectedItems[title] ?? false;
-    return InkWell(
-      onTap: () {
-        selectedItems[title] = !(selectedItems[title] ?? false);
-      },
-      child: Row(
-        children: [
-          Checkbox(
-            value: isChecked,
-            checkColor: AppTheme.blackColor,
-            activeColor: AppTheme.greenAccentShade700,
-            onChanged: (val) {
-              selectedItems[title] = val ?? false;
-            },
-          ),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: AppTheme.whiteColor,
-                fontSize: AppSize.getSize(16),
-                fontWeight: FontWeight.w600,
+  Widget dialogCheckItem(String key, String title) {
+    return BlocBuilder<SettingBloc, SettingState>(
+      builder: (context, state) {
+        bool isChecked = state.selectedItems[key] ?? false;
+
+        return InkWell(
+          onTap: () {
+            context.read<SettingBloc>().add(ToggleItem(key));
+          },
+          child: Row(
+            children: [
+              Checkbox(
+                value: isChecked,
+                checkColor: AppTheme.blackColor,
+                activeColor: AppTheme.greenAccentShade700,
+                onChanged: (_) {
+                  context.read<SettingBloc>().add(ToggleItem(key));
+                },
               ),
-            ),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    color: AppTheme.whiteColor,
+                    fontSize: AppSize.getSize(16),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

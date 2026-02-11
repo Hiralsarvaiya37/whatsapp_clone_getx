@@ -21,16 +21,15 @@ import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/manage_storage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/network_usage_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/Storage_and_data/view/proxy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_binding.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/change_number_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/delete_account_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/email_address_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/pass_keys_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/request_account_info_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/security_notifications_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/view/two_step_verification_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/controller/accessibiity_binding.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/controller/account_binding.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/change_number_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/delete_account_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/email_address_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/pass_keys_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/request_account_info_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/security_notifications_screen.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/two_step_verification_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/view/animation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/controller/chat_view_binding.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_backup_screen.dart';
@@ -122,7 +121,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/p
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/status_privacy_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
+
 import 'package:whatsapp_clone_getx/feature/setting/view/account_setting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/app_updates_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/avatar_screen.dart';
@@ -188,11 +187,7 @@ class AppRouter {
     ),
     GetPage(name: NotificationsScreen.id, page: () => NotificationsScreen()),
     GetPage(name: StorageAndDataScreen.id, page: () => StorageAndDataScreen()),
-    GetPage(
-      name: AccessibilityScreen.id,
-      page: () => AccessibilityScreen(),
-      binding: AccessibiityBinding(),
-    ),
+ 
     GetPage(name: AnimationScreen.id, page: () => AnimationScreen()),
     GetPage(
       name: HelpAndFeedbackScreen.id,

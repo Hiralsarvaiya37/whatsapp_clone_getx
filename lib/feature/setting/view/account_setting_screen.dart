@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/account_screen/controller/account_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/controller/account_view_controller.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/enums/account_options_enum.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';

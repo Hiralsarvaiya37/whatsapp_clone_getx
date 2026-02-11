@@ -8,6 +8,7 @@ import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/cha
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/chat_theme_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/view/transfer_chat_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
+import 'package:whatsapp_clone_getx/utils/enums/app_theme_mode.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
@@ -65,9 +66,11 @@ class ChatsScreen extends StatelessWidget {
                     onTap: () {
                       showDialog(
                         context: context,
-                        builder: (context) {
-                          return StatefulBuilder(
-                            builder: (context, dialogSetState) {
+                        builder: (dialogContext) {
+                          // ← yeh naya context hai dialog ka
+                          return BlocBuilder<SettingBloc, SettingState>(
+                            builder: (context, state) {
+                              // ← yahan se latest state milega
                               return Dialog(
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -97,34 +100,35 @@ class ChatsScreen extends StatelessWidget {
 
                                         radioTile(
                                           context.l10n.systemdefault,
-                                          dialogSetState,
                                           state.selectedTheme,
-                                          context,
+                                          dialogContext,
+                                          AppThemeMode.system,
                                         ),
-                                        SizedBox(height: AppSize.getSize(30)),
+                                        SizedBox(height: AppSize.getSize(15)),
+
                                         radioTile(
                                           context.l10n.light,
-                                          dialogSetState,
                                           state.selectedTheme,
-                                          context,
+                                          dialogContext,
+                                          AppThemeMode.light,
                                         ),
-                                        SizedBox(height: AppSize.getSize(30)),
+                                        SizedBox(height: AppSize.getSize(15)),
+
                                         radioTile(
                                           context.l10n.dark,
-                                          dialogSetState,
                                           state.selectedTheme,
-                                          context,
+                                          dialogContext,
+                                          AppThemeMode.dark,
                                         ),
 
-                                        SizedBox(height: AppSize.getSize(35)),
+                                        SizedBox(height: AppSize.getSize(20)),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           children: [
                                             InkWell(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
+                                              onTap: () =>
+                                                  Navigator.pop(dialogContext),
                                               child: Text(
                                                 context.l10n.cancel,
                                                 style: TextStyle(
@@ -139,9 +143,8 @@ class ChatsScreen extends StatelessWidget {
                                               width: AppSize.getSize(30),
                                             ),
                                             InkWell(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
+                                              onTap: () =>
+                                                  Navigator.pop(dialogContext),
                                               child: Text(
                                                 context.l10n.ok,
                                                 style: TextStyle(
@@ -184,7 +187,11 @@ class ChatsScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              state.selectedTheme,
+                              state.selectedTheme == AppThemeMode.light
+                                  ? context.l10n.light
+                                  : state.selectedTheme == AppThemeMode.dark
+                                  ? context.l10n.dark
+                                  : context.l10n.systemdefault,
                               style: TextStyle(
                                 color: AppTheme.greyShade400,
                                 fontSize: AppSize.getSize(16),
@@ -414,29 +421,43 @@ class ChatsScreen extends StatelessWidget {
     );
   }
 
+  String getThemeName(AppThemeMode theme, BuildContext context) {
+    switch (theme) {
+      case AppThemeMode.system:
+        return context.l10n.systemdefault;
+      case AppThemeMode.light:
+        return context.l10n.light;
+      case AppThemeMode.dark:
+        return context.l10n.dark;
+    }
+  }
+
   Widget radioTile(
     String title,
-    StateSetter dialogSetState,
-    String currentSelected,
-    BuildContext context,
+    AppThemeMode currentSelected,
+    BuildContext dialogContext,
+    AppThemeMode themeMode,
   ) {
-    bool isSelected = currentSelected == title;
+    bool isSelected = currentSelected == themeMode;
+
     return InkWell(
       onTap: () {
-        context.read<SettingBloc>().add(ChangeTheme(title));
+        dialogContext.read<SettingBloc>().add(ChangeTheme(themeMode));
 
-        dialogSetState(() {});
-
-        if (title == "Light") {
-          AppTheme.changeTheme(P1());
-        } else if (title == "Dark") {
-          AppTheme.changeTheme(DefulatPallet());
-        } else {
-          AppTheme.changeTheme(DefulatPallet());
+        switch (themeMode) {
+          case AppThemeMode.light:
+            AppTheme.changeTheme(P1());
+            break;
+          case AppThemeMode.dark:
+            AppTheme.changeTheme(DefulatPallet());
+            break;
+          default:
+            AppTheme.changeTheme(DefulatPallet());
         }
       },
       child: Container(
         color: AppTheme.greyShade900,
+        padding: EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
             Container(
@@ -462,7 +483,7 @@ class ChatsScreen extends StatelessWidget {
                         ),
                       ),
                     )
-                  : SizedBox(),
+                  : null,
             ),
             SizedBox(width: AppSize.getSize(20)),
             Text(
