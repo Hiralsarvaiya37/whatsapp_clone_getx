@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
+class LastseenAndOnlineScreen extends StatelessWidget {
   static const id = "/LastseenAndOnlineScreen";
- const LastseenAndOnlineScreen({super.key});
+  const LastseenAndOnlineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,99 +35,84 @@ class LastseenAndOnlineScreen extends GetView<PrivacyViewController> {
         ),
       ),
 
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppSize.getSize(20),
-          vertical: AppSize.getSize(20),
-        ),
-        child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Who can see my last seen",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
+      body: BlocBuilder<PrivacyBloc, PrivacyState>(
+        builder: (context, state) {
+         return Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.getSize(20),
+              vertical: AppSize.getSize(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Who can see my last seen",
+                  style: TextStyle(
+                    color: AppTheme.greyShade400,
+                    fontSize: AppSize.getSize(16),
+                  ),
                 ),
-              ),
-              SizedBox(height: AppSize.getSize(15)),
+                SizedBox(height: AppSize.getSize(15)),
 
-              Obx(
-               ()=> radioTile("Everyone", controller.selectedlastSeen.value, (
+                radioTile("Everyone", state.selectedLastSeen, (
                   value,
                 ) {
-                  controller.selectedlastSeen.value = value;
+                 context.read<PrivacyBloc>().add(SetLastSeen(value));
                 }),
-              ),
 
-              Obx(
-             ()=> radioTile(
-                  "My contacts",
-                  controller.selectedlastSeen.value,
-                  (value) {
-                    controller.selectedlastSeen.value = value;
-                  },
-                ),
-              ),
+                radioTile("My contacts", state.selectedLastSeen, (
+                  value,
+                ) {
+                   context.read<PrivacyBloc>().add(SetLastSeen(value));
+                }),
 
-              Obx(
-              ()=> radioTile(
+                radioTile(
                   "My contacts except...",
-                  controller.selectedlastSeen.value,
+                  state.selectedLastSeen,
                   (value) {
-                    controller.selectedlastSeen.value = value;
+                    context.read<PrivacyBloc>().add(SetLastSeen(value));
                   },
                 ),
-              ),
 
-              Obx(
-               ()=> radioTile("Nobody", controller.selectedlastSeen.value, (
-                  value,
-                ) {
-                  controller.selectedlastSeen.value = value;
+                radioTile("Nobody", state.selectedLastSeen, (value) {
+                   context.read<PrivacyBloc>().add(SetLastSeen(value));
                 }),
-              ),
 
-              SizedBox(height: AppSize.getSize(40)),
-              Text(
-                "Who can see when I'm online",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
+                SizedBox(height: AppSize.getSize(40)),
+                Text(
+                  "Who can see when I'm online",
+                  style: TextStyle(
+                    color: AppTheme.greyShade400,
+                    fontSize: AppSize.getSize(16),
+                  ),
                 ),
-              ),
-              SizedBox(height: AppSize.getSize(15)),
+                SizedBox(height: AppSize.getSize(15)),
 
-              Obx(
-                ()=>radioTile("Everyone", controller.selectedonline.value, (
-                  value,
-                ) {
-                  controller.selectedonline.value = value;
+                radioTile("Everyone", state.selectedOnline, (value) {
+                 context.read<PrivacyBloc>().add(SetOnlineStatus(value));
                 }),
-              ),
 
-              Obx(
-                ()=> radioTile(
+                radioTile(
                   "Same as last seen",
-                  controller.selectedonline.value,
+                  state.selectedOnline,
                   (value) {
-                    controller.selectedonline.value = value;
+                    context.read<PrivacyBloc>().add(SetOnlineStatus(value));
                   },
                 ),
-              ),
 
-              SizedBox(height: AppSize.getSize(20)),
-              Text(
-                "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
-                style: TextStyle(
-                  color: AppTheme.greyShade400,
-                  fontSize: AppSize.getSize(16),
+                SizedBox(height: AppSize.getSize(20)),
+                Text(
+                  "If you don't share when you were last seen or online, you won't be able to see when other people were last seen or online.",
+                  style: TextStyle(
+                    color: AppTheme.greyShade400,
+                    fontSize: AppSize.getSize(16),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/accounts_and_account_bans/view/account_bans_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/accounts_and_account_bans/view/accounts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
@@ -87,14 +86,14 @@ class AccountsAndAccountBansScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(AccountsScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountsScreen()));
                   },
                   child: appInfo("Accounts", Icons.person_2_outlined),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(AccountBansScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountBansScreen()));
                   },
                   child: appInfo("Account Bans", Icons.do_disturb),
                 ),

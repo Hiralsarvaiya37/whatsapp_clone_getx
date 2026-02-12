@@ -13,6 +13,7 @@ class SettingState {
   final String profilePicUrl;
   final bool isLoading;
   final bool isOn;
+  final bool isOn1;
   final String selectedOption;
   final Map<String, bool> selectedItems;
   final bool isShow1;
@@ -32,6 +33,7 @@ class SettingState {
     required this.profilePicUrl,
     required this.isLoading,
     required this.isOn,
+    required this.isOn1,
     required this.selectedItems,
     required this.selectedOption,
     required this.isShow1,
@@ -53,6 +55,7 @@ class SettingState {
       profilePicUrl: "",
       isLoading: false,
       isOn: false,
+      isOn1: false,
       selectedOption: "",
       selectedItems: {
         "Photos": false,
@@ -79,6 +82,7 @@ class SettingState {
     String? profilePicUrl,
     bool? isLoading,
     bool? isOn,
+    bool? isOn1,
     String? selectedOption,
     Map<String, bool>? selectedItems,
     bool? isShow1,
@@ -98,6 +102,7 @@ class SettingState {
       profilePicUrl: profilePicUrl ?? this.profilePicUrl,
       isLoading: isLoading ?? this.isLoading,
       isOn: isOn ?? this.isOn,
+      isOn1: isOn1 ?? this.isOn1,
       selectedItems: selectedItems ?? this.selectedItems,
       selectedOption: "",
       isShow1: isShow1 ?? this.isShow1,

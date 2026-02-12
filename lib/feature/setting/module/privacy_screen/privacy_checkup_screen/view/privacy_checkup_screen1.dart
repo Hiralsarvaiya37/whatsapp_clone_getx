@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/groups_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/privacy_contacts_screen.dart';
@@ -69,7 +68,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Decide if you want everyone to add you to groups or just your contacts",
               Icons.group_add_sharp,
               () {
-                Get.toNamed(GroupsScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupsScreen()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
@@ -78,7 +77,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Prevent calls from unknown contacts.",
               Icons.notifications_off_outlined,
               () {
-                Get.toNamed(CallsScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CallsScreen()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
@@ -87,7 +86,7 @@ class PrivacyCheckupScreen1 extends StatelessWidget {
               "Stop receiving calls, messages and status updates from selected contacts.",
               Icons.person_off_outlined,
               () {
-                Get.toNamed(PrivacyContactsScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyContactsScreen()));
               },
             ),
           ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen3.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen1.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/privacy_checkup_screen/view/privacy_checkup_screen2.dart';
@@ -59,23 +58,23 @@ class PrivacyCheckupScreen extends StatelessWidget {
               "Choose who can contacts you",
               Icons.add_ic_call_outlined,
               () {
-               Get.toNamed(PrivacyCheckupScreen1.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen1()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
             appInfo("Cntrol your personal info", Icons.person_2_outlined, () {
-            Get.toNamed(PrivacyCheckupScreen2.id);
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen2()));
             }),
             SizedBox(height: AppSize.getSize(30)),
             appInfo("Add more privacy to your chats", Icons.message, () {
-              Get.toNamed(PrivacyCheckupScreen3.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen3()));
             }),
             SizedBox(height: AppSize.getSize(30)),
             appInfo(
               "Add more protection to your account",
               Icons.lock_clock_outlined,
               () {
-                Get.toNamed(PrivacyCheckupScreen4.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyCheckupScreen4()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/lastseen_and_online_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/profile_photo_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/privacy_screen.dart';
@@ -62,7 +61,7 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
               "Choose who can view your profile photo.",
               Icons.account_circle_outlined,
               () {
-               Get.toNamed(ProfilePhotoScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePhotoScreen()));
               },
             ),
             SizedBox(height: 30),
@@ -71,7 +70,7 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
               "Control who can see your online status.",
               Icons.remove_red_eye_outlined,
               () {
-                Get.toNamed(LastseenAndOnlineScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>LastseenAndOnlineScreen()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
@@ -80,7 +79,7 @@ class PrivacyCheckupScreen2 extends StatelessWidget {
               "When turned on, others will see when you've viewed their message.",
               Icons.done_all_outlined,
               () {
-                Get.toNamed(PrivacyScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyScreen()));
               },
             ),
           ],

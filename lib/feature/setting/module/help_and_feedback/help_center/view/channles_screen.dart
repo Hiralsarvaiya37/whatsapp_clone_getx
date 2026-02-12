@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_admins_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channel_followers_and_viewers_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/channels/view/channels_get_started_screen.dart';
@@ -89,28 +88,28 @@ class ChannlesScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannelsGetStartedScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelsGetStartedScreen()));
                   },
                   child: appInfo("Get Started", Icons.flag),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(ChannelFollowersAndViewersScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelFollowersAndViewersScreen()));
                   },
                   child: appInfo("Channel Followers and Viewers", Icons.person),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannelAdminsScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelAdminsScreen()));
                   },
                   child: appInfo("Channel Admins", Icons.admin_panel_settings),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ChannlePrivacyScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannlePrivacyScreen()));
                   },
                   child: appInfo("Privacy, Safety, and Security", Icons.lock),
                 ),

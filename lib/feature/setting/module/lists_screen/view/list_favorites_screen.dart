@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/controller/list_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/bloc/list_view_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/bloc/list_view_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/bloc/list_view_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class ListFavoritesScreen extends GetView<ListViewController> {
+class ListFavoritesScreen extends StatelessWidget {
   static const id = "/ListFavoritesScreen";
   const ListFavoritesScreen({super.key});
 
@@ -184,20 +186,22 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                       style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(20)),
                     ),
                   ),
-                  Obx(
-                   ()=> Switch(
-                      value: controller.isOn.value,
+                  BlocBuilder<ListViewBloc, ListViewState>(builder: (context, state){
+                    return Switch(
+                      value: state.isOn,
                       activeThumbColor: AppTheme.blackColor,
                       activeTrackColor: AppTheme.greenAccentShade700,
                       inactiveTrackColor: AppTheme.blackColor,
                       onChanged: (val) {
-                          controller.isOn.value = val;
+                         context.read<ListViewBloc>().add(ToggleIsOn(val));
                         if (val == true) {
                           openMuteDialog(context);
                         }
                       },
-                    ),
-                  ),
+                    );
+                  }),
+                   
+                  
                 ],
               ),
           
@@ -292,10 +296,11 @@ class ListFavoritesScreen extends GetView<ListViewController> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                            controller.isOn.value = false;
-                        },
+                         onTap: () {
+                        Navigator.pop(context);
+                        context.read<ListViewBloc>()
+                            .add(ToggleIsOn(false)); 
+                      },
                         child: Text(
                           "Cancel",
                           style: TextStyle(
@@ -332,13 +337,13 @@ class ListFavoritesScreen extends GetView<ListViewController> {
   }
 
 Widget appInfo(String title) {
-  return Obx(() {
-    bool isSelected =
-        controller.selectedOption.value == title;
+  return BlocBuilder<ListViewBloc, ListViewState>(builder: (context, state){
+ bool isSelected =
+        state.selectedOption == title;
 
     return InkWell(
       onTap: () {
-        controller.selectedOption.value = title;
+        context.read<ListViewBloc>().add(ToggleOption(title));
       },
       child:Row(
         children: [
@@ -370,7 +375,9 @@ Widget appInfo(String title) {
         ],
       ),
     );
+  
   });
+   
 }
 
 }

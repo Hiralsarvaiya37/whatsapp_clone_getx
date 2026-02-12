@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/email_address_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/pass_keys_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/two_step_verification_screen.dart';
@@ -62,7 +61,7 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
               "Create a PIN that will be required when you register your phone number again on WhatsApp.",
               Icons.keyboard_control_rounded,
               () {
-               Get.toNamed(TwoStepVerificationScreen.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>TwoStepVerificationScreen()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
@@ -71,7 +70,7 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
               "Log in to WhatsApp using your face, fingerprint or device passcode.",
               Icons.person_add_alt_1_outlined,
               () {
-               Get.toNamed(PassKeysScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PassKeysScreen()));
               },
             ),
             SizedBox(height: AppSize.getSize(30)),
@@ -80,7 +79,7 @@ class PrivacyCheckupScreen4 extends StatelessWidget {
               "Add a trusted email to help access your WhatsApp account.",
               Icons.email_outlined,
               () {
-               Get.toNamed(EmailAddressScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailAddressScreen()));
               },
             ),
           ],

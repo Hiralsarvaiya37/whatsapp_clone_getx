@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/ai_experiences_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/back_up_and_restore_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/chats/view/chat_troubleshooting_screen.dart';
@@ -94,7 +92,7 @@ class HelpChatsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(IndividualAndGroupchatsScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>IndividualAndGroupchatsScreen()));
                   },
                   child: appInfo(
                     "Individual and Group Chats",
@@ -104,7 +102,7 @@ class HelpChatsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(BackUpAndRestoreScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BackUpAndRestoreScreen()));
                   },
                   child: appInfo(
                     "Back Up and Restore",
@@ -114,21 +112,21 @@ class HelpChatsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(NotificationScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
                   },
                   child: appInfo("Notifications", Icons.notifications),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(MediaScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>MediaScreen()));
                   },
                   child: appInfo("Media", Icons.image),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(VoiceMessagesAndChatsScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>VoiceMessagesAndChatsScreen()));
                   },
                   child: appInfo(
                     "Voice Messages and Chats",
@@ -138,14 +136,14 @@ class HelpChatsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(VideoNotesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoNotesScreen()));
                   },
                   child: appInfo("Video Notes", Icons.video_call_rounded),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(AiExperiencesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>AiExperiencesScreen()));
                   },
                   child: appInfo(
                     "AI Experiences",
@@ -155,7 +153,7 @@ class HelpChatsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(ChatTroubleshootingScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatTroubleshootingScreen()));
                   },
                   child: appInfo("Troubleshooting", Icons.help),
                 ),

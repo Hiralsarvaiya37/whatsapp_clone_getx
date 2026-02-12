@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_platform_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/business_troubleshooting.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/whatsapp_for_business/view/connecting_with_customers_screen.dart';
@@ -92,14 +90,14 @@ class BusinessScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(SettingUpAnAccountScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingUpAnAccountScreen()));
                   },
                   child: appInfo("Setting Up an Account", Icons.person_add),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(ConnectingWithCustomersScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ConnectingWithCustomersScreen()));
                   },
                   child: appInfo(
                     "Connecting with Customers",
@@ -109,7 +107,7 @@ class BusinessScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(SellingProductsAndServices.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SellingProductsAndServices()));
                   },
                   child: appInfo(
                     "Selling Products and Services",
@@ -119,14 +117,14 @@ class BusinessScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(BusinessTroubleshooting.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessTroubleshooting()));
                   },
                   child: appInfo("Troubleshooting", Icons.help),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                      Get.toNamed(PremiumFeaturesScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PremiumFeaturesScreen()));
                   },
                   child: appInfo(
                     "WhatsApp Preminum Features",
@@ -136,7 +134,7 @@ class BusinessScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(BusinessPlatformScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessPlatformScreen()));
                   },
                   child: appInfo(
                     "WhatsApp Business Platform",

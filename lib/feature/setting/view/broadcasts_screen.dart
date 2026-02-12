@@ -1,7 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/state_manager.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/view/contact_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -133,7 +131,7 @@ class BroadcastsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () { Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));  Get.toNamed(LearnMoreScreen.id);
+                              ..onTap = () { Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                               },
                           ),
                         ],

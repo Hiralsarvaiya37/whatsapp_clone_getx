@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/download_and_installation_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/help_contacts_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/get_started/view/linked_devices_screen.dart';
@@ -72,42 +71,42 @@ class GetStartedScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(DownloadAndInstallationScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DownloadAndInstallationScreen()));
                   },
                   child: appInfo("Download and installation", Icons.download),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(RegistrationScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationScreen()));
                   },
                   child: appInfo("Registration", Icons.person_2),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(LinkedDevicesScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>LinkedDevicesScreen()));
                   },
                   child: appInfo("Linked Devices", Icons.devices),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(TroubleshootingScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TroubleshootingScreen()));
                   },
                   child: appInfo("Troubleshooting", Icons.help),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(HelpContactsScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpContactsScreen()));
                   },
                   child: appInfo("Contacts", Icons.perm_contact_cal_rounded),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(StatusScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>StatusScreen()));
                   },
                   child: appInfo("Status", Icons.data_saver_on_rounded),
                 ),

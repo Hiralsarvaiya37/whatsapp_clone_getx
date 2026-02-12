@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/advanced_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/app_lock_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/view/default_message_timer_screen.dart';
@@ -58,7 +57,7 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Require a fingerprint or face to open WhatsApp on your device.",
                 Icons.fingerprint,
                 () {
-                Get.toNamed(AppLockScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AppLockScreen()));
                 },
               ),
               SizedBox(height: AppSize.getSize(30)),
@@ -67,7 +66,7 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Start new chats with disappearing messages set to your timer",
                 Icons.rotate_right_outlined,
                 () {
-                  Get.toNamed(DefaultMessageTimerScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DefaultMessageTimerScreen()));
                 },
               ),
               SizedBox(height: AppSize.getSize(30)),
@@ -76,7 +75,7 @@ class PrivacyCheckupScreen3 extends StatelessWidget {
                 "Encrypt your backup so that nobody, not even Goggle or WhatsApp, will be able to access it.",
                 Icons.lock_outline,
                 () {
-                  Get.toNamed(AdvancedScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AdvancedScreen()));
                 },
               ),
             ],

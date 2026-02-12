@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/app_info_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/channel_reports_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/view/help_center_screen.dart';
@@ -40,7 +39,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-               Get.toNamed(HelpCenterScreen.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpCenterScreen()));
               },
               child: appInfo(
                 context.l10n.helpcenter,
@@ -52,7 +51,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-               Get.toNamed(SendFeedbackScreen.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SendFeedbackScreen()));
               },
               child: appInfo(
                 context.l10n.sendfeedback,
@@ -71,7 +70,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-                Get.toNamed(ChannelReportsScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>ChannelReportsScreen()));
               },
               child: appInfo(
                 context.l10n.channelreports,
@@ -83,7 +82,7 @@ class HelpAndFeedbackScreen extends StatelessWidget {
             SizedBox(height: AppSize.getSize(30)),
             InkWell(
               onTap: () {
-                 Get.toNamed(AppInfoScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AppInfoScreen()));
               },
               child: appInfo(context.l10n.appinfo, "", Icons.info_outline, isShow: false),
             ),

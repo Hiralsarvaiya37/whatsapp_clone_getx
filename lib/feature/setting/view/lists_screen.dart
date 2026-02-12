@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_communities_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_favorites_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/view/list_groups_screen.dart';
@@ -214,19 +213,19 @@ class ListsScreen extends StatelessWidget {
               ),
               SizedBox(height: AppSize.getSize(20)),
               appInfo(context.l10n.unread, context.l10n.preset, () {
-               Get.toNamed(UnreadScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>UnreadScreen()));
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo(context.l10n.favorites, context.l10n.addpeopleorgroups, () {
-                Get.toNamed(ListFavoritesScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ListFavoritesScreen()));
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo(context.l10n.groups, context.l10n.preset, () {
-                Get.toNamed(ListGroupsScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ListGroupsScreen()));
               }),
               SizedBox(height: AppSize.getSize(25)),
               appInfo(context.l10n.communities, context.l10n.preset, () {
-                 Get.toNamed(ListCommunitiesScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ListCommunitiesScreen()));
               }),
               SizedBox(height: AppSize.getSize(40)),
               Row(

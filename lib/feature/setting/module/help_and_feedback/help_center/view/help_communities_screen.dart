@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/admin_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/help_get_started_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/communities/view/help_privacy_screen.dart';
@@ -90,28 +88,28 @@ class HelpCommunitiesScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(HelpGetStartedScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpGetStartedScreen()));
                   },
                   child: appInfo("Get Started", Icons.flag),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(AdminScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AdminScreen()));
                   },
                   child: appInfo("Admin", Icons.admin_panel_settings),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(MemberScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>MemberScreen()));
                   },
                   child: appInfo("Member", Icons.group),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(HelpPrivacyScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpPrivacyScreen()));
                   },
                   child: appInfo("Privacy, Safety, and Security", Icons.lock),
                 ),

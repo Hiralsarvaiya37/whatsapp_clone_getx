@@ -12,6 +12,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<UploadProfilePic>(_uploadProfilePic);
     on<ChangeLanguage>(_changeLanguage);
     on<ToggleSwitch>(_toggleSwitch);
+   on<ToggleIsOn1>(_toggleIsOn1);
     on<ToggleItem>(_toggleItem);
     on<ToggleOption>(_toggleOption);
     on<ToggleAppUpdateOption>(_toggleAppUpdateOption);
@@ -85,6 +86,10 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
   void _toggleSwitch(ToggleSwitch event, Emitter<SettingState> emit) {
     emit(state.copyWith(isOn: event.value));
   }
+
+ void _toggleIsOn1(ToggleIsOn1 event, Emitter<SettingState> emit) {
+  emit(state.copyWith(isOn1: event.value));
+}
 
   void _toggleItem(ToggleItem event, Emitter<SettingState> emit) {
     final newMap = Map<String, bool>.from(state.selectedItems);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/privacy_screen1.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/safety_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/privacy_safety_and_security/view/security_screen.dart';
@@ -88,21 +87,30 @@ class PrivacySafetyScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(PrivacyScreen1.id);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PrivacyScreen1()),
+                    );
                   },
                   child: appInfo("Privacy", Icons.lock),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(SafetyScreen.id);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SafetyScreen()),
+                    );
                   },
                   child: appInfo("Safety", Icons.safety_check),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(SecurityScreen.id);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SecurityScreen()),
+                    );
                   },
                   child: appInfo("Security", Icons.security),
                 ),

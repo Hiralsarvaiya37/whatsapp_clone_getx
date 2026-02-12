@@ -11,10 +11,15 @@ import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_event.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/bloc/accessibility_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/bloc/chat_view_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/bloc/help_and_feedback_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/bloc/list_view_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/bloc/theme_bloc.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -40,6 +45,11 @@ void main() async {
         BlocProvider(create: (_) => CallBloc()),
         BlocProvider(create: (_) => SettingBloc()..add(LoadProfilePic())),
         BlocProvider(create: (_) => AccessibilityBloc()),
+        BlocProvider(create: (_) => PrivacyBloc()),
+        BlocProvider(create: (_) => ListViewBloc()),
+        BlocProvider(create: (_) => ChatViewBloc()),
+        BlocProvider(create: (_) => HelpAndFeedbackBloc()),
+        BlocProvider(create: (_) => ThemeBloc()),
       ],
       child: const MyApp(),
     ),

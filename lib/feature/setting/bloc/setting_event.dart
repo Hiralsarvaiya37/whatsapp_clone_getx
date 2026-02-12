@@ -20,6 +20,11 @@ class ToggleSwitch extends SettingEvent {
   final bool value;
   ToggleSwitch(this.value);
 }
+class ToggleIsOn1 extends SettingEvent {
+  final bool value;
+  ToggleIsOn1(this.value);
+}
+
 
 class ToggleItem extends SettingEvent {
   final String key;

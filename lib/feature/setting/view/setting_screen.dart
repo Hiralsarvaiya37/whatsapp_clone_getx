@@ -681,7 +681,7 @@ class SettingScreen extends StatelessWidget {
                       itemCount: LanguageEnum.values.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: EdgeInsets.only(bottom: AppSize.getSize(20)),
+                          padding: EdgeInsets.only(bottom: AppSize.getSize(15)),
                           child: radioTile(
                             LanguageEnum.values[index],
                             setModalState,

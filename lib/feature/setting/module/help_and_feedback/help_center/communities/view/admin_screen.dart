@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/widgets/common_contact_us_button.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
@@ -116,7 +115,7 @@ class AdminScreen extends StatelessWidget {
   Widget appInfo(String title, BuildContext context) {
     return InkWell(
       onTap: () {
-       Get.toNamed(LearnMoreScreen.id);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

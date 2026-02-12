@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class CallsScreen extends GetView<PrivacyViewController> {
+class CallsScreen extends StatelessWidget {
   static const id = "/CallsScreen";
   const CallsScreen({super.key});
 
@@ -53,7 +55,7 @@ class CallsScreen extends GetView<PrivacyViewController> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(LearnMoreScreen.id);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                     },
                     child: Text(
                       "Learn more",
@@ -67,21 +69,23 @@ class CallsScreen extends GetView<PrivacyViewController> {
                 ],
               ),
             ),
-            Obx(
-             ()=> Column(
+            BlocBuilder<PrivacyBloc, PrivacyState>(builder: (context, state){
+              return  Column(
                 children: [
                   Switch(
-                    value: controller.isOn.value,
+                    value: state.isOn,
                     activeThumbColor: AppTheme.blackColor,
                     activeTrackColor: AppTheme.greenAccentShade700,
                     inactiveTrackColor: AppTheme.blackColor,
                     onChanged: (val) {
-                        controller.isOn.value = val;
+                      context.read<PrivacyBloc>().add(ToggleIsOn(val));
                     },
                   ),
                 ],
-              ),
-            ),
+              );
+            })
+            
+            
           ],
         ),
       ),

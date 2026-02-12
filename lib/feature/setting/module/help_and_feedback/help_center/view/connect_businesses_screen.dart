@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/discover_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/message_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/connect_with_businesses/view/privacy_safety_security_screen.dart';
@@ -90,28 +88,28 @@ class ConnectBusinessesScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(MessageScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MessageScreen()));
                   },
                   child: appInfo("Message", Icons.chat_bubble),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(DiscoverScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DiscoverScreen()));
                   },
                   child: appInfo("Discover", Icons.store_mall_directory_sharp),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(ShopScreen.id);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopScreen()));
                   },
                   child: appInfo("Shop", Icons.shopping_cart),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                     Get.toNamed(PrivacySafetySecurityScreen.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacySafetySecurityScreen()));
                   },
                   child: appInfo("Privacy, Safety, and Security", Icons.lock),
                 ),

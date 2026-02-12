@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/payments_and_requests_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/security_and_privacy_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/payments/view/setting_up_payments_screen.dart';
@@ -89,14 +87,14 @@ class PaymentsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                  Get.toNamed(SettingUpPaymentsScreen.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingUpPaymentsScreen()));
                   },
                   child: appInfo("Setting up Payments", Icons.payment),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(PaymentsAndRequestsScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentsAndRequestsScreen()));
                   },
                   child: appInfo(
                     "Payments and Requests",
@@ -106,7 +104,7 @@ class PaymentsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(SecurityAndPrivacyScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SecurityAndPrivacyScreen()));
                   },
                   child: appInfo("Security and Privacy", Icons.lock),
                 ),

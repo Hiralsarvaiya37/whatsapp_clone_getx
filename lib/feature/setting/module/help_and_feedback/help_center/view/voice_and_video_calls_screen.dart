@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/voice_and_video_calls/view/video_calls_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/voice_and_video_calls/view/voice_troubleshooting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/help_center/voice_and_video_calls/view/voice_calls_screen.dart';
@@ -88,21 +87,21 @@ class VoiceAndVideoCallsScreen extends StatelessWidget {
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                  Get.toNamed(VideoCallsScreen.id);
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoCallsScreen()));
                   },
                   child: appInfo("Video Calls", Icons.videocam_rounded),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(VoiceCallsScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VoiceCallsScreen()));
                   },
                   child: appInfo("Voice Calls", Icons.wifi_calling_3),
                 ),
                 SizedBox(height: AppSize.getSize(30)),
                 InkWell(
                   onTap: () {
-                   Get.toNamed(VoiceTroubleshootingScreen.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VoiceTroubleshootingScreen()));
                   },
                   child: appInfo("Troubleshooting", Icons.help),
                 ),

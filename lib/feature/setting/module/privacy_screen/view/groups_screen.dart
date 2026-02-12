@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class GroupsScreen extends GetView<PrivacyViewController> {
+class GroupsScreen extends StatelessWidget {
   static const id = "/GroupsScreen";
 const  GroupsScreen({super.key});
 
@@ -64,11 +66,11 @@ const  GroupsScreen({super.key});
   }
 
   Widget radioTile(String title) {
-   return Obx((){
-     bool isSelect = controller.selectedOption.value == title;
+   return BlocBuilder<PrivacyBloc, PrivacyState>(builder: (context, state){
+ bool isSelect = state.selectedOption == title;
     return InkWell(
       onTap: () {
-        controller.selectedOption.value = title;
+       context.read<PrivacyBloc>().add(ToggleOption(title));
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -104,5 +106,7 @@ const  GroupsScreen({super.key});
       ),
     );
    });
+    
+ 
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/base_pallet.dart';
 import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
 
@@ -8,7 +7,6 @@ class AppTheme {
 
   static void changeTheme(BasePallet value){
     _pallet = value;
-    Get.forceAppUpdate();
   }
 
  static Color get whiteColor => _pallet.whiteColor;

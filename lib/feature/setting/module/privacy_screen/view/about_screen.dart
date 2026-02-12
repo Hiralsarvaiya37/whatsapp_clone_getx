@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/controller/privacy_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/privacy_screen/bloc/privacy_state.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class AboutScreen extends GetView<PrivacyViewController> {
+class AboutScreen extends StatelessWidget {
   static const id = "/AboutScreen";
  const AboutScreen({super.key});
 
@@ -55,11 +57,11 @@ class AboutScreen extends GetView<PrivacyViewController> {
   }
 
   Widget radioTile(String title) {
-   return Obx((){
-       bool isSelected = controller.selectedOption.value == title;
+  return BlocBuilder<PrivacyBloc, PrivacyState>(builder: (context, state){
+ bool isSelected = state.selectedOption == title;
     return InkWell(
       onTap: () {
-        controller.selectedOption.value = title;
+        context.read<PrivacyBloc>().add(ToggleOption(title));
       },
       child: Padding(
         padding: EdgeInsets.only(left: AppSize.getSize(20)),
@@ -95,6 +97,8 @@ class AboutScreen extends GetView<PrivacyViewController> {
         ),
       ),
     );
-   });
+  });
+      
+
   }
 }
