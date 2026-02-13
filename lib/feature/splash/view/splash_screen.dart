@@ -24,9 +24,15 @@ class _SplashScreenState extends State<SplashScreen> {
       if (!mounted) return;
 
       if (user != null) {
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardScreen()));
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => DashboardScreen()),
+        );
       } else {
-         Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => LoginScreen()),
+        );
       }
     });
   }
@@ -49,18 +55,19 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
           ),
-          Text("From",
-              style: TextStyle(color: AppTheme.greyShade400)),
+          Text("From", style: TextStyle(color: AppTheme.greyShade400)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.all_inclusive,
-                  color: AppTheme.whiteColor),
+              Icon(Icons.all_inclusive, color: AppTheme.whiteColor),
               const SizedBox(width: 5),
-              Text("Meta",
-                  style: TextStyle(
-                      color: AppTheme.whiteColor,
-                      fontWeight: FontWeight.bold)),
+              Text(
+                "Meta",
+                style: TextStyle(
+                  color: AppTheme.whiteColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ],

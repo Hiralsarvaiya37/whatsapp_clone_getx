@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/bloc/otp_cubit.dart';
 import 'package:whatsapp_clone_getx/feature/auth/otp/bloc/otp_state.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class OtpScreen extends StatelessWidget {
   static const id = "/OtpScreen";
@@ -14,9 +15,9 @@ class OtpScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => OtpCubit(verificationId: verificationId),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.whiteColor,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           title: Text(context.l10n.oTPScreen),
           centerTitle: true,
         ),

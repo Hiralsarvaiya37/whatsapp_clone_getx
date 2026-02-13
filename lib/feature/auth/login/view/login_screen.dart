@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/bloc/login_cubit.dart';
 import 'package:whatsapp_clone_getx/feature/auth/login/bloc/login_state.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class LoginScreen extends StatelessWidget {
   static const id = "/LoginScreen";
@@ -13,9 +14,9 @@ class LoginScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => LoginCubit(),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.whiteColor,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           title: Text(context.l10n.phoneAuth),
           centerTitle: true,
         ),
@@ -27,7 +28,7 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 25),
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: TextField(
                     controller: cubit.phoneController,
                     onChanged: (_) {
@@ -35,14 +36,14 @@ class LoginScreen extends StatelessWidget {
                     },
                     decoration: InputDecoration(
                       hintText: context.l10n.enterphonenumber,
-                      prefixIcon:  Icon(Icons.phone),
+                      prefixIcon: Icon(Icons.phone),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                   ),
                 ),
-               SizedBox(height: 30),
+                SizedBox(height: 30),
                 state.isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(

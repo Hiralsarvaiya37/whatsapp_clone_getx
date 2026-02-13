@@ -28,9 +28,8 @@ class CallsviewScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => BlocProvider.value(
-                            value: context.read<CallBloc>()
-                              ..add(LoadContacts()),
+                          builder: (_) => BlocProvider(
+                            create: (_) => CallBloc()..add(LoadContacts()),
                             child: ContactScreen(),
                           ),
                         ),
@@ -126,7 +125,10 @@ class CallsviewScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FavoritesScreen(),
+                          builder: (_) => BlocProvider(
+                            create: (_) => CallBloc()..add(LoadContacts()),
+                            child: FavoritesScreen(),
+                          ),
                         ),
                       );
                     },

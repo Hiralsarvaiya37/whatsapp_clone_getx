@@ -20,18 +20,19 @@ class CallBloc extends Bloc<CallEvent, CallState> {
   );
 
   void _loadContacts(LoadContacts event, Emitter<CallState> emit) {
-    final frequently = contacts.take(5).toList();
-    final all = contacts.skip(5).toList();
+  final frequently = contacts.take(5).toList();
+  final all = contacts.skip(5).toList();
 
-    emit(
-      state.copyWith(
-        frequentlyContacted: frequently,
-        allContacts: all,
-        filteredFrequently: frequently,
-        filteredAll: all,
-      ),
-    );
-  }
+  emit(
+    state.copyWith(
+      frequentlyContacted: frequently,
+      allContacts: all,
+      filteredFrequently: frequently,
+      filteredAll: all,
+    ),
+  );
+}
+
 
   void _searchContacts(SearchContacts event, Emitter<CallState> emit) {
     final q = event.query.toLowerCase();

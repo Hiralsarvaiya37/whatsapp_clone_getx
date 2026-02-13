@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/bloc/dashboard_cubit.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/dashboard/module/calls/bloc/call_event.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/bloc/chat_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/status_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/bloc/update_bloc.dart';
@@ -11,6 +12,7 @@ import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_event.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/accessibility/bloc/accessibility_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/bloc/account_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/chats_screen/bloc/chat_view_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/help_and_feedback/bloc/help_and_feedback_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/lists_screen/bloc/list_view_bloc.dart';
@@ -42,13 +44,14 @@ void main() async {
         BlocProvider(create: (_) => ChatBloc()),
         BlocProvider(create: (_) => UpdateBloc()),
         BlocProvider(create: (_) => StatusBloc()),
-        BlocProvider(create: (_) => CallBloc()),
+        BlocProvider(create: (_) => CallBloc()..add(LoadContacts())),
         BlocProvider(create: (_) => SettingBloc()..add(LoadProfilePic())),
         BlocProvider(create: (_) => AccessibilityBloc()),
         BlocProvider(create: (_) => PrivacyBloc()),
         BlocProvider(create: (_) => ListViewBloc()),
         BlocProvider(create: (_) => ChatViewBloc()),
         BlocProvider(create: (_) => HelpAndFeedbackBloc()),
+        BlocProvider(create: (_) => AccountBloc()),
         BlocProvider(create: (_) => ThemeBloc()),
       ],
       child: const MyApp(),

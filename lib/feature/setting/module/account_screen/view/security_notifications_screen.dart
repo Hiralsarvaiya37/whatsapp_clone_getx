@@ -1,13 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/controller/account_view_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/bloc/account_bloc.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/bloc/account_event.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/bloc/account_state.dart';
 import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/view/learn_more_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-class SecurityNotificationsScreen extends GetView<AccountViewController> {
+class SecurityNotificationsScreen extends StatelessWidget {
   static const id ="/SecurityNotificationsScreen";
   const SecurityNotificationsScreen({super.key});
 
@@ -201,19 +203,20 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                                 ),
                               ),
                             ),
-                            Obx(
-                              ()=> Switch(
+                            BlocBuilder<AccountBloc, AccountState>(builder: (context, state){
+                                return  Switch(
                                 value:
-                                    controller.isNotificationOn.value,
+                                    state.isNotificationOn,
                                 activeThumbColor: AppTheme.blackColor,
                                 activeTrackColor: AppTheme.greenAccentShade700,
                                 inactiveTrackColor: AppTheme.blackColor,
                                 onChanged: (val) {
-                                  controller.isNotificationOn.value =
-                                      val;
+                                 context.read<AccountBloc>().add(ToggleNotificationEvent());
                                 },
-                              ),
-                            ),
+                              );
+                            })
+                           
+                            
                           ],
                         ),
 
@@ -242,7 +245,7 @@ class SecurityNotificationsScreen extends GetView<AccountViewController> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Get.toNamed(LearnMoreScreen.id);
+                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnMoreScreen()));
                                     
                                   },
                               ),

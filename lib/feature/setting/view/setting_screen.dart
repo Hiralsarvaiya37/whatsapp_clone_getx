@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_event.dart';
 import 'package:whatsapp_clone_getx/feature/setting/bloc/setting_state.dart';
+import 'package:whatsapp_clone_getx/feature/setting/module/account_screen/bloc/account_bloc.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/accessibility_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/account_setting_screen.dart';
 import 'package:whatsapp_clone_getx/feature/setting/view/app_updates_screen.dart';
@@ -260,7 +261,10 @@ class SettingScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => AccountSettingScreen(),
+                                  builder: (_) => BlocProvider(
+                                    create: (_) => AccountBloc(),
+                                    child: AccountSettingScreen(),
+                                  ),
                                 ),
                               );
                               break;

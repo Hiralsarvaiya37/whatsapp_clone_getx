@@ -18,9 +18,8 @@ class UpdateviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<UpdateBloc>(
-      create: (context) => UpdateBloc(),
-      child: Builder(
+    return BlocBuilder<UpdateBloc, UpdateState>(builder: (context, state){
+     return  Builder(
         builder: (BuildContext screenContext) {
           return BlocBuilder<UpdateBloc, UpdateState>(
             builder: (context, state) {
@@ -572,8 +571,8 @@ class UpdateviewScreen extends StatelessWidget {
             },
           );
         },
-      ),
-    );
+      );
+     });
   }
 
   void showImagePickerSheet(BuildContext context) {
