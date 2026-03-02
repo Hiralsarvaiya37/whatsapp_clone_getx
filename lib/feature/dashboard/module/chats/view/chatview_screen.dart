@@ -4,6 +4,7 @@ import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/controller/ch
 import 'package:whatsapp_clone_getx/feature/dashboard/module/chats/view/chat_messages_screen.dart';
 import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
+import 'package:whatsapp_clone_getx/utils/notification_service.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
 class ChatviewScreen extends GetView<ChatController> {
@@ -167,18 +168,27 @@ class ChatviewScreen extends GetView<ChatController> {
           Positioned(
             bottom: AppSize.getSize(80),
             right: AppSize.getSize(15),
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppTheme.greyShade800,
-                borderRadius: BorderRadius.circular(AppSize.getSize(15)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(AppSize.getSize(8.0)),
-                child: Icon(
-                  Icons.circle_outlined,
-                  size: 30,
-                  fontWeight: FontWeight.w600,
-                  color: AppTheme.deeppurpleColor,
+            child: InkWell(
+              onTap: () {
+                NotificationService.showNotification(
+                  id: 2,
+                  title: "Circle Button",
+                  body: "Second notification clicked",
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppTheme.greyShade800,
+                  borderRadius: BorderRadius.circular(AppSize.getSize(15)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(AppSize.getSize(8.0)),
+                  child: Icon(
+                    Icons.circle_outlined,
+                    size: 30,
+                    fontWeight: FontWeight.w600,
+                    color: AppTheme.deeppurpleColor,
+                  ),
                 ),
               ),
             ),
@@ -186,17 +196,26 @@ class ChatviewScreen extends GetView<ChatController> {
           Positioned(
             bottom: AppSize.getSize(10),
             right: AppSize.getSize(6),
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppTheme.greenAccentShade700,
-                borderRadius: BorderRadius.circular(AppSize.getSize(15)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(AppSize.getSize(17.0)),
-                child: Icon(
-                  Icons.add_comment_sharp,
-                  size: AppSize.getSize(25),
-                  fontWeight: FontWeight.w600,
+            child: InkWell(
+              onTap: () {
+                NotificationService.showNotification(
+                  id: 1,
+                  title: "Comment Button",
+                  body: "First notification clicked",
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppTheme.greenAccentShade700,
+                  borderRadius: BorderRadius.circular(AppSize.getSize(15)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(AppSize.getSize(17.0)),
+                  child: Icon(
+                    Icons.add_comment_sharp,
+                    size: AppSize.getSize(25),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),

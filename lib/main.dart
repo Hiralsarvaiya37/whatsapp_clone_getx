@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart'; 
+import 'package:whatsapp_clone_getx/feature/setting/controller/setting_controller.dart';
 import 'package:whatsapp_clone_getx/feature/splash/view/splash_screen.dart';
 import 'package:whatsapp_clone_getx/l10n/app_localizations.dart';
 import 'package:whatsapp_clone_getx/utils/app_router.dart';
+import 'package:whatsapp_clone_getx/utils/firebase_notification_service.dart';
+import 'package:whatsapp_clone_getx/utils/notification_service.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  await NotificationService.init();
+  await FirebaseNotificationService.init();
   Get.put(SettingController());
 
   SystemChrome.setSystemUIOverlayStyle(

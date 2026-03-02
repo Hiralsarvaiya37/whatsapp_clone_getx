@@ -208,7 +208,7 @@ class AppRouter {
       page: () => ChatsScreen(),
       binding: ChatViewBinding(),
     ),
-    GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen()),
+    GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen(), binding: ChatViewBinding()),
     GetPage(name: TransferChatScreen.id, page: () => TransferChatScreen()),
     GetPage(
       name: ChatHistoryScreen.id,
