@@ -98,8 +98,8 @@ class FavoritesScreen extends GetView<CallController> {
           itemBuilder: (context, index) => Column(
             children: [
               ClipOval(
-                child: Image.network(
-                  "https://m.media-amazon.com/images/I/61fJjBmd34L._AC_UF350,350_QL80_.jpg",
+                child: Image.asset(
+                 "assets/bg.jpg",
                   height: AppSize.getSize(60),
                   width: AppSize.getSize(60),
                   fit: BoxFit.cover,
@@ -126,8 +126,8 @@ class FavoritesScreen extends GetView<CallController> {
     return Row(
       children: [
         ClipOval(
-          child: Image.network(
-            "https://m.media-amazon.com/images/I/61fJjBmd34L._AC_UF350,350_QL80_.jpg",
+          child: Image.asset(
+           "assets/bg.jpg",
             height: AppSize.getSize(50),
             width: AppSize.getSize(50),
             fit: BoxFit.cover,

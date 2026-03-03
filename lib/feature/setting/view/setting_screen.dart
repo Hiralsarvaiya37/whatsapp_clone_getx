@@ -48,6 +48,8 @@ class SettingScreen extends GetView<SettingController> {
 
   @override
   Widget build(BuildContext context) {
+
+    AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
       appBar: AppBar(
@@ -108,6 +110,12 @@ class SettingScreen extends GetView<SettingController> {
                                   height: AppSize.getSize(55),
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Image.asset("bg.jpg",
+                                     height: AppSize.getSize(55),
+                                  width: AppSize.getSize(55),
+                                  fit: BoxFit.cover,);
+                                  },
                                   loadingBuilder:
                                       (context, child, loadingProgress) {
                                         if (loadingProgress == null) {
@@ -489,8 +497,8 @@ class SettingScreen extends GetView<SettingController> {
                     Row(
                       children: [
                         ClipOval(
-                          child: Image.network(
-                            "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                          child: Image.asset(
+                            "assets/i2.jpg",
                             height: AppSize.getSize(50),
                             width: AppSize.getSize(50),
                             fit: BoxFit.cover,

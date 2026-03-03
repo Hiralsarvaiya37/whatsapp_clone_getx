@@ -5,7 +5,7 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-// void main() => runApp(MaterialApp(home: CommunitiesScreen()));
+
 
 class CommunitiesScreen extends StatelessWidget {
   static const id  = "/CommunitiesScreen";
@@ -60,8 +60,8 @@ class CommunitiesScreen extends StatelessWidget {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(AppSize.getSize(10)),
-                                    child: Image.network(
-                                      "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                                    child: Image.asset(
+                                     "assets/bg.jpg",
                                       height: AppSize.getSize(60),
                                       width: AppSize.getSize(60),
                                       fit: BoxFit.cover,
@@ -116,8 +116,8 @@ class CommunitiesScreen extends StatelessWidget {
                               children: [
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(AppSize.getSize(10)),
-                                  child: Image.network(
-                                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnkG8PXrO8O3U7mwOSRcm9lUdwuWpwvXMvaQ&s",
+                                  child: Image.asset(
+                                   "assets/bg.jpg",
                                     height: AppSize.getSize(55),
                                     width: AppSize.getSize(55),
                                     fit: BoxFit.cover,
@@ -234,8 +234,8 @@ class CommunitiesScreen extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(AppSize.getSize(48)),
-                      child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnkG8PXrO8O3U7mwOSRcm9lUdwuWpwvXMvaQ&s",
+                      child: Image.asset(
+                       "assets/bg.jpg",
                         height: AppSize.getSize(50),
                         width: AppSize.getSize(50),
                         fit: BoxFit.cover,
@@ -333,8 +333,8 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(lerpDouble(10, 8, progress)!),
-            child: Image.network(
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnkG8PXrO8O3U7mwOSRcm9lUdwuWpwvXMvaQ&s",
+            child: Image.asset(
+             "assets/bg.jpg",
               height: imageSize,
               width: imageSize,
               fit: BoxFit.cover,

@@ -113,6 +113,20 @@ class ChatviewScreen extends GetView<ChatController> {
                                   height: AppSize.getSize(50),
                                   width: AppSize.getSize(50),
                                   fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Container(
+                                      height: AppSize.getSize(50),
+                                      width: AppSize.getSize(50),
+                                      decoration: BoxDecoration(
+                                        color: AppTheme.greenColor,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "${user.split(" ")[0][0]}${user.split(" ")[0][1]}",
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                               SizedBox(width: AppSize.getSize(20)),

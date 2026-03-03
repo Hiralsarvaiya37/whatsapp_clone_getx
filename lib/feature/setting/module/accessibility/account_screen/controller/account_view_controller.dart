@@ -117,8 +117,8 @@ class AccountViewController extends GetxController {
                       Row(
                         children: [
                           ClipOval(
-                            child: Image.network(
-                              "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                            child: Image.asset(
+                               "assets/i2.jpg",
                               height: AppSize.getSize(50),
                               width: AppSize.getSize(50),
                               fit: BoxFit.cover,

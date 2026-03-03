@@ -83,8 +83,8 @@ class CommunitiesviewScreen extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(AppSize.getSize(10)),
-                child: Image.network(
-                  "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                child: Image.asset(
+                  "assets/bg.jpg",
                   height: AppSize.getSize(60),
                   width: AppSize.getSize(60),
                   fit: BoxFit.cover,
@@ -210,8 +210,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(
                           AppSize.getSize(10),
                         ),
-                        child: Image.network(
-                          "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                        child: Image.asset(
+                        "assets/bg.jpg",
                           height: AppSize.getSize(60),
                           width: AppSize.getSize(60),
                           fit: BoxFit.cover,
@@ -297,8 +297,8 @@ class CommunitiesviewScreen extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child: Image.network(
-                          "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                        child: Image.asset(
+                         "assets/bg.jpg",
                           height: AppSize.getSize(55),
                           width: AppSize.getSize(55),
                           fit: BoxFit.cover,

@@ -205,11 +205,11 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                 itemBuilder: (context, index) => Row(
                   children: [
                     ClipOval(
-                      child: Image.network(
+                      child: Image.asset(
                         height: AppSize.getSize(50),
                         width: AppSize.getSize(50),
                         fit: BoxFit.cover,
-                        "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                        "assets/bg.jpg",
                       ),
                     ),
                     SizedBox(width: AppSize.getSize(25)),
@@ -308,11 +308,11 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                             itemBuilder: (context, index) => Row(
                               children: [
                                 ClipOval(
-                                  child: Image.network(
+                                  child: Image.asset(
                                     height: AppSize.getSize(45),
                                     width: AppSize.getSize(45),
                                     fit: BoxFit.cover,
-                                    "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                                   "assets/bg.jpg",
                                   ),
                                 ),
                                 SizedBox(width: AppSize.getSize(25)),
@@ -417,11 +417,11 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
                     itemBuilder: (context, index) => Row(
                       children: [
                         ClipOval(
-                          child: Image.network(
+                          child: Image.asset(
                             fit: BoxFit.cover,
                             height: AppSize.getSize(45),
                             width: AppSize.getSize(45),
-                            "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+                           "assets/bg.jpg",
                           ),
                         ),
                         SizedBox(width: AppSize.getSize(20)),
@@ -696,8 +696,8 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
   Widget buildLastStatus() {
     if (controller.statusList.isEmpty) {
       return SizedBox.expand(
-        child: Image.network(
-          "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+        child: Image.asset(
+         "assets/bg.jpg",
           fit: BoxFit.cover,
         ),
       );

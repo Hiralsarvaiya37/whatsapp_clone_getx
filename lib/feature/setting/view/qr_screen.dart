@@ -106,7 +106,7 @@ class _QrScreenState extends State<QrScreen>
                           SizedBox(height: AppSize.getSize(20)),
 
                           Image.network(
-                            "https://www.tech-recipes.com/wp-content/uploads/2020/07/feature-image.jpg",
+                          "https://www.activebarcode.com/barcode/imagesmainexample/qrcode.gif",
                             height: AppSize.getSize(200),
                             width: AppSize.getSize(200),
                             fit: BoxFit.cover,
@@ -139,7 +139,8 @@ class _QrScreenState extends State<QrScreen>
                     radius: AppSize.getSize(30),
 
                     backgroundImage: NetworkImage(
-                      "https://i.pinimg.com/736x/14/86/86/148686b4a830e06d8089db5cb1e521f4.jpg",
+                      "https://static.vecteezy.com/system/resources/thumbnails/039/350/367/small/ai-generated-violet-single-purple-flower-ai-generated-photo.jpg",
+                      
                     ),
                   ),
                 ),

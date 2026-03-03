@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -66,6 +57,37 @@ class DefaultFirebaseOptions {
     androidClientId: '1036629379530-3isaek2n7e8cdb63s3o2t60hrk9imlbe.apps.googleusercontent.com',
     iosClientId: '1036629379530-mc5rqjkfvcf71sutsmtohed6i69q6ord.apps.googleusercontent.com',
     iosBundleId: 'com.example.whatsappCloneGetx',
+  );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAcwRGR8vCJ1XE4t_IDRnNy9ZTktHcsgXU',
+    appId: '1:1036629379530:web:c6b01252da4ca2c71e2733',
+    messagingSenderId: '1036629379530',
+    projectId: 'todo-b07e5',
+    authDomain: 'todo-b07e5.firebaseapp.com',
+    storageBucket: 'todo-b07e5.appspot.com',
+    measurementId: 'G-ME5NS9EV5P',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyB9PPwoZcJwMbzZxIFAJboK6bkh7IAq3-U',
+    appId: '1:1036629379530:ios:c73158d0df9d1cc01e2733',
+    messagingSenderId: '1036629379530',
+    projectId: 'todo-b07e5',
+    storageBucket: 'todo-b07e5.appspot.com',
+    androidClientId: '1036629379530-3isaek2n7e8cdb63s3o2t60hrk9imlbe.apps.googleusercontent.com',
+    iosClientId: '1036629379530-mc5rqjkfvcf71sutsmtohed6i69q6ord.apps.googleusercontent.com',
+    iosBundleId: 'com.example.whatsappCloneGetx',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAcwRGR8vCJ1XE4t_IDRnNy9ZTktHcsgXU',
+    appId: '1:1036629379530:web:cc21feca06db02671e2733',
+    messagingSenderId: '1036629379530',
+    projectId: 'todo-b07e5',
+    authDomain: 'todo-b07e5.firebaseapp.com',
+    storageBucket: 'todo-b07e5.appspot.com',
+    measurementId: 'G-CG7GSCDZGK',
   );
 
 }

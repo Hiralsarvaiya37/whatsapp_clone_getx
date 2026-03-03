@@ -9,7 +9,7 @@ class CallController extends GetxController {
       "name": "User $i",
       "status": "Hey there! I am using WhatsApp.",
       "image":
-          "https://newsmeter.in/h-upload/2021/01/19/291251-beautiful-sakura.webp",
+      "https://static.vecteezy.com/system/resources/thumbnails/039/350/367/small/ai-generated-violet-single-purple-flower-ai-generated-photo.jpg",
     },
   ).obs;
   RxList<Map<String, String>> frequentlyContacted = <Map<String, String>>[].obs;
