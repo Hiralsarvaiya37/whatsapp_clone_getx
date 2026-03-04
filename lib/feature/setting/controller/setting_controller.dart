@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
+import 'package:whatsapp_clone_getx/utils/database_helper.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
 
 class SettingController extends GetxController {
@@ -31,34 +32,60 @@ class SettingController extends GetxController {
     "Videos": false,
     "Documents": false,
   }.obs;
-  Rx<Locale> appLocale = const Locale('en').obs;  
+  Rx<Locale> appLocale = const Locale('en').obs;
+   RxString profilePicUrl = "".obs;
+  RxnString profilePicfile = RxnString();
 
-void changeLanguage(LanguageEnum lang) {
-  selectedLanguage.value = lang;
-  final newLocale = Locale(lang.code); 
-  
-  appLocale.value = newLocale;        
-  Get.updateLocale(newLocale);        
-}
+  void changeLanguage(LanguageEnum lang) {
+    selectedLanguage.value = lang;
+    final newLocale = Locale(lang.code);
+
+    appLocale.value = newLocale;
+    Get.updateLocale(newLocale);
+  }
 
   @override
   void onInit() {
     super.onInit();
-    loadCurrentProfilePic();
+    loadProfilePic();
   }
 
-  void loadCurrentProfilePic() async {
-    String userId = FirebaseAuth.instance.currentUser!.uid;
-    final doc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userId)
-        .get();
-    if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
-      profilePicUrl.value = doc['profilePicUrl'];
+  Future<void> loadProfilePic() async {
+    try {
+      String? localUrl = await DatabaseHelper.instance.getProfilePic();
+      if (localUrl != null) {
+        profilePicUrl.value = localUrl;
+      } else {
+        if (FirebaseAuth.instance.currentUser != null) {
+          await loadFromFirebase();
+        }
+      }
+    } catch (e) {
+      ("Load profile error: $e");
     }
   }
 
-   
+  Future<void> loadFromFirebase() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) return;
+
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
+        String firebaseUrl = doc['profilePicUrl'];
+
+        profilePicUrl.value = firebaseUrl;
+
+        await DatabaseHelper.instance.saveProfilePic(firebaseUrl);
+      }
+    } catch (e) {
+      ("Firebase load error: $e");
+    }
+  }
 
   RxList<StatusItem> statusList = <StatusItem>[].obs;
 
@@ -66,8 +93,8 @@ void changeLanguage(LanguageEnum lang) {
     statusList.add(StatusItem(file: file, type: StatusType.image));
   }
 
-  RxString profilePicUrl = "".obs;
-  RxnString profilePicfile = RxnString();
+ 
+
   Future<void> pickAndUploadProfilePic(File file) async {
     try {
       profilePicfile.value = file.path;
@@ -76,6 +103,7 @@ void changeLanguage(LanguageEnum lang) {
       if (user == null) return;
 
       String userId = user.uid;
+
       final storageRef = FirebaseStorage.instance
           .ref()
           .child('profile_pics')
@@ -88,10 +116,13 @@ void changeLanguage(LanguageEnum lang) {
       await FirebaseFirestore.instance.collection('users').doc(userId).set({
         'profilePicUrl': downloadUrl,
       }, SetOptions(merge: true));
+
       profilePicUrl.value = downloadUrl;
+      await DatabaseHelper.instance.saveProfilePic(downloadUrl);
+
       profilePicfile.value = null;
     } catch (e) {
-      // print("Error uploading profile picture: $e");
+      ("Error uploading profile picture: $e");
     }
   }
 }
