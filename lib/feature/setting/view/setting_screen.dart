@@ -48,7 +48,6 @@ class SettingScreen extends GetView<SettingController> {
 
   @override
   Widget build(BuildContext context) {
-
     AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
@@ -95,56 +94,59 @@ class SettingScreen extends GetView<SettingController> {
                 children: [
                   Stack(
                     children: [
-                      Obx(
-                        () => ClipOval(
-                          child: controller.profilePicfile.value != null
-                              ? Image.file(
-                                  File(controller.profilePicfile.value!),
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,
-                                )
-                              : controller.profilePicUrl.value.isNotEmpty
-                              ? Image.network(
-                                  controller.profilePicUrl.value,
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Image.asset("bg.jpg",
-                                     height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,);
-                                  },
-                                  loadingBuilder:
-                                      (context, child, loadingProgress) {
-                                        if (loadingProgress == null) {
-                                          return child;
-                                        }
-                                        return SizedBox(
-                                          height: AppSize.getSize(55),
-                                          width: AppSize.getSize(55),
-                                          child: Center(
+                      Obx(() {
+                        return ClipOval(
+                          child: SizedBox(
+                            height: AppSize.getSize(55),
+                            width: AppSize.getSize(55),
+                            child: controller.isProfileLoading.value
+                                ? Center(child: CircularProgressIndicator())
+                                : controller.profilePicfile.value != null
+                                ? Image.file(
+                                    File(controller.profilePicfile.value!),
+                                    fit: BoxFit.cover,
+                                  )
+                                : controller.profilePicUrl.value.isNotEmpty
+                                ? Image.network(
+                                    controller.profilePicUrl.value,
+                                    fit: BoxFit.cover,
+                                    loadingBuilder:
+                                        (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Center(
                                             child: CircularProgressIndicator(),
-                                          ),
-                                        );
-                                      },
-                                )
-                              : Container(
-                                  height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: AppTheme.greyShade500,
+                                          );
+                                        },
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: AppTheme.greyShade500,
+                                        ),
+                                        child: Icon(
+                                          Icons.person,
+                                          size: AppSize.getSize(30),
+                                          color: AppTheme.whiteColor,
+                                        ),
+                                      );
+                                    },
+                                  )
+                                : Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: AppTheme.greyShade500,
+                                    ),
+                                    child: Icon(
+                                      Icons.person,
+                                      size: AppSize.getSize(30),
+                                      color: AppTheme.whiteColor,
+                                    ),
                                   ),
-                                  child: Icon(
-                                    Icons.person,
-                                    size: AppSize.getSize(30),
-                                    color: AppTheme.whiteColor,
-                                  ),
-                                ),
-                        ),
-                      ),
+                          ),
+                        );
+                      }),
                       Positioned(
                         bottom: 0,
                         right: 0,
@@ -672,6 +674,7 @@ class SettingScreen extends GetView<SettingController> {
       return InkWell(
         onTap: () {
           controller.changeLanguage(lang);
+          controller.saveLanguage();
           Navigator.pop(context);
         },
         child: Padding(

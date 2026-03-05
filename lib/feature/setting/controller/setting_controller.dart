@@ -5,8 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
 
 class SettingController extends GetxController {
   RxBool isOn = false.obs;
@@ -31,34 +35,44 @@ class SettingController extends GetxController {
     "Videos": false,
     "Documents": false,
   }.obs;
-  Rx<Locale> appLocale = const Locale('en').obs;  
+  Rx<Locale> appLocale = const Locale('en').obs;
 
-void changeLanguage(LanguageEnum lang) {
-  selectedLanguage.value = lang;
-  final newLocale = Locale(lang.code); 
-  
-  appLocale.value = newLocale;        
-  Get.updateLocale(newLocale);        
-}
+  void changeLanguage(LanguageEnum lang) {
+    selectedLanguage.value = lang;
+    final newLocale = Locale(lang.code);
+
+    appLocale.value = newLocale;
+    Get.updateLocale(newLocale);
+  }
 
   @override
   void onInit() {
     super.onInit();
+    loadLocalProfilePic();
+    loadTheme();
+    loadLanguage();
     loadCurrentProfilePic();
   }
 
+  RxBool isProfileLoading = true.obs;
+
   void loadCurrentProfilePic() async {
-    String userId = FirebaseAuth.instance.currentUser!.uid;
-    final doc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userId)
-        .get();
-    if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
-      profilePicUrl.value = doc['profilePicUrl'];
+    try {
+      String userId = FirebaseAuth.instance.currentUser!.uid;
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .get();
+
+      if (doc.exists && doc.data()!.containsKey('profilePicUrl')) {
+        profilePicUrl.value = doc['profilePicUrl'];
+      }
+    } catch (e) {
+      (e);
+    } finally {
+      isProfileLoading.value = false;
     }
   }
-
-   
 
   RxList<StatusItem> statusList = <StatusItem>[].obs;
 
@@ -66,16 +80,28 @@ void changeLanguage(LanguageEnum lang) {
     statusList.add(StatusItem(file: file, type: StatusType.image));
   }
 
+  void loadLocalProfilePic() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? localUrl = prefs.getString("profilePicUrl");
+
+    if (localUrl != null && localUrl.isNotEmpty) {
+      profilePicUrl.value = localUrl;
+    }
+  }
+
   RxString profilePicUrl = "".obs;
   RxnString profilePicfile = RxnString();
   Future<void> pickAndUploadProfilePic(File file) async {
     try {
+      isProfileLoading.value = true;
+
       profilePicfile.value = file.path;
 
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) return;
 
       String userId = user.uid;
+
       final storageRef = FirebaseStorage.instance
           .ref()
           .child('profile_pics')
@@ -88,10 +114,49 @@ void changeLanguage(LanguageEnum lang) {
       await FirebaseFirestore.instance.collection('users').doc(userId).set({
         'profilePicUrl': downloadUrl,
       }, SetOptions(merge: true));
+
       profilePicUrl.value = downloadUrl;
       profilePicfile.value = null;
     } catch (e) {
-      // print("Error uploading profile picture: $e");
+      ("Error uploading profile picture: $e");
+    } finally {
+      isProfileLoading.value = false;
     }
+  }
+
+  Future<void> saveTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString("theme", selectedTheme.value);
+  }
+
+  void loadTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    String savedTheme = prefs.getString("theme") ?? "System default";
+
+    selectedTheme.value = savedTheme;
+
+    if (savedTheme == "Light") {
+      AppTheme.changeTheme(P1());
+    } else if (savedTheme == "Dark") {
+      AppTheme.changeTheme(DefulatPallet());
+    } else {
+      AppTheme.changeTheme(DefulatPallet());
+    }
+  }
+
+  Future<void> saveLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString("language", selectedLanguage.value.code);
+  }
+
+  Future<void> loadLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    String langCode = prefs.getString("language") ?? "en";
+
+    selectedLanguage.value = LanguageEnum.values.firstWhere(
+      (e) => e.code == langCode,
+    );
+
+    changeLanguage(selectedLanguage.value);
   }
 }

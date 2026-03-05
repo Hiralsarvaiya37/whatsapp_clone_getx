@@ -19,7 +19,7 @@ void main() async {
   Get.put(SettingController());
 
   SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
+    SystemUiOverlayStyle(
       statusBarColor: Colors.black,
       statusBarIconBrightness: Brightness.light,
       statusBarBrightness: Brightness.dark,
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       try {
         return Get.find<SettingController>().appLocale.value;
       } catch (e) {
-        return const Locale('en');
+        return Locale('en');
       }
     }
 
@@ -48,18 +48,18 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.id,
       getPages: AppRouter.appRoute,
       locale: getInitialLocale(),
-      fallbackLocale: const Locale('en'),
+      fallbackLocale: Locale('en'),
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
         return AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
+          value: SystemUiOverlayStyle(
             statusBarColor: Colors.black,
             statusBarIconBrightness: Brightness.light,
             statusBarBrightness: Brightness.dark,
           ),
-          child: Scaffold(body: child ?? const SizedBox()),
+          child: Scaffold(body: child ?? SizedBox()),
         );
       },
     );

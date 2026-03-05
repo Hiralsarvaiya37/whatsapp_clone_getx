@@ -56,7 +56,6 @@ class ChatsScreen extends GetView<SettingController> {
               ),
               SizedBox(height: AppSize.getSize(20)),
 
-              // Theme selection row
               InkWell(
                 onTap: () => _showThemeDialog(context),
                 child: Row(
@@ -300,12 +299,14 @@ class ChatsScreen extends GetView<SettingController> {
       onTap: () {
         controller.selectedTheme.value = title;
 
+        controller.saveTheme();
+
         if (title == context.l10n.light) {
           AppTheme.changeTheme(P1());
         } else if (title == context.l10n.dark) {
           AppTheme.changeTheme(DefulatPallet());
         } else {
-          AppTheme.changeTheme(DefulatPallet()); // system default
+          AppTheme.changeTheme(DefulatPallet());
         }
       },
       child: Container(
