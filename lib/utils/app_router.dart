@@ -190,7 +190,11 @@ class AppRouter {
       page: () => RequestAccountInfoScreen(),
     ),
     GetPage(name: DeleteAccountScreen.id, page: () => DeleteAccountScreen()),
-    GetPage(name: LearnMoreScreen.id, page: () => LearnMoreScreen()),
+    GetPage(
+      name: LearnMoreScreen.id,
+      page: () => LearnMoreScreen(),
+      binding: AccountViewBinding(),
+    ),
     GetPage(
       name: PrivacyScreen.id,
       page: () => PrivacyScreen(),
@@ -208,7 +212,11 @@ class AppRouter {
       page: () => ChatsScreen(),
       binding: ChatViewBinding(),
     ),
-    GetPage(name: ChatBackupScreen.id, page: () => ChatBackupScreen(), binding: ChatViewBinding()),
+    GetPage(
+      name: ChatBackupScreen.id,
+      page: () => ChatBackupScreen(),
+      binding: ChatViewBinding(),
+    ),
     GetPage(name: TransferChatScreen.id, page: () => TransferChatScreen()),
     GetPage(
       name: ChatHistoryScreen.id,
@@ -249,7 +257,11 @@ class AppRouter {
     GetPage(name: ProfilePhotoScreen.id, page: () => ProfilePhotoScreen()),
     GetPage(name: AboutScreen.id, page: () => AboutScreen()),
     GetPage(name: LinksScreen.id, page: () => LinksScreen()),
-    GetPage(name: StatusPrivacyScreen.id, page: () => StatusPrivacyScreen(),binding: PrivacyViewBinding()),
+    GetPage(
+      name: StatusPrivacyScreen.id,
+      page: () => StatusPrivacyScreen(),
+      binding: PrivacyViewBinding(),
+    ),
     GetPage(
       name: DefaultMessageTimerScreen.id,
       page: () => DefaultMessageTimerScreen(),

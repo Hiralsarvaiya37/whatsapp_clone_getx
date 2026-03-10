@@ -30,7 +30,7 @@ class FirebaseNotificationService {
       ('User granted permission: ${settings.authorizationStatus}');
 
       String? token = await _messaging.getToken();
-      ('FCM Token: $token');
+      ("FCM Token: $token");
 
       await _messaging.subscribeToTopic("test");
 

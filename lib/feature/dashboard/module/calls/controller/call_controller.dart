@@ -6,7 +6,7 @@ class CallController extends GetxController {
   RxList<Map<String, String>> contacts = List.generate(
     30,
     (i) => {
-      "name": "User $i",
+      "name": "User ${i+1}",
       "status": "Hey there! I am using WhatsApp.",
       "image":
       "https://static.vecteezy.com/system/resources/thumbnails/039/350/367/small/ai-generated-violet-single-purple-flower-ai-generated-photo.jpg",

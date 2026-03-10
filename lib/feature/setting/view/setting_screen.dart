@@ -111,7 +111,7 @@ class SettingScreen extends GetView<SettingController> {
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) {
-                                    return Image.asset("bg.jpg",
+                                    return Image.asset("assets/bg.jpg",
                                      height: AppSize.getSize(55),
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,);
