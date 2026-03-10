@@ -253,6 +253,7 @@ class AppRouter {
     GetPage(
       name: DefaultMessageTimerScreen.id,
       page: () => DefaultMessageTimerScreen(),
+      binding: PrivacyViewBinding()
     ),
     GetPage(name: GroupsScreen.id, page: () => GroupsScreen()),
     GetPage(name: AvatarScreen.id, page: () => AvatarScreen()),
