@@ -190,7 +190,7 @@ class AppRouter {
       page: () => RequestAccountInfoScreen(),
     ),
     GetPage(name: DeleteAccountScreen.id, page: () => DeleteAccountScreen()),
-    GetPage(name: LearnMoreScreen.id, page: () => LearnMoreScreen()),
+    GetPage(name: LearnMoreScreen.id, page: () => LearnMoreScreen(), binding: AccountViewBinding()),
     GetPage(
       name: PrivacyScreen.id,
       page: () => PrivacyScreen(),
