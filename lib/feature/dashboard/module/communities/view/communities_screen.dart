@@ -5,10 +5,8 @@ import 'package:whatsapp_clone_getx/utils/app_size.dart';
 import 'package:whatsapp_clone_getx/utils/helper/l10n_ext.dart';
 import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
 
-
-
 class CommunitiesScreen extends StatelessWidget {
-  static const id  = "/CommunitiesScreen";
+  static const id = "/CommunitiesScreen";
   const CommunitiesScreen({super.key});
 
   @override
@@ -36,7 +34,7 @@ class CommunitiesScreen extends StatelessWidget {
                     top: AppSize.getSize(30),
                     left: AppSize.getSize(20),
                     right: AppSize.getSize(20),
-                    bottom: AppSize.getSize(20),
+                    bottom: AppSize.getSize(10),
                   ),
                   alignment: Alignment.topLeft,
                   child: isCollapsed
@@ -59,9 +57,11 @@ class CommunitiesScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                                    borderRadius: BorderRadius.circular(
+                                      AppSize.getSize(10),
+                                    ),
                                     child: Image.asset(
-                                     "assets/bg.jpg",
+                                      "assets/bg.jpg",
                                       height: AppSize.getSize(60),
                                       width: AppSize.getSize(60),
                                       fit: BoxFit.cover,
@@ -84,7 +84,7 @@ class CommunitiesScreen extends StatelessWidget {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         Text(
-                                         context.l10n.requesttojoin,
+                                          context.l10n.requesttojoin,
                                           style: TextStyle(
                                             color: AppTheme.greyColor,
                                             fontSize: AppSize.getSize(16),
@@ -115,9 +115,11 @@ class CommunitiesScreen extends StatelessWidget {
                             Row(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(AppSize.getSize(10)),
+                                  borderRadius: BorderRadius.circular(
+                                    AppSize.getSize(10),
+                                  ),
                                   child: Image.asset(
-                                   "assets/bg.jpg",
+                                    "assets/bg.jpg",
                                     height: AppSize.getSize(55),
                                     width: AppSize.getSize(55),
                                     fit: BoxFit.cover,
@@ -160,16 +162,24 @@ class CommunitiesScreen extends StatelessWidget {
 
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(20)),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.getSize(20),
+                vertical: AppSize.getSize(20),
+              ),
               child: Row(
                 children: [
                   DecoratedBox(
                     decoration: BoxDecoration(
                       color: Color(0xFF00A884),
-                      borderRadius: BorderRadius.all(Radius.circular(AppSize.getSize(12))),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(AppSize.getSize(12)),
+                      ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(8), vertical: AppSize.getSize(5)),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppSize.getSize(8),
+                        vertical: AppSize.getSize(5),
+                      ),
                       child: Icon(
                         Icons.campaign,
                         color: AppTheme.whiteColor,
@@ -206,7 +216,10 @@ class CommunitiesScreen extends StatelessWidget {
                           context.l10n.hh15487851454hbcsdwdwdhbxhsbhsbsh,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
+                          style: TextStyle(
+                            color: AppTheme.greyColor,
+                            fontSize: AppSize.getSize(16),
+                          ),
                         ),
                       ],
                     ),
@@ -218,10 +231,16 @@ class CommunitiesScreen extends StatelessWidget {
 
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(20), vertical: AppSize.getSize(10)),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.getSize(20),
+                vertical: AppSize.getSize(10),
+              ),
               child: Text(
                 context.l10n.groupsyoucanjoin,
-                style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(17)),
+                style: TextStyle(
+                  color: AppTheme.greyColor,
+                  fontSize: AppSize.getSize(17),
+                ),
               ),
             ),
           ),
@@ -229,13 +248,16 @@ class CommunitiesScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(18), vertical: AppSize.getSize(10)),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSize.getSize(18),
+                  vertical: AppSize.getSize(10),
+                ),
                 child: Row(
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(AppSize.getSize(48)),
                       child: Image.asset(
-                       "assets/bg.jpg",
+                        "assets/bg.jpg",
                         height: AppSize.getSize(50),
                         width: AppSize.getSize(50),
                         fit: BoxFit.cover,
@@ -258,7 +280,10 @@ class CommunitiesScreen extends StatelessWidget {
                           ),
                           Text(
                             context.l10n.requesttojoin,
-                            style: TextStyle(color: AppTheme.greyColor, fontSize: AppSize.getSize(16)),
+                            style: TextStyle(
+                              color: AppTheme.greyColor,
+                              fontSize: AppSize.getSize(16),
+                            ),
                           ),
                         ],
                       ),
@@ -275,19 +300,28 @@ class CommunitiesScreen extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         color: AppTheme.blackColor,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.getSize(10), vertical: AppSize.getSize(11)),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSize.getSize(10),
+            vertical: AppSize.getSize(11),
+          ),
           child: Container(
             decoration: BoxDecoration(
               color: Color(0xFF00A884),
-              borderRadius: BorderRadius.all(Radius.circular(AppSize.getSize(30))),
+              borderRadius: BorderRadius.all(
+                Radius.circular(AppSize.getSize(30)),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.add, color: AppTheme.blackColor, size: AppSize.getSize(25)),
+                Icon(
+                  Icons.add,
+                  color: AppTheme.blackColor,
+                  size: AppSize.getSize(25),
+                ),
                 SizedBox(width: AppSize.getSize(10)),
                 Text(
-                 context.l10n.addgroup,
+                  context.l10n.addgroup,
                   style: TextStyle(
                     color: AppTheme.blackColor,
                     fontSize: AppSize.getSize(16),
@@ -334,7 +368,7 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
           ClipRRect(
             borderRadius: BorderRadius.circular(lerpDouble(10, 8, progress)!),
             child: Image.asset(
-             "assets/bg.jpg",
+              "assets/bg.jpg",
               height: imageSize,
               width: imageSize,
               fit: BoxFit.cover,
@@ -360,7 +394,10 @@ class CommunityHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: Text(
                     context.l10n.community_5groups,
-                    style: TextStyle(color: AppTheme.whiteColor, fontSize: AppSize.getSize(16)),
+                    style: TextStyle(
+                      color: AppTheme.whiteColor,
+                      fontSize: AppSize.getSize(16),
+                    ),
                   ),
                 ),
               ],

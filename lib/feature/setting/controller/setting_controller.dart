@@ -1,12 +1,15 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:whatsapp_clone_getx/feature/dashboard/module/updates/controller/updateview_controller.dart';
 import 'package:whatsapp_clone_getx/utils/enums/language_enum.dart';
+import 'package:whatsapp_clone_getx/utils/theme/app_theme.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/defulat_pallet.dart';
+import 'package:whatsapp_clone_getx/utils/theme/pllate/p1.dart';
 
 class SettingController extends GetxController {
   RxBool isOn = false.obs;
@@ -31,20 +34,72 @@ class SettingController extends GetxController {
     "Videos": false,
     "Documents": false,
   }.obs;
-  Rx<Locale> appLocale = const Locale('en').obs;  
+  Rx<Locale> appLocale = const Locale('en').obs;
+  final box = GetStorage();
 
-void changeLanguage(LanguageEnum lang) {
-  selectedLanguage.value = lang;
-  final newLocale = Locale(lang.code); 
-  
-  appLocale.value = newLocale;        
-  Get.updateLocale(newLocale);        
-}
+  void changeLanguage(LanguageEnum lang) {
+    selectedLanguage.value = lang;
+
+    final newLocale = Locale(lang.code);
+
+    appLocale.value = newLocale;
+    Get.updateLocale(newLocale);
+
+    box.write('language', lang.code);
+  }
+
+  void loadSavedLanguage() {
+    String? savedLang = box.read('language');
+
+    if (savedLang != null) {
+      final lang = LanguageEnum.values.firstWhere((e) => e.code == savedLang);
+
+      selectedLanguage.value = lang;
+
+      final locale = Locale(savedLang);
+
+      appLocale.value = locale;
+
+      Get.updateLocale(locale);
+    }
+  }
+
+  void changeTheme(String theme) {
+    selectedTheme.value = theme;
+
+    box.write("theme", theme);
+
+    if (theme == "Light") {
+      AppTheme.changeTheme(P1());
+    } else if (theme == "Dark") {
+      AppTheme.changeTheme(DefulatPallet());
+    } else {
+      AppTheme.changeTheme(DefulatPallet());
+    }
+  }
+
+  void loadSavedTheme() {
+    String? savedTheme = box.read("theme");
+
+    if (savedTheme != null) {
+      selectedTheme.value = savedTheme;
+
+      if (savedTheme == "Light") {
+        AppTheme.changeTheme(P1());
+      } else if (savedTheme == "Dark") {
+        AppTheme.changeTheme(DefulatPallet());
+      } else {
+        AppTheme.changeTheme(DefulatPallet());
+      }
+    }
+  }
 
   @override
   void onInit() {
     super.onInit();
     loadCurrentProfilePic();
+    loadSavedTheme();
+    loadSavedLanguage();
   }
 
   void loadCurrentProfilePic() async {
@@ -57,8 +112,6 @@ void changeLanguage(LanguageEnum lang) {
       profilePicUrl.value = doc['profilePicUrl'];
     }
   }
-
-   
 
   RxList<StatusItem> statusList = <StatusItem>[].obs;
 

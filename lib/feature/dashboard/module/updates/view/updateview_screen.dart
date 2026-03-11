@@ -19,9 +19,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
     if (photo != null) {
-      controller.statusList.add(
-        StatusItem(file: File(photo.path), type: StatusType.image),
-      );
+      controller.addImage(File(photo.path));
     }
     else{
       CircularNotchedRectangle();
@@ -33,9 +31,7 @@ class UpdateviewScreen extends GetView<UpdateviewController> {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      controller.statusList.add(
-        StatusItem(file: File(image.path), type: StatusType.image),
-      );
+    controller.addImage(File(image.path));
     }
   }
 

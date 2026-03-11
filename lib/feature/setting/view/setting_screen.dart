@@ -48,7 +48,6 @@ class SettingScreen extends GetView<SettingController> {
 
   @override
   Widget build(BuildContext context) {
-
     AppSize.setupData(MediaQuery.of(context));
     return Scaffold(
       backgroundColor: AppTheme.blackColor,
@@ -111,10 +110,12 @@ class SettingScreen extends GetView<SettingController> {
                                   width: AppSize.getSize(55),
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) {
-                                    return Image.asset("assets/bg.jpg",
-                                     height: AppSize.getSize(55),
-                                  width: AppSize.getSize(55),
-                                  fit: BoxFit.cover,);
+                                    return Image.asset(
+                                      "assets/bg.jpg",
+                                      height: AppSize.getSize(55),
+                                      width: AppSize.getSize(55),
+                                      fit: BoxFit.cover,
+                                    );
                                   },
                                   loadingBuilder:
                                       (context, child, loadingProgress) {
